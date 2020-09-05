@@ -19,10 +19,10 @@
  	 * 에러 리포팅 설정과 register_globals_on일때 변수 재 정의
  	 ******************************************************************************/
  	@error_reporting(E_ALL ^ E_NOTICE);
-        foreach($HTTP_GET_VARS as $key=>$val) $$key = del_html($val);
-	@extract($HTTP_POST_VARS); 
-	@extract($HTTP_SERVER_VARS); 
-	@extract($HTTP_ENV_VARS);
+        foreach($_GET as $key=>$val) $$key = del_html($val);
+	@extract($_POST); 
+	@extract($_SERVER); 
+	@extract($_ENV);
 
         $page = (int)$page;
 
