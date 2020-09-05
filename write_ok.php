@@ -4,6 +4,7 @@
 /***************************************************************************
  * 공통 파일 include
  **************************************************************************/
+include_once "lib.php";
 include_once "_head.php";
 
 /***************************************************************************
@@ -337,7 +338,7 @@ if ($mode == "modify" && $no) {
 
 		$next_data = mysql_fetch_array(mysql_query("select no,headnum,division from $t_board" . "_$id where (division='$max_division' or division='$second_division') and headnum='$max_headnum[0]' and arrangenum='0'")); // 다음글을 구함;;
 		if (!$next_data[0]) $next_data[0] = "0";
-		$next_no = $next_data[0];
+		$next_no = (int)$next_data[0];
 
 		if (!$next_data["division"]) $division = 1;
 		else $division = $next_data["division"];
@@ -379,7 +380,7 @@ if ($mode == "modify" && $no) {
 
 		$next_data = mysql_fetch_array(mysql_query("select no,headnum,division from $t_board" . "_$id where (division='$max_division' or division='$second_division') and headnum='$max_headnum[0]' and arrangenum='0'"));
 		if (!$next_data[0]) $next_data[0] = "0";
-		$next_no = $next_data[0];
+		$next_no = (int)$next_data[0];
 		$prev_no = 0;
 		$child = "0";
 		$depth = "0";
@@ -418,7 +419,7 @@ if ($mode == "modify" && $no) {
 } elseif ($mode == "reply" && $no) {
 
 	$prev_no = $s_data["prev_no"];
-	$next_no = $s_data["next_no"];
+	$next_no = (int)$s_data["next_no"];
 	$father = $s_data["no"];
 	$child = 0;
 	$headnum = $s_data["headnum"];
@@ -508,7 +509,7 @@ if ($mode == "modify" && $no) {
 		$prev_no = 0;
 	}
 
-	$next_no = $next_data["no"];
+	$next_no = (int)$next_data["no"];
 	$child = "0";
 	$depth = "0";
 	$arrangenum = "0";

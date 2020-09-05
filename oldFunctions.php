@@ -3,6 +3,8 @@
 if (!function_exists("ereg")) {
 	function ereg($pattern, $string, &$regs = array())
 	{
+		$pattern = str_replace("\\/", "/", $pattern);
+		$pattern = str_replace("/", "\\/", $pattern);
 		return preg_match("/" . $pattern . "/", $string, $regs);
 	}
 }
@@ -10,6 +12,8 @@ if (!function_exists("ereg")) {
 if (!function_exists("eregi")) {
 	function eregi($pattern, $string, &$regs = array())
 	{
+		$pattern = str_replace("\\/", "/", $pattern);
+		$pattern = str_replace("/", "\\/", $pattern);
 		return preg_match("/" . $pattern . "/i", $string, $regs);
 	}
 }
@@ -17,6 +21,8 @@ if (!function_exists("eregi")) {
 if (!function_exists("ereg_replace")) {
 	function ereg_replace($pattern, $replacement, $string)
 	{
+		$pattern = str_replace("\\/", "/", $pattern);
+		$pattern = str_replace("/", "\\/", $pattern);
 		return preg_replace("/" . $pattern . "/", $replacement, $string);
 	}
 }
@@ -24,6 +30,8 @@ if (!function_exists("ereg_replace")) {
 if (!function_exists("eregi_replace")) {
 	function eregi_replace($pattern, $replacement, $string)
 	{
+		$pattern = str_replace("\\/", "/", $pattern);
+		$pattern = str_replace("/", "\\/", $pattern);
 		return preg_replace("/" . $pattern . "/i", $replacement, $string);
 	}
 }

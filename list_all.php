@@ -3,6 +3,7 @@
 /**********************************************************************************
  * 공통 파일 include
  *********************************************************************************/
+include_once "lib.php";
 include_once "_head.php";
 
 /**********************************************************************************
@@ -166,7 +167,7 @@ elseif ($exec == "copy_all" || $exec == "move_all") {
 			$a_category = mysql_fetch_array(mysql_query("select min(no) from $t_category" . "_$board_name", $connect));
 			$category = $a_category[0];
 
-			$next_no = $next_data["no"];
+			$next_no = (int)$next_data["no"];
 			$father = 0;
 			$term_father = 0;
 			$root_no = 0;

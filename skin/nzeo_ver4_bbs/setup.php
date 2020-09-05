@@ -9,7 +9,7 @@ if(!eregi("Zeroboard",$a_member_memo)) $a_member_memo= str_replace(">","><font c
 
 <table border=0 cellspacing=0 cellpadding=0 width=<?=$width?>>
 <tr>
-	<td <?php if(!$setup[use_category]) echo"align=right";?>>
+	<td <?php if(!$setup["use_category"]) echo"align=right";?>>
 		<?=$a_login?>로그인</a>
 		<?=$a_member_join?>회원가입</a>
 		<?=$a_member_modify?>정보수정</a>

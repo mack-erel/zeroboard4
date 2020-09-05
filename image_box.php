@@ -3,6 +3,7 @@
 /***************************************************************************
  * 회원마다 업로드된 이미지를 보여주는 페이지
  **************************************************************************/
+include_once "lib.php";
 include_once "_head.php";
 
 if (!$id) die("<Script>\nalert('게시판 이름을 입력하셔야 합니다');\nwindow.close();\n</Script>");
@@ -39,6 +40,7 @@ if (!is_dir($path)) {
 
 // 회원의 이미지 창고 전체 용량 계산하기
 $d = dir($path);
+$image_list = array();
 while ($entry = $d->read()) {
 	if ($entry != "." && $entry != "..") {
 		$image_list[] = $entry;

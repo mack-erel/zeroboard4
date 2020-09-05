@@ -1,21 +1,21 @@
 <?php
-	if(eregi(":\/\/",$dir)||eregi("^\.",$dir)) $dir ="./";
+if (eregi(":\/\/", $dir) || eregi("^\.", $dir)) $dir = "./";
 
-	if($setup[use_category]) {
+if ($setup["use_category"]) {
 
-		$c_href="&id=$id&page=$page&page_num=$page_num&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword";
-		$c_sort="&select_arrange=$select_arrange&desc=$desc";
- 
-		$a_c_list="<a href=zboard.php?&id=$id>";
+	$c_href = "&id=$id&page=$page&page_num=$page_num&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword";
+	$c_sort = "&select_arrange=$select_arrange&desc=$desc";
 
-		include_once "$dir/category_head.php";
+	$a_c_list = "<a href=zboard.php?&id=$id>";
 
-		for($i=0;$i<count($category_num_c);$i++) {
-			if($category==$category_num_c[$i]) $b="<b>"; else $b="";
-			$print_category_data="<a href='zboard.php?category=$category_num_c[$i]$c_href$c_sort'>$b$category_name_c[$i] ($category_n_c[$i])</a></b>";
-			include_once "$dir/category_main.php";
-		}  
-		
-		include_once "$dir/category_foot.php";
+	include_once "$dir/category_head.php";
+
+	for ($i = 0; $i < count($category_num_c); $i++) {
+		if ($category == $category_num_c[$i]) $b = "<b>";
+		else $b = "";
+		$print_category_data = "<a href='zboard.php?category=$category_num_c[$i]$c_href$c_sort'>$b$category_name_c[$i] ($category_n_c[$i])</a></b>";
+		include_once "$dir/category_main.php";
 	}
-?>
+
+	include_once "$dir/category_foot.php";
+}
