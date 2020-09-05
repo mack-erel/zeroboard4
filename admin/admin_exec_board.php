@@ -97,12 +97,12 @@
 	elseif($exec2=="del") {
 		$data=mysql_fetch_array(mysql_query("select name from $admin_table where no='$no'"));
 
-		$table_name=$data[name];
+		$table_name=$data["name"];
 
 		$tmpData = mysql_query("select file_name1, file_name2 from $t_board"."_$table_name") or die("첨부파일 삭제 처리중 에러가 발생했습니다");
 		while($data=mysql_fetch_array($tmpData)) {
-			if($data[file_name1]) @z_unlink("./".$data[file_name1]);
-			if($data[file_name2]) @z_unlink("./".$data[file_name2]);
+			if($data["file_name1"]) @z_unlink("./".$data["file_name1"]);
+			if($data["file_name2"]) @z_unlink("./".$data["file_name2"]);
 		}
 
 		if(is_dir("./data/".$table_name)) zRmDir("./data/".$table_name);
