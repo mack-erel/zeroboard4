@@ -19,7 +19,7 @@
 		$directory = dir($path);
 		while($entry = $directory->read()) {
 			if ($entry != "." && $entry != "..") {
-				if(!eregi(session_id(), $entry)&&!eregi($HTTP_COOKIE_VARS[ZBSESSIONID], $entry)) {
+				if(!eregi(session_id(), $entry)&&!eregi($_COOKIE[ZBSESSIONID], $entry)) {
 					z_unlink($path."/".$entry);
 					$i++;
 					if($i%100==0) print(".");

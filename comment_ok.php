@@ -77,7 +77,7 @@
 // 쿠키 설정;;
 
 	// 기존 세션 처리 (4.0x용 세션 처리로 인하여 주석 처리)
-	//if($c_name) $HTTP_SESSION_VARS["writer_name"]=$name;
+	//if($c_name) $_SESSION["writer_name"]=$name;
 
 	// 4.0x 용 세션 처리
 	if($c_name) {
@@ -94,7 +94,7 @@
 	if(!$check[0]) Error("원본 글이 존재하지 않습니다.");
 
 // 코멘트 입력
-	mysql_query("insert into $t_comment"."_$id (parent,ismember,name,password,memo,reg_date,ip) values ('$parent','$member[no]','$name','$password','$memo','$reg_date','$REMOTE_ADDR')") or error(mysql_error());
+	mysql_query("insert into $t_comment"."_$id (parent,ismember,name,password,memo,reg_date,ip) values ('$parent','$member[no]','$name','$password','$memo','$reg_date','{$_SERVER["REMOTE_ADDR"]}')") or error(mysql_error());
 
 
 // 코멘트 갯수를 구해서 정리

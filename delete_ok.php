@@ -30,7 +30,7 @@
   $avoid_ip=explode(",",$setup[avoid_ip]);
   for($i=0;$i<count($avoid_ip);$i++)
   {
-   if(!isblank($avoid_ip[$i])&&eregi($avoid_ip[$i],$REMOTE_ADDR)&&!$is_admin)
+   if(!isblank($avoid_ip[$i])&&eregi($avoid_ip[$i],$_SERVER["REMOTE_ADDR"])&&!$is_admin)
     Error(" Access Denied ");
   }
 

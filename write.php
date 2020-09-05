@@ -62,9 +62,9 @@
 	else $title = " 신규 글쓰기 "; 
 
 // 쿠키값을 이용;;
-	$name=$HTTP_SESSION_VARS["zb_writer_name"];
-	$email=$HTTP_SESSION_VARS["zb_writer_email"];
-	$homepage=$HTTP_SESSION_VARS["zb_writer_homepage"];
+	$name=$_SESSION["zb_writer_name"];
+	$email=$_SESSION["zb_writer_email"];
+	$homepage=$_SESSION["zb_writer_homepage"];
 
 /******************************************************************************************
  * 글쓰기 모드에 따른 내용 체크
@@ -73,7 +73,7 @@
 	if($mode=="modify") {
 
 		// 비밀글이고 패스워드가 틀리고 관리자가 아니면 리턴
-		if($data[is_secret]&&!$is_admin&&$data[ismember]!=$member[no]&&$HTTP_COOKIE_VARS[zb_s_check]!=$setup[no]."_".$no) error("정상적인 방법으로 수정하세요");
+		if($data[is_secret]&&!$is_admin&&$data[ismember]!=$member[no]&&$_COOKIE[zb_s_check]!=$setup[no]."_".$no) error("정상적인 방법으로 수정하세요");
 
 			$name=stripslashes($data[name]); // 이름
 			$email=stripslashes($data[email]); // 메일
@@ -100,7 +100,7 @@
 		} elseif($mode=="reply") {
 
    			// 비밀글이고 패스워드가 틀리고 관리자가 아니면 리턴
-			if($data[is_secret]&&!$is_admin&&$data[ismember]!=$member[no]&&$HTTP_COOKIE_VARS[zb_s_check]!=$setup[no]."_".$no) error("정상적인 방법으로 답글을 다세요");
+			if($data[is_secret]&&!$is_admin&&$data[ismember]!=$member[no]&&$_COOKIE[zb_s_check]!=$setup[no]."_".$no) error("정상적인 방법으로 답글을 다세요");
 
 			if($data[is_secret]) $secret=" checked ";
 

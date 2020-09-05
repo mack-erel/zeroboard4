@@ -36,7 +36,7 @@
 		// 4.0x 용 세션 처리
 		$zb_logged_no = $member_data[no];
 		$zb_logged_time = time();
-		$zb_logged_ip = $REMOTE_ADDR;
+		$zb_logged_ip = $_SERVER["REMOTE_ADDR"];
 		$zb_last_connect_check = '0';
 
 		session_register("zb_logged_no");

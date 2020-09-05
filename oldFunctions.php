@@ -29,3 +29,13 @@ if(!function_exists("split")){
         return explode($pattern, $string);
     }
 }
+
+if(!function_exists("session_register")){
+    function session_register(){
+        $arg_list = func_get_args();
+        foreach($arg_list as $name){
+            if(isset($GLOBALS[$name])) $_SESSION[$name] = $GLOBALS[$name];
+            $GLOBALS[$name] = &$_SESSION[$name];
+        }
+    }
+}

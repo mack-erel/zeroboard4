@@ -37,12 +37,12 @@
 	destroyZBSessionID($member[no]);
 
 	// 기존 세션 처리 (4.0x용 세션 처리로 인하여 주석 처리)
-	//$HTTP_SESSION_VARS["zb_logged_no"]='';
-	//$HTTP_SESSION_VARS["zb_logged_id"]='';
-	//$HTTP_SESSION_VARS["zb_logged_time"]='';
-	//$HTTP_SESSION_VARS["zb_logged_ip"]='';
-	//$HTTP_SESSION_VARS["zb_secret"]='';
-	//$HTTP_SESSION_VARS["zb_last_connect_check"] = '0';
+	//$_SESSION["zb_logged_no"]='';
+	//$_SESSION["zb_logged_id"]='';
+	//$_SESSION["zb_logged_time"]='';
+	//$_SESSION["zb_logged_ip"]='';
+	//$_SESSION["zb_secret"]='';
+	//$_SESSION["zb_last_connect_check"] = '0';
 
 	// 4.0x 용 세션 처리
 	$zb_logged_no='';

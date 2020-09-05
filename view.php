@@ -71,14 +71,14 @@
 	}
 
 // 현재글의 HIT수를 올림;;
-	if(!eregi($setup[no]."_".$no,$HTTP_SESSION_VARS["zb_hit"])) {
+	if(!eregi($setup[no]."_".$no,$_SESSION["zb_hit"])) {
 		$_dbTimeStart = getmicrotime();
 		mysql_query("update $t_board"."_$id set hit=hit+1 where no='$no'");
 		$_dbTime += getmicrotime()-$_dbTimeStart;
 		$hitStr=",".$setup[no]."_".$no;
 		
 		// 4.0x 용 세션 처리
-		$zb_hit=$HTTP_SESSION_VARS["zb_hit"].$hitStr;
+		$zb_hit=$_SESSION["zb_hit"].$hitStr;
 		session_register("zb_hit");
 	}
 
@@ -212,7 +212,7 @@
 	if($file_name2) $a_download2="<a onfocus=blur() href='download.php?$href$sort&no=$no&file=2'>"; else $a_download2="<Zeroboard ";
 
 // 추천버튼
-	if(!eregi($setup[no]."_".$no,$HTTP_SESSION_VARS["zb_vote"])) $a_vote="<a onfocus=blur() href='vote.php?$href$sort&no=$no'>";
+	if(!eregi($setup[no]."_".$no,$_SESSION["zb_vote"])) $a_vote="<a onfocus=blur() href='vote.php?$href$sort&no=$no'>";
 	else $a_vote = "<Zeroboard ";
 
 // 사이트 링크를 나타나게 하는 변수;;
@@ -240,7 +240,7 @@
 		if($temp_name) $c_name="<img src='$temp_name' border=0 align=absmiddle>";
 		$temp_name = get_private_icon($member[no], "1");
 		if($temp_name) $c_name="<img src='$temp_name' border=0 align=absmiddle>".$c_name;
-	} else $c_name="<input type=text name=name size=8 maxlength=10 class=input value=\"".$HTTP_SESSION_VARS["zb_writer_name"]."\">";
+	} else $c_name="<input type=text name=name size=8 maxlength=10 class=input value=\"".$_SESSION["zb_writer_name"]."\">";
 
 
 /****************************************************************************************

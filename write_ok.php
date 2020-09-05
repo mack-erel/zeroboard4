@@ -137,7 +137,7 @@
 	if((!eregi("http://",$homepage))&&$homepage) $homepage="http://".$homepage;
 
 // 각종 변수 설정
-	$ip=$REMOTE_ADDR; // 아이피값 구함;;
+	$ip=$_SERVER["REMOTE_ADDR"]; // 아이피값 구함;;
 	$reg_date=time(); // 현재의 시간구함;;
 
 	$x = $zx;
@@ -161,9 +161,9 @@
 // 쿠키 설정;;
 	if($mode!="modify") {
 		// 기존 세션 처리 (4.0x용 세션 처리로 인하여 주석 처리)
-		//if($name) $HTTP_SESSION_VARS["zb_writer_name"] = $name;
-		//if($email) $HTTP_SESSION_VARS["zb_writer_email"] = $email;
-		//if($homepage) $HTTP_SESSION_VARS["zb_writer_homepage"] = $homepage;
+		//if($name) $_SESSION["zb_writer_name"] = $name;
+		//if($email) $_SESSION["zb_writer_email"] = $email;
+		//if($homepage) $_SESSION["zb_writer_homepage"] = $homepage;
 
 		// 4.0x 용 세션 처리
 		if($name) {
@@ -423,12 +423,12 @@
 
 		// 현재글의 조회수를 올릴수 없게 세션 등록
 		$hitStr=",".$setup[no]."_".$no;
-		$zb_hit=$HTTP_SESSION_VARS["zb_hit"].$hitStr;
+		$zb_hit=$_SESSION["zb_hit"].$hitStr;
 		session_register("zb_hit");
 
 		// 현재글의 추천을 할수 없게 세션 등록
 		$voteStr=",".$setup[no]."_".$no;
-		$zb_vote=$HTTP_SESSION_VARS["zb_vote"].$voteStr;
+		$zb_vote=$_SESSION["zb_vote"].$voteStr;
 		session_register("zb_vote");
 
 		// 응답글 보내기일때;;
@@ -497,12 +497,12 @@
 
 		// 현재글의 조회수를 올릴수 없게 세션 등록
 		$hitStr=",".$setup[no]."_".$no;
-		$zb_hit=$HTTP_SESSION_VARS["zb_hit"].$hitStr;
+		$zb_hit=$_SESSION["zb_hit"].$hitStr;
 		session_register("zb_hit");
 
 		// 현재글의 추천을 할수 없게 세션 등록
 		$voteStr=",".$setup[no]."_".$no;
-		$zb_vote=$HTTP_SESSION_VARS["zb_vote"].$voteStr;
+		$zb_vote=$_SESSION["zb_vote"].$voteStr;
 		session_register("zb_vote");
 
 		if($prev_no) mysql_query("update $t_board"."_$id set next_no='$no' where no='$prev_no'");
