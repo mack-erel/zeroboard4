@@ -702,7 +702,7 @@ function head($body = "", $scriptfile = "")
 				$_realNowConnector = "";
 				if ($_sizeConnector) {
 					for ($i = 0; $i < $_sizeConnector; $i++) {
-						$_time = substr($_connector[$i], 0, 12);
+						$_time = (int)substr($_connector[$i], 0, 12);
 						$_div = substr($_connector[$i], 12);
 						if ($_time + $_zbDefaultSetup["nowconnect_time"] >= $_nowtime && $_div != $div) {
 							$_realNowConnector .= $_time . $_div . ":";
@@ -756,12 +756,12 @@ function head($body = "", $scriptfile = "")
 
 			$zbSessionID = $_COOKIE["ZBSESSIONID"];
 
-			if (!$zbSessionID) return "";
+			if (!$zbSessionID) return array();
 			$str = zReadFile($_zb_path . $_zbDefaultSetup["session_path"] . "/zbSessionID_" . $zbSessionID . ".php");
 
 			if (!$str) {
 				@setcookie("ZBSESSIONID", "", time() + 60 * 60 * 24 * 365, "/");
-				return "";
+				return array();
 			}
 
 			$str = explode("\n", $str);
@@ -773,7 +773,7 @@ function head($body = "", $scriptfile = "")
 
 			if ($newZBSessionID != $zbSessionID) {
 				@setcookie("ZBSESSIONID", "", time() + 60 * 60 * 24 * 365, "/");
-				return "";
+				return array();
 			}
 
 			if (!$_zb_path) {

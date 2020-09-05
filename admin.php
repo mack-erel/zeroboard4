@@ -2,10 +2,10 @@
 	include_once "lib.php";
 	$connect=dbConn();
 	$member=member_info();
-	if(($member[no]&&$member[is_admin]<3&&$member[is_admin]>=1)||($member[no]&&$member[board_name])) movepage("admin_setup.php");
+	if(($member["no"]&&$member["is_admin"]<3&&$member["is_admin"]>=1)||($member["no"]&&$member["board_name"])) movepage("admin_setup.php");
 	else {
-		if($member[no]) {
-			destroyZBSessionID($member[no]);
+		if($member["no"]) {
+			destroyZBSessionID($member["no"]);
 			// 4.0x 용 세션 처리
 			$zb_logged_no='';
 			$zb_logged_time='';
