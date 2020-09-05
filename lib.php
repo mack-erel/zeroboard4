@@ -57,7 +57,7 @@ $_zbDefaultSetup = getDefaultSetup();
 /*******************************************************************************
  * install 페이지가 아닌 경우
  ******************************************************************************/
-if (!eregi("install", $PHP_SELF) && file_exists($_zb_path . "config.php")) {
+if (!eregi("install", $_SERVER["PHP_SELF"]) && file_exists($_zb_path . "config.php")) {
 
 	//세션 처리 (세션은 3일동안 유효하게 설정)
 	if (!is_dir($_zb_path . $_zbDefaultSetup["session_path"])) {
@@ -163,7 +163,7 @@ else $browser = "0";
 
 
 // DB가 설정이 되었는지를 검사
-if (!file_exists($config_dir . "config.php") && !eregi("install", $PHP_SELF)) {
+if (!file_exists($config_dir . "config.php") && !eregi("install", $_SERVER["PHP_SELF"])) {
 	echo "<meta http-equiv=\"refresh\" content=\"0; url=install.php\">";
 	exit;
 }
@@ -386,7 +386,7 @@ function check_board_master($member, $board_num)
 function head($body = "", $scriptfile = "")
 {
 
-	global $group, $setup, $dir, $member, $PHP_SELF, $id, $_head_executived, $width;
+	global $group, $setup, $dir, $member, $id, $_head_executived, $width;
 
 	if ($_head_executived) return;
 	$_head_executived = true;
@@ -397,7 +397,7 @@ function head($body = "", $scriptfile = "")
 
 	print "<!--\n" . $license . "\n-->\n";
 
-	if (!eregi("member_", $PHP_SELF)) $stylefile = "skin/$setup[skinname]/style.css";
+	if (!eregi("member_", $_SERVER["PHP_SELF"])) $stylefile = "skin/$setup[skinname]/style.css";
 	else $stylefile = "style.css";
 
 	if ($setup["use_formmail"]) {

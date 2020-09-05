@@ -17,7 +17,7 @@
     $data = mysql_fetch_array(mysql_query($query));
 
     $oSearch = new zSearch();
-    $url = $_SERVER['HTTP_HOST'].str_replace("/admin/admin_del_indexing.php","",$PHP_SELF);
+    $url = $_SERVER['HTTP_HOST'].str_replace("/admin/admin_del_indexing.php","",$_SERVER["PHP_SELF"]);
     $obj->url = $url;
     $obj->board_id = $data['table_id'];
     $oSearch->delBoard($obj);

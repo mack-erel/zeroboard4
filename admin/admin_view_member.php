@@ -58,7 +58,7 @@
 <tr height=1><td bgcolor=#000000 style=padding:0px; colspan=10><img src=images/t.gif height=1></td></tr>
 <tr bgcolor=bbbbbb>
 	<td align=right colspan=10 height=25 colspan=2 style=font-family:Tahoma;font-size:8pt;>
-	그룹이름 : <b><?=$group_data[name]?></b> , 전체 회원수 : <b><?php echo $total_member;?></b> , <b><?php echo $total;?></b> 개 검색&nbsp;&nbsp;&nbsp;</td>
+	그룹이름 : <b><?=$group_data["name"]?></b> , 전체 회원수 : <b><?php echo $total_member;?></b> , <b><?php echo $total;?></b> 개 검색&nbsp;&nbsp;&nbsp;</td>
 </tr>
 <!-- 모두삭제하는 거랑, 변한변경, 그룹이동 버튼 표시 -->
 <script>
@@ -140,7 +140,7 @@
    return false;
   }
 
-<?php if($member[is_admin]==1)
+<?php if($member["is_admin"]==1)
   {
 ?>
   function move_group()
@@ -180,7 +180,7 @@
   <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>삭제</td>
 </tr>
 
-   <form method=post action=<?=$PHP_SELF?> name=write>
+   <form method=post action=<?=$_SERVER["PHP_SELF"]?> name=write>
    <input type=hidden name=page value=<?=$page?>>
    <input type=hidden name=keykind value=<?=$keykind?>>
    <input type=hidden name=keyword value=<?=$keyword?>>
@@ -193,23 +193,23 @@
 <?php
   while($data=mysql_fetch_array($result))
   {
-   if($data[level]==1) $grant_color="<font color=red><b>";
-   elseif($data[level]==2) $grant_color="<font color=blue><b>";
-   elseif($data[level]==3) $grant_color="<font color=green><b>";
+   if($data["level"]==1) $grant_color="<font color=red><b>";
+   elseif($data["level"]==2) $grant_color="<font color=blue><b>";
+   elseif($data["level"]==3) $grant_color="<font color=green><b>";
    else $grant_color="";
 
    echo"
         <tr align=center height=23 bgcolor=#e0e0e0>
            <td style=font-family:Tahoma;font-size:7pt;>$number</td>
-           <td><input type=checkbox name=cart[] value=$data[no]></td>
+           <td><input type=checkbox name=cart[] value={$data["no"]}></td>
            <td style=font-family:Tahoma;font-size:8pt;>$data[user_id]</td>
-           <td><img src=images/t.gif height=3><br>$data[name]&nbsp;</td>
-           <td style=font-family:Tahoma;font-size:8pt;>$grant_color$data[level]</td>
-           <td style=font-family:Tahoma;font-size:8pt;>".($data[point1]*10+$data[point2])." <font style=font-size:7pt;>(".$data[point1]."/".$data[point2].")</font></td>
-           <td style=font-family:Tahoma;font-size:8pt;>".date("Y-m-d",$data[reg_date])."</td>
-           <td style=font-family:Tahoma;font-size:8pt;><a href=$PHP_SELF?exec=$exec&group_no=$group_no&exec2=modify&page=$page&no=$data[no]&keyword=$keyword&keykind=$keykind&like=$like&page_num=$page_num>Modify</a></td>
+           <td><img src=images/t.gif height=3><br>{$data["name"]}&nbsp;</td>
+           <td style=font-family:Tahoma;font-size:8pt;>$grant_color{$data["level"]}</td>
+           <td style=font-family:Tahoma;font-size:8pt;>".($data["point1"]*10+$data["point2"])." <font style=font-size:7pt;>(".$data["point1"]."/".$data["point2"].")</font></td>
+           <td style=font-family:Tahoma;font-size:8pt;>".date("Y-m-d",$data["reg_date"])."</td>
+           <td style=font-family:Tahoma;font-size:8pt;><a href={$_SERVER["PHP_SELF"]}?exec=$exec&group_no=$group_no&exec2=modify&page=$page&no={$data["no"]}&keyword=$keyword&keykind=$keykind&like=$like&page_num=$page_num>Modify</a></td>
            <td style=font-family:Tahoma;font-size:8pt;>";
-   if($data[no]>1) echo"<a href=$PHP_SELF?exec=$exec&group_no=$group_no&exec2=del&keyword=$keyword&page=$page&no=$data[no]$href onclick=\"return confirm('삭제하시겠습니까?')\">Delete</a>"; else echo"&nbsp;";
+   if($data["no"]>1) echo"<a href={$_SERVER["PHP_SELF"]}?exec=$exec&group_no=$group_no&exec2=del&keyword=$keyword&page=$page&no={$data["no"]}$href onclick=\"return confirm('삭제하시겠습니까?')\">Delete</a>"; else echo"&nbsp;";
    echo"   </td>
         </tr>
         ";
@@ -226,10 +226,10 @@
        <td><img src=images/t.gif height=1><br><select name=movelevel><?php
   $select[0]=" selected ";
   for($i=1;$i<=10;$i++)
-  echo "<option value=$i $select[$i]>$i Level</option>";?></select></td><td><input type=button value='레벨변경' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onclick=move_all()>
+  echo "<option value=$i {$select[$i]}>$i Level</option>";?></select></td><td><input type=button value='레벨변경' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onclick=move_all()>
        </td><td><input type=button value='선택된 회원 삭제' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onclick=delete_all()></td>
 <?php
-  if($member[is_admin]==1)
+  if($member["is_admin"]==1)
   {
 ?>
        <td width=20>&nbsp;</td>
@@ -239,7 +239,7 @@
   $select[0]=" selected ";
   while($temp_data=mysql_fetch_array($temp_group))
   {
-   echo"<option value=$temp_data[no] $select[$i]>$temp_data[name]</option>";
+   echo"<option value={$temp_data["no"]} $select[$i]>$temp_data[name]</option>";
    $i++;
   }
   ?></select></td>
@@ -258,7 +258,7 @@
 <td colspan=9 align=right bgcolor=666666>
 <table border=0 cellpadding=2 cellspacing=0 width=100%>
 <!-- 검색하는 부분;;;; -->
-<form method=post action=<?=$PHP_SELF?> name=search>
+<form method=post action=<?=$_SERVER["PHP_SELF"]?> name=search>
 <input type=hidden name=exec2 value="">
 <input type=hidden name=s_que value="<?=$s_que?>">
 <input type=hidden name=page value=<?=$page?>>
@@ -290,7 +290,7 @@
 		<input type=text name=keyword value='<?php echo $keyword;?>'>
 		<input type=checkbox name=like value=1 <?php if($like) echo"checked";?> onclick='alert("Include 체크시 검색어를 포함하는 대상을 검색합니다.\n\n체크시 : *검색어*\n\n체크를 하지 않을경우 완전한 대상을 검색하며 더 빠릅니다\n\nComment를 제외하고는 체크하지 않는 것을 권해드립니다")'> <font style=color:#ffffff;font-size:8pt;font-family:Tahoma;>Include</font> &nbsp;
 		<input type=submit value=' 검색 '  style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; >
-		<input type=button value=' 처음으로 ' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onclick=location.href="<?=$PHP_SELF?>?exec=<?=$exec?>&group_no=<?=$group_no?>">
+		<input type=button value=' 처음으로 ' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onclick=location.href="<?=$_SERVER["PHP_SELF"]?>?exec=<?=$exec?>&group_no=<?=$group_no?>">
 	</td>
 </tr>
 <tr>
@@ -311,15 +311,15 @@
 $show_page_num=10;
 $start_page=(int)(($page-1)/$show_page_num)*$show_page_num;
 $i=1;
-if($page>$show_page_num){$prev_page=$start_page-1;echo"<a href=$PHP_SELF?exec=$exec&group_no=$group_no&page=$prev_page$href><font color=#ffffff>[Prev]</font></a>";}
+if($page>$show_page_num){$prev_page=$start_page-1;echo"<a href={$_SERVER["PHP_SELF"]}?exec=$exec&group_no=$group_no&page=$prev_page$href><font color=#ffffff>[Prev]</font></a>";}
 while($i+$start_page<=$total_page&&$i<=$show_page_num)
 {
  $move_page=$i+$start_page;
  if($page==$move_page)echo"<b>$move_page</b>";
- else echo"<a href=$PHP_SELF?exec=$exec&group_no=$group_no&page=$move_page$href><font color=#ffffff>[$move_page]</font></a>";
+ else echo"<a href={$_SERVER["PHP_SELF"]}?exec=$exec&group_no=$group_no&page=$move_page$href><font color=#ffffff>[$move_page]</font></a>";
  $i++;
 }
-if($total_page>$move_page){$next_page=$move_page+1;echo"<a href=$PHP_SELF?exec=$exec&group_no=$group_no&page=$next_page$href><font color=#ffffff>[Next]</font></a>";}
+if($total_page>$move_page){$next_page=$move_page+1;echo"<a href={$_SERVER["PHP_SELF"]}?exec=$exec&group_no=$group_no&page=$next_page$href><font color=#ffffff>[Next]</font></a>";}
 //페이지 나타내는 부분 끝
 
 ?></font><br><br>

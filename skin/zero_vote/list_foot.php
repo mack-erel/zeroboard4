@@ -21,7 +21,7 @@
  <td>
 <!-- 검색폼 부분 ---------------------->
 <!-- 폼태그 부분;; 수정하지 않는 것이 좋습니다 -->
-<form method=post name=search action=<?=$PHP_SELF?>>
+<form method=post name=search action=<?=$_SERVER["PHP_SELF"]?>>
 <input type=hidden name=page value=<?=$page?>>
 <input type=hidden name=id value=<?=$id?>>
 <input type=hidden name=select_arrange value=<?=$select_arrange?>>

@@ -1,58 +1,61 @@
 <table border=0 cellspacing=0 cellpadding=15 bgcolor=#efefef width=100% height=100%>
-<Tr>
-<td valign=top style=line-height:160%>
-<pre>
-<b>제로보드 <?=$zb_version?> 관리자 페이지입니다.</b>
+    <Tr>
+        <td valign=top style=line-height:160%>
+            <pre>
+<b>제로보드 <?= $zb_version ?> 관리자 페이지입니다.</b>
 공개형 무료 게시판 제로보드의 전체적인 관리를 할수 있는 관리자 페이지입니다.
 관리자 페이지에서는 그룹 추가, 설정, 게시판 관리, 회원관리를 할수 있습니다.
 다음은 간단한 설명입니다. (자세한 설명은 <a href=http://zeroboard.com target=_blank><b>http://zeroboard.com/CGI</b></a> 에서 확인하십시요)
 </pre>
-<table border=0 cellspacing=1 cellpadding=5 bgcolor=444444 width=100%>
-<col width=100></col><col width=></col>
-<tr>
-	<td bgcolor=aaaaaa align=center colspan=2><b>목 &nbsp;  &nbsp;  &nbsp; 차</b></td>
-</tr>
-<tr valign=top>
-	<td bgcolor=dddddd width=100 style=line-height:160% nowrap>
-		1. <a href=#help1>기본 설정</a><br>
-		2. <a href=#help2>회원 관리</a><br>
-		3. <a href=#help3>그룹 관리</a><br>
-		4. <a href=#help4>게시판 관리</a><br>
-		5. <a href=#help5>외부 로그인</a><br>
-	</td>
-	<td bgcolor=white>
-		<pre style=line-height:160%>
+            <table border=0 cellspacing=1 cellpadding=5 bgcolor=444444 width=100%>
+                <col width=100>
+                </col>
+                <col width=>
+                </col>
+                <tr>
+                    <td bgcolor=aaaaaa align=center colspan=2><b>목 &nbsp; &nbsp; &nbsp; 차</b></td>
+                </tr>
+                <tr valign=top>
+                    <td bgcolor=dddddd width=100 style=line-height:160% nowrap>
+                        1. <a href=#help1>기본 설정</a><br>
+                        2. <a href=#help2>회원 관리</a><br>
+                        3. <a href=#help3>그룹 관리</a><br>
+                        4. <a href=#help4>게시판 관리</a><br>
+                        5. <a href=#help5>외부 로그인</a><br>
+                    </td>
+                    <td bgcolor=white>
+                        <pre style=line-height:160%>
 <a name=#help1><b>1. 기본 설정</b></a>
     기본 설정은 제로보드를 운영할때 가장 기본이 되는 설정을 의미합니다.
     기본 설정은 DB에 데이타가 저장되는 것이 아닌 제로보드 디렉토리 내의 setup.php 파일에 저장이 되어 있습니다.
     <b>처음 제로보드를 설치할때 기본적인 내용으로 설정되어 있으므로 꼭 확인을 하셔야 합니다.</b>
     다음은 현재 설정된 기본 설정 내용입니다.
     * E-mail, url, sitename은 꼭 확인하세요
-    <font color=red>- 관리자 E-mail : <?=$_zbDefaultSetup["email"]?>
+    <font color=red>- 관리자 E-mail : <?= $_zbDefaultSetup["email"] ?>
 
-    - 사이트 url : <?=$_zbDefaultSetup["url"]?>
+    - 사이트 url : <?= $_zbDefaultSetup["url"] ?>
 
-    - 사이트 이름 : <?=$_zbDefaultSetup["sitename"]?></font>
+    - 사이트 이름 : <?= $_zbDefaultSetup["sitename"] ?></font>
 
-    - 세션 경로 : <?=$_zbDefaultSetup["session_path"]?>
+    - 세션 경로 : <?= $_zbDefaultSetup["session_path"] ?>
 
-    - 게시물 조회 로그 저장 크기 : <?=$_zbDefaultSetup["session_view_size"]?>
+    - 게시물 조회 로그 저장 크기 : <?= $_zbDefaultSetup["session_view_size"] ?>
 
-    - 게시판 추천 로그 저장 크기 : <?=$_zbDefaultSetup["session_vote_size"]?>
+    - 게시판 추천 로그 저장 크기 : <?= $_zbDefaultSetup["session_vote_size"] ?>
 
-    - 로그인 유효 시간 : <?=$_zbDefaultSetup["login_time"]?>
+    - 로그인 유효 시간 : <?= $_zbDefaultSetup["login_time"] ?>
 
-    - 현재 접속자 검사 : <?=$_zbDefaultSetup["nowconnect_enable"]?>
+    - 현재 접속자 검사 : <?= $_zbDefaultSetup["nowconnect_enable"] ?>
 
-    - 현재 접속자 갱신시간 : <?=$_zbDefaultSetup["nowconnect_refresh_time"]?>
+    - 현재 접속자 갱신시간 : <?= $_zbDefaultSetup["nowconnect_refresh_time"] ?>
 
-    - 현재 접속자 검사시간 : <?=$_zbDefaultSetup["nowconnect_time"]?>
+    - 현재 접속자 검사시간 : <?= $_zbDefaultSetup["nowconnect_time"] ?>
 
-    - 한글 아이디 사용 : <?=$_zbDefaultSetup["enable_hangul_id"]?>
+    - 한글 아이디 사용 : <?= $_zbDefaultSetup["enable_hangul_id"] ?>
 
-    - E-Mail 유효 검사 : <?=$_zbDefaultSetup["check_email"]?>
+    - E-Mail 유효 검사 : <?= $_zbDefaultSetup["check_email"] ?>
 
-    - 쪽지 보관일수 : <?=(int)($_zbDefaultSetup["memo_limit_time"]/(60*60*24))?> 일
+    - 쪽지 보관일수 : <?= (int)($_zbDefaultSetup["memo_limit_time"] / (60 * 60 * 24)) ?> 일
 
     * 자세한 내용은 <a href=http://zeroboard.com target=_blank>http://zeroboard.com</a>에서 매뉴얼을 보세요
 
@@ -94,13 +97,13 @@
     외부로그인에 대한 자세한 방법은 <a href=http://zeroboard.com target=_blank>http://zeroboard.com</a> 에서 매뉴얼중 외부로그인 페이지를 참고하세요
 
     * 외부로그인에서 사용할수 있는 정보중 절대 경로는 다음과 같이 입력하세요.
-    <font color=red>$_zb_path = "<?=$config_dir?>";</font>
+    <font color=red>$_zb_path = "<?= $config_dir ?>";</font>
 
 		</pre>
-	</td>
-</tr>
-</table>
+                    </td>
+                </tr>
+            </table>
 
-</td>
-</tr>
+        </td>
+    </tr>
 </table>

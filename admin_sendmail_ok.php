@@ -66,7 +66,7 @@
 <center><b>메일링 발송</b></center><br>
 
 <table border=0 cellpadding=4 cellspacing=1 width=100% bgcolor=white height=30>
-<form action=<?=$PHP_SELF?> method=post>
+<form action=<?=$_SERVER["PHP_SELF"]?> method=post>
 <tr>
 	<td>
 		전체 그룹 회원 수 : <?=number_format($total_member_num)?> 명<br>

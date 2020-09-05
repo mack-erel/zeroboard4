@@ -34,7 +34,7 @@
 
         $oSearch = new zSearch();
 
-        $url = $_SERVER['HTTP_HOST'].str_replace("/admin/admin_add_indexing.php","",$PHP_SELF);
+        $url = $_SERVER['HTTP_HOST'].str_replace("/admin/admin_add_indexing.php","",$_SERVER["PHP_SELF"]);
 
         $obj->url = $url;
         $obj->board_id = $table_id;

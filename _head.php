@@ -19,7 +19,7 @@
  	$_zb_file_list = array("apply_vote.php","comment_ok.php","del_comment.php","del_comment_ok.php","delete.php","download.php","list_all.php","view.php","vote.php","write.php","write_ok.php","zboard.php","image_box.php");
 	$_zb_c = count($_zb_file_list);
 	for($i=0;$i<$_zb_c;$i++) {
-		if(eregi($_zb_file_list[$i],$PHP_SELF)) { $_zboardis = TRUE; break; }
+		if(eregi($_zb_file_list[$i],$_SERVER["PHP_SELF"])) { $_zboardis = TRUE; break; }
 		else $_zboardis = FALSE;
 	}
 
@@ -102,7 +102,7 @@
 		/////////////////////////////////////////////
 		// write.php가 아닐때 검색갯수 및 query 정리
 		/////////////////////////////////////////////
-		if(!eregi("write.php",$PHP_SELF)) {
+		if(!eregi("write.php",$_SERVER["PHP_SELF"])) {
 
 			// Division의 현황을 체크
 			$_dbTimeStart = getmicrotime();

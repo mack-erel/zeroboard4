@@ -89,35 +89,35 @@
 	$a_prev_page = "<Zeroboard ";
 	$a_next_page = "<Zeroboard ";
 
-	if($page>1) $a_1_prev_page="<a onfocus=blur() href='$PHP_SELF?id=$id&page=".($page-1)."&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'>";
+	if($page>1) $a_1_prev_page="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&page=".($page-1)."&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'>";
 
-	if($page<$total_page) $a_1_next_page="<a onfocus=blur() href='$PHP_SELF?id=$id&page=".($page+1)."&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'>";
+	if($page<$total_page) $a_1_next_page="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&page=".($page+1)."&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'>";
 
 	if($page>$show_page_num) {
 		$prev_page=$start_page;
-		$a_prev_page="<a onfocus=blur() href='$PHP_SELF?id=$id&page=$prev_page&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'>";
-		$print_page.="<a onfocus=blur() href='$PHP_SELF?id=$id&page=1&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'><font style=font-size:8pt>[1]</a><font style=font-size:8pt>..";
+		$a_prev_page="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&page=$prev_page&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'>";
+		$print_page.="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&page=1&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'><font style=font-size:8pt>[1]</a><font style=font-size:8pt>..";
 		$prev_page_exists = true;
 		}
 
 	while($i+$start_page<=$total_page&&$i<=$show_page_num) {
 		$move_page=$i+$start_page;
 		if($page==$move_page) $print_page.=" <font style=font-size:8pt><b>$move_page</b> ";
-		else $print_page.="<a onfocus=blur() href='$PHP_SELF?id=$id&page=$move_page&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'><font style=font-size:8pt>[$move_page]</a>";
+		else $print_page.="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&page=$move_page&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'><font style=font-size:8pt>[$move_page]</a>";
 		$i++;
 	}
 
 	if($total_page>$move_page) {
 		$next_page=$move_page+1;
-		$a_next_page="<a onfocus=blur() href='$PHP_SELF?id=$id&page=$next_page&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'>";
-		$print_page.="<font style=font-size:8pt>..<a onfocus=blur() href='$PHP_SELF?id=$id&page=$total_page&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'><font style=font-size:8pt>[$total_page]</a>";
+		$a_next_page="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&page=$next_page&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'>";
+		$print_page.="<font style=font-size:8pt>..<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&page=$total_page&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$divpage'><font style=font-size:8pt>[$total_page]</a>";
 		$next_page_exists = true;
 	}
 
 	// 검색시 Divsion 페이지 이동 표시
 	if($use_division) {
-		if($prevdivpage&&!$prev_page_exists) $a_div_prev_page="<a onfocus=blur() href='$PHP_SELF?id=$id&&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$prevdivpage'>[이전 검색]</a>...";
-		if($nextdivpage&&!$next_page_exists) $a_div_next_page="...<a onfocus=blur() href='$PHP_SELF?id=$id&&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$nextdivpage'>[계속 검색]</a>";
+		if($prevdivpage&&!$prev_page_exists) $a_div_prev_page="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$prevdivpage'>[이전 검색]</a>...";
+		if($nextdivpage&&!$next_page_exists) $a_div_next_page="...<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&&select_arrange=$select_arrange&desc=$desc&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&sn1=$sn1&divpage=$nextdivpage'>[계속 검색]</a>";
 		$print_page = $a_div_prev_page.$print_page.$a_div_next_page;
 
 	}
@@ -131,38 +131,38 @@
 	if($is_admin||$member[level]<=$setup[grant_write]) $a_write="<a onfocus=blur() href='write.php?$href$sort&no=$no&mode=write&sn1=$sn1&divpage=$divpage'>"; else $a_write="<Zeroboard ";
 
 // 목록 버튼
-	if($is_admin||$member[level]<=$setup[grant_list]) $a_list="<a onfocus=blur() href='$PHP_SELF?id=$id&page=$page&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&prev_no=$no&sn1=$sn1&divpage=$divpage'>"; else $a_list="<Zeroboard ";
+	if($is_admin||$member[level]<=$setup[grant_list]) $a_list="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id&page=$page&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&prev_no=$no&sn1=$sn1&divpage=$divpage'>"; else $a_list="<Zeroboard ";
 
 // 취소버튼
-	$a_cancel="<a onfocus=blur() href='$PHP_SELF?id=$id'>";
+	$a_cancel="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id'>";
 
 
 // 정렬 버튼의 경우 $desc를 역으로 변환
 	if($desc=="desc") $t_desc="asc"; else $t_desc="desc";
 
 // 번호 정렬
-	$a_no="<a onfocus=blur() href='$PHP_SELF?$href&select_arrange=headnum&desc=$t_desc'>";
+	$a_no="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?$href&select_arrange=headnum&desc=$t_desc'>";
 
 // 제목 정렬
-	$a_subject="<a onfocus=blur() href='$PHP_SELF?$href&select_arrange=subject&desc=$t_desc'>";
+	$a_subject="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?$href&select_arrange=subject&desc=$t_desc'>";
 
 // 이름 정렬
-	$a_name="<a onfocus=blur() href='$PHP_SELF?$href&select_arrange=name&desc=$t_desc'>";
+	$a_name="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?$href&select_arrange=name&desc=$t_desc'>";
 
 // 조회순 정렬
-	$a_hit="<a onfocus=blur() href='$PHP_SELF?$href&select_arrange=hit&desc=$t_desc'>";
+	$a_hit="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?$href&select_arrange=hit&desc=$t_desc'>";
 
 // 추천수 정렬
-	$a_vote="<a onfocus=blur() href='$PHP_SELF?$href&select_arrange=vote&desc=$t_desc'>";
+	$a_vote="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?$href&select_arrange=vote&desc=$t_desc'>";
 
 // 날자별 정렬
-	$a_date="<a onfocus=blur() href='$PHP_SELF?$href&select_arrange=reg_date&desc=$t_desc'>";
+	$a_date="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?$href&select_arrange=reg_date&desc=$t_desc'>";
 
 // 첫번째 항목의 다운로드 순서
-	$a_download1="<a onfocus=blur() href='$PHP_SELF?$href&select_arrange=download1&desc=$t_desc'>";
+	$a_download1="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?$href&select_arrange=download1&desc=$t_desc'>";
 
 // 두번째 항목의 다운로드 순서
-	$a_download2="<a onfocus=blur() href='$PHP_SELF?$href&select_arrange=download2&desc=$t_desc'>";
+	$a_download2="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?$href&select_arrange=download2&desc=$t_desc'>";
 
 
 /***************************************************************************

@@ -35,12 +35,12 @@
 <tr height=30 bgcolor=white>
    <td align=right colspan=8 style=font-family:Tahoma;font-size:8pt;>
     그룹이름 : <b><?=$group_data[name]?></b> , 게시판 이름 : <b><a href=zboard.php?id=<?=$data[name]?> target=_blank><?=$data[name]?></a></b> &nbsp;&nbsp;&nbsp;
-    <input type=button value='카테고리관리' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=category&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
-    <input type=button value='권한설정' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=grant&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
+    <input type=button value='카테고리관리' class=input style=width=100px onclick=location.href="<?=$_SERVER["PHP_SELF"]?>?exec=view_board&group_no=<?=$group_no?>&exec2=category&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
+    <input type=button value='권한설정' class=input style=width=100px onclick=location.href="<?=$_SERVER["PHP_SELF"]?>?exec=view_board&group_no=<?=$group_no?>&exec2=grant&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
 
     &nbsp;&nbsp;&nbsp;</td></tr>
 <tr height=1><td bgcolor=#000000 style=padding:0px; colspan=10><img src=images/t.gif height=1></td></tr>
-<form method=post action=<?=$PHP_SELF?> name=write onsubmit="return check_submit();">
+<form method=post action=<?=$_SERVER["PHP_SELF"]?> name=write onsubmit="return check_submit();">
 <input type=hidden name=no value=<?php echo $data[no];?>>
 <input type=hidden name=exec value=view_board>
 <input type=hidden name=exec2 value=<?php if($no) echo"modify_ok"; else echo"add_ok";?>>

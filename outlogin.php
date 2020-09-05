@@ -45,7 +45,7 @@
  *
  *******************************************************************************/
 	global $member, $_head_php_excuted, $REQUEST_URI, $_zb_lib_included, $_SESSION, $total_member_connect, $total_guest_connect;
-	global $a_member_join, $a_member_modify, $a_member_memo, $member_memo_icon, $memo_on_sound, $a_logout, $a_login, $id, $PHP_SELF, $_outlogin_include;
+	global $a_member_join, $a_member_modify, $a_member_memo, $member_memo_icon, $memo_on_sound, $a_logout, $a_login, $id, $_outlogin_include;
 
 	if(eregi(":\/\/",$_zb_path)||eregi("\.\.",$_zb_path)) $_zb_path ="./";
 
@@ -73,8 +73,8 @@
 
 	// 외부로그인 출력 함수
 	function print_outlogin($skinname = "default", $group_no = 1, $level = "10") {
-		global $member, $_head_php_excuted, $REQUEST_URI, $_SESSION, $total_member_connect, $total_guest_connect, $_zb_path, $_zb_url;
-		global $a_member_join, $a_member_modify, $a_member_memo, $member_memo_icon, $memo_on_sound, $a_logout, $a_login, $id, $PHP_SELF;
+		global $member, $_head_php_excuted, $REQUEST_URI, $total_member_connect, $total_guest_connect, $_zb_path, $_zb_url;
+		global $a_member_join, $a_member_modify, $a_member_memo, $member_memo_icon, $memo_on_sound, $a_logout, $a_login, $id;
 
 		if($level < $member[level]) {
 ?>

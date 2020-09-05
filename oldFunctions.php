@@ -1,53 +1,53 @@
 <?php
 
 if (!function_exists("ereg")) {
-    function ereg($pattern, $string, &$regs = array())
-    {
-        return preg_match("/" . $pattern . "/", $string, $regs);
-    }
+	function ereg($pattern, $string, &$regs = array())
+	{
+		return preg_match("/" . $pattern . "/", $string, $regs);
+	}
 }
 
 if (!function_exists("eregi")) {
-    function eregi($pattern, $string, &$regs = array())
-    {
-        return preg_match("/" . $pattern . "/i", $string, $regs);
-    }
+	function eregi($pattern, $string, &$regs = array())
+	{
+		return preg_match("/" . $pattern . "/i", $string, $regs);
+	}
 }
 
 if (!function_exists("ereg_replace")) {
-    function ereg_replace($pattern, $replacement, $string)
-    {
-        return preg_replace("/" . $pattern . "/", $replacement, $string);
-    }
+	function ereg_replace($pattern, $replacement, $string)
+	{
+		return preg_replace("/" . $pattern . "/", $replacement, $string);
+	}
 }
 
 if (!function_exists("eregi_replace")) {
-    function eregi_replace($pattern, $replacement, $string)
-    {
-        return preg_replace("/" . $pattern . "/i", $replacement, $string);
-    }
+	function eregi_replace($pattern, $replacement, $string)
+	{
+		return preg_replace("/" . $pattern . "/i", $replacement, $string);
+	}
 }
 
 if (!function_exists("split")) {
-    function split($pattern, $string)
-    {
-        return explode($pattern, $string);
-    }
+	function split($pattern, $string)
+	{
+		return explode($pattern, $string);
+	}
 }
 
 if (!function_exists("session_register")) {
-    function session_register()
-    {
-        $arg_list = func_get_args();
-        foreach ($arg_list as $name) {
-            if (isset($GLOBALS[$name])) $_SESSION[$name] = $GLOBALS[$name];
-            $GLOBALS[$name] = &$_SESSION[$name];
-        }
-    }
+	function session_register()
+	{
+		$arg_list = func_get_args();
+		foreach ($arg_list as $name) {
+			if (isset($GLOBALS[$name])) $_SESSION[$name] = $GLOBALS[$name];
+			$GLOBALS[$name] = &$_SESSION[$name];
+		}
+	}
 }
 
 if (!function_exists("mysql_query")) {
-    function mysql_query($query, $conn = null)
+	function mysql_query($query, $conn = null)
 	{
 		global $connect;
 		if ($conn != null) $connect = $conn;
@@ -56,14 +56,14 @@ if (!function_exists("mysql_query")) {
 }
 
 if (!function_exists("mysql_fetch_array")) {
-    function mysql_fetch_array($resource)
+	function mysql_fetch_array($resource)
 	{
 		return mysqli_fetch_array($resource);
 	}
 }
 
 if (!function_exists("mysql_error")) {
-    function mysql_error()
+	function mysql_error()
 	{
 		global $connect;
 		return mysqli_error($connect);
@@ -71,14 +71,14 @@ if (!function_exists("mysql_error")) {
 }
 
 if (!function_exists("mysql_connect")) {
-    function mysql_connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null)
+	function mysql_connect($host = null, $user = null, $password = null, $database = null, $port = null, $socket = null)
 	{
 		return @mysqli_connect($host, $user, $password, $database, $port, $socket);
 	}
 }
 
 if (!function_exists("mysql_select_db")) {
-    function mysql_select_db($dbname, $conn = null)
+	function mysql_select_db($dbname, $conn = null)
 	{
 		global $connect;
 		if ($conn != null) $connect = $conn;
@@ -87,14 +87,14 @@ if (!function_exists("mysql_select_db")) {
 }
 
 if (!function_exists("mysql_close")) {
-    function mysql_close($result)
+	function mysql_close($result)
 	{
 		return mysqli_close($result);
 	}
 }
 
 if (!function_exists("mysql_list_tables")) {
-    function mysql_list_tables($dbname = null)
+	function mysql_list_tables($dbname = null)
 	{
 		global $connect, $config_dir;
 
@@ -105,14 +105,14 @@ if (!function_exists("mysql_list_tables")) {
 }
 
 if (!function_exists("mysql_num_rows")) {
-    function mysql_num_rows($result = null)
+	function mysql_num_rows($result = null)
 	{
 		return mysqli_num_rows($result);
 	}
 }
 
 if (!function_exists("mysql_tablename")) {
-    function mysql_tablename($result, $i)
+	function mysql_tablename($result, $i)
 	{
 		global $connect;
 		$result_copy = $result;
@@ -130,5 +130,12 @@ if (!function_exists("mysql_insert_id")) {
 		global $connect;
 		if ($result != null) $connect = $result;
 		return mysqli_insert_id($connect);
+	}
+}
+
+if (!function_exists("mysql_free_result")) {
+	function mysql_free_result($result)
+	{
+		return mysqli_free_result($result);
 	}
 }

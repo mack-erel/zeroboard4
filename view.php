@@ -199,7 +199,7 @@
 	if($is_admin||$member[level]<=$setup[grant_list]) $a_list="<a onfocus=blur() href='zboard.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&prev_no=$no&sn1=$sn1&divpage=$divpage&select_arrange=$select_arrange&desc=$desc'>"; else $a_list="<Zeroboard  ";
 
 // 취소버튼
-	$a_cancel="<a onfocus=blur() href='$PHP_SELF?id=$id'>";
+	$a_cancel="<a onfocus=blur() href='{$_SERVER["PHP_SELF"]}?id=$id'>";
 
 // 삭제버튼
 	if(($is_admin||$member[level]<=$setup[grant_delete]||$data[ismember]==$member[no]||!$data[ismember])&&!$data[child]) $a_delete="<a onfocus=blur() href='delete.php?$href$sort&no=$no'>"; else $a_delete="<Zeroboard ";
