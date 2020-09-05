@@ -2,7 +2,7 @@
 // 라이브러리 함수 파일 인크루드
 	include_once "lib.php";
 
-	if(!eregi("member_modify.php",$HTTP_REFERER)) Error("제대로 된 접근을 하여 주시기 바랍니다");
+	if(!eregi("member_modify.php",$_SERVER["HTTP_REFERER"])) Error("제대로 된 접근을 하여 주시기 바랍니다");
 
 // DB 연결
 	if(!$connect) $connect=dbConn();

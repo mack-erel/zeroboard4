@@ -43,7 +43,7 @@
 
 	$check[1]="checked";
 
-	if(!$referer) $referer=$HTTP_REFERER;
+	if(!$referer) $referer=$_SERVER["HTTP_REFERER"];
 
 	$setup[header]="";
 	$setup[footer]="";

@@ -41,7 +41,7 @@
 
 	$check[1]="checked";
 
-	$referer=$HTTP_REFERER;
+	$referer=$_SERVER["HTTP_REFERER"];
 
 	$setup[header]="";
 	$setup[footer]="";
@@ -101,7 +101,7 @@
 </script>
 <table border=0 cellspacing=1 cellpadding=0 width=540>
 <form name=write method=post action=member_modify_ok.php enctype=multipart/form-data onsubmit="return check_submit();">
-<input type=hidden name=one_page value="<?=$HTTP_REFERER?>">
+<input type=hidden name=one_page value="<?=$_SERVER["HTTP_REFERER"]?>">
 <input type=hidden name=page value=<?=$page?>>
 <input type=hidden name=id value=<?=$id?>>
 <input type=hidden name=no value=<?=$no?>>

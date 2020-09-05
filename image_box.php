@@ -64,8 +64,8 @@
 
 // 입력된 이미지가 있으면 upload 시킴
 	if($exec=="upload") {
-		if(!eregi($_SERVER["HTTP_HOST"],$HTTP_REFERER)) Error("정상적으로 업로드를 하여 주시기 바랍니다.","window.close");
-		if(!eregi("image_box.php",$HTTP_REFERER)) Error("정상적으로 업로드를 하여 주시기 바랍니다.","window.close");
+		if(!eregi($_SERVER["HTTP_HOST"],$_SERVER["HTTP_REFERER"])) Error("정상적으로 업로드를 하여 주시기 바랍니다.","window.close");
+		if(!eregi("image_box.php",$_SERVER["HTTP_REFERER"])) Error("정상적으로 업로드를 하여 주시기 바랍니다.","window.close");
 		if(getenv("REQUEST_METHOD") == 'GET' ) Error("정상적으로 업로드를 하여 주시기 바랍니다","window.close");
 
 		$num = (int)count($HTTP_POST_FILES[upload][name]);
