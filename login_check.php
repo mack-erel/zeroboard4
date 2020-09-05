@@ -16,10 +16,10 @@
 
 	if($id) {
 		$setup=get_table_attrib($id);
-		$group=group_info($setup[group_no]);
+		$group=group_info($setup["group_no"]);
 	}
 
-	if($setup[group_no]) $group_no=$setup[group_no];
+	if($setup["group_no"]) $group_no=$setup["group_no"];
 
 
 // 회원 로그인 체크
@@ -27,14 +27,14 @@
 	$member_data = mysql_fetch_array($result);
 
 // 회원로그인이 성공하였을 경우 세션을 생성하고 페이지를 이동함
-	if($member_data[no]) {
+	if($member_data["no"]) {
 
 		if($auto_login) {
-			makeZBSessionID($member_data[no]);
+			makeZBSessionID($member_data["no"]);
 		}
 
 		// 4.0x 용 세션 처리
-		$zb_logged_no = $member_data[no];
+		$zb_logged_no = $member_data["no"];
 		$zb_logged_time = time();
 		$zb_logged_ip = $_SERVER["REMOTE_ADDR"];
 		$zb_last_connect_check = '0';
@@ -49,7 +49,7 @@
 		if(!$s_url&&$id) $s_url="zboard.php?id=$id";
 		if($s_url) movepage($s_url);
 		elseif($id) movepage("zboard.php?id=$id&page=$page&page_num=$page_num&select_arrange=$select_arrange&desc=$des&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&category=$category&no=$no");
-		elseif($group[join_return_url]) movepage($group[join_return_url]);
+		elseif($group["join_return_url"]) movepage($group["join_return_url"]);
 		elseif($referer) movepage($referer);
 		else echo"<script>history.go(-2);</script>";
 

@@ -732,7 +732,7 @@ function head($body = "", $scriptfile = "")
 				$_realNowConnector = "";
 				if ($_sizeConnector) {
 					for ($i = 0; $i < $_sizeConnector; $i++) {
-						$_time = substr($_connector[$i], 0, 12);
+						$_time = (int)substr($_connector[$i], 0, 12);
 						$_div = substr($_connector[$i], 12);
 						if ($_time + $_zbDefaultSetup["nowconnect_time"] >= $_nowtime) {
 							$_realNowConnector .= $_time . $_div . ":";
