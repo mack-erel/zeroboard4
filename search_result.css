@@ -1,0 +1,127 @@
+.Noresult {
+  height:200px;
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:13px;
+  color:#6C6996;
+  line-height:25px;
+}
+
+.SearchOpt {
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:12px;
+  color:#444444;
+}
+
+.SearchBtn {
+  border:1 solid;
+  color:#000000;
+  border-color:#6F9BB9;
+  background-color:#EEF3F6;
+  height:18px;
+}
+
+.SearchResultKeywordBox {
+  border:1 solid;
+  color:#000000;
+  border-color:#CCCCCC;
+  background-color:#FFFFFF;
+  height:18px;
+}
+
+.ResultLayout {
+  width:100%;
+  vertical-align:top;
+  text-align:left;
+  margin:10 10 10 10;
+}
+
+.BackBtn {
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:12px;
+  color:#67C009;
+}
+.BackBtn a:link     {color:#67C009; text-decoration:none;}
+.BackBtn a:visited  {color:#67C009; text-decoration:none;}
+.BackBtn a:hover    {color:#67C009; text-decoration:underline;}
+
+font.bold {
+  font-weight:bold;
+}
+
+.ResultTitle { 
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:13px;
+  color:#2929D6;
+  font-weight:bold;
+  line-height:20px;
+}
+.ResultTitle a:link      {color:#2929D6; text-decoration:none;font-weight:bold;}
+.ResultTitle a:visited   {color:#551A88; text-decoration:none;font-weight:bold;}
+.ResultTitle a:hover     {color:#000DCC; text-decoration:underline;font-weight:bold;}
+
+.ResultDesc {
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:12px;
+  color:#000000;
+  line-height:17px;
+}
+
+.ResultWriter { 
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:12px;
+  color:#4A8B8A;     
+  font-weight:bold;
+}
+
+.ResultDiv {
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:11px;
+  color:#AAAAAA;     
+}
+
+.ResultDate { 
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:12px;
+  color:#4A8B8A;     
+}
+
+.ResultPageNav {
+  text-align:center;
+}
+
+.ResultPrevPage {
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:12px;
+}
+.ResultPrevPage a:link      {color:#2929D6; text-decoration:none;}
+.ResultPrevPage a:visited   {color:#2929D6; text-decoration:none;}
+.ResultPrevPage a:hover     {color:#2929D6; text-decoration:underline;}
+
+.ResultNextPage {
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:12px;
+}
+.ResultNextPage a:link      {color:#2929D6; text-decoration:none;}
+.ResultNextPage a:visited   {color:#2929D6; text-decoration:none;}
+.ResultNextPage a:hover     {color:#2929D6; text-decoration:underline;}
+
+.ResultSelectedPage {
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-weight:bold;
+  font-size:12px;
+  color:#FF7635;
+  padding:3px 3px 0px 3px;
+  background-color:#E6E6E6;
+}
+.ResultSelectedPage a:link      {color:#FF7635; text-decoration:none;font-weight:bold;}
+.ResultSelectedPage a:visited   {color:#FF7635; text-decoration:none;font-weight:bold;}
+.ResultSelectedPage a:hover     {color:#FF7635; text-decoration:underline;font-weight:bold;}
+
+.ResultPage {
+  font-family:"±¼¸²","Gulim","Baekmuk Gulim","AppleGothic","Tahoma";
+  font-size:12px;
+  margin:0px 3px 0px 3px;
+}
+.ResultPage a:link      {color:#2929D6; text-decoration:none;}
+.ResultPage a:visited   {color:#2929D6; text-decoration:none;}
+.ResultPage a:hover     {color:#2929D6; text-decoration:underline;}
