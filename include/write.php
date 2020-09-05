@@ -15,5 +15,5 @@
 	// 공지기능 사용하는지 않하는지 표시;;
 	if(!$is_admin||$mode=="reply") { $hide_notice_start="<!--";$hide_notice_end="-->"; }
 
-	include $dir."/write.php";
+	include_once $dir."/write.php";
 ?>

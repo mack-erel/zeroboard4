@@ -4,7 +4,7 @@
 
 $member_table = "zetyx_member_table";  // 회원들의 데이타가 들어 있는 직접적인 테이블
 $group_table = "zetyx_group_table";   // 그룹테이블
-$admin_table="zetyx_admin_table";     // 게시판의 관리자 테이블
+$admin_table = "zetyx_admin_table";     // 게시판의 관리자 테이블
 
 ///////////////////////////////////////////////////////////////////////////
 // Division Table
@@ -20,7 +20,7 @@ create table zetyx_division_$table_name (
 // 회원관리 테이블
 ///////////////////////////////////////////////////////////////////////////
 
-$member_table_schema ="
+$member_table_schema = "
 
   create table $member_table (
     no int(20) not null auto_increment primary key ,
@@ -131,7 +131,7 @@ $group_table_schema = "
 //////////////////////////////////////////////////////////////////////////
 // 게시판 관리자 테이블
 //////////////////////////////////////////////////////////////////////////
-    
+
 $admin_table_schema = "
 
   create table $admin_table (
@@ -209,7 +209,7 @@ $admin_table_schema = "
 // 게시판 본체 테이블
 ///////////////////////////////////////////////////////////////////////////
 
-$board_table_main_schema ="
+$board_table_main_schema = "
 
   create table zetyx_board_$table_name (
 
@@ -278,7 +278,7 @@ $board_table_main_schema ="
 // 간단한 답글 테이블 
 /////////////////////////////////////////////////////////////////////////////////
 
-$board_comment_schema ="
+$board_comment_schema = "
 
   create table zetyx_board_comment_$table_name (
     no int(11) not null auto_increment primary key ,
@@ -299,7 +299,7 @@ $board_comment_schema ="
 // 카테고리 테이블
 //////////////////////////////////////////////////////////////////////////////
 
-$board_category_table ="
+$board_category_table = "
   create table zetyx_board_category_$table_name (
     no int(11) not null auto_increment primary key ,
     num int(11) default 0 not null,

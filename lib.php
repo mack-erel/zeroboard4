@@ -41,12 +41,6 @@ unset($s_que);
 $select_arrange = str_replace(array("'", '"', '\\'), '', $select_arrange);
 if (!in_array($desc, array('desc', 'asc'))) unset($desc);
 
-/*******************************************************************************
- * include 되었는지를 검사
- ******************************************************************************/
-if (defined("_zb_lib_included")) return;
-define("_zb_lib_included", true);
-
 $_startTime = getmicrotime();
 
 /*******************************************************************************
@@ -427,10 +421,10 @@ function head($body = "", $scriptfile = "")
 																						?>>
 			<?php
 			if ($group["header_url"]) {
-				@include $group["header_url"];
+				@include_once $group["header_url"];
 			}
 			if ($setup["header_url"]) {
-				@include $setup["header_url"];
+				@include_once $setup["header_url"];
 			}
 			if ($group["header"]) echo stripslashes($group["header"]);
 			if ($setup["header"]) echo stripslashes($setup["header"]);
@@ -457,7 +451,7 @@ function head($body = "", $scriptfile = "")
 			<body topmargin='0' leftmargin='0' marginwidth='0' marginheight='0' <?= $body ?>>
 				<?php
 				if ($group["header_url"]) {
-					@include $group["header_url"];
+					@include_once $group["header_url"];
 				}
 				if ($group["header"]) echo stripslashes($group["header"]);
 			}
@@ -514,10 +508,10 @@ function head($body = "", $scriptfile = "")
 				if ($setup["footer"]) echo stripslashes($setup["footer"]);
 				if ($group["footer"]) echo stripslashes($group["footer"]);
 				if ($setup["footer_url"]) {
-					@include $setup["footer_url"];
+					@include_once $setup["footer_url"];
 				}
 				if ($group["footer_url"]) {
-					@include $group["footer_url"];
+					@include_once $group["footer_url"];
 				}
 				?>
 
@@ -530,7 +524,7 @@ function head($body = "", $scriptfile = "")
 
 				if ($group["footer"]) echo stripslashes($group["footer"]);
 				if ($group["footer_url"]) {
-					@include $group["footer_url"];
+					@include_once $group["footer_url"];
 				}
 
 		?>
@@ -623,7 +617,7 @@ function head($body = "", $scriptfile = "")
 				if ($setup["skinname"]) {
 					include_once "skin/$setup[skinname]/error.php";
 				} else {
-					include $config_dir . "error.php";
+					include_once $config_dir . "error.php";
 				}
 
 				foot();
