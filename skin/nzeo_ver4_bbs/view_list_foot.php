@@ -1,5 +1,5 @@
-		</table>
-	</td>
-</tr>
-</table>
-<br>
+		</table>
+	</td>
+</tr>
+</table>
+<br>
