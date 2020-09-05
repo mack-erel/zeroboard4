@@ -2,7 +2,7 @@
   // 라이브러리 함수 파일 인크루드
   require_once "lib.php";
 
-	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("정상적으로 글을 삭제하여 주시기 바랍니다.");
+	if(!eregi($_SERVER["HTTP_HOST"],$HTTP_REFERER)) Error("정상적으로 글을 삭제하여 주시기 바랍니다.");
 	if(getenv("REQUEST_METHOD") == 'GET' ) Error("정상적으로 글을 삭제하시기 바랍니다","");
 
   // 게시판 이름 지정이 안되어 있으면 경고;;;

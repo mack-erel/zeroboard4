@@ -12,7 +12,7 @@
 
 // 편법을 이용한 글쓰기 방지
 	$mode = $_POST[mode];
-	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("정상적으로 글을 작성하여 주시기 바랍니다.");
+	if(!eregi($_SERVER["HTTP_HOST"],$HTTP_REFERER)) Error("정상적으로 글을 작성하여 주시기 바랍니다.");
 	if(getenv("REQUEST_METHOD") == 'GET' ) Error("정상적으로 글을 쓰시기 바랍니다","");
 	if(!$mode) $mode = "write";
 

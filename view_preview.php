@@ -2,7 +2,7 @@
 	include_once "lib.php";
 	include_once "include/list_check.php";
 
-	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("정상적으로 글을 작성하여 주시기 바랍니다.","window.close");
+	if(!eregi($_SERVER["HTTP_HOST"],$HTTP_REFERER)) Error("정상적으로 글을 작성하여 주시기 바랍니다.","window.close");
 	if(!eregi("write.php",$HTTP_REFERER)) Error("정상적으로 글을 쓰시기 바랍니다","window.close");
 	if(getenv("REQUEST_METHOD") == 'GET' ) Error("정상적으로 글을 쓰시기 바랍니다","window.close");
 

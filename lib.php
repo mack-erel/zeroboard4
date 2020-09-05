@@ -779,8 +779,8 @@ require_once "oldFunctions.php";
 				$defaultSetup[$name]=$value;
 			}
 		}
-		if(!$defaultSetup[url]) $defaultSetup[url] = $HTTP_HOST;
-		if(!$defaultSetup[sitename]) $defaultSetup[sitename] = $HTTP_HOST;
+		if(!$defaultSetup[url]) $defaultSetup[url] = $_SERVER["HTTP_HOST"];
+		if(!$defaultSetup[sitename]) $defaultSetup[sitename] = $_SERVER["HTTP_HOST"];
 		if(!$defaultSetup[session_path]) $defaultSetup[session_path] = "data/__zbSessionTMP";
 		if(!$defaultSetup[session_view_size]) $defaultSetup[session_view_size] = 512;
 		if(!$defaultSetup[session_vote_size]) $defaultSetup[session_vote_size] = 256;

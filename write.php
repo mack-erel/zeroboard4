@@ -10,7 +10,7 @@
 
  	$mode = $_GET[mode];
 
- 	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("정상적으로 글을 작성하여 주시기 바랍니다.");
+ 	if(!eregi($_SERVER["HTTP_HOST"],$HTTP_REFERER)) Error("정상적으로 글을 작성하여 주시기 바랍니다.");
 
   if(eregi(":\/\/",$dir)) $dir=".";
 
