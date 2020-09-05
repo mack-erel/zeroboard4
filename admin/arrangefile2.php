@@ -1,4 +1,4 @@
-<?
+<?php
 	set_time_limit (0);
 
 	$_zb_path="../";
@@ -34,7 +34,7 @@
 <pre>
 
 	DB Checking
-		<?
+		<?php
 	// DB 내의 파일 목록을 구함
 	$result = mysql_query("select name from $admin_table order by name desc") or die(mysql_error());
 	unset($dblist);
@@ -63,7 +63,7 @@
 ?>
 	
 	File list checking
-		<?
+		<?php
 	// 전체 파일 목록을 구함
 	unset($list);
 	$i = 0;
@@ -118,7 +118,7 @@
 
 
 	쓰레기 파일 삭제중
-		<?
+		<?php
 		$total = 0;
 		$i=0;
 		while(list($key,$filename)=@each($difflist)) {
@@ -156,13 +156,13 @@
 
 
 </pre>
-<?
+<?php
  mysql_close($connect);
  $connect="";
 ?>
 
 <br><Br><Br>
 
-<?
+<?php
  foot();
 ?>

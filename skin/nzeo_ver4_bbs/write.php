@@ -1,4 +1,4 @@
-<?
+<?php
 	if($mode=="reply") $title="답글 쓰기";
 	elseif($mode=="modify") $title="글 수정하기";
 	else $title="새로 글 쓰기";

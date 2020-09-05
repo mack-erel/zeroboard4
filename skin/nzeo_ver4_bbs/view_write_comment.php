@@ -15,12 +15,12 @@
 		</script>
 		<form method=post name=write action=comment_ok.php onsubmit="return check_comment_submit(this)"><input type=hidden name=page value=<?=$page?>><input type=hidden name=id value=<?=$id?>><input type=hidden name=no value=<?=$no?>><input type=hidden name=select_arrange value=<?=$select_arrange?>><input type=hidden name=desc value=<?=$desc?>><input type=hidden name=page_num value=<?=$page_num?>><input type=hidden name=keyword value="<?=$keyword?>"><input type=hidden name=category value="<?=$category?>"><input type=hidden name=sn value="<?=$sn?>"><input type=hidden name=ss value="<?=$ss?>"><input type=hidden name=sc value="<?=$sc?>"><input type=hidden name=mode value="<?=$mode?>"> 
 		<col width=95 align=right style=padding-right:10px></col><col width=></col>
-		<?if(!$member['no']){?>
+		<?php if(!$member['no']){?>
 		<tr>
 			<td class=list0><font class=list_eng><b>Name</b></td>
 			<td class=list1><font class=list_han><?=$c_name?></font></td>
 		</tr>
-		<?}?>
+		<?php }?>
 		<?=$hide_c_password_start?>
 		<tr>
 			<td class=list0><font class=list_eng><b>Password</b></td>

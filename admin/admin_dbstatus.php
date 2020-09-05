@@ -22,7 +22,7 @@
 		<td style=color:white;font-size:8pt;font-family:tahoma><b>전체 용량</b></td>
 		<td style=color:white;font-size:8pt;font-family:tahoma>생성시간</td>
 	</tr>
-<?
+<?php
 	$dbData = file("config.php");
 	$dbname = $dbData[4];
 
@@ -42,7 +42,7 @@
 		<td bgcolor=#f1f1f1 align=right><?=getFileSize($dbData[Data_length]+$dbData[Index_length])?></td>
 		<td><?=$dbData[Create_time]?></td>
 	</tr>
-<?
+<?php
 		$num++;
 	}
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php
   require "lib.php";
   head();
 ?>
@@ -82,7 +82,7 @@
 
 <tr>
   <td  align=right style=font-family:Tahoma;font-size:8pt>Name&nbsp;</td>
-  <td > <input type=text name=name size=20 value='<?echo $data[name];?>' maxlength=20 style=font-family:Tahoma;font-size:8pt></td>
+  <td > <input type=text name=name size=20 value='<?php echo $data[name];?>' maxlength=20 style=font-family:Tahoma;font-size:8pt></td>
 </tr>
 
 <tr>
@@ -92,6 +92,6 @@
 </tr>
 </form>
 </table>
-<?
+<?php
   foot();
 ?>

@@ -1,4 +1,4 @@
-<? 
+<?php 
 	if(eregi(":\/\/",$dir)||eregi("\.\.",$dir)) $dir ="./";
 	include "$dir/value.php3"; 
 

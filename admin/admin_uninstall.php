@@ -1,4 +1,4 @@
-<?
+<?php
 	if($exec=="uninstall"&&$uninstall=="ok") {
 		if(!$u_hostname) Error("Hostname을 입력하세요");
 		if(!$u_userid) Error("User ID를 입력하세요");

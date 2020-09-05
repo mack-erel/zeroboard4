@@ -1,4 +1,4 @@
-<?
+<?php
   $group_data=mysql_fetch_array(mysql_query("select * from $group_table where no='$group_no'"));
 
   if($member[is_admin]>2&&!eregi($no.",",$member[board_name])) error("사용 권한이 없습니다");
@@ -31,7 +31,7 @@
     <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>수정</td>
     <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>삭제</td>
   </tr>
-<?
+<?php
   while($data=mysql_fetch_array($result))
   {
    $temp=mysql_fetch_array(mysql_query("select count(*) from $t_board"."_$table_data[name] where category='$data[no]'",$connect));
@@ -39,25 +39,25 @@
 ?>
 
   <tr height=23 align=center bgcolor=#e0e0e0>
-    <td><input type=checkbox name=c[] value=<? echo $data[no];?>></td>
-    <td><img src=images/t.gif height=3><br><?echo $data[name];?></td>
-    <td style=font-family:Tahoma;font-size:8pt><?echo $total_num;?></td>
+    <td><input type=checkbox name=c[] value=<?php echo $data[no];?>></td>
+    <td><img src=images/t.gif height=3><br><?php echo $data[name];?></td>
+    <td style=font-family:Tahoma;font-size:8pt><?php echo $total_num;?></td>
     <?="<td style=font-family:Tahoma;font-size:8pt><a href=$PHP_SELF?exec=view_board&no=$no&exec2=modify_category&group_no=$group_no&page=$page&page_num=$page_num&category_no=$data[no]>Modify</a></td>"?>
     <td style=font-family:Tahoma;font-size:8pt>
-<?
+<?php
   if(!$total_num&&$total_category>1)
      echo"<a href=$PHP_SELF?exec=view_board&no=$no&exec2=del_category&group_no=$group_no&page=$page&page_num=$page_num&category_no=$data[no] onclick=\"return confirm('삭제하시겠습니까?')\">Delete</a>"; else echo "&nbsp;";
 ?>
     </td>
   </tr>
 
-<?
+<?php
   }
 ?>
   <tr height=28 align=center>
     <td colspan=5 ><table border=0 cellpadding=2 cellspacing=0><tr><td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>
       선택된 카테고리의 게시물을 일괄 이동 : </td><td><img src=images/t.gif height=2><br><select name=movename class=input> 
-<?
+<?php
   $temp2=mysql_query("select * from $t_category"."_$table_data[name] order by no desc",$connect);
   while($data2=mysql_fetch_array($temp2))
   {

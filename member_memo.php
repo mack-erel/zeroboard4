@@ -1,4 +1,4 @@
-<?
+<?php
 // 라이브러리 함수 파일 인크루드
 	include "lib.php";
 
@@ -134,7 +134,7 @@
 </table>
 
 <!-- 선택된 메모가 있을때;; -->
-<?
+<?php
 	if($now_data[no]) {
 
 		$temp_name = get_private_icon($now_data[member_from], "2");
@@ -203,7 +203,7 @@
   </tr>
 </table>
 
-<?
+<?php
 	}
 ?>
 
@@ -232,7 +232,7 @@
           <td width="80" align="center"><img src="images/memo_from.gif" width="24" height="15"></td>
           <td width="60" align="center"><img src="images/memo_date.gif" width="23" height="15"></td>
         </tr>
-<?
+<?php
 	// 출력
 	$loop_number=$total-($page-1)*$page_num;
 	while($data=mysql_fetch_array($result)) {
@@ -259,9 +259,9 @@
             <a href=<?="$PHP_SELF?exec=view&no=$data[no]&page=$page"?>><?=$data[subject]?></a></td>
           <td width="80" align="center"><img src="images/t.gif" width="10" height="3"><br>
             <a href=javascript:void(window.open('view_info.php?member_no=<?=$data[member_from]?>','view_info','width=400,height=510,toolbar=no,scrollbars=yes'))><?=$data[name]?></a><br><font style=font-size:8pt;color:999999>(<?=$data['user_id']?>)</td>
-          <td width="60" align="center"><font style=font-family:Tahoma;font-size:8pt;><span title='<?=$reg_date?>'><? echo"".date("m/d",$data[reg_date])."" ?></span></font></td>
+          <td width="60" align="center"><font style=font-family:Tahoma;font-size:8pt;><span title='<?=$reg_date?>'><?php echo"".date("m/d",$data[reg_date])."" ?></span></font></td>
         </tr>
-<?
+<?php
  		$loop_number--;
 	}
 ?>
@@ -288,6 +288,6 @@
 </tr>
 </table>
 <script>
-<?
+<?php
 	foot();
 ?>

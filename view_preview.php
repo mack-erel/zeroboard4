@@ -1,4 +1,4 @@
-<?
+<?php
 	include "lib.php";
 	include "include/list_check.php";
 
@@ -80,7 +80,7 @@
 	<meta http-equiv=Content-Type content=text/html; charset=EUC-KR>
 	<link rel=StyleSheet HREF=skin/<?=$setup[skinname]?>/style.css type=text/css title=style>
 </head>
-<body topmargin='10'  leftmargin='10' marginwidth='10' marginheight='10' <?
+<body topmargin='10'  leftmargin='10' marginwidth='10' marginheight='10' <?php
 	if($setup[bg_color]) echo " bgcolor=".$setup[bg_color];
 	if($setup[bg_image]) echo " background=".$setup[bg_image];?>>
 
@@ -108,6 +108,6 @@
 </body>
 </html>
 
-<?
+<?php
 	@mysql_close($connect);
 ?>

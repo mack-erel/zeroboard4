@@ -1,4 +1,4 @@
-<?
+<?php
  $_zb_path = "../";
 
  include "../lib.php";
@@ -19,7 +19,7 @@
 <u><center><font color=aaaaaa>[<b><?=$id?></b>] 게시판 정리</font></center></u><Br>
 <img src=../images/t.gif border=0 width=1 height=8><Br>
 <font color=white>&nbsp;&nbsp;&nbsp;&nbsp;Category 정리 :
-<?
+<?php
   $s_que="";
   $f_cn="";
   $temp=mysql_query("select * from $t_category"."_$id order by no asc");
@@ -40,7 +40,7 @@
   echo"<font color=yellow>성공</font>";
 ?>
 <font color=white>&nbsp;&nbsp;&nbsp;&nbsp;Division 정리 :
-<?
+<?php
   $temp=mysql_query("select * from $t_division"."_$id order by no asc",$connect);
   while($data=mysql_fetch_array($temp))
   {
@@ -52,7 +52,7 @@
   echo"<font color=yellow>성공</font>";
 ?>
 <br><br><center><a href=# onclick=window.close()><font color=888888>[close windows]</font></a>
-<?
+<?php
  foot();
  mysql_close($connect);
 ?>

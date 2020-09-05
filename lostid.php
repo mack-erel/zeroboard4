@@ -1,4 +1,4 @@
-<?
+<?php
 	include "lib.php";
 
 	// 웹마스터 E-mail
@@ -68,7 +68,7 @@ function check_submit()
 </tr>
 </table>
 <img src=images/t.gif border=0 height=5><br>
-<?
+<?php
 	@mysql_close($connect);
 	foot();
 ?>

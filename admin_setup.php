@@ -1,4 +1,4 @@
-<?
+<?php
 /***************************************************************************
  * 관리자 페이지
  **************************************************************************/
@@ -47,7 +47,7 @@
           <td valign="top" colspan="2" align=right>
 	      		<img src=images/t.gif border=0 height=5><Br> 
 
-<?if($member[is_admin]==1) {?>
+<?php if($member[is_admin]==1) {?>
 	      		<a href=admin_setup.php?exec=uninstall><font color=white style=font-size:9pt onclick="return confirm('제로보드를 제거하시겠습니까?')"><b>Uninstall</b></font></a> &nbsp;|&nbsp;
 	      		<a href=admin_setup.php?exec=db_dump><font color=white style=font-size:9pt onclick="return confirm('백업하시겠습니까?')"><b>DB 백업</b></font></a> &nbsp;|&nbsp;
 	      		<a href=admin_setup.php?exec=db_status><font color=white style=font-size:9pt><b>DB 상태 보기</b></font></a> &nbsp;|&nbsp;
@@ -55,7 +55,7 @@
 	      		<a href=admin/delsession.php target=_blank onclick="return confirm('세션의 양이 많아지면 전체적인 속도가 느려질수 있습니다.\n\n세션 디렉토리를 정리하시겠습니까?')"><font color=white style=font-size:9pt><b>세션 비우기</b></font></a> &nbsp;|&nbsp;
 	      		<a href=admin/trace.php target=_blank><font color=white style=font-size:9pt><b>게시물 추적</b></font></a> &nbsp;|&nbsp;
 	      		<a href=http://nzeo.com/manual/index.html target=_blank><font color=white style=font-size:9pt><b>매뉴얼</b></font></a>&nbsp;&nbsp;
-<?}?>
+<?php }?>
 
           </td>
         </tr>
@@ -70,7 +70,7 @@
                 <td><img src="images/adminlevel.gif" width="49" height="24"></td>
                 <td nowrap style="font-family:Tahoma;font-size:8pt;">
 
-<?
+<?php
 // 최고관리자일때
 	if($member[is_admin]==1) 
 		echo "<b><font color=#ffffff>Super Administrator</font></b> <a href=$PHP_SELF?exec=view_member&exec2=modify&no=$member[no]><font color=#ffffff style=font-family:Tahoma;font-size:8pt;>(Edit information)</font></a>";
@@ -104,7 +104,7 @@
 
 <!-- 그룹관리 -->
 
-<?
+<?php
 
 // 최고관리자인경우 모든 그룹 보여주고 추가/삭제 가능
 
@@ -118,7 +118,7 @@
 			<td bgcolor=#595959><img src=images/l_group.gif></td>
 		</tr>
 		</table>
-<?
+<?php
 
 		while($group_data=mysql_fetch_array($result)) {
 
@@ -141,7 +141,7 @@
 				&nbsp;<a href=<?=$PHP_SELF?>?exec=view_group&group_no=<?=$group_data[no]?>><font color=white><?=$b.$group_data[name]?> (<?=$group_data[no]?>)</b></font></a></td>
 		</tr>
 
-<?
+<?php
 
 			// 현재 선택된 그룹과 루핑되는 그룹과 매치될때;;
 			if($group_no==$group_data[no]) {
@@ -151,7 +151,7 @@
 			<td bgcolor=#868686 style=font-family:Tahoma;font-size:8pt;padding:3px><img src=images/g_top.gif width=38 height=14><br>
 				<a href=<?=$PHP_SELF?>?group_no=<?=$group_data[no]?>&exec=modify_group><img src=images/g_properties.gif border=0 alt="그룹 설정"></a>
 
-<?
+<?php
 				if($member[is_admin]==1) 
 					echo"<a href=$PHP_SELF?group_no=$group_data[no]&exec=del_group><img src=images/g_delete.gif border=0 alt=\"그룹 삭제\"></a>"; 
 ?>
@@ -165,7 +165,7 @@
 				<a href=<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_data[no]?>&page=<?=$page?>&page_num=<?=$page_num?>><img src=images/w_manage.gif alt="게시판 관리" border=0></a><a href=<?=$PHP_SELF?>?exec=view_board&exec2=add&group_no=<?=$group_data[no]?>><img src=images/w_add.gif alt="게시판 추가" border=0></a> 
 			</td>
 		</tr>
-<?
+<?php
 			} 
    
 			echo "</table>"; 
@@ -191,7 +191,7 @@
 				<a href=<?=$PHP_SELF?>?exec=view_group&group_no=<?=$group_data[no]?>><b><font color=white><?=$b.$group_data[name]?> (<?=$group_data[no]?>)</b></font></a></td>
 		</tr>
 
-<?
+<?php
 		// 메뉴출력
 		if($member[is_admin]==2) {
 ?>
@@ -209,7 +209,7 @@
 			</td>
 		</tr>
 
-<?
+<?php
 		} 
 		echo "</table>"; 
 	} 
@@ -219,13 +219,13 @@
 		<tr>
 			<Td bgcolor=666666 height=1><img src=images/t.gif border=0 height=1></td>
 		</tr>
-<?
+<?php
 	if($member[is_admin]==1) {
 ?>
 		<tr>
 			<td bgcolor="#3F3F3F" valign="bottom"><img src="images/t.gif" width="10" height="10"><br><a href=<?=$PHP_SELF?>?exec=add_group><img src=images/l_addgroup.gif border=0></a></td>
 		</tr>
-<?
+<?php
 	}
 ?>
 		</table>
@@ -242,7 +242,7 @@
  <!-- 직접적인 활동무대~~ 냐하핫~ -->
    <td width=100% align=center valign=top bgcolor=#3d3d3d>
 
-<?
+<?php
 // 최고관리자일때
 	if($member[is_admin]==1) {
 		if($exec=="add_group") { include "admin/admin_add_group.php"; }
@@ -305,7 +305,7 @@
 </tr>
 </table>
 
-<?
+<?php
 	mysql_close($connect);
 	foot();
 ?>

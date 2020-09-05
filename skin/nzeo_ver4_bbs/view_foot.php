@@ -1,5 +1,5 @@
 
-<?
+<?php
 if(!eregi("Zeroboard",$a_list)) $a_list = str_replace(">","><font class=list_eng>",$a_list)."&nbsp;&nbsp;";
 if(!eregi("Zeroboard",$a_reply)) $a_reply = str_replace(">","><font class=list_eng>",$a_reply)."&nbsp;&nbsp;";
 if(!eregi("Zeroboard",$a_modify)) $a_modify = str_replace(">","><font class=list_eng>",$a_modify)."&nbsp;&nbsp;";

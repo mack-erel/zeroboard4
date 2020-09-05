@@ -1,4 +1,4 @@
-<?
+<?php
 	include "lib.php";
 	include "schema.sql";
 

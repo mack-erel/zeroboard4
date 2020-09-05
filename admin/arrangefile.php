@@ -1,4 +1,4 @@
-<?
+<?php
 	set_time_limit (0);
 
 	$_zb_path="../";
@@ -34,7 +34,7 @@
 </div>
 <?flush()?>
 <pre>
-<?
+<?php
 	$result = mysql_query("select * from $admin_table order by name") or die(mysql_error());
 
 	$totalfilesnum = 0;
@@ -74,7 +74,7 @@
 	 - 총 업로드 갯수 : <?=number_format($filesnum1+$filesnum2)?> 개
 	 - 경로가 잘못된 첨부파일 수 : <?=number_format($nfilesnum1+$nfilesnum2)?> 개
 
-<?
+<?php
 		while($data=mysql_fetch_array($nfiles1)) {
 
 			// 소스 파일의 정보를 체크
@@ -180,13 +180,13 @@
 
 </pre>
 
-<?
+<?php
  mysql_close($connect);
  $connect="";
 ?>
 
 <br><Br><Br>
 
-<?
+<?php
  foot();
 ?>

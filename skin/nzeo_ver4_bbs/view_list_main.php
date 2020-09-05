@@ -1,4 +1,4 @@
-<?
+<?php
 	$subject = str_replace(">","><font class=list_han>",$subject);
 	$name = str_replace(">","><font class=list_han>",$name);
 
@@ -11,4 +11,4 @@
 	<td nowrap><?=$face_image?>&nbsp;<?=$name?>&nbsp;</div></td>
 	<td nowrap class=list_eng><?=nl2br(date("Y-m-d\nH:i:s",$data['reg_date']))?></td>
 </tr>
-<?$coloring++?>
+<?php $coloring++?>

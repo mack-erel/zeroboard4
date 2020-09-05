@@ -1,4 +1,4 @@
-<?
+<?php
   $_zb_path="../";
 
   include "../lib.php";
@@ -27,7 +27,7 @@
   alert("검색서버와의 연결을 실패하였습니다");
   self.close();
 </script>
-<?
+<?php
     } else {
       $query = "delete from zetyx_indexing where no = '{$no}'";
       mysql_query($query);
@@ -38,7 +38,7 @@
   } catch(e){}
   self.close();
 </script>
-<?
+<?php
     }
   }
 ?>

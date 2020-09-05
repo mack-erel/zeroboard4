@@ -9,13 +9,13 @@
   <td background=<?=$dir?>/4.gif><img src=<?=$dir?>/4.gif border=0></td>
   <td align=center><b>
 
-<?
+<?php
  if(!$mode||$mode=="write") echo "새로운 설문조사 작성";
  elseif($mode=="reply") echo "설문조사 항목 추가";
  else echo"설문조사 제목 수정";
 ?>
   </b><br>
-<?
+<?php
  if($mode!="modify") $subject="";
 ?></b><br><br>
 

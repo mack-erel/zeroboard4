@@ -1,4 +1,4 @@
-<?
+<?php
 	if(eregi(":\/\/",$dir)||eregi("^\.",$dir)) $dir ="./";
 
 	if($setup[use_category]) {

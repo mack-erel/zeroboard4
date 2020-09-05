@@ -1,4 +1,4 @@
-<?
+<?php
 // 라이브러리 함수 파일 인크루드
 	require "lib.php";
 	
@@ -141,10 +141,10 @@
   <td width=35%><img src=images/memo_level.gif></td>
   <td width=25%><img src=images/memo_id.gif></td>
   <td width=25%><img src=images/memo_name.gif></td>
-  <?if($status){?><td width=15%><img src=images/memo_status.gif></td><?}?>
+  <?php if($status){?><td width=15%><img src=images/memo_status.gif></td><?php }?>
 </tr>
 
-<?
+<?php
 // 출력
 	$loop_number=$total-($page-1)*$page_num;
 	while($data=mysql_fetch_array($result)) {
@@ -184,7 +184,7 @@
         </tr>
 
 <tr align=center>
-<? $checked[$status]="checked"; ?>
+<?php $checked[$status]="checked"; ?>
   <td colspan=5 height=30>
      <table border=0 align=center cellpadding=0 cellspacing=0>
      <tr>
@@ -220,7 +220,7 @@
   </tr>
 </table>
 
-<?
+<?php
 // MySQL 닫기 
 	if($connect) mysql_close($connect);
 

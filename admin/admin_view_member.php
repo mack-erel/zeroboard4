@@ -1,4 +1,4 @@
-<?
+<?php
 /**************************************************************************
  * 회원 목록 보는 페이지
  *************************************************************************/
@@ -58,7 +58,7 @@
 <tr height=1><td bgcolor=#000000 style=padding:0px; colspan=10><img src=images/t.gif height=1></td></tr>
 <tr bgcolor=bbbbbb>
 	<td align=right colspan=10 height=25 colspan=2 style=font-family:Tahoma;font-size:8pt;>
-	그룹이름 : <b><?=$group_data[name]?></b> , 전체 회원수 : <b><?echo $total_member;?></b> , <b><?echo $total;?></b> 개 검색&nbsp;&nbsp;&nbsp;</td>
+	그룹이름 : <b><?=$group_data[name]?></b> , 전체 회원수 : <b><?php echo $total_member;?></b> , <b><?php echo $total;?></b> 개 검색&nbsp;&nbsp;&nbsp;</td>
 </tr>
 <!-- 모두삭제하는 거랑, 변한변경, 그룹이동 버튼 표시 -->
 <script>
@@ -140,7 +140,7 @@
    return false;
   }
 
-<?if($member[is_admin]==1)
+<?php if($member[is_admin]==1)
   {
 ?>
   function move_group()
@@ -165,7 +165,7 @@
    }
    return false;
   }
-<? } ?>
+<?php } ?>
 </script>
 
 <tr align=center height=25 bgcolor=#a0a0a0>
@@ -190,7 +190,7 @@
    <input type=hidden name=page_num value=<?=$page_num?>>
    <input type=hidden name=exec2 value="">
 
-<?
+<?php
   while($data=mysql_fetch_array($result))
   {
    if($data[level]==1) $grant_color="<font color=red><b>";
@@ -223,17 +223,17 @@
     <table border=0 cellspacing=0 cellpadding=1>
     <tr>
        <td width=20>&nbsp;</td>
-       <td><img src=images/t.gif height=1><br><select name=movelevel><?
+       <td><img src=images/t.gif height=1><br><select name=movelevel><?php
   $select[0]=" selected ";
   for($i=1;$i<=10;$i++)
   echo "<option value=$i $select[$i]>$i Level</option>";?></select></td><td><input type=button value='레벨변경' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onclick=move_all()>
        </td><td><input type=button value='선택된 회원 삭제' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onclick=delete_all()></td>
-<?
+<?php
   if($member[is_admin]==1)
   {
 ?>
        <td width=20>&nbsp;</td>
-       <td><img src=images/t.gif height=1><br><select name=movegroup><?
+       <td><img src=images/t.gif height=1><br><select name=movegroup><?php
   $temp_group=mysql_query("select * from $group_table where no!='$group_no'");
   $i=0;
   $select[0]=" selected ";
@@ -245,7 +245,7 @@
   ?></select></td>
     <td><input type=button value='그룹 변경' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onclick=move_group()>&nbsp;</td>
 
-<?
+<?php
   }
 ?>
 
@@ -274,21 +274,21 @@
 		<img src=images/t.gif height=2><br>
   		<select name=level_search>
   			<option>레벨검색</option>
-<?
+<?php
 	$check[$level_search]="selected";
 	for($i=1;$i<=10;$i++) echo "<option value=$i $check[$i]>$i Level</option>";
 ?>
 		</select>
 		<select name=keykind>
-			<option value="user_id" <?if($keykind=="user_id")echo "selected";?>>User ID</option>
-			<option value="name" <?if($keykind=="name")echo "selected";?>>Name</option>
-			<option value="homepage" <?if($keykind=="homepage")echo "selected";?>>Homepage</option>
-			<option value="email" <?if($keykind=="email")echo "selected";?>>Email</option>
-			<option value="jumin" <?if($keykind=="jumin")echo "selected";?>>Jumin</option>
-			<option value="comment" <?if($keykind=="comment")echo "selected";?>>Comment</option>
+			<option value="user_id" <?php if($keykind=="user_id")echo "selected";?>>User ID</option>
+			<option value="name" <?php if($keykind=="name")echo "selected";?>>Name</option>
+			<option value="homepage" <?php if($keykind=="homepage")echo "selected";?>>Homepage</option>
+			<option value="email" <?php if($keykind=="email")echo "selected";?>>Email</option>
+			<option value="jumin" <?php if($keykind=="jumin")echo "selected";?>>Jumin</option>
+			<option value="comment" <?php if($keykind=="comment")echo "selected";?>>Comment</option>
 		</select>
-		<input type=text name=keyword value='<?echo $keyword;?>'>
-		<input type=checkbox name=like value=1 <?if($like) echo"checked";?> onclick='alert("Include 체크시 검색어를 포함하는 대상을 검색합니다.\n\n체크시 : *검색어*\n\n체크를 하지 않을경우 완전한 대상을 검색하며 더 빠릅니다\n\nComment를 제외하고는 체크하지 않는 것을 권해드립니다")'> <font style=color:#ffffff;font-size:8pt;font-family:Tahoma;>Include</font> &nbsp;
+		<input type=text name=keyword value='<?php echo $keyword;?>'>
+		<input type=checkbox name=like value=1 <?php if($like) echo"checked";?> onclick='alert("Include 체크시 검색어를 포함하는 대상을 검색합니다.\n\n체크시 : *검색어*\n\n체크를 하지 않을경우 완전한 대상을 검색하며 더 빠릅니다\n\nComment를 제외하고는 체크하지 않는 것을 권해드립니다")'> <font style=color:#ffffff;font-size:8pt;font-family:Tahoma;>Include</font> &nbsp;
 		<input type=submit value=' 검색 '  style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; >
 		<input type=button value=' 처음으로 ' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onclick=location.href="<?=$PHP_SELF?>?exec=<?=$exec?>&group_no=<?=$group_no?>">
 	</td>
@@ -296,7 +296,7 @@
 <tr>
 	<td style=font-family:Tahoma;font-size:8pt;font-weight:bold; align=right>
 		한 페이지당 표시될 회원수	
-		<input type=text name=page_num value='<?echo $page_num;?>' style=width:30px;>
+		<input type=text name=page_num value='<?php echo $page_num;?>' style=width:30px;>
     </td>
 </tr>
 </form>
@@ -306,7 +306,7 @@
 <br>
 
 <font color=#ffffff style=font-size:8pt;font-family:Tahoma;>
-<?
+<?php
 //페이지 나타내는 부분
 $show_page_num=10;
 $start_page=(int)(($page-1)/$show_page_num)*$show_page_num;

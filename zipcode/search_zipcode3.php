@@ -8,11 +8,11 @@
 <!--
 function postaddr(var1)
 {
-<? if($num==1){?>
+<?php if($num==1){?>
  opener.document.write.home_address.value=var1;
-<?} else{?>
+<?php } else{?>
  opener.document.write.office_address.value=var1;
-<?}?>
+<?php }?>
  window.close();
 }
 -->
@@ -22,7 +22,7 @@ function postaddr(var1)
 
 <body bgcolor=white leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 
-<?
+<?php
  echo urldecode(stripslashes($memo));
 ?>
 <br>

@@ -1,4 +1,4 @@
-<?
+<?php
 	if(!$mode||!$str) die("<script>window.close()</script>");
 	if($mode!="m"&&$mode!="i"&&$mode!="t"&&$mode!="tn") die("<script>window.close()</script>");
 
@@ -33,8 +33,8 @@
 ?>
 
 <script>
-<?if($href){?>
+<?php if($href){?>
 	window.open('<?=$href?>');
-<?}?>
+<?php }?>
 	window.close();
 </script>

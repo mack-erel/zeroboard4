@@ -1,11 +1,11 @@
-<?
+<?php
 	if(!$address) {
 ?>
 		<script>
 			alert("우편번호를 입력하셔야 합니다");
 			history.back();
 		</script>
-<?
+<?php
 		exit;
 	}
 

@@ -1,4 +1,4 @@
-<?
+<?php
 	if(eregi(":\/\/",$dir)||eregi("\.\.",$dir)) $dir ="./";
 
 	if(!$data[vote]) $data[vote]=1;

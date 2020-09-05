@@ -1,4 +1,4 @@
-<?
+<?php
   if(!isTable("zetyx_indexing")) {
     $query = "
       create table zetyx_indexing (
@@ -50,7 +50,7 @@
 		<td style=color:white;font-size:8pt;font-family:tahoma>예약 시간</td>
 		<td style=color:white;font-size:8pt;font-family:tahoma>삭제</td>
 	</tr>
-<?
+<?php
   for($i=0;$i<count($indexing_list);$i++) {
 ?>
   <tr bgcolor=#FFFFFF align=center height=25>
@@ -59,16 +59,16 @@
     <td><?=sprintf("%0.2f",$indexing_list[$i]['point']/$indexing_list[$i]['stop_point']*100)?>%</td>
     <td><?=$indexing_list[$i]['max_crawling']?>개</td>
     <td>
-      <?if(!$indexing_list[$i]['reserve_stime']&&!$indexing_list[$i]['reserve_etime']){?>
+      <?php if(!$indexing_list[$i]['reserve_stime']&&!$indexing_list[$i]['reserve_etime']){?>
       없음
-      <?}else{?>
+      <?php }else{?>
       <?=sprintf("%02d",$indexing_list[$i]['reserve_stime'])?>시 ~
       <?=sprintf("%02d",$indexing_list[$i]['reserve_etime'])?>시
-      <?}?>
+      <?php }?>
     </td>
     <td><a href="javascript:void(window.open('./admin/admin_del_indexing.php?no=<?=$indexing_list[$i]['no']?>','_DelBoard','width=400,height=200,noresizable,noscroll'))" onClick="return confirm('검색서버에서 삭제하시겠습니까?')">삭제</a></td>
   </tr>
-<?
+<?php
   }
 ?>
 	</table>

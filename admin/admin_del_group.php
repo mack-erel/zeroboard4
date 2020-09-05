@@ -1,4 +1,4 @@
-<?
+<?php
   $data=mysql_fetch_array(mysql_query("select * from $group_table where no='$group_no'"));
   $check_open[$data[is_open]]="checked";
   $check_join[$data[use_join]]="checked";

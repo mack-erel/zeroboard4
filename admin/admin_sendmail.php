@@ -1,4 +1,4 @@
-<?
+<?php
 	if($cart) {
 		$temp=explode("||",$cart);
 		$s_que=" and ( no='$temp[1]' ";
@@ -42,7 +42,7 @@
 <input type=hidden name=exec2 value="">
 
 <tr align=center bgcolor=a0a0a0 height=30>
-<td colspan=2><b><?echo number_format($total_member);?> 명의 멤버에게 메일링 보내기</td>
+<td colspan=2><b><?php echo number_format($total_member);?> 명의 멤버에게 메일링 보내기</td>
 </tr>
 
 <tr>

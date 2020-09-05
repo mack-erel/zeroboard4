@@ -1,4 +1,4 @@
-<?
+<?php
 	$group_data=mysql_fetch_array(mysql_query("select * from $group_table where no='$group_no'"));
 
 	if($member[is_admin]>2&&!eregi($no.",",$member[board_name])) error("사용 권한이 없습니다");
@@ -24,7 +24,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;width=30%><b>목록 보기 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_list class=input >
-<?
+<?php
   for($i=1;$i<=10;$i++)
   if($i==$board_data[grant_list]) echo"<option value=$i selected>$i</option>";
   else echo"<option value=$i>$i</option>";
@@ -38,7 +38,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>내용 보기 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_view  class=input>
-<?
+<?php
   for($i=1;$i<=10;$i++)
   if($i==$board_data[grant_view]) echo"<option value=$i selected>$i</option>";
   else echo"<option value=$i>$i</option>";
@@ -52,7 +52,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>글쓰기 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_write class=input>
-<?
+<?php
   for($i=1;$i<=10;$i++)
   if($i==$board_data[grant_write]) echo"<option value=$i selected>$i</option>";
   else echo"<option value=$i>$i</option>";
@@ -67,7 +67,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>간단한 답글 쓰기 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_comment class=input>
-<?
+<?php
   for($i=1;$i<=10;$i++)
   if($i==$board_data[grant_comment]) echo"<option value=$i selected>$i</option>";
   else echo"<option value=$i>$i</option>";
@@ -81,7 +81,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>답변쓰기 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_reply class=input>
-<?
+<?php
   for($i=1;$i<=10;$i++)
   if($i==$board_data[grant_reply]) echo"<option value=$i selected>$i</option>";
   else echo"<option value=$i>$i</option>";
@@ -95,7 +95,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>삭제 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_delete class=input>
-<?
+<?php
   for($i=1;$i<=10;$i++)
   if($i==$board_data[grant_delete]) echo"<option value=$i selected>$i</option>";
   else echo"<option value=$i>$i</option>";
@@ -109,7 +109,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b> HTML 사용 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_html class=input>
-<?
+<?php
   for($i=1;$i<=10;$i++)
   if($i==$board_data[grant_html]) echo"<option value=$i selected>$i</option>";
   else echo"<option value=$i>$i</option>";
@@ -123,7 +123,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>공지사항 작성 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_notice class=input>
-<?
+<?php
   for($i=1;$i<=10;$i++)
   if($i==$board_data[grant_notice]) echo"<option value=$i selected>$i</option>";
   else echo"<option value=$i>$i</option>";
@@ -137,7 +137,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>비밀글 보기 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_view_secret class=input>
-<?
+<?php
   for($i=1;$i<=10;$i++)
   if($i==$board_data[grant_view_secret]) echo"<option value=$i selected>$i</option>";
   else echo"<option value=$i>$i</option>";
@@ -151,7 +151,7 @@
   <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>Image Box 사용 권한 &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_imagebox class=input>
-<?
+<?php
   if(!$board_data[use_showip]) $board_data[use_showip]=1;
   for($i=1;$i<10;$i++)
   if($i==$board_data[use_showip]) echo"<option value=$i selected>$i</option>";

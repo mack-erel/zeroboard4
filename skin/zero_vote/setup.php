@@ -1,4 +1,4 @@
-<? 
+<?php 
   /*
   이 파일은 게시판에서 상단의 상태를 보여줍니다.
   
@@ -39,7 +39,7 @@ function swapImage() {
 }
 </script>
 <!-- HTML 시작 -->
-<? 
+<?php 
 	if(eregi(":\/\/",$dir)||eregi("\.\.",$dir)) $dir ="./";
 	include "$dir/value.php3"; 
 ?>

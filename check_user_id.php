@@ -1,4 +1,4 @@
-<?
+<?php
   $user_id = htmlspecialchars(trim($user_id));
 
   include "lib.php";
@@ -11,7 +11,7 @@
 <table border=0 width=100% height=100%>
 <tr>
   <td align=center>
-<?
+<?php
   if($check[0]) echo "$user_id 는 이미 등록된<br> 아이디입니다";
   else echo"$user_id 는 사용하실수 있습니다";
 ?>
@@ -25,7 +25,7 @@
 </form>
 </table>
 
-<? 
+<?php 
 	 @mysql_close($connect);
 	 foot(); 
 ?>

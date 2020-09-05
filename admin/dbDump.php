@@ -1,4 +1,4 @@
-<?
+<?php
 	function zbDB_getFields($tableName) {
 		global $connect;
 		$result = mysql_query("show fields from $tableName",$connect) or die(mysql_error());

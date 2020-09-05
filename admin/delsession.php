@@ -1,4 +1,4 @@
-<?
+<?php
 	set_time_limit (0);
 
 	$_zb_path="../";
@@ -74,7 +74,7 @@
 	</table>
 	</form>
 	<script>
-<?
+<?php
 	
 	// 전체 파일 목록을 구함
 	unset($list);
@@ -102,13 +102,13 @@
 ?>
 	</script>
 	</div>
-<?
+<?php
  mysql_close($connect);
  $connect="";
 ?>
 
 <br><Br><Br>
 
-<?
+<?php
  foot();
 ?>

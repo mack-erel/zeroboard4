@@ -1,4 +1,4 @@
-<?
+<?php
 /***************************************************************************
  * 회원마다 업로드된 이미지를 보여주는 페이지
  **************************************************************************/
@@ -274,12 +274,12 @@ function alignset(str) {
 	<br>
 
 	<table border=0 width=98% cellspacing=0 cellpadding=2>
-<?
+<?php
 	$_t_width = (int)(100 / $h_num);
 	for($i=0;$i<$h_num;$i++) echo"<col width=$_t_width"."%></col>";
 ?>
 
-<?
+<?php
 	$_x = 1;
 
 	$startNum = ($image_page-1)*$listnum;
@@ -325,7 +325,7 @@ function alignset(str) {
 			</tr>
 			</table>
 		</td>
-<?
+<?php
 		$_x ++;
 		if($_x > $h_num) {
 			$_x = 1;
@@ -361,7 +361,7 @@ function alignset(str) {
 	</tr>
 	<tr>
 		<td align=center height=40>
-			<a href=<?=$PHP_SELF?>?id=<?=$id?>&image_page=1>[First]</a><?
+			<a href=<?=$PHP_SELF?>?id=<?=$id?>&image_page=1>[First]</a><?php
 	$startPageNum = $image_page - 5;
 	if($startPageNum<0) $startPageNum=1;
 	$endPageNum = $image_page + 5 ;
@@ -419,6 +419,6 @@ function alignset(str) {
 	</table>
 </div>
 
-<?
+<?php
 	include "_foot.php";
 ?>

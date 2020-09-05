@@ -1,4 +1,4 @@
-<?
+<?php
 	$subject = str_replace(">","><font class=list_han>",$subject);
 	$name= str_replace(">","><font class=list_han>",$name);
 ?>
@@ -13,4 +13,4 @@
 	<td nowrap class=list_eng><?=$hit?></td>
 </tr>
 
-<?$coloring++;?>
+<?php $coloring++;?>

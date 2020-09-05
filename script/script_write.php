@@ -11,17 +11,17 @@
    alert('글쓰기 버튼을 여러번 누르시면 안됩니다');
    return false;
   }
-<? if($setup[use_category]) { ?>
+<?php if($setup[use_category]) { ?>
   var myindex=document.write.category[1].selectedIndex;
   if (myindex<1)
   {
    alert('카테고리를 선택하여 주십시요');
    return false;
   }
-<? } ?>
+<?php } ?>
 
 
-<? if(!$member[no]) { ?>
+<?php if(!$member[no]) { ?>
 
   if(!document.write.password.value)
   {
@@ -37,7 +37,7 @@
    return false;
   }
 
-<? } ?>
+<?php } ?>
 
   if(!document.write.subject.value)
   {

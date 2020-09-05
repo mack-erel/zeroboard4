@@ -1,4 +1,4 @@
-<?
+<?php
 	include "lib.php";
 	$connect=dbConn();
 	$member=member_info();
@@ -65,7 +65,7 @@ function check_submit() {
 </table>
 <form>
 
-<?
+<?php
 	mysql_close($connect);
 	foot();
 ?>

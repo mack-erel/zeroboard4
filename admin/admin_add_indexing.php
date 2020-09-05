@@ -1,4 +1,4 @@
-<?
+<?php
 
   $_zb_path="../";
 
@@ -90,7 +90,7 @@
             alert("<?=$errMsg?>");
             history.back();
           </script>
-        <?
+        <?php
       } else {
         ?>
           <script>
@@ -99,7 +99,7 @@
             } catch(e) {}
             self.close();
           </script>
-        <?
+        <?php
       }
 
     exit();
@@ -156,7 +156,7 @@
         <tr>
           <td>게시판</td>
           <td><select name=table_id>
-    <?
+    <?php
       for($i=0;$i<count($table_list);$i++) {
         $board_id = $table_list[$i];
         if(in_array($board_id, $indexing_list)) continue;
@@ -172,7 +172,7 @@
         <tr>
           <td>예약 시작 시간</td>
           <td><select name=reserve_stime>
-    <?
+    <?php
       for($i=0;$i<=24;$i++) print "<option value={$i} ".($i==0?"selected":"").">".sprintf("%02d",$i)."</option>";
     ?>
           </select> 시</td>
@@ -180,7 +180,7 @@
         <tr>
           <td>예약 종료 시간</td>
           <td><select name=reserve_etime>
-    <?
+    <?php
       for($i=0;$i<=24;$i++) print "<option value={$i} ".($i==0?"selected":"").">".sprintf("%02d",$i)."</option>";
     ?>
           </select> 시</td>

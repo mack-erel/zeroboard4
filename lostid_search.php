@@ -1,4 +1,4 @@
-<?
+<?php
 	include "lib.php";
 
 	// 웹마스터 E-mail

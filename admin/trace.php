@@ -1,4 +1,4 @@
-<?
+<?php
  $_zb_path="../";
 
  include "../lib.php";
@@ -60,12 +60,12 @@
   <Table border=0>
 	<tr>
   	<td style=line-height:180% height=40 align=right>
-  		<input type=checkbox name=keykind[0] value="name" <?if($keykind[0]) echo"checked";?>> 이름 &nbsp;
-  		<input type=checkbox name=keykind[1] value="email" <?if($keykind[1]) echo"checked";?>> E-Mail &nbsp;
-  		<input type=checkbox name=keykind[2] value="ip" <?if($keykind[2]) echo"checked";?>> 아이피 &nbsp;
-  		<input type=checkbox name=keykind[3] value="subject" <?if($keykind[3]) echo"checked";?>> 제목 &nbsp;
-  		<input type=checkbox name=keykind[4] value="memo" <?if($keykind[4]) echo"checked";?>> 내용 &nbsp;
-  		<input type=checkbox name=keykind[5] value="ismember" <?if($keykind[5]) echo"checked";?>> 아이디 &nbsp;
+  		<input type=checkbox name=keykind[0] value="name" <?php if($keykind[0]) echo"checked";?>> 이름 &nbsp;
+  		<input type=checkbox name=keykind[1] value="email" <?php if($keykind[1]) echo"checked";?>> E-Mail &nbsp;
+  		<input type=checkbox name=keykind[2] value="ip" <?php if($keykind[2]) echo"checked";?>> 아이피 &nbsp;
+  		<input type=checkbox name=keykind[3] value="subject" <?php if($keykind[3]) echo"checked";?>> 제목 &nbsp;
+  		<input type=checkbox name=keykind[4] value="memo" <?php if($keykind[4]) echo"checked";?>> 내용 &nbsp;
+  		<input type=checkbox name=keykind[5] value="ismember" <?php if($keykind[5]) echo"checked";?>> 아이디 &nbsp;
   	</td>
   	<td><input type=text name=keyword value="<?=$s_keyword?>" size=20 class=input>&nbsp;</td>
   	<td><input type=image src=../images/trace_search.gif border=0 valign=absmiddle></td>
@@ -82,7 +82,7 @@
 </table>
 </div>
 
-<?
+<?php
 if($keyword&&$s_que)
 {
   while($table_data=mysql_fetch_array($table_name_result))
@@ -98,7 +98,7 @@ if($keyword&&$s_que)
 <br><br><br>
 
 &nbsp;&nbsp;<a href=../zboard.php?id=<?=$table_name?> target=_blank><font size=4 style=font-family:tahoma; color=black><?=$table_name?>&nbsp;<b>게시판</b></font></a><br>
-<?
+<?php
    while($data=mysql_fetch_array($result))
    {
     flush();
@@ -112,7 +112,7 @@ if($keyword&&$s_que)
 
 <img src=../images/t.gif border=0 height=20><Br>
 
-<?
+<?php
    }
 
    mysql_free_result($result);
@@ -126,7 +126,7 @@ if($keyword&&$s_que)
 <br><Br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href=../zboard.php?id=<?=$table_name?> target=_blank><font size=3 style=font-family:tahoma;><?=$table_name?><b>게시판</b> 의 간단한 답글</font></a>
 <br>
-<?
+<?php
     while($data=mysql_fetch_array($result))
     {
      flush();
@@ -137,7 +137,7 @@ if($keyword&&$s_que)
 <font color=666666>(<font color=blue><?=date("Y-m-d H:i:s",$data[reg_date])?></font> / <font color=green><?=$data[ip]?></font>)</font>
 <img src=../images/t.gif border=0 height=20><Br>
 
-<?
+<?php
     }
    }
   }
@@ -150,6 +150,6 @@ if($keyword&&$s_que)
 
 <br><Br><Br>
 
-<?
+<?php
  foot();
 ?>

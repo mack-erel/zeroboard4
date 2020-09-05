@@ -1,4 +1,4 @@
-<?
+<?php
 /******************************************************************************
  * Zeroboard library 
  *
@@ -401,23 +401,23 @@
 	<title><?=$setup[title]?></title>
 	<meta http-equiv=Content-Type content=text/html; charset=EUC-KR>
 	<link rel=StyleSheet HREF=<?=$stylefile?> type=text/css title=style>
-	<?if($setup[use_formmail]) echo $zbLayerScript;?>
-	<?if($scriptfile) include "script/".$scriptfile;?>
+	<?php if($setup[use_formmail]) echo $zbLayerScript;?>
+	<?php if($scriptfile) include "script/".$scriptfile;?>
 </head>
-<body topmargin='0'  leftmargin='0' marginwidth='0' marginheight='0' <?=$body?><?
+<body topmargin='0'  leftmargin='0' marginwidth='0' marginheight='0' <?=$body?><?php
 
 			if($setup[bg_color]) echo " bgcolor=".$setup[bg_color]." ";
 			if($setup[bg_image]) echo " background=".$setup[bg_image]." ";
 
 			?>>
-			<?
+			<?php
 			if($group[header_url]) { @include $group[header_url]; }
 			if($setup[header_url]) { @include $setup[header_url]; }
 			if($group[header]) echo stripslashes($group[header]);
 			if($setup[header]) echo stripslashes($setup[header]);
 			?>
 			<table border=0 cellspacing=0 cellpadding=0 width=<?=$width?> height=1 style="table-layout:fixed;"><col width=100%></col><tr><td><img src=images/t.gif border=0 width=98% height=1 name=zb_get_table_width><br><img src=images/t.gif border=0 name=zb_target_resize width=1 height=1></td></tr></table>
-			<?
+			<?php
 		} else {
 
 			?>
@@ -428,7 +428,7 @@
 	<?=$script?>
 </head>
 <body topmargin='0'  leftmargin='0' marginwidth='0' marginheight='0' <?=$body?>>
-			<?
+			<?php
 				if($group[header_url]) { @include $group[header_url]; }
 				if($group[header]) echo stripslashes($group[header]);
 		}
@@ -460,7 +460,7 @@
 			</tr>
 			</table>
 
-			<?
+			<?php
 			if($_zbResizeCheck) {
 			?>
 			<!-- 이미지 리사이즈를 위해서 처리하는 부분 -->
@@ -477,7 +477,7 @@
 				window.onload = zb_img_check;
 			</script>
 
-			<?
+			<?php
 			}
 
 			if($setup[footer]) echo stripslashes($setup[footer]);
@@ -488,7 +488,7 @@
 
 </body>
 </html>
-			<?
+			<?php
 			
 		} else {
 
@@ -498,7 +498,7 @@
 			?>
 			</body>
 			</html>
-			<?
+			<?php
 		}
 
 		$_phpExcutedTime = (getmicrotime()-$_startTime)-($_sessionEnd-$_sessionStart)-($_nowConnectEnd-$_nowConnectStart)-$_dbTime-$_skinTime;
@@ -574,7 +574,7 @@
 				alert("<?=$message?>");
 				window.close();
 			</script>
-			<?
+			<?php
 		} else {
 
 			head();

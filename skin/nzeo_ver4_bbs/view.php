@@ -1,4 +1,4 @@
-<?
+<?php
 	$name = str_replace(">","><font class=list_han>",$name);
 	$homepage = str_replace(">","><font class=list_eng></b>",$homepage);
 	$a_file_link1 = str_replace(">","><font class=list_eng></b>",$a_file_link1);
@@ -23,9 +23,9 @@
 		<tr>
 			<td nowrap style=padding-left:10px>
 				<?=$face_image?> <?=$name?></b>&nbsp;
-				<?
+				<?php
 					if($data['homepage']) {
-				?><a href="<?=$data['homepage']?>" target=_blank><font class=list_eng>(Homepage)</font></a><?
+				?><a href="<?=$data['homepage']?>" target=_blank><font class=list_eng>(Homepage)</font></a><?php
 					}
 				?>
 			</td>
@@ -56,7 +56,7 @@
 <img src=<?=$dir?>/t.gif border=0 height=2><br>
 
 
-<?if($member['level']<=$setup['grant_comment']){?>
+<?php if($member['level']<=$setup['grant_comment']){?>
 <?=$hide_comment_start?>
 <table border=0 cellspacing=0 cellpadding=0 height=1 width=<?=$width?>>
 <tr><td height=1 class=line1 style=height:1px><img src=<?=$dir?>/t.gif border=0 height=1></td></tr>
@@ -79,4 +79,4 @@
 </table>
 <img src=/images/t.gif border=0 height=8><br>
 <?=$hide_comment_end?>
-<?}?>
+<?php }?>

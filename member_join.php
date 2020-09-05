@@ -1,4 +1,4 @@
-<?
+<?php
 // 라이브러리 함수 파일 인크루드
 	include "lib.php";
 
@@ -69,7 +69,7 @@
  function check_submit()
  {
 
-<?
+<?php
 	if(file_exists("./join_license.txt")) {
 ?>
 
@@ -78,13 +78,13 @@
 	return false;
   }
 
-<?
+<?php
 	}
 ?>
 
   if(!write.user_id.value) {alert("아이디를 입력하여 주십시요.");write.user_id.focus(); return false;}
 
-<?
+<?php
 	if($_zbDefaultSetup[enable_hangul_id]=="false") {
 ?>
 
@@ -114,7 +114,7 @@
       return false;
     }
   } 
-<?
+<?php
 	}
 ?>
 
@@ -123,7 +123,7 @@
   if(write.password.value!=write.password1.value) {alert("패스워드가 일치하지 않습니다.");write.password.value="";write.password1.value=""; write.password.focus(); return false;}
   if(!write.name.value) { alert("이름을 입력하세요"); write.name.focus(); return false; }
 
-<? if($group[use_birth])
+<?php if($group[use_birth])
    { ?>
 
     if ( write.birth_1.value < 1000 || write.birth_1.value <= 0 )  {
@@ -144,14 +144,14 @@
          write.birth_3.focus();
         return false;
     }
-<? } ?>
+<?php } ?>
   if(!write.email.value) {alert("E-Mail을 입력하여 주십시요.");write.email.focus(); return false;}
 
-<? if($group[use_jumin]&&!$mode)
+<?php if($group[use_jumin]&&!$mode)
    { ?>
    if(!write.jumin1.value) {alert("주민등록번호를 입력하여 주십시요");write.jumin1.focus(); return false;}
    if(!write.jumin2.value) {alert("주민등록번호를 입력하여 주십시요");write.jumin2.focus(); return false;}
-<?}?>
+<?php }?>
 
   return true;
   }
@@ -182,7 +182,7 @@
 
   <tr><td colspan=2><img src=images/member_joinin.gif><br><br></td></tr>
 
-<?
+<?php
 	if(file_exists("./join_license.txt")) {
 		$f=fopen("join_license.txt",r);
 		$join_license = fread($f,filesize("join_license.txt"));
@@ -197,7 +197,7 @@
   <tr>
   	<td colspan=2>&nbsp;&nbsp;&nbsp;<input type=checkbox name=accept value=1 onclick="return check_accept()"> 위의 가입 약관에 동의합니다</td>
   </tr>
-<?
+<?php
 	}
 ?>
         <tr>
@@ -205,7 +205,7 @@
         </tr>
   <tr align=right>
      <td width=25% style=font-family:Tahoma;font-size:8pt;><b>ID&nbsp;</td>
-     <td align=left>&nbsp;<input type=text name=user_id size=20 maxlength=20 style=border-color:#d8b3b3 class=input> <input type=button value='Check ID' style=color:#000000;border-color:#dfb8b8;background-color:#f0f0f0;font-size:8pt;font-family:Tahoma;height:20px; onclick=check_id(write.user_id.value)><br><img src=images/t.gif border=0 height=4><? if($_zbDefaultSetup[enable_hangul_id]=="false") {?><br>&nbsp;(영문,숫자,_로만 아이디를 작성하세요)<? } ?></td>
+     <td align=left>&nbsp;<input type=text name=user_id size=20 maxlength=20 style=border-color:#d8b3b3 class=input> <input type=button value='Check ID' style=color:#000000;border-color:#dfb8b8;background-color:#f0f0f0;font-size:8pt;font-family:Tahoma;height:20px; onclick=check_id(write.user_id.value)><br><img src=images/t.gif border=0 height=4><?php if($_zbDefaultSetup[enable_hangul_id]=="false") {?><br>&nbsp;(영문,숫자,_로만 아이디를 작성하세요)<?php } ?></td>
   </tr>
         <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
@@ -224,7 +224,7 @@
         <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? if($group[use_birth]) { ?>
+<?php if($group[use_birth]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;><b>Birthday&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=birth_1 size=4 maxlength=4 style=border-color:#d8b3b3 class=input> 년 
@@ -234,7 +234,7 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;><b>E-mail&nbsp;</td>
@@ -252,7 +252,7 @@
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
 
-<? if($group[use_icq]) { ?>
+<?php if($group[use_icq]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>ICQ&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=icq size=20 maxlength=20 value="<?=$member[icq]?>" style=border-color:#d8b3b3 class=input>
@@ -260,9 +260,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_aol]) { ?>
+<?php if($group[use_aol]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>AIM&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=aol size=20 maxlength=20 value="<?=$member[aol]?>" style=border-color:#d8b3b3 class=input>
@@ -270,9 +270,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_msn]) { ?>
+<?php if($group[use_msn]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>MSN&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=msn size=20 maxlength=250 value="<?=$member[msn]?>" style=border-color:#d8b3b3 class=input>
@@ -280,9 +280,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_jumin]) { ?>
+<?php if($group[use_jumin]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt; valign=top><table border=0 cellspacing=0 cellpadding=0 height=4><tr><td></td></tr></table><b>주민등록번호 &nbsp;</td>
      <td align=left>&nbsp<input type=text name=jumin1 size=6 maxlength=6 style=border-color:#d8b3b3 class=input>-<input type=text name=jumin2 size=7 maxlength=7 style=border-color:#d8b3b3 class=input> <br>* 주민등록번호는 암호화되어 저장이 되므로 관리자도 알수 없습니다<br>
@@ -290,9 +290,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_hobby]) { ?>
+<?php if($group[use_hobby]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>Hobby&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=hobby size=50 maxlength=50 value="<?=$member[hobby]?>" style=border-color:#d8b3b3 class=input>
@@ -300,9 +300,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_job]) { ?>
+<?php if($group[use_job]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>Occupation(Job)&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=job size=20 maxlength=20 value="<?=$member[job]?>" style=border-color:#d8b3b3 class=input>
@@ -310,9 +310,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_home_address]) { ?> 
+<?php if($group[use_home_address]) { ?> 
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>Home Address&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=home_address size=40 maxlength=255 value="<?=$member[home_address]?>" style=border-color:#d8b3b3 class=input><input type=button value='검색' class=input style=border-color:#d8b3b3 onclick=address_popup(1)>
@@ -320,9 +320,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_home_tel]) { ?>
+<?php if($group[use_home_tel]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>Home Phone&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=home_tel size=20 maxlength=20 value="<?=$member[home_tel]?>" style=border-color:#d8b3b3 class=input>
@@ -330,9 +330,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_office_address]) { ?>
+<?php if($group[use_office_address]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>Office Address&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=office_address size=40 maxlength=255 value="<?=$member[office_address]?>" style=border-color:#d8b3b3 class=input><input type=button value='검색' class=input style=border-color:#d8b3b3 onclick=address_popup(2)>
@@ -340,9 +340,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_office_tel]) { ?>
+<?php if($group[use_office_tel]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>Office Phone&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=office_tel size=20 maxlength=20 value="<?=$member[office_tel]?>" style=border-color:#d8b3b3 class=input>
@@ -350,9 +350,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_handphone]) { ?>
+<?php if($group[use_handphone]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>Cellular&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=handphone size=20 maxlength=20 value="<?=$member[handphone]?>" style=border-color:#d8b3b3 class=input>
@@ -360,30 +360,30 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_mailing]) { ?>
+<?php if($group[use_mailing]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;><b>Mailling List&nbsp;</td>
      <td align=left>&nbsp;<input type=checkbox name=mailing value=1 checked> 메일링 가입</td>
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_picture]) { ?>
+<?php if($group[use_picture]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>Photo&nbsp;</td>
      <td align=left>&nbsp;<input type=file name=picture size=35 maxlength=255 style=border-color:#d8b3b3 class=input>
-                 <? if($member[picture]) echo"<br>&nbsp;<img src='$member[picture]' border=0>"; ?>
+                 <?php if($member[picture]) echo"<br>&nbsp;<img src='$member[picture]' border=0>"; ?>
                           <input type=checkbox value=1 name=open_picture checked> 공개
      </td>
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group[use_comment]) { ?>
+<?php if($group[use_comment]) { ?>
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;>자기 소개서</td>
      <td align=left>&nbsp;<textarea cols=50 rows=4 name=comment style=border-color:#d8b3b3 class=textarea><?=$member[comment]?></textarea><br>&nbsp;<input type=checkbox value=1 name=open_comment checked> 공개</td>
@@ -391,7 +391,7 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
   <tr align=right height=28>
      <td style=font-family:Tahoma;font-size:8pt;><b>개인정보 공개</td>
@@ -411,7 +411,7 @@
 </table>
 
 
-<?
+<?php
 	@mysql_close($connect);
 	foot();
 ?>

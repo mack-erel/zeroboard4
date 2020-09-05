@@ -1,4 +1,4 @@
-<?$coloring=0;?>
+<?php $coloring=0;?>
 <table border=0 cellspacing=1 cellpadding=4 width=<?=$width?> style=table-layout:fixed>
 <form method=post name=list action=list_all.php>
 <input type=hidden name=page value=<?=$page?>>

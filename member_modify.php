@@ -1,4 +1,4 @@
-<?
+<?php
 // 라이브러리 함수 파일 인크루드
 	include "lib.php";
 
@@ -68,7 +68,7 @@
   if(write.password.value!=write.password1.value) {alert("패스워드가 일치하지 않습니다.");write.password.value="";write.password1.value=""; write.password.focus(); return false;}
   if(!write.name.value) { alert("이름을 입력하세요"); write.name.focus(); return false; }
 
-<? 
+<?php 
 	if($group_data[use_birth]) { 
 ?>
 
@@ -91,7 +91,7 @@
         return false;
     }
 
-<?
+<?php
 	} 
 ?>
 
@@ -144,7 +144,7 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? if($group_data[use_birth]) { ?>
+<?php if($group_data[use_birth]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;><b>Birthday&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=birth_1 size=4 maxlength=4 value="<?=date("Y",$member[birth])?>" style=border-color:#d8b3b3 class=input> 년 
@@ -154,7 +154,7 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;><b>E-mail&nbsp;</td>
@@ -172,7 +172,7 @@
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
 
-<? if($group_data[use_icq]) { ?>
+<?php if($group_data[use_icq]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>ICQ&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=icq size=20 maxlength=20 value="<?=$member[icq]?>" style=border-color:#d8b3b3 class=input>
@@ -180,9 +180,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_aol]) { ?>
+<?php if($group_data[use_aol]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>AIM&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=aol size=20 maxlength=30 value="<?=$member[aol]?>" style=border-color:#d8b3b3 class=input>
@@ -190,9 +190,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_msn]) { ?>
+<?php if($group_data[use_msn]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>MSN&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=msn size=20 maxlength=250 value="<?=$member[msn]?>" style=border-color:#d8b3b3 class=input>
@@ -200,9 +200,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_hobby]) { ?>
+<?php if($group_data[use_hobby]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Hobby&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=hobby size=40 maxlength=40 value="<?=$member[hobby]?>" style=border-color:#d8b3b3 class=input>
@@ -210,9 +210,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_job]) { ?>
+<?php if($group_data[use_job]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Occupation(Job)&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=job size=20 maxlength=20 value="<?=$member[job]?>" style=border-color:#d8b3b3 class=input>
@@ -220,9 +220,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_home_address]) { ?> 
+<?php if($group_data[use_home_address]) { ?> 
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Home Address&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=home_address size=40 maxlength=255 value="<?=$member[home_address]?>" style=border-color:#d8b3b3 class=input><input type=button value='검색' class=input style=border-color:#d8b3b3 onclick=address_popup(1)>
@@ -230,9 +230,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_home_tel]) { ?>
+<?php if($group_data[use_home_tel]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Home Phone&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=home_tel size=20 maxlength=20 value="<?=$member[home_tel]?>" style=border-color:#d8b3b3 class=input>
@@ -240,9 +240,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_office_address]) { ?>
+<?php if($group_data[use_office_address]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Office Address&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=office_address size=40 maxlength=255 value="<?=$member[office_address]?>" style=border-color:#d8b3b3 class=input><input type=button value='검색' class=input style=border-color:#d8b3b3 onclick=address_popup(2)>
@@ -250,9 +250,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_office_tel]) { ?>
+<?php if($group_data[use_office_tel]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Office Phone&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=office_tel size=20 maxlength=20 value="<?=$member[office_tel]?>" style=border-color:#d8b3b3 class=input>
@@ -260,9 +260,9 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_handphone]) { ?>
+<?php if($group_data[use_handphone]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Cellular&nbsp;</td>
      <td align=left>&nbsp;<input type=text name=handphone size=20 maxlength=20 value="<?=$member[handphone]?>" style=border-color:#d8b3b3 class=input>
@@ -270,16 +270,16 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_mailing]) { ?>
+<?php if($group_data[use_mailing]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;><b>Mailling List</td>
      <td align=left>&nbsp;<input type=checkbox name=mailing value=1 <?=$check[$member[mailing]]?>> 메일링 가입</td>
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;><b>Disclose Info</td>
@@ -288,20 +288,20 @@
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
 
-<? if($group_data[use_picture]) { ?>
+<?php if($group_data[use_picture]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Photo</td>
      <td align=left>&nbsp;<input type=file name=picture size=34 maxlength=255 style=border-color:#d8b3b3 class=input>
-                 <? if($member[picture]) echo"<br>&nbsp;<img src='$member[picture]' border=0> <input type=checkbox name=del_picture value=1> 삭제"; ?>
+                 <?php if($member[picture]) echo"<br>&nbsp;<img src='$member[picture]' border=0> <input type=checkbox name=del_picture value=1> 삭제"; ?>
                           <input type=checkbox value=1 name=open_picture <?=$check[$member[open_picture]]?>> 공개
                           
      </td>
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
-<? if($group_data[use_comment]) { ?>
+<?php if($group_data[use_comment]) { ?>
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Comments</td>
      <td align=left>&nbsp;<textarea cols=40 rows=4 name=comment style=border-color:#d8b3b3 class=textarea><?=$member[comment]?></textarea><br>&nbsp;
@@ -309,7 +309,7 @@
   </tr>        <tr>
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
-<? } ?>
+<?php } ?>
 
   <tr height=28 align=right>
      <td style=font-family:Tahoma;font-size:8pt;>Point</td>
@@ -318,7 +318,7 @@
           <td colspan="5" bgcolor="#EBD9D9" align="center"><img src="images/t.gif" width="10" height="1"></td>
         </tr>
 <tr height=30 bgcolor=#ffffff>
-   <td align=center><? if($member[no]>1) {?><a href=member_out.php?id=<?=$id?>&group_no=<?=$group_no?> onclick="return confirm('탈퇴하시겠습니까?\n\n탈퇴를 하시면 모든 정보가 DB에서 사라집니다.\n\n탈퇴후 언제라도 재 가입가능합니다\n')"><img src=images/button_out.gif border=0 alt="회원탈퇴"></a><?}?></td>
+   <td align=center><?php if($member[no]>1) {?><a href=member_out.php?id=<?=$id?>&group_no=<?=$group_no?> onclick="return confirm('탈퇴하시겠습니까?\n\n탈퇴를 하시면 모든 정보가 DB에서 사라집니다.\n\n탈퇴후 언제라도 재 가입가능합니다\n')"><img src=images/button_out.gif border=0 alt="회원탈퇴"></a><?php }?></td>
    <td align=right ><img src=images/t.gif height=5><br>
    <input type=image border=0 src=images/button_modify.gif> &nbsp;
    <img src=images/memo_close.gif border=0 onClick=window.close() style=cursor:hand>&nbsp;&nbsp;&nbsp;
@@ -327,7 +327,7 @@
   </form>
 </table>
 
-<?
+<?php
 	@mysql_close($connect);
 	foot();
 ?>

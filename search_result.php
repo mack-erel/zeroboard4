@@ -1,4 +1,4 @@
-<?
+<?php
   $isSearchPage = true;
   include "./_head.php";
 
@@ -83,7 +83,7 @@
 </table>
 <br>
 <br>
-<?
+<?php
   $tmp_result = str_replace(array(" ","\n"),"",strip_tags($result));
   if(!$tmp_result) {
 ?>
@@ -91,7 +91,7 @@
   입력하신 "<font class="bold"><?=$keyword?></font>" 에 대한 검색 결과가 없습니다.<br>
   검색어의 철자가 틀렸는지 또는 검색 범위가 잘못되었는지를 확인해 주세요.
   </div>
-<?
+<?php
   } else {
     print $result;
   }
@@ -99,6 +99,6 @@
 
 </div>
 
-<?
+<?php
   foot()
 ?>

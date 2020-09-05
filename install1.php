@@ -1,4 +1,4 @@
-<?
+<?php
 	include"lib.php";
 	head();
 	if(file_exists("config.php")) error("이미 config.php가 생성되어 있습니다.<br><br>재설치하려면 해당 파일을 지우세요");
@@ -76,6 +76,6 @@
 </tr>
 </table>
 
-<?
+<?php
 	foot();
 ?>

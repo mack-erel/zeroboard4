@@ -1,4 +1,4 @@
-<?
+<?php
 // 라이브러리 함수 파일 인크루드
 require "lib.php";
 
@@ -38,27 +38,27 @@ require "lib.php";
     <td width="15"><img src="images/sm_topright.gif" height="50"></td>
   </tr>
 </table>
-<?
+<?php
 	if($member_no>0&&$member[no]>0) {
 ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="5">
   <tr>
  <td>&nbsp;&nbsp;&nbsp;
-<?
+<?php
 	if($data[openinfo]||$member[is_admin]==1) {
 ?>
 	<a href=view_info2.php?member_no=<?=$member_no?>><img src=images/vi_B_userinfo.gif border=0></a>
-<?
+<?php
 	} else { 
 ?>
  <img src=images/vi_B_userinfo.gif border=0 onclick="alert('개인정보를 공개하지 않았습니다')">
 
-<? }?>
+<?php }?>
 
  </td>
   </tr>
 </table>
-<?
+<?php
  }
 ?>
 
@@ -79,20 +79,20 @@ require "lib.php";
 <input type=hidden name=id value=<?=$id?>>
 <input type=hidden name=member_no value="<?=$member_no?>">
 <input type=hidden name=kind value=1>
-<?
+<?php
 	if($member[no]&&$data[no]) {
 ?>
 <tr>
   <td align=right><img src=images/memo_id.gif></td>
   <td valign=bottom>&nbsp;<font color=brown><b><?=del_html($data[user_id])?> (<?=$data[name]?>)</td>
 </tr>
-<?
+<?php
  } else {
 ?>
 
 <input type=hidden name=kind value=0>
 
-<?
+<?php
 	if($data[no]) {
 ?>
 
@@ -100,7 +100,7 @@ require "lib.php";
   <td align=right><img src=images/memo_id.gif></td>
   <td valign=bottom>&nbsp;<font color=brown><b><?=$data[user_id]?> (<?=$data[name]?>)</td>
 </tr>
-<? } ?>
+<?php } ?>
 
 
 <tr>
@@ -111,7 +111,7 @@ require "lib.php";
   <Td align=right><img src=images/vi_email.gif></td>
   <td>&nbsp;<input type=text name=email size=40 maxlength=80 class=input style=border-color:#d8b3b3></td>
 </tr>
-<?
+<?php
  }
 ?>
 <tr>
@@ -138,6 +138,6 @@ require "lib.php";
   </tr>
 </table>
 
-<?
+<?php
 	foot();
 ?>

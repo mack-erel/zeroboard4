@@ -1,4 +1,4 @@
-<?
+<?php
 	include "lib.php";
 	$connect=dbConn();
 
@@ -77,7 +77,7 @@
 		<img src=images/t.gif border=0 height=5><br>
 		메일 발송 페이지 : <?=$page?> / <?=$totalpage?><br>
 
-<?
+<?php
 	$fault=0;
 	$i=1;
 	while($data=mysql_fetch_array($result)) {
@@ -107,15 +107,15 @@
 		<font color=white>메일 발송 결과 : </font><?=$fault?>명 발송 실패<br>
 		<img src=images/t.gif border=0 height=5><br>
 		<center>
-<?
+<?php
 	if($page==$totalpage) {
 ?>
 		<input type=button value="메일링 발송 완료하였습니다" onclick=window.close() class=submit style=width:100%>
-<?
+<?php
 	} else {
 ?>
 		<input type=submit value="다음 <?=$sendnum?>명 에게 메일 발송" class=submit style=width:100%>
-<?
+<?php
 	}
 ?>
 		</center>
@@ -139,6 +139,6 @@
 <input type=hidden name="group_no" value="<?=$group_no?>">
 </form>
 </table>
-<?
+<?php
 	foot();
 ?>

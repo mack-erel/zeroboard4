@@ -1,4 +1,4 @@
-<?
+<?php
 	$comment_name = str_replace(">","><font class=list_han>",$comment_name);
 	if($is_admin) $show_comment_ip = "<font class=list_eng>".$c_data['ip']."</font>";
 	else $show_comment_ip = "";

@@ -1,4 +1,4 @@
-<?
+<?php
 	include "lib.php";
 	head();
 
@@ -34,7 +34,7 @@ function check_view() {
 <tr>
   <td><br>
     <img src=images/inst_step1.gif>
-    <textarea cols=90 rows=15 readonly><? include "license.txt"; ?></textarea>
+    <textarea cols=90 rows=15 readonly><?php include "license.txt"; ?></textarea>
 	<br>
 	<input type=checkbox name=accept value=1 onclick="return check_view()"> 위의 라이센스를 모두 읽었으며 동의합니다
   </td>
@@ -43,7 +43,7 @@ function check_view() {
 <tr>
   <td><br>
     <img src=images/inst_step1-2.gif><br><br><br><div align=center>
-<?
+<?php
   if(fileperms(".")==16839||fileperms(".")==16895) $check="1";
   if(!$check) echo"<font color=red>현재 707로 퍼미션이 되어 있지 않습니다. 텔넷이나 FTP에서 퍼미션을 조정하세요.<font><br><br>
                    <div align=center><table border=0><tr><form method=post action=$PHP_SELF><td align=center height=30><input type=submit value='퍼미션 조정하였습니다' style=height:20px;></td></tr></table>";
@@ -55,6 +55,6 @@ function check_view() {
 </form>
 </table>
 
-<?
+<?php
 	foot();
 ?>

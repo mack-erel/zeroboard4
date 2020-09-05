@@ -17,7 +17,7 @@
 <tr class=title>
    <td align=center class=title_han><b><?=$title?></b></td>
 </tr>
-<?
+<?php
 	if(!$member[no]) {
 ?>
 <tr height=60>
@@ -25,7 +25,7 @@
      <font class=list_eng><b>Password</b> :</font><?=$input_password?> 
    </td>
 </tr>
-<?
+<?php
 	}
 ?>
 <tr class=list0 height=30>

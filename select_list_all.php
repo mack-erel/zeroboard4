@@ -1,4 +1,4 @@
-<?
+<?php
 	include "lib.php";
 	if(!$connect) $connect=dbconn();
 	$result=mysql_query("select name from $admin_table order by name");
@@ -76,14 +76,14 @@ function board_move()
 	<table border=0 width=240>
 	<tr>
 		<td><select name=select_board_name onchange=change_board_name() style=width:100%>
-<?
+<?php
 	$select="selected";
 	$s_name = "";
 	while($data=mysql_fetch_array($result)) {
 		if(!$s_name) $s_name = $data[name];
 ?>
 			<option value="<?=$data[name]?>" <?=$select?>><?=$data[name]?></option>
-<?
+<?php
 		$select="";
 	}
 ?>
@@ -106,6 +106,6 @@ function board_move()
 <input type=hidden name=board_name value="<?=$s_name?>">
 </form>
 </table>
-<?
+<?php
 	foot();
 ?>

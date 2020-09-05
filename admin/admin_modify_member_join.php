@@ -1,4 +1,4 @@
-<?
+<?php
   $data=mysql_fetch_array(mysql_query("select * from $group_table where no='$group_no'"));
   $check[1]="checked";
 ?>
@@ -17,7 +17,7 @@
   <tr align=center bgcolor=#e0e0e0>
      <td width=20% align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold>가입시 기본 레벨</td>
      <td align=left>&nbsp;<select name=join_level>
-<?
+<?php
  for($i=$member[level];$i<=10;$i++)
  {
   if($i==$data[join_level]) echo"<option value=$i selected>$i</option>"; else echo "<option value=$i>$i</option>";

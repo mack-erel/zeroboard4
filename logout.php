@@ -1,4 +1,4 @@
-<?
+<?php
 	include "lib.php";
 
 // DB 연결
