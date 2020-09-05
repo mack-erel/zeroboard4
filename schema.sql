@@ -1,4 +1,4 @@
-<?
+<?php
 // 이 파일은 제틱스 보드에서 사용하는 테이블의 스키마정보를 가지고 있습니다.
 // 이 파일을 수정시에는 조심하여 주시기바랍니다.
 
@@ -24,7 +24,7 @@ $member_table_schema ="
 
   create table $member_table (
     no int(20) not null auto_increment primary key ,
-    group_no int(20) not null,
+    group_no int(20) null,
     user_id char(20) not null ,
     password char(41) not null,
     board_name char(255) null default '',

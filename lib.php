@@ -1,41 +1,5 @@
 <?php
 require_once "oldFunctions.php";
-function mysql_query()
-{
-	func_num_args();
-}
-function mysql_fetch_array()
-{
-	func_num_args();
-}
-function mysql_error()
-{
-	func_num_args();
-}
-function mysql_connect()
-{
-	func_num_args();
-}
-function mysql_select_db()
-{
-	func_num_args();
-}
-function mysql_close()
-{
-	func_num_args();
-}
-function mysql_list_tables()
-{
-	func_num_args();
-}
-function mysql_num_rows()
-{
-	func_num_args();
-}
-function mysql_tablename()
-{
-	func_num_args();
-}
 /******************************************************************************
  * Zeroboard library 
  *
