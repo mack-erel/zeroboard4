@@ -1,7 +1,7 @@
 <?
-	if($mode=="reply") $title="¥‰±€ æ≤±‚";
-	elseif($mode=="modify") $title="±€ ºˆ¡§«œ±‚";
-	else $title="ªı∑Œ ±€ æ≤±‚";
+	if($mode=="reply") $title="ÎãµÍ∏Ä Ïì∞Í∏∞";
+	elseif($mode=="modify") $title="Í∏Ä ÏàòÏ†ïÌïòÍ∏∞";
+	else $title="ÏÉàÎ°ú Í∏Ä Ïì∞Í∏∞";
 
 	$a_preview = str_replace(">","><font class=list_eng>",$a_preview)."&nbsp;&nbsp;";
 	$a_imagebox = str_replace(">","><font class=list_eng>",$a_imagebox)."&nbsp;&nbsp;";
@@ -48,10 +48,10 @@ function zb_formresize(obj) {
   <td><font class=list_eng>Option</font></td>
   <td class=list_eng>
        <?=$category_kind?>
-       <?=$hide_notice_start?> <input type=checkbox name=notice <?=$notice?> value=1> ∞¯¡ˆªÁ«◊ <?=$hide_notice_end?>
-       <?=$hide_html_start?> <input type=checkbox name=use_html <?=$use_html?> value=1> HTMLªÁøÎ <?=$hide_html_end?>
-       <input type=checkbox name=reply_mail <?=$reply_mail?> value=1> ¥‰∫Ø∏ﬁ¿œπﬁ±‚
-       <?=$hide_secret_start?> <input type=checkbox name=is_secret <?=$secret?> value=1> ∫Òπ–±€ <?=$hide_secret_end?>
+       <?=$hide_notice_start?> <input type=checkbox name=notice <?=$notice?> value=1> Í≥µÏßÄÏÇ¨Ìï≠ <?=$hide_notice_end?>
+       <?=$hide_html_start?> <input type=checkbox name=use_html <?=$use_html?> value=1> HTMLÏÇ¨Ïö© <?=$hide_html_end?>
+       <input type=checkbox name=reply_mail <?=$reply_mail?> value=1> ÎãµÎ≥ÄÎ©îÏùºÎ∞õÍ∏∞
+       <?=$hide_secret_start?> <input type=checkbox name=is_secret <?=$secret?> value=1> ÎπÑÎ∞ÄÍ∏Ä <?=$hide_secret_end?>
   </td>
 </tr>
 
@@ -61,7 +61,7 @@ function zb_formresize(obj) {
 </tr>
 
 <tr>
-  <td onclick=document.write.memo.rows=document.write.memo.rows+4 style=cursor:hand><font class=list_eng><b>Memo</b></font> <font class=list_eng>°Â</font></td>
+  <td onclick=document.write.memo.rows=document.write.memo.rows+4 style=cursor:hand><font class=list_eng><b>Memo</b></font> <font class=list_eng>‚ñº</font></td>
   <td style=padding-top:8px;padding-bottom:8px;><textarea name=memo <?=size2(90)?> rows=18 class=textarea style=width:99%><?=$memo?></textarea></td>
 </tr>
 
@@ -99,13 +99,13 @@ function zb_formresize(obj) {
 		<table border=0 cellspacing=1 cellpadding=2 width=100% height=40>
 		<tr>
 			<td>
-				<?=$a_preview?>πÃ∏Æ∫∏±‚</a>
-				<?=$a_imagebox?>±◊∏≤√¢∞Ì</a>
+				<?=$a_preview?>ÎØ∏Î¶¨Î≥¥Í∏∞</a>
+				<?=$a_imagebox?>Í∑∏Î¶ºÏ∞ΩÍ≥†</a>
 				&nbsp;
 			</td>
 			<td align=right>
-				<input type=submit value="¿€º∫øœ∑·" class=submit accesskey="s">
-				<input type=button value="√Îº“«œ±‚" class=button onclick=history.back()>
+				<input type=submit value="ÏûëÏÑ±ÏôÑÎ£å" class=submit accesskey="s">
+				<input type=button value="Ï∑®ÏÜåÌïòÍ∏∞" class=button onclick=history.back()>
 			</td>
 		</tr>
 		</table>

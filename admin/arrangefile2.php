@@ -9,7 +9,7 @@
 
 	$member=member_info();
 
-	if(!$member[no]||$member[is_admin]>1||$member[level]>1) Error("ÃÖ°í °ü¸®ÀÚ¸¸ÀÌ »ç¿ëÇÒ¼ö ÀÖ½À´Ï´Ù");
+	if(!$member[no]||$member[is_admin]>1||$member[level]>1) Error("ìµœê³  ê´€ë¦¬ìžë§Œì´ ì‚¬ìš©í• ìˆ˜ ìžˆìŠµë‹ˆë‹¤");
 
 	head(" bgcolor=white");
 ?>
@@ -23,8 +23,8 @@
 </tr>
 <tr>
   <td colspan=3 style=padding:15px;line-height:160%>
-  	ÀÌ ÆäÀÌÁö´Â ¾²·¹±â ÆÄÀÏµéÀ» Á¤¸®ÇÏ´Â °÷ÀÔ´Ï´Ù.<br>
-	data µð·ºÅä¸®³»ÀÇ ¸ðµç ÆÄÀÏÀ» Á¤¸®ÇÏ´Â °ü°è·Î ÆÄÀÏ¼ö¿¡ µû¶ó¼­ ¸Å¿ì ¸¹Àº ½Ã°£ÀÌ °É¸±¼ö ÀÖ½À´Ï´Ù.<br>
+  	ì´ íŽ˜ì´ì§€ëŠ” ì“°ë ˆê¸° íŒŒì¼ë“¤ì„ ì •ë¦¬í•˜ëŠ” ê³³ìž…ë‹ˆë‹¤.<br>
+	data ë””ë ‰í† ë¦¬ë‚´ì˜ ëª¨ë“  íŒŒì¼ì„ ì •ë¦¬í•˜ëŠ” ê´€ê³„ë¡œ íŒŒì¼ìˆ˜ì— ë”°ë¼ì„œ ë§¤ìš° ë§Žì€ ì‹œê°„ì´ ê±¸ë¦´ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
   </td>
 </tr>
 </table>
@@ -35,7 +35,7 @@
 
 	DB Checking
 		<?
-	// DB ³»ÀÇ ÆÄÀÏ ¸ñ·ÏÀ» ±¸ÇÔ
+	// DB ë‚´ì˜ íŒŒì¼ ëª©ë¡ì„ êµ¬í•¨
 	$result = mysql_query("select name from $admin_table order by name desc") or die(mysql_error());
 	unset($dblist);
 
@@ -64,7 +64,7 @@
 	
 	File list checking
 		<?
-	// ÀüÃ¼ ÆÄÀÏ ¸ñ·ÏÀ» ±¸ÇÔ
+	// ì „ì²´ íŒŒì¼ ëª©ë¡ì„ êµ¬í•¨
 	unset($list);
 	$i = 0;
 	function getFileList($path) {
@@ -97,7 +97,7 @@
 	$totallist = count($list);
 
 
-	// ¼­·Î ´Ù¸¥ ³»¿ëÀ» Á¤¸®
+	// ì„œë¡œ ë‹¤ë¥¸ ë‚´ìš©ì„ ì •ë¦¬
 	unset($difflist);
 
 	$difflist = @array_diff($list, $dblist);
@@ -108,16 +108,16 @@
 
 
 
-	<b>DB¿¡ µî·ÏµÈ ÆÄÀÏÀÇ °¹¼ö :</b> <?=number_format($totaldblist)?>
+	<b>DBì— ë“±ë¡ëœ íŒŒì¼ì˜ ê°¯ìˆ˜ :</b> <?=number_format($totaldblist)?>
 
 
-	<b>ÀüÃ¼ °Ë»öµÈ ÆÄÀÏÀÇ °¹¼ö :</b> <?=number_format($totallist)?>
+	<b>ì „ì²´ ê²€ìƒ‰ëœ íŒŒì¼ì˜ ê°¯ìˆ˜ :</b> <?=number_format($totallist)?>
 
 
-	<b>¾²·¹±â ÆÄÀÏ °¹¼ö :</b> <?=number_format($totaldifflist)?>
+	<b>ì“°ë ˆê¸° íŒŒì¼ ê°¯ìˆ˜ :</b> <?=number_format($totaldifflist)?>
 
 
-	¾²·¹±â ÆÄÀÏ »èÁ¦Áß
+	ì“°ë ˆê¸° íŒŒì¼ ì‚­ì œì¤‘
 		<?
 		$total = 0;
 		$i=0;
@@ -150,9 +150,9 @@
 ?>
 
 
-	<font color=red><b>¸ðµç Á¤¸®°¡ ³¡³µ½À´Ï´Ù.
+	<font color=red><b>ëª¨ë“  ì •ë¦¬ê°€ ëë‚¬ìŠµë‹ˆë‹¤.
 
-	È®½ÇÇÑ Ã³¸®¸¦ À§ÇØ¼­ ´Ù½Ã ÇÑ¹ø ½ÇÇàÇØº¸½Ã±â ¹Ù¶ø´Ï´Ù.</font>
+	í™•ì‹¤í•œ ì²˜ë¦¬ë¥¼ ìœ„í•´ì„œ ë‹¤ì‹œ í•œë²ˆ ì‹¤í–‰í•´ë³´ì‹œê¸° ë°”ëžë‹ˆë‹¤.</font>
 
 
 </pre>

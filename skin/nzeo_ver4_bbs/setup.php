@@ -10,12 +10,12 @@ if(!eregi("Zeroboard",$a_member_memo)) $a_member_memo= str_replace(">","><font c
 <table border=0 cellspacing=0 cellpadding=0 width=<?=$width?>>
 <tr>
 	<td <?if(!$setup[use_category]) echo"align=right";?>>
-		<?=$a_login?>·Î±×ÀÎ</a>
-		<?=$a_member_join?>È¸¿ø°¡ÀÔ</a>
-		<?=$a_member_modify?>Á¤º¸¼öÁ¤</a>
-		<?=$a_member_memo?>¸Þ¸ð¹Ú½º</a>
-		<?=$a_logout?>·Î±×¾Æ¿ô</a>
-		<?=$a_setup?>¼³Á¤º¯°æ</a>
+		<?=$a_login?>ë¡œê·¸ì¸</a>
+		<?=$a_member_join?>íšŒì›ê°€ìž…</a>
+		<?=$a_member_modify?>ì •ë³´ìˆ˜ì •</a>
+		<?=$a_member_memo?>ë©”ëª¨ë°•ìŠ¤</a>
+		<?=$a_logout?>ë¡œê·¸ì•„ì›ƒ</a>
+		<?=$a_setup?>ì„¤ì •ë³€ê²½</a>
 	</td>
 <?=$hide_category_start?>
 	<td align=right><font class=list_eng><b>Category</b> :</font> <?=$a_category?></td>

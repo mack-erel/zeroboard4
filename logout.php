@@ -1,13 +1,13 @@
 <?
 	include "lib.php";
 
-// DB ¿¬°á
+// DB ì—°ê²°
 	if(!$connect) $connect=dbConn();
 
-// ¸â¹ö Á¤º¸ ±¸ÇØ¿À±â
+// ë©¤ë²„ ì •ë³´ êµ¬í•´ì˜¤ê¸°
 	$member=member_info();
 
-	if(!$member[no]) Error("·Î±×ÀÎ »óÅÂ°¡ ¾Æ´Õ´Ï´Ù");
+	if(!$member[no]) Error("ë¡œê·¸ì¸ ìƒíƒœê°€ ì•„ë‹™ë‹ˆë‹¤");
 
 	if(!$group_no) $group_no=$member[group_no];
 
@@ -19,7 +19,7 @@
 
 	destroyZBSessionID($member[no]);
 	
-	// 4.0x ¿ë ¼¼¼Ç Ã³¸®
+	// 4.0x ìš© ì„¸ì…˜ ì²˜ë¦¬
 	$zb_logged_no='';
 	$zb_logged_time='';
 	$zb_logged_ip='';

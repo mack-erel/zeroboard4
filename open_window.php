@@ -5,10 +5,10 @@
 	include "lib.php";
 	if(!$connect) $connect=dbconn();
 
-	// ¸â¹ö Á¤º¸ ±¸ÇØ¿À±â;;; ¸â¹ö°¡ ÀÖÀ»¶§
+	// ë©¤ë²„ ì •ë³´ êµ¬í•´ì˜¤ê¸°;;; ë©¤ë²„ê°€ ìˆì„ë•Œ
 	$member=member_info();
 
-	// ÇöÀç ·Î±×ÀÎµÇ¾î ÀÖ´Â ¸â¹ö°¡ ÀüÃ¼, ¶Ç´Â ±×·ì°ü¸®ÀÚÀÎÁö °Ë»ç
+	// í˜„ì¬ ë¡œê·¸ì¸ë˜ì–´ ìˆëŠ” ë©¤ë²„ê°€ ì „ì²´, ë˜ëŠ” ê·¸ë£¹ê´€ë¦¬ìì¸ì§€ ê²€ì‚¬
 	if($member[is_admin]==1||$member[is_admin]==2&&$member[group_no]==$setup[group_no]) $is_admin=1; else $is_admin="";
 
 	if($is_admin&&($mode=="i"||$mode=="t")) $data = mysql_fetch_array(mysql_query("select * from $member_table where no='$str'"));

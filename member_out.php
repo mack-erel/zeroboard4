@@ -1,42 +1,42 @@
 <?
-// ¶óÀÌºê·¯¸® ÇÔ¼ö ÆÄÀÏ ÀÎÅ©·çµå
+// ë¼ì´ë¸ŒëŸ¬ë¦¬ í•¨ìˆ˜ íŒŒì¼ ì¸í¬ë£¨ë“œ
 	include "lib.php";
 
-	if(!eregi("member_modify.php",$HTTP_REFERER)) Error("Á¦´ë·Î µÈ Á¢±ÙÀ» ÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù");
+	if(!eregi("member_modify.php",$HTTP_REFERER)) Error("ì œëŒ€ë¡œ ëœ ì ‘ê·¼ì„ í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤");
 
-// DB ¿¬°á
+// DB ì—°ê²°
 	if(!$connect) $connect=dbConn();
 
-// È¸¿ø Á¤º¸¸¦ ¾ò¾î¿È
+// íšŒì› ì •ë³´ë¥¼ ì–»ì–´ì˜´
 	$member=member_info();
 	$group_no = $member[group_no];
 
-// ¸â¹ö Á¤º¸ »èÁ¦
+// ë©¤ë²„ ì •ë³´ ì‚­ì œ
 	@mysql_query("delete from $member_table where no='$member[no]'") or error(mysql_error());
 
   
-// ÂÊÁö Å×ÀÌºí¿¡¼­ ¸â¹ö Á¤º¸ »èÁ¦
+// ìª½ì§€ í…Œì´ë¸”ì—ì„œ ë©¤ë²„ ì •ë³´ ì‚­ì œ
 	@mysql_query("delete from $get_memo_table where member_no='$member[no]'") or error(mysql_error());
 	@mysql_query("delete from $send_memo_table where member_no='$member[no]'") or error(mysql_error());
 	
-// °¢Á¾ °Ô½ÃÆÇ¿¡¼­ ÇöÀç Å»ÅðÇÑ ¸â¹öÀÇ ¸ðµç Á¤º¸¸¦ »èÁ¦ (ºÎÇÏ ¹®Á¦·Î ÀÎÇØ¼­ ÁÖ¼® Ã³¸®)
+// ê°ì¢… ê²Œì‹œíŒì—ì„œ í˜„ìž¬ íƒˆí‡´í•œ ë©¤ë²„ì˜ ëª¨ë“  ì •ë³´ë¥¼ ì‚­ì œ (ë¶€í•˜ ë¬¸ì œë¡œ ì¸í•´ì„œ ì£¼ì„ ì²˜ë¦¬)
 	/*
 	$result=mysql_query("select name from $admin_table");
 	while($data=mysql_fetch_array($result)) {
-		// °Ô½ÃÆÇ Å×ÀÌºí¿¡¼­ »èÁ¦
+		// ê²Œì‹œíŒ í…Œì´ë¸”ì—ì„œ ì‚­ì œ
 		@mysql_query("update $t_board"."_$data[name] set ismember='0', password=password('".time()."') where ismember='$member[no]'") or error(mysql_error());
-		// ÄÚ¸àÆ® Å×ÀÌºí¿¡¼­ »èÁ¦
+		// ì½”ë©˜íŠ¸ í…Œì´ë¸”ì—ì„œ ì‚­ì œ
 		@mysql_query("update $t_comment"."_$data[name] set ismember='0', password=password('".time()."')  where ismember='$member[no]'") or error(mysql_error());
 	}
 	*/
 
-// ±×·ìÅ×ÀÌºí¿¡¼­ È¸¿ø¼ö -1
+// ê·¸ë£¹í…Œì´ë¸”ì—ì„œ íšŒì›ìˆ˜ -1
 	@mysql_query("update $group_table set member_num=member_num-1 where no = '$group_no'") or error(mysql_error());
 
-// ·Î±×¾Æ¿ô ½ÃÅ´
+// ë¡œê·¸ì•„ì›ƒ ì‹œí‚´
 	destroyZBSessionID($member[no]);
 
-	// ±âÁ¸ ¼¼¼Ç Ã³¸® (4.0x¿ë ¼¼¼Ç Ã³¸®·Î ÀÎÇÏ¿© ÁÖ¼® Ã³¸®)
+	// ê¸°ì¡´ ì„¸ì…˜ ì²˜ë¦¬ (4.0xìš© ì„¸ì…˜ ì²˜ë¦¬ë¡œ ì¸í•˜ì—¬ ì£¼ì„ ì²˜ë¦¬)
 	//$HTTP_SESSION_VARS["zb_logged_no"]='';
 	//$HTTP_SESSION_VARS["zb_logged_id"]='';
 	//$HTTP_SESSION_VARS["zb_logged_time"]='';
@@ -44,7 +44,7 @@
 	//$HTTP_SESSION_VARS["zb_secret"]='';
 	//$HTTP_SESSION_VARS["zb_last_connect_check"] = '0';
 
-	// 4.0x ¿ë ¼¼¼Ç Ã³¸®
+	// 4.0x ìš© ì„¸ì…˜ ì²˜ë¦¬
 	$zb_logged_no='';
 	$zb_logged_time='';
 	$zb_logged_ip='';
@@ -60,7 +60,7 @@
 	mysql_close($connect);
 ?>
 <script>
-alert("Á¤»óÀûÀ¸·Î Å»Åð°¡ µÇ¾ú½À´Ï´Ù.");
+alert("ì •ìƒì ìœ¼ë¡œ íƒˆí‡´ê°€ ë˜ì—ˆìŠµë‹ˆë‹¤.");
 opener.window.history.go(0);
 window.close();
 </script>

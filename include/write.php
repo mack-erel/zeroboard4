@@ -1,18 +1,18 @@
 <?
 	if(eregi(":\/\/",$dir)||eregi("\.\.",$dir)) $dir ="./";
 
-	// ÄíÅ°°ªÀ» ÀÌ¿ë;;
+	// ì¿ í‚¤ê°’ì„ ì´ìš©;;
 	$name=$zetyx[name];
 	$email=$zetyx[email];
 	$homepage=$zetyx[homepage];
 
-	// È¸¿øÀÏ¶§´Â ±âº» ÀÔ·Â»çÇ× ¾Èº¸ÀÌ°Ô;;
+	// íšŒì›ì¼ë•ŒëŠ” ê¸°ë³¸ ì…ë ¥ì‚¬í•­ ì•ˆë³´ì´ê²Œ;;
 	if($member[no]) { $hide_start="<!--"; $hide_end="-->"; }
 
-	// ºñ¹Ğ±Û »ç¿ë;;
+	// ë¹„ë°€ê¸€ ì‚¬ìš©;;
 	if(!$setup[use_secret]) { $hide_secret_start="<!--"; $hide_secret_end="-->"; }
 
-	// °øÁö±â´É »ç¿ëÇÏ´ÂÁö ¾ÊÇÏ´ÂÁö Ç¥½Ã;;
+	// ê³µì§€ê¸°ëŠ¥ ì‚¬ìš©í•˜ëŠ”ì§€ ì•Ší•˜ëŠ”ì§€ í‘œì‹œ;;
 	if(!$is_admin||$mode=="reply") { $hide_notice_start="<!--";$hide_notice_end="-->"; }
 
 	include $dir."/write.php";

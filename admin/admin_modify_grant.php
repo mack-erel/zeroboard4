@@ -1,16 +1,16 @@
 <?
 	$group_data=mysql_fetch_array(mysql_query("select * from $group_table where no='$group_no'"));
 
-	if($member[is_admin]>2&&!eregi($no.",",$member[board_name])) error("»ç¿ë ±ÇÇÑÀÌ ¾ø½À´Ï´Ù");
+	if($member[is_admin]>2&&!eregi($no.",",$member[board_name])) error("ì‚¬ìš© ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤");
 
 	$board_data=mysql_fetch_array(mysql_query("select * from $admin_table where no='$no'")); 
 ?>
 <table border=0 cellspacing=1 cellpadding=0 width=100% bgcolor=#b0b0b0>
   <tr height=30><td bgcolor=#3d3d3d colspan=10><img src=images/admin_webboard.gif></td></tr>
 <Tr height=30><td bgcolor=white colspan=10 align=right style=font-family:Tahoma;font-size:8pt;>
-±×·ì ÀÌ¸§ : <b><?=$group_data[name]?></b> , °Ô½ÃÆÇ ÀÌ¸§ : <a href=zboard.php?id=<?=$board_data[name]?> target=_blank><b><?=$board_data[name]?></a></b> &nbsp;&nbsp;&nbsp;
-    <input type=button value='°Ô½ÃÆÇ°ü¸®' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=modify&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
-    <input type=button value='Ä«Å×°í¸® °ü¸®' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=category&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">&nbsp;&nbsp;&nbsp;
+ê·¸ë£¹ ì´ë¦„ : <b><?=$group_data[name]?></b> , ê²Œì‹œíŒ ì´ë¦„ : <a href=zboard.php?id=<?=$board_data[name]?> target=_blank><b><?=$board_data[name]?></a></b> &nbsp;&nbsp;&nbsp;
+    <input type=button value='ê²Œì‹œíŒê´€ë¦¬' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=modify&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
+    <input type=button value='ì¹´í…Œê³ ë¦¬ ê´€ë¦¬' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=category&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">&nbsp;&nbsp;&nbsp;
 </td></tr>
   <tr height=1><td bgcolor=#000000 style=padding:0px; colspan=10><img src=images/t.gif height=1></td></tr>
 <form method=post action=<?=$PHP_SELF?>>
@@ -21,7 +21,7 @@
 <input type=hidden name=page_num value=<?=$page_num?>>
 <input type=hidden name=no value=<?=$no?>>
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;width=30%><b>¸ñ·Ï º¸±â ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;width=30%><b>ëª©ë¡ ë³´ê¸° ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_list class=input >
 <?
@@ -30,12 +30,12 @@
   else echo"<option value=$i>$i</option>";
 ?>
      </select> &nbsp;&nbsp;
-     ±Û ¸ñ·Ï º¸±â ±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù
+     ê¸€ ëª©ë¡ ë³´ê¸° ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>³»¿ë º¸±â ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>ë‚´ìš© ë³´ê¸° ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_view  class=input>
 <?
@@ -44,12 +44,12 @@
   else echo"<option value=$i>$i</option>";
 ?>
      </select> &nbsp;&nbsp;
-     ±ÛÀÇ ³»¿ëÀ» ÀÐÀ»¼ö ÀÖ´Â ±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù
+     ê¸€ì˜ ë‚´ìš©ì„ ì½ì„ìˆ˜ ìžˆëŠ” ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>±Û¾²±â ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>ê¸€ì“°ê¸° ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_write class=input>
 <?
@@ -58,13 +58,13 @@
   else echo"<option value=$i>$i</option>";
 ?>
      </select> &nbsp;&nbsp;
-     ±Û¾²±â ±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù.
+     ê¸€ì“°ê¸° ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤.
   </td>
 </tr>
 
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>°£´ÜÇÑ ´ä±Û ¾²±â ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>ê°„ë‹¨í•œ ë‹µê¸€ ì“°ê¸° ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_comment class=input>
 <?
@@ -73,12 +73,12 @@
   else echo"<option value=$i>$i</option>";
 ?>
      </select> &nbsp;&nbsp;
-     °£´ÜÇÑ ´ä±Û ´Þ±â ±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù
+     ê°„ë‹¨í•œ ë‹µê¸€ ë‹¬ê¸° ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>´äº¯¾²±â ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>ë‹µë³€ì“°ê¸° ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_reply class=input>
 <?
@@ -87,12 +87,12 @@
   else echo"<option value=$i>$i</option>";
 ?>
      </select> &nbsp;&nbsp;
-     ´ñ±Û ´Þ±â ±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù.
+     ëŒ“ê¸€ ë‹¬ê¸° ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤.
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>»èÁ¦ ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>ì‚­ì œ ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_delete class=input>
 <?
@@ -101,12 +101,12 @@
   else echo"<option value=$i>$i</option>";
 ?>
      </select> &nbsp;&nbsp;
-     ±Û »èÁ¦ ±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù.
+     ê¸€ ì‚­ì œ ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤.
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b> HTML »ç¿ë ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b> HTML ì‚¬ìš© ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_html class=input>
 <?
@@ -115,12 +115,12 @@
   else echo"<option value=$i>$i</option>";
 ?>
      </select> &nbsp;&nbsp;
-     HTML ¸ðµÎ »ç¿ëÇÒ¼ö ÀÖ´Â ±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù.
+     HTML ëª¨ë‘ ì‚¬ìš©í• ìˆ˜ ìžˆëŠ” ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤.
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>°øÁö»çÇ× ÀÛ¼º ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>ê³µì§€ì‚¬í•­ ìž‘ì„± ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_notice class=input>
 <?
@@ -129,12 +129,12 @@
   else echo"<option value=$i>$i</option>";
 ?>
      </select> &nbsp;&nbsp;
-    °øÁö»çÇ× ÀÛ¼º ±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù.
+    ê³µì§€ì‚¬í•­ ìž‘ì„± ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤.
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>ºñ¹Ð±Û º¸±â ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>ë¹„ë°€ê¸€ ë³´ê¸° ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_view_secret class=input>
 <?
@@ -143,12 +143,12 @@
   else echo"<option value=$i>$i</option>";
 ?>
      </select> &nbsp;&nbsp;
-    ºñ¹Ð ±Û º¸±â ±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù.
+    ë¹„ë°€ ê¸€ ë³´ê¸° ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤.
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>Image Box »ç¿ë ±ÇÇÑ &nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;font-weight:bold;><b>Image Box ì‚¬ìš© ê¶Œí•œ &nbsp;</td>
   <td >&nbsp;&nbsp;
      <select name=grant_imagebox class=input>
 <?
@@ -158,7 +158,7 @@
   else echo"<option value=$i>$i </option>";
 ?>
      </select> &nbsp;&nbsp;
-	Image Box »ç¿ë±ÇÇÑÀ» ·¹º§º°·Î ÁöÁ¤ÇÕ´Ï´Ù. (È¸¿ø¸¸ »ç¿ë°¡´ÉÇÕ´Ï´Ù)
+	Image Box ì‚¬ìš©ê¶Œí•œì„ ë ˆë²¨ë³„ë¡œ ì§€ì •í•©ë‹ˆë‹¤. (íšŒì›ë§Œ ì‚¬ìš©ê°€ëŠ¥í•©ë‹ˆë‹¤)
   </td>
 <!-- Submit  -->
 

@@ -1,7 +1,7 @@
 <?
 	include"lib.php";
 	head();
-	if(file_exists("config.php")) error("ÀÌ¹Ì config.php°¡ »ı¼ºµÇ¾î ÀÖ½À´Ï´Ù.<br><br>Àç¼³Ä¡ÇÏ·Á¸é ÇØ´ç ÆÄÀÏÀ» Áö¿ì¼¼¿ä");
+	if(file_exists("config.php")) error("ì´ë¯¸ config.phpê°€ ìƒì„±ë˜ì–´ ìˆìŠµë‹ˆë‹¤.<br><br>ì¬ì„¤ì¹˜í•˜ë ¤ë©´ í•´ë‹¹ íŒŒì¼ì„ ì§€ìš°ì„¸ìš”");
 ?>
 
 <script>
@@ -9,19 +9,19 @@
  {
   if(!write.hostname.value)
   {
-   alert("HostNameÀ» ÀÔ·ÂÇÏ¼¼¿ä");
+   alert("HostNameì„ ì…ë ¥í•˜ì„¸ìš”");
    write.hostname.focus();
    return false;
   }
   if(!write.user_id.value)
   {
-   alert("USER ID ¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+   alert("USER ID ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
    write.user_id.focus();
    return false;
   }
   if(!write.dbname.value)
   {
-   alert("DB Name¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+   alert("DB Nameë¥¼ ì…ë ¥í•˜ì„¸ìš”");
    write.dbname.focus();
    return false;
   }
@@ -49,22 +49,22 @@
 <tr>
   <td width=90 align=right style=font-family:Tahoma;font-size:8pt;>Host Name</td>
   <td width=90><input type=text name=hostname value='localhost' style=font-family:Tahoma;font-size:8pt;></td>
-  <td width=300>MySQL DBÀÇ È£½ºÆ®³×ÀÓÀ» ÀÔ·ÂÇÏ¼¼¿ä.</font></td>
+  <td width=300>MySQL DBì˜ í˜¸ìŠ¤íŠ¸ë„¤ì„ì„ ì…ë ¥í•˜ì„¸ìš”.</font></td>
 </tr>
 <tr>
   <td align=right style=font-family:Tahoma;font-size:8pt;>SQL User ID</td>
   <td><input type=text name=user_id style=font-family:Tahoma;font-size:8pt;></td>
-  <td>MySQL°èÁ¤ÀÇ ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä</font></td>
+  <td>MySQLê³„ì •ì˜ IDë¥¼ ì…ë ¥í•˜ì„¸ìš”</font></td>
 </tr>
 <tr>
   <td align=right style=font-family:Tahoma;font-size:8pt;>Password</td>
   <td><input type=password name=password style=font-family:Tahoma;font-size:8pt;></td>
-  <td>Mysql DBÀÇ ÆĞ½º¿öµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä</font></td>
+  <td>Mysql DBì˜ íŒ¨ìŠ¤ì›Œë“œë¥¼ ì…ë ¥í•˜ì„¸ìš”</font></td>
 </tr>
 <tr>
   <td align=right style=font-family:Tahoma;font-size:8pt;>DB Name</td>
   <td><input type=text name=dbname style=font-family:Tahoma;font-size:8pt;></td>
-  <td>Mysql DBÀÇ NameÀ» ÀÔ·ÂÇÏ¼¼¿ä</font></td>
+  <td>Mysql DBì˜ Nameì„ ì…ë ¥í•˜ì„¸ìš”</font></td>
 </tr
 <tr>
   <td colspan=3 align=center><br><br><input type=image src=images/inst_b_2.gif border=0 align=absmiddle></td>

@@ -11,8 +11,8 @@
           $password = addslashes($password);
         }
 
-	if(!$user_id) Error("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿ä");
-	if(!$password) Error("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿ä");
+	if(!$user_id) Error("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œìš”");
+	if(!$password) Error("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œìš”");
 
 	if($id) {
 		$setup=get_table_attrib($id);
@@ -22,18 +22,18 @@
 	if($setup[group_no]) $group_no=$setup[group_no];
 
 
-// È¸¿ø ·Î±×ÀÎ Ã¼Å©
+// íšŒì› ë¡œê·¸ì¸ ì²´í¬
 	$result = mysql_query("select * from $member_table where user_id='$user_id' and password=password('$password')") or error(mysql_error());
 	$member_data = mysql_fetch_array($result);
 
-// È¸¿ø·Î±×ÀÎÀÌ ¼º°øÇÏ¿´À» °æ¿ì ¼¼¼ÇÀ» »ı¼ºÇÏ°í ÆäÀÌÁö¸¦ ÀÌµ¿ÇÔ
+// íšŒì›ë¡œê·¸ì¸ì´ ì„±ê³µí•˜ì˜€ì„ ê²½ìš° ì„¸ì…˜ì„ ìƒì„±í•˜ê³  í˜ì´ì§€ë¥¼ ì´ë™í•¨
 	if($member_data[no]) {
 
 		if($auto_login) {
 			makeZBSessionID($member_data[no]);
 		}
 
-		// 4.0x ¿ë ¼¼¼Ç Ã³¸®
+		// 4.0x ìš© ì„¸ì…˜ ì²˜ë¦¬
 		$zb_logged_no = $member_data[no];
 		$zb_logged_time = time();
 		$zb_logged_ip = $REMOTE_ADDR;
@@ -44,7 +44,7 @@
 		session_register("zb_logged_ip");
 		session_register("zb_last_connect_check");
 
-		// ·Î±×ÀÎ ÈÄ ÆäÀÌÁö ÀÌµ¿
+		// ë¡œê·¸ì¸ í›„ í˜ì´ì§€ ì´ë™
 		$s_url=urldecode($s_url);
 		if(!$s_url&&$id) $s_url="zboard.php?id=$id";
 		if($s_url) movepage($s_url);
@@ -53,10 +53,10 @@
 		elseif($referer) movepage($referer);
 		else echo"<script>history.go(-2);</script>";
 
-// È¸¿ø·Î±×ÀÎÀÌ ½ÇÆĞÇÏ¿´À» °æ¿ì ¿¡·¯ Ç¥½Ã
+// íšŒì›ë¡œê·¸ì¸ì´ ì‹¤íŒ¨í•˜ì˜€ì„ ê²½ìš° ì—ëŸ¬ í‘œì‹œ
 	} else {
 		head();
-		Error("·Î±×ÀÎÀ» ½ÇÆĞÇÏ¿´½À´Ï´Ù");
+		Error("ë¡œê·¸ì¸ì„ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤");
 		foot();
 	}
 

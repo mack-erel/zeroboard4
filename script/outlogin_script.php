@@ -1,12 +1,12 @@
 <script>
 	function zb_login_check_submit() {
 		if(!document.zb_login.user_id.value) {
-			alert("ID¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿ä");
+			alert("IDë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œìš”");
 			document.zb_login.user_id.focus();
 			return false;
 		}
 		if(!document.zb_login.password.value) {
-			alert("Password¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿ä");
+			alert("Passwordë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œìš”");
 			document.zb_login.password.focus();
 			return false;
 		}  
@@ -16,7 +16,7 @@
 	function check_autologin() { 
 		if (document.zb_login.auto_login.checked==true) {
 			var check;  
-			check = confirm("ÀÚµ¿ ·Î±×ÀÎ ±â´ÉÀ» »ç¿ëÇÏ½Ã°Ú½À´Ï±î?\n\nÀÚµ¿ ·Î±×ÀÎ »ç¿ë½Ã ´ÙÀ½ Á¢¼ÓºÎÅÍ´Â ·Î±×ÀÎÀ» ÇÏ½ÇÇÊ¿ä°¡ ¾ø½À´Ï´Ù.\n\n´Ü, °ÔÀÓ¹æ, ÇĞ±³µî °ø°øÀå¼Ò¿¡¼­ ÀÌ¿ë½Ã °³ÀÎÁ¤º¸°¡ À¯ÃâµÉ¼ö ÀÖÀ¸´Ï ÁÖÀÇÇØÁÖ¼¼¿ä");
+			check = confirm("ìë™ ë¡œê·¸ì¸ ê¸°ëŠ¥ì„ ì‚¬ìš©í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n\nìë™ ë¡œê·¸ì¸ ì‚¬ìš©ì‹œ ë‹¤ìŒ ì ‘ì†ë¶€í„°ëŠ” ë¡œê·¸ì¸ì„ í•˜ì‹¤í•„ìš”ê°€ ì—†ìŠµë‹ˆë‹¤.\n\në‹¨, ê²Œì„ë°©, í•™êµë“± ê³µê³µì¥ì†Œì—ì„œ ì´ìš©ì‹œ ê°œì¸ì •ë³´ê°€ ìœ ì¶œë ìˆ˜ ìˆìœ¼ë‹ˆ ì£¼ì˜í•´ì£¼ì„¸ìš”");
 			if(check==false) {document.zb_login.auto_login.checked=false;}
 		}                               
 	}  

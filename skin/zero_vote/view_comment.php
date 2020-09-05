@@ -1,13 +1,13 @@
 <?
-  /* °£´ÜÇÑ ´ä±ÛÀ» Ãâ·ÂÇÏ´Â ºÎºÐÀÔ´Ï´Ù.
-   view.php½ºÅ²ÆÄÀÏ¿¡ °£´ÜÇÑ ´ä±ÛÀ» ½ÃÀÛÇÏ´Â <table>½ÃÀÛ ÅÂ±×°¡ ½ÃÀÛµÇ¾î ÀÖ½À´Ï´Ù.
-   ±×¸®°íview_foot.php ÆÄÀÏ¿¡ </table>ÅÂ±×°¡ °£´ÜÇÑ ´ä±Û ¾²±â Æû°ú °°ÀÌ ÀÖ½À´Ï´Ù
+  /* ê°„ë‹¨í•œ ë‹µê¸€ì„ ì¶œë ¥í•˜ëŠ” ë¶€ë¶„ìž…ë‹ˆë‹¤.
+   view.phpìŠ¤í‚¨íŒŒì¼ì— ê°„ë‹¨í•œ ë‹µê¸€ì„ ì‹œìž‘í•˜ëŠ” <table>ì‹œìž‘ íƒœê·¸ê°€ ì‹œìž‘ë˜ì–´ ìžˆìŠµë‹ˆë‹¤.
+   ê·¸ë¦¬ê³ view_foot.php íŒŒì¼ì— </table>íƒœê·¸ê°€ ê°„ë‹¨í•œ ë‹µê¸€ ì“°ê¸° í¼ê³¼ ê°™ì´ ìžˆìŠµë‹ˆë‹¤
 
-  <?=$comment_name?> : ±Û¾´ÀÌ
-  <?=$c_memo?> : ³»¿ë
-  <?=$c_reg_date?> : ±ÛÀ» ¾´ ³¯ÀÚ;;
-  <?=$a_del?> : ÄÚ¸àÆ® »èÁ¦ ¹öÆ°¸µÅ©
-  <?=$c_face_image?> : ¸â¹ö¿ë ¾ÆÀÌÄÜ;;
+  <?=$comment_name?> : ê¸€ì“´ì´
+  <?=$c_memo?> : ë‚´ìš©
+  <?=$c_reg_date?> : ê¸€ì„ ì“´ ë‚ ìž;;
+  <?=$a_del?> : ì½”ë©˜íŠ¸ ì‚­ì œ ë²„íŠ¼ë§í¬
+  <?=$c_face_image?> : ë©¤ë²„ìš© ì•„ì´ì½˜;;
  */
 ?>
 

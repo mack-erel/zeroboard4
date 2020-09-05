@@ -3,13 +3,13 @@
 function check_submit()
 {
  if(!document.write.subject.value) 
- {alert('Á¦¸ñÀ» ÀÔ·ÂÇÏ¿© ÁÖ¼¼¿ä');
+ {alert('ì œëª©ì„ ì…ë ¥í•˜ì—¬ ì£¼ì„¸ìš”');
   document.write.subject.focus();
   return false;
  }
  if(!document.write.memo.value)
  {
-  alert('³»¿ëÀ»ÀÔ·ÂÇÏ¿©ÁÖ¼¼¿ä');
+  alert('ë‚´ìš©ì„ì…ë ¥í•˜ì—¬ì£¼ì„¸ìš”');
   document.write.memo.focus();
   return false;
  }

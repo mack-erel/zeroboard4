@@ -1,47 +1,47 @@
 <?
 
 /***************************************************************************
- * °øÅë ÆÄÀÏ include
+ * ê³µí†µ íŒŒì¼ include
  **************************************************************************/
 	include "_head.php";
 
-	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("Á¤»óÀûÀ¸·Î ±ÛÀ» »èÁ¦ÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
+	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("ì •ìƒì ìœ¼ë¡œ ê¸€ì„ ì‚­ì œí•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.");
 
 /***************************************************************************
-* ÄÚ¸àÆ® »èÁ¦ ÁøÇà
+* ì½”ë©˜íŠ¸ ì‚­ì œ ì§„í–‰
 **************************************************************************/
 
-// ÆÐ½º¿öµå¸¦ ¾ÏÈ£È­
+// íŒ¨ìŠ¤ì›Œë“œë¥¼ ì•”í˜¸í™”
 	if($password) {
 		$temp=mysql_fetch_array(mysql_query("select password('$password')"));
 		$password=$temp[0];   
 	}
 
-// ¿øº»±ÛÀ» °¡Á®¿È
+// ì›ë³¸ê¸€ì„ ê°€ì ¸ì˜´
 	$s_data=mysql_fetch_array(mysql_query("select * from $t_comment"."_$id where no='$c_no'"));
 
-// È¸¿øÀÏ¶§¸¦ È®ÀÎ;;
+// íšŒì›ì¼ë•Œë¥¼ í™•ì¸;;
 	if(!$is_admin&&$member[level]>$setup[grant_delete]) {
 		if(!$s_data[ismember]) {
-			if($s_data[password]!=$password) Error("ºñ¹Ð¹øÈ£°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù");
+			if($s_data[password]!=$password) Error("ë¹„ë°€ë²ˆí˜¸ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤");
 		} else {
-			if($s_data[ismember]!=$member[no]) Error("ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿ä");
+			if($s_data[ismember]!=$member[no]) Error("ë¹„ë°€ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œìš”");
 		}
 	}
 
-// ÄÚ¸àÆ® »èÁ¦
+// ì½”ë©˜íŠ¸ ì‚­ì œ
 	mysql_query("delete from $t_comment"."_$id where no='$c_no'") or error(mysql_error());
 
-// ÄÚ¸àÆ® °¹¼ö Á¤¸®
+// ì½”ë©˜íŠ¸ ê°¯ìˆ˜ ì •ë¦¬
 	$total=mysql_fetch_array(mysql_query("select count(*) from $t_comment"."_$id where parent='$no'"));
 	mysql_query("update $t_board"."_$id set total_comment='$total[0]' where no='$no'")  or error(mysql_error()); 
 
-// È¸¿øÀÏ °æ¿ì ÇØ´ç ÇØ¿øÀÇ Á¡¼ö ÁÖ±â
+// íšŒì›ì¼ ê²½ìš° í•´ë‹¹ í•´ì›ì˜ ì ìˆ˜ ì£¼ê¸°
 	if($member[no]==$s_data[ismember]) @mysql_query("update $member_table set point2=point2-1 where no='$member[no]'",$connect) or error(mysql_error());
 
 	@mysql_close($connect);
 
-// ÆäÀÌÁö ÀÌµ¿
+// íŽ˜ì´ì§€ ì´ë™
 	if($setup[use_alllist]) movepage("zboard.php?id=$id&page=$page&page_num=$page_num&select_arrange=$select_arrange&desc=$des&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no");
 	else movepage("view.php?id=$id&page=$page&page_num=$page_num&select_arrange=$select_arrange&desc=$des&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no");
 ?>

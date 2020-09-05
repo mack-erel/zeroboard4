@@ -26,7 +26,7 @@ function postaddr(var1)
  echo urldecode(stripslashes($memo));
 ?>
 <br>
-<div align=center><a href=# onclick=history.go(-2)><font color=black>µÚ·Î°¡±â</a> <font color=bbbbbb>|</font> <a href=# onclick=window.close()><font color=black>Ã¢ ´Ý±â</a>
+<div align=center><a href=# onclick=history.go(-2)><font color=black>ë’¤ë¡œê°€ê¸°</a> <font color=bbbbbb>|</font> <a href=# onclick=window.close()><font color=black>ì°½ ë‹«ê¸°</a>
 
 
 </body>

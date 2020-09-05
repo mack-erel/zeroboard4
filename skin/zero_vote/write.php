@@ -10,9 +10,9 @@
   <td align=center><b>
 
 <?
- if(!$mode||$mode=="write") echo "»õ·Î¿î ¼³¹®Á¶»ç ÀÛ¼º";
- elseif($mode=="reply") echo "¼³¹®Á¶»ç Ç×¸ñ Ãß°¡";
- else echo"¼³¹®Á¶»ç Á¦¸ñ ¼öÁ¤";
+ if(!$mode||$mode=="write") echo "ìƒˆë¡œìš´ ì„¤ë¬¸ì¡°ì‚¬ ìž‘ì„±";
+ elseif($mode=="reply") echo "ì„¤ë¬¸ì¡°ì‚¬ í•­ëª© ì¶”ê°€";
+ else echo"ì„¤ë¬¸ì¡°ì‚¬ ì œëª© ìˆ˜ì •";
 ?>
   </b><br>
 <?
@@ -22,7 +22,7 @@
 <table border=0 cellspacing=1 cellpadding=0 width=600>
 <tr>
  <td width=1>
-<!-- ÆûÅÂ±× ºÎºÐ;; ¼öÁ¤ÇÏÁö ¾Ê´Â °ÍÀÌ ÁÁ½À´Ï´Ù -->
+<!-- í¼íƒœê·¸ ë¶€ë¶„;; ìˆ˜ì •í•˜ì§€ ì•ŠëŠ” ê²ƒì´ ì¢‹ìŠµë‹ˆë‹¤ -->
 <form method=post name=write action=write_ok.php onsubmit="return check_submit();" enctype=multipart/form-data>
 <input type=hidden name=page value=<?=$page?>>
 <input type=hidden name=id value=<?=$id?>>
@@ -36,7 +36,7 @@
 <input type=hidden name=ss value="<?=$ss?>">
 <input type=hidden name=sc value="<?=$sc?>">
 <input type=hidden name=mode value="<?=$mode?>">
-<input type=hidden name=memo value="¼³¹®Á¶»ç<?=time()?>">
+<input type=hidden name=memo value="ì„¤ë¬¸ì¡°ì‚¬<?=time()?>">
 <input type=hidden name=use_html value=1>
 <!----------------------------------------------->
  </td>
@@ -49,29 +49,29 @@
 
 <?=$hide_category_start?>
   <tr>
-    <td>¼³¹®Á¶»ç Á¾·ù</td><td><?=$category_kind?></td>
+    <td>ì„¤ë¬¸ì¡°ì‚¬ ì¢…ë¥˜</td><td><?=$category_kind?></td>
   </tr>
 <?=$hide_category_end?>
 
 <?=$hide_notice_start?>
   <tr>
-    <td> °øÁö»çÇ× ¼±ÅÃ </td>
+    <td> ê³µì§€ì‚¬í•­ ì„ íƒ </td>
     <td> <input type=checkbox name=notice <?=$notice?> value=1> </td>
   </tr>
 <?=$hide_notice_end?>
 
   <tr>
-    <td>¼³¹®Á¶»ç Á¦¸ñ</td>
+    <td>ì„¤ë¬¸ì¡°ì‚¬ ì œëª©</td>
     <td> <input type=text name=subject <?=size(70)?> value="<?=$subject?>" maxlength=200 class=input> </td>
   </tr>
 
   <?=$hide_start?>
   <tr>
-     <td>ºñ¹Ð¹øÈ£ ÀÔ·Â</td>
+     <td>ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥</td>
      <td> <input type=password name=password <?=size(10)?> maxlength=20 class=input> </td>
   </tr>
   <tr>
-     <td width=60 align=center>¼³¹® ÀÛ¼ºÀÎ</td> 
+     <td width=60 align=center>ì„¤ë¬¸ ìž‘ì„±ì¸</td> 
      <td> <input type=text name=name value="<?=$name?>" <?=size(10)?> maxlength=20 class=input> </td>
   </tr>
   <?=$hide_end?>

@@ -16,7 +16,7 @@
 ?>
 
   <br>
-  <center><a href=# onclick=history.back() onfocus=blur()><font class=list_han>ÀÌÀü È­¸é</font></a>
+  <center><a href=# onclick=history.back() onfocus=blur()><font class=list_han>ì´ì „ í™”ë©´</font></a>
 
 <?
   }
@@ -24,7 +24,7 @@
   {
 ?>
 	<br>
-  <div align=center><a href=# onclick=location.href="<?echo $url;?>" onfocus=blur()><font class=list_han>ÆäÀÌÁö ÀÌµ¿</font></a>
+  <div align=center><a href=# onclick=location.href="<?echo $url;?>" onfocus=blur()><font class=list_han>íŽ˜ì´ì§€ ì´ë™</font></a>
 
 <?
   }

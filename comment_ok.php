@@ -1,30 +1,30 @@
 <?
 /***************************************************************************
- * °øÅë ÆÄÀÏ include
+ * ê³µí†µ íŒŒì¼ include
  **************************************************************************/
 	include "_head.php";
 
-	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("Á¤»óÀûÀ¸·Î ±ÛÀ» ÀÛ¼ºÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
+	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("ì •ìƒì ìœ¼ë¡œ ê¸€ì„ ì‘ì„±í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 
 /***************************************************************************
- * °Ô½ÃÆÇ ¼³Á¤ Ã¼Å©
+ * ê²Œì‹œíŒ ì„¤ì • ì²´í¬
  **************************************************************************/
 
-// ´ë»ó ÆÄÀÏ ÀÌ¸§ Á¤¸®
+// ëŒ€ìƒ íŒŒì¼ ì´ë¦„ ì •ë¦¬
 	if(!$setup[use_alllist]) $view_file_link="view.php"; else $view_file_link="zboard.php";
 
-// »ç¿ë±ÇÇÑ Ã¼Å©
-	if($setup[grant_comment]<$member[level]&&!$is_admin) Error("»ç¿ë±ÇÇÑÀÌ ¾ø½À´Ï´Ù","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=$view_file_link");
+// ì‚¬ìš©ê¶Œí•œ ì²´í¬
+	if($setup[grant_comment]<$member[level]&&!$is_admin) Error("ì‚¬ìš©ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=$view_file_link");
 
-// °¢Á¾ º¯¼ö °Ë»ç;;
-	$memo = str_replace("¤Ô","",$memo);
-	if(isblank($memo)) Error("³»¿ëÀ» ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù");
+// ê°ì¢… ë³€ìˆ˜ ê²€ì‚¬;;
+	$memo = str_replace("ã…¤","",$memo);
+	if(isblank($memo)) Error("ë‚´ìš©ì„ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤");
 	if(!$member[no]) {
-		if(isblank($name)) Error("ÀÌ¸§À» ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù");
-		if(isblank($password)) Error("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù");
+		if(isblank($name)) Error("ì´ë¦„ì„ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤");
+		if(isblank($password)) Error("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤");
 	}
 
-// ÇÊÅÍ¸µ;; °ü¸®ÀÚ°¡ ¾Æ´Ò¶§;;
+// í•„í„°ë§;; ê´€ë¦¬ìê°€ ì•„ë‹ë•Œ;;
 	if(!$is_admin&&$setup[use_filter]) {
 		$filter=explode(",",$setup[filter]);
 
@@ -35,23 +35,23 @@
 		$f_homepage=eregi_replace("([\_\-\./~@?=%&! ]+)","",strip_tags($homepage));
 		for($i=0;$i<count($filter);$i++) 
 		if(!isblank($filter[$i])) {
-			if(eregi($filter[$i],$f_memo)) Error("<b>$filter[$i]</b> Àº(´Â) µî·ÏÇÏ±â¿¡ ÀûÇÕÇÑ ´Ü¾î°¡ ¾Æ´Õ´Ï´Ù");
-			if(eregi($filter[$i],$f_name)) Error("<b>$filter[$i]</b> Àº(´Â) µî·ÏÇÏ±â¿¡ ÀûÇÕÇÑ ´Ü¾î°¡ ¾Æ´Õ´Ï´Ù");
+			if(eregi($filter[$i],$f_memo)) Error("<b>$filter[$i]</b> ì€(ëŠ”) ë“±ë¡í•˜ê¸°ì— ì í•©í•œ ë‹¨ì–´ê°€ ì•„ë‹™ë‹ˆë‹¤");
+			if(eregi($filter[$i],$f_name)) Error("<b>$filter[$i]</b> ì€(ëŠ”) ë“±ë¡í•˜ê¸°ì— ì í•©í•œ ë‹¨ì–´ê°€ ì•„ë‹™ë‹ˆë‹¤");
 		}
 	}
 
-// ÆĞ½º¿öµå¸¦ ¾ÏÈ£È­
+// íŒ¨ìŠ¤ì›Œë“œë¥¼ ì•”í˜¸í™”
 	if($password) {
 		$temp=mysql_fetch_array(mysql_query("select password('$password')"));
 		$password=$temp[0];   
 	}
 
-// °ü¸®ÀÚÀÌ°Å³ª HTMLÇã¿ë·¹º§ÀÌ ³·À»¶§ ÅÂ±×ÀÇ ±İÁöÀ¯¹«¸¦ Ã¼Å©
+// ê´€ë¦¬ìì´ê±°ë‚˜ HTMLí—ˆìš©ë ˆë²¨ì´ ë‚®ì„ë•Œ íƒœê·¸ì˜ ê¸ˆì§€ìœ ë¬´ë¥¼ ì²´í¬
 	if(!$is_admin&&$setup[grant_html]<$member[level]) {
-		$memo=del_html($memo);// ³»¿ëÀÇ HTML ±İÁö;;
+		$memo=del_html($memo);// ë‚´ìš©ì˜ HTML ê¸ˆì§€;;
 	}
 
-// È¸¿øµî·ÏÀÌ µÇ¾î ÀÖÀ»¶§ ÀÌ¸§µîÀ» °¡Á®¿È;;
+// íšŒì›ë“±ë¡ì´ ë˜ì–´ ìˆì„ë•Œ ì´ë¦„ë“±ì„ ê°€ì ¸ì˜´;;
 	if($member[no]) {
 		if($mode=="modify"&&$member[no]!=$s_data[ismember]) {
 			$name=$s_data[name];
@@ -60,53 +60,53 @@
 		}
 	}
 
-// °¢Á¾ º¯¼öÀÇ addslashes ½ÃÅ´
+// ê°ì¢… ë³€ìˆ˜ì˜ addslashes ì‹œí‚´
 	$name=addslashes(del_html($name));
 	$memo=autolink($memo);
 	$memo=addslashes($memo);
 
-// ÄÚ¸àÆ®ÀÇ ÃÖ°í Number °ªÀ» ±¸ÇÔ (Áßº¹ Ã¼Å©¸¦ À§ÇØ¼­)
+// ì½”ë©˜íŠ¸ì˜ ìµœê³  Number ê°’ì„ êµ¬í•¨ (ì¤‘ë³µ ì²´í¬ë¥¼ ìœ„í•´ì„œ)
 	$max_no=mysql_fetch_array(mysql_query("select max(no) from $t_comment"."_$id where parent='$no'"));
 
-// °°Àº ³»¿ëÀÌ ÀÖ´ÂÁö °Ë»ç;;
+// ê°™ì€ ë‚´ìš©ì´ ìˆëŠ”ì§€ ê²€ì‚¬;;
 	if(!$is_admin) {
 		$temp=mysql_fetch_array(mysql_query("select count(*) from $t_comment"."_$id where memo='$memo' and no='$max_no[0]'"));
-		if($temp[0]>0) Error("°°Àº ³»¿ëÀÇ ±ÛÀº µî·ÏÇÒ¼ö°¡ ¾ø½À´Ï´Ù");
+		if($temp[0]>0) Error("ê°™ì€ ë‚´ìš©ì˜ ê¸€ì€ ë“±ë¡í• ìˆ˜ê°€ ì—†ìŠµë‹ˆë‹¤");
 	}
 
-// ÄíÅ° ¼³Á¤;;
+// ì¿ í‚¤ ì„¤ì •;;
 
-	// ±âÁ¸ ¼¼¼Ç Ã³¸® (4.0x¿ë ¼¼¼Ç Ã³¸®·Î ÀÎÇÏ¿© ÁÖ¼® Ã³¸®)
+	// ê¸°ì¡´ ì„¸ì…˜ ì²˜ë¦¬ (4.0xìš© ì„¸ì…˜ ì²˜ë¦¬ë¡œ ì¸í•˜ì—¬ ì£¼ì„ ì²˜ë¦¬)
 	//if($c_name) $HTTP_SESSION_VARS["writer_name"]=$name;
 
-	// 4.0x ¿ë ¼¼¼Ç Ã³¸®
+	// 4.0x ìš© ì„¸ì…˜ ì²˜ë¦¬
 	if($c_name) {
 		$writer_name=$name;
 		session_register("writer_name");
 	}
 
-// °¢Á¾ º¯¼ö ¼³Á¤
-	$reg_date=time(); // ÇöÀçÀÇ ½Ã°£±¸ÇÔ;;
+// ê°ì¢… ë³€ìˆ˜ ì„¤ì •
+	$reg_date=time(); // í˜„ì¬ì˜ ì‹œê°„êµ¬í•¨;;
 	$parent=$no;
 
-// ÇØ´ç±ÛÀÌ ÀÖ´Â Áö¸¦ °Ë»ç
+// í•´ë‹¹ê¸€ì´ ìˆëŠ” ì§€ë¥¼ ê²€ì‚¬
 	$check = mysql_fetch_array(mysql_query("select count(*) from $t_board"."_$id where no = '$no'", $connect));
-	if(!$check[0]) Error("¿øº» ±ÛÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+	if(!$check[0]) Error("ì›ë³¸ ê¸€ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 
-// ÄÚ¸àÆ® ÀÔ·Â
+// ì½”ë©˜íŠ¸ ì…ë ¥
 	mysql_query("insert into $t_comment"."_$id (parent,ismember,name,password,memo,reg_date,ip) values ('$parent','$member[no]','$name','$password','$memo','$reg_date','$REMOTE_ADDR')") or error(mysql_error());
 
 
-// ÄÚ¸àÆ® °¹¼ö¸¦ ±¸ÇØ¼­ Á¤¸®
+// ì½”ë©˜íŠ¸ ê°¯ìˆ˜ë¥¼ êµ¬í•´ì„œ ì •ë¦¬
 	$total=mysql_fetch_array(mysql_query("select count(*) from $t_comment"."_$id where parent='$no'"));
 	mysql_query("update $t_board"."_$id set total_comment='$total[0]' where no='$no'") or error(mysql_error());
 
 
-// È¸¿øÀÏ °æ¿ì ÇØ´ç ÇØ¿øÀÇ Á¡¼ö ÁÖ±â
+// íšŒì›ì¼ ê²½ìš° í•´ë‹¹ í•´ì›ì˜ ì ìˆ˜ ì£¼ê¸°
 	@mysql_query("update $member_table set point2=point2+1 where no='$member[no]'",$connect) or error(mysql_error());
 
 	@mysql_close($connect);
 
-// ÆäÀÌÁö ÀÌµ¿
+// í˜ì´ì§€ ì´ë™
 	movepage("$view_file_link?id=$id&page=$page&page_num=$page_num&select_arrange=$select_arrange&desc=$des&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&category=$category");
 ?>

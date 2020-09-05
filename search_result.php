@@ -5,15 +5,15 @@
   $sectopt = 0;
   $search_opt = "";
   if($_GET['ss']=="on") {
-    $search_opt[] = "Á¦¸ñ";
+    $search_opt[] = "ì œëª©";
     $sectopt += 1;
   }
   if($_GET['sc']=="on") {
-    $search_opt[] = "³»¿ë";
+    $search_opt[] = "ë‚´ìš©";
     $sectopt += 2;
   }
   if($_GET['sn']=="on") {
-    $search_opt[] = "ÀÌ¸§";
+    $search_opt[] = "ì´ë¦„";
     $sectopt += 4;
   }
 
@@ -64,20 +64,20 @@
       <input type="hidden" name="dw_url_id" value="<?=$dw_url_id?>">
       <input type="hidden" name="id" value="<?=$id?>">
       <input type="hidden" name="sortopt" value="<?=$sortopt?>">
-      <input type="checkbox" name="sn" value="on" <?=$sn=="on"?"checked":""?>> ÀÌ¸§
-      <input type="checkbox" name="ss" value="on" <?=$ss=="on"?"checked":""?>> Á¦¸ñ
-      <input type="checkbox" name="sc" value="on" <?=$sc=="on"?"checked":""?>> ³»¿ë
+      <input type="checkbox" name="sn" value="on" <?=$sn=="on"?"checked":""?>> ì´ë¦„
+      <input type="checkbox" name="ss" value="on" <?=$ss=="on"?"checked":""?>> ì œëª©
+      <input type="checkbox" name="sc" value="on" <?=$sc=="on"?"checked":""?>> ë‚´ìš©
       &nbsp; &nbsp;
-      <input type="text" name="keyword" value="<?=$keyword?>" class="SearchResultKeywordBox"><input type="submit" value="°Ë»ö" class="SearchBtn">
+      <input type="text" name="keyword" value="<?=$keyword?>" class="SearchResultKeywordBox"><input type="submit" value="ê²€ìƒ‰" class="SearchBtn">
       &nbsp; &nbsp;
-      <input type="radio" name="sortopt" value="0" <?=!$sortopt?"checked":""?> onClick="result_move_by_sort(0)"> Á¤È®µµ
-      <input type="radio" name="sortopt" value="1" <?=$sortopt==1?"checked":""?> onClick="result_move_by_sort(1)"> ³¯Â¥¼ø
+      <input type="radio" name="sortopt" value="0" <?=!$sortopt?"checked":""?> onClick="result_move_by_sort(0)"> ì •í™•ë„
+      <input type="radio" name="sortopt" value="1" <?=$sortopt==1?"checked":""?> onClick="result_move_by_sort(1)"> ë‚ ì§œìˆœ
       </font>
     </form>
 
   </td>
   <td align="right">
-    <font class="BackBtn"><a href="./zboard.php?id=<?=$id?>">[°Ô½ÃÆÇÀ¸·Î µ¹¾Æ°¡±â]</a></font>
+    <font class="BackBtn"><a href="./zboard.php?id=<?=$id?>">[ê²Œì‹œíŒìœ¼ë¡œ ëŒì•„ê°€ê¸°]</a></font>
   </td>
 </tr>
 </table>
@@ -88,8 +88,8 @@
   if(!$tmp_result) {
 ?>
   <div align="center" class="NoResult">
-  ÀÔ·ÂÇÏ½Å "<font class="bold"><?=$keyword?></font>" ¿¡ ´ëÇÑ °Ë»ö °á°ú°¡ ¾ø½À´Ï´Ù.<br>
-  °Ë»ö¾îÀÇ Ã¶ÀÚ°¡ Æ²·È´ÂÁö ¶Ç´Â °Ë»ö ¹üÀ§°¡ Àß¸øµÇ¾ú´ÂÁö¸¦ È®ÀÎÇØ ÁÖ¼¼¿ä.
+  ìž…ë ¥í•˜ì‹  "<font class="bold"><?=$keyword?></font>" ì— ëŒ€í•œ ê²€ìƒ‰ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.<br>
+  ê²€ìƒ‰ì–´ì˜ ì² ìžê°€ í‹€ë ¸ëŠ”ì§€ ë˜ëŠ” ê²€ìƒ‰ ë²”ìœ„ê°€ ìž˜ëª»ë˜ì—ˆëŠ”ì§€ë¥¼ í™•ì¸í•´ ì£¼ì„¸ìš”.
   </div>
 <?
   } else {

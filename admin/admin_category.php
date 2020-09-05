@@ -1,7 +1,7 @@
 <?
   $group_data=mysql_fetch_array(mysql_query("select * from $group_table where no='$group_no'"));
 
-  if($member[is_admin]>2&&!eregi($no.",",$member[board_name])) error("»ç¿ë ±ÇÇÑÀÌ ¾ø½À´Ï´Ù");
+  if($member[is_admin]>2&&!eregi($no.",",$member[board_name])) error("ì‚¬ìš© ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤");
 
   $table_data=mysql_fetch_array(mysql_query("select name from $admin_table where no='$no'"));
 
@@ -11,9 +11,9 @@
 <table border=0 cellspacing=1 cellpadding=3 width=100% bgcolor=#b0b0b0>
   <tr height=30><td bgcolor=#3d3d3d colspan=5><img src=images/admin_webboard.gif></td></tr>
 <Tr height=30><td bgcolor=white colspan=5 align=right style=font-family:Tahoma;font-size:8pt;>
-±×·ì ÀÌ¸§ : <b><?=$group_data[name]?></b> , °Ô½ÃÆÇ ÀÌ¸§ : <b><a href=zboard.php?id=<?=$table_data[name]?> target=_blank><?=$table_data[name]?></a></b> &nbsp;&nbsp;&nbsp;
-    <input type=button value='°Ô½ÃÆÇ°ü¸®' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=modify&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
-    <input type=button value='±ÇÇÑ¼³Á¤' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=grant&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
+ê·¸ë£¹ ì´ë¦„ : <b><?=$group_data[name]?></b> , ê²Œì‹œíŒ ì´ë¦„ : <b><a href=zboard.php?id=<?=$table_data[name]?> target=_blank><?=$table_data[name]?></a></b> &nbsp;&nbsp;&nbsp;
+    <input type=button value='ê²Œì‹œíŒê´€ë¦¬' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=modify&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
+    <input type=button value='ê¶Œí•œì„¤ì •' class=input style=width=100px onclick=location.href="<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&exec2=grant&no=<?=$no?>&page=<?=$page?>&page_num=<?=$page_num?>">
 &nbsp;&nbsp;&nbsp;
 </td></tr>
   <tr height=1><td bgcolor=#000000 style=padding:0px; colspan=5><img src=images/t.gif height=1></td></tr>
@@ -25,11 +25,11 @@
 <input type=hidden name=page_num value=<?=$page_num?>>
 <input type=hidden name=no value=<?=$no?>>
 <tr height=23 align=center bgcolor=#a0a0a0>
-    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>¼±ÅÃ</td>
-    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>Ä«Å×°í¸®¸í</td>
-    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>µî·ÏµÈ °¹¼ö</td>
-    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>¼öÁ¤</td>
-    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>»èÁ¦</td>
+    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>ì„ íƒ</td>
+    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>ì¹´í…Œê³ ë¦¬ëª…</td>
+    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>ë“±ë¡ëœ ê°¯ìˆ˜</td>
+    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>ìˆ˜ì •</td>
+    <td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>ì‚­ì œ</td>
   </tr>
 <?
   while($data=mysql_fetch_array($result))
@@ -46,7 +46,7 @@
     <td style=font-family:Tahoma;font-size:8pt>
 <?
   if(!$total_num&&$total_category>1)
-     echo"<a href=$PHP_SELF?exec=view_board&no=$no&exec2=del_category&group_no=$group_no&page=$page&page_num=$page_num&category_no=$data[no] onclick=\"return confirm('»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?')\">Delete</a>"; else echo "&nbsp;";
+     echo"<a href=$PHP_SELF?exec=view_board&no=$no&exec2=del_category&group_no=$group_no&page=$page&page_num=$page_num&category_no=$data[no] onclick=\"return confirm('ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?')\">Delete</a>"; else echo "&nbsp;";
 ?>
     </td>
   </tr>
@@ -56,7 +56,7 @@
 ?>
   <tr height=28 align=center>
     <td colspan=5 ><table border=0 cellpadding=2 cellspacing=0><tr><td style=font-family:Tahoma;font-size:8pt;font-weight:bold;>
-      ¼±ÅÃµÈ Ä«Å×°í¸®ÀÇ °Ô½Ã¹°À» ÀÏ°ı ÀÌµ¿ : </td><td><img src=images/t.gif height=2><br><select name=movename class=input> 
+      ì„ íƒëœ ì¹´í…Œê³ ë¦¬ì˜ ê²Œì‹œë¬¼ì„ ì¼ê´„ ì´ë™ : </td><td><img src=images/t.gif height=2><br><select name=movename class=input> 
 <?
   $temp2=mysql_query("select * from $t_category"."_$table_data[name] order by no desc",$connect);
   while($data2=mysql_fetch_array($temp2))
@@ -65,7 +65,7 @@
   }
 ?>
   </select></td><td>
-  <input type=submit value=' ÀÌµ¿ ' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px;> </td></tr></table>
+  <input type=submit value=' ì´ë™ ' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px;> </td></tr></table>
  </td>
 </form>
 </tr>
@@ -79,7 +79,7 @@
 <input type=hidden name=page_num value=<?=$page_num?>>
 <table border=0 cellpadding=2 cellspacing=0>
 <tr><td style=font-size:8pt;font-family:Tahoma;color:#ffffff;font-weight:bold>
-      Ä«Å×°í¸® Ãß°¡</td><td><input type=text size=10 name=name></td><td><input type=submit value=' Ãß°¡ ' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px;></td></tr></table><br><br>
- <input type=button value=' °Ô½ÃÆÇ ¸ñ·Ï º¸±â ' onclick="location.href='<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&page=<?=$page?>&page_num=<?=$page_num?>'" style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px;>
+      ì¹´í…Œê³ ë¦¬ ì¶”ê°€</td><td><input type=text size=10 name=name></td><td><input type=submit value=' ì¶”ê°€ ' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px;></td></tr></table><br><br>
+ <input type=button value=' ê²Œì‹œíŒ ëª©ë¡ ë³´ê¸° ' onclick="location.href='<?=$PHP_SELF?>?exec=view_board&group_no=<?=$group_no?>&page=<?=$page?>&page_num=<?=$page_num?>'" style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px;>
   </form>
 </div>

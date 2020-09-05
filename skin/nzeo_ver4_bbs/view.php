@@ -29,7 +29,7 @@
 					}
 				?>
 			</td>
-			<td align=right style=padding-right:10px class=list_eng><?=$date?>, ��ȸ : <b><?=number_format($hit)?></b>, ��õ : <b><?=$vote?></b></td>
+			<td align=right style=padding-right:10px class=list_eng><?=$date?>, 조회 : <b><?=number_format($hit)?></b>, 추천 : <b><?=$vote?></b></td>
 		</tr>
 		</table>
 		<table border=0 cellspacing=0 cellpadding=10 width=100% padding=8>
@@ -68,12 +68,12 @@
 	<td>
 		<table border=0 cellspacing=0 cellpadding=0 width=100% style=table-layout:fixed>
 		<tr>
-			<td class=list_eng>�ٸ���Ȱ <b>NZEO</b></td>
+			<td class=list_eng>바른생활 <b>NZEO</b></td>
 		</tr>
 		</table>
 	</td>
 	<td width=8 class=line2 style=padding:0px><img src=/images/t.gif border=0 width=8></td>
-	<td class=list_eng>���� ���ͳݿ��� �ڽ��� ��Ÿ���� ������ ����Դϴ�.<br>��뿡�� ��ó�� �ֱ⺸�� ���� ��ſ� �� �� �ִ� �ڸ�Ʈ ��Ź�����.</td>
+	<td class=list_eng>글은 인터넷에서 자신을 나타내는 유일한 모습입니다.<br>상대에게 상처를 주기보다 같이 즐거워 할 수 있는 코멘트 부탁드려요.</td>
 	<td align=right><font class=list_eng><?=date("Y-m-d")?><br><?=date("H:i:s")?></font></td>
 </tr>
 </table>

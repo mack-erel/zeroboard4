@@ -2,39 +2,39 @@
 	include "lib.php";
 	include "schema.sql";
 
-	if(file_exists("config.php")) error("ÀÌ¹Ì config.php°¡ »ı¼ºµÇ¾î ÀÖ½À´Ï´Ù.<br><br>Àç¼³Ä¡ÇÏ·Á¸é ÇØ´ç ÆÄÀÏÀ» Áö¿ì¼¼¿ä");
+	if(file_exists("config.php")) error("ì´ë¯¸ config.phpê°€ ìƒì„±ë˜ì–´ ìˆìŠµë‹ˆë‹¤.<br><br>ì¬ì„¤ì¹˜í•˜ë ¤ë©´ í•´ë‹¹ íŒŒì¼ì„ ì§€ìš°ì„¸ìš”");
 
-// È£½ºÆ®³×ÀÓ, ¾ÆÀÌµğ, DB³×ÀÓ, ºñ¹Ğ¹øÈ£ÀÇ °ø¹é¿©ºÎ °Ë»ç
-	if(isBlank($hostname)) Error("HostNameÀ» ÀÔ·ÂÇÏ¼¼¿ä","");
-	if(isBlank($user_id)) Error("User ID ¸¦ ÀÔ·ÂÇÏ¼¼¿ä","");
-	if(isBlank($dbname)) Error("DB NAMEÀ» ÀÔ·ÂÇÏ¼¼¿ä","");
+// í˜¸ìŠ¤íŠ¸ë„¤ì„, ì•„ì´ë””, DBë„¤ì„, ë¹„ë°€ë²ˆí˜¸ì˜ ê³µë°±ì—¬ë¶€ ê²€ì‚¬
+	if(isBlank($hostname)) Error("HostNameì„ ì…ë ¥í•˜ì„¸ìš”","");
+	if(isBlank($user_id)) Error("User ID ë¥¼ ì…ë ¥í•˜ì„¸ìš”","");
+	if(isBlank($dbname)) Error("DB NAMEì„ ì…ë ¥í•˜ì„¸ìš”","");
 
-// DB¿¡ Ä¿³ØÆ® ÇÏ°í DB NAMEÀ¸·Î select DB
+// DBì— ì»¤ë„¥íŠ¸ í•˜ê³  DB NAMEìœ¼ë¡œ select DB
 	$connect = @mysql_connect($hostname,$user_id,$password) or Error("MySQL-DB Connect<br>Error!!!","");
 	if(mysql_error()) Error(mysql_error(),"");
 	mysql_select_db($dbname, $connect ) or Error("MySQL-DB Select<br>Error!!!","");
 
-// °ü¸®ÀÚ Å×ÀÌºí »ı¼º
-	if(!isTable($admin_table,$dbname)) @mysql_query($admin_table_schema, $connect) or Error("°ü¸®ÀÚ Å×ÀÌºí »ı¼º ½ÇÆĞ","");
+// ê´€ë¦¬ì í…Œì´ë¸” ìƒì„±
+	if(!isTable($admin_table,$dbname)) @mysql_query($admin_table_schema, $connect) or Error("ê´€ë¦¬ì í…Œì´ë¸” ìƒì„± ì‹¤íŒ¨","");
 	else $admin_table_exist=1;
   
-// ±×·ìÅ×ÀÌºí »ı¼º
-	if(!isTable($group_table,$dbname)) @mysql_query($group_table_schema, $connect) or Error("±×·ì Å×ÀÌºí »ı¼º ½ÇÆĞ","");
+// ê·¸ë£¹í…Œì´ë¸” ìƒì„±
+	if(!isTable($group_table,$dbname)) @mysql_query($group_table_schema, $connect) or Error("ê·¸ë£¹ í…Œì´ë¸” ìƒì„± ì‹¤íŒ¨","");
 	else $group_table_exist=1;
 
-// È¸¿ø°ü¸® Å×ÀÌºí »ı¼º
-	if(!istable($member_table,$dbname)) @mysql_query($member_table_schema, $connect) or Error("È¸¿ø°ü¸® Å×ÀÌºí »ı¼º ½ÇÆĞ","");
+// íšŒì›ê´€ë¦¬ í…Œì´ë¸” ìƒì„±
+	if(!istable($member_table,$dbname)) @mysql_query($member_table_schema, $connect) or Error("íšŒì›ê´€ë¦¬ í…Œì´ë¸” ìƒì„± ì‹¤íŒ¨","");
 	else $member_table_exist=1;
 
-// ÂÊÁöÅ×ÀÌºí
-	if(!istable($get_memo_table,$dbname))  @mysql_query($get_memo_table_schema, $connect) or Error("¹ŞÀº ÂÊÁö Å×ÀÌºí »ı¼º ½ÇÆĞ");
+// ìª½ì§€í…Œì´ë¸”
+	if(!istable($get_memo_table,$dbname))  @mysql_query($get_memo_table_schema, $connect) or Error("ë°›ì€ ìª½ì§€ í…Œì´ë¸” ìƒì„± ì‹¤íŒ¨");
 	else $get_memo_table_exists=1;
-	if(!istable($send_memo_table,$dbname)) @mysql_query($send_memo_table_schema, $connect) or Error("º¸³½ ÂÊÁö Å×ÀÌºí »ı¼º ½ÇÆĞ");
+	if(!istable($send_memo_table,$dbname)) @mysql_query($send_memo_table_schema, $connect) or Error("ë³´ë‚¸ ìª½ì§€ í…Œì´ë¸” ìƒì„± ì‹¤íŒ¨");
 	else $send_memo_table_exist=1;
 
-// ÆÄÀÏ·Î DB Á¤º¸ ÀúÀå
-	$file=@fopen("config.php","w") or Error("config.php ÆÄÀÏ »ı¼º ½ÇÆĞ<br><br>µğ·ºÅä¸®ÀÇ ÆÛ¹Ì¼ÇÀ» 707·Î ÁÖ½Ê½Ã¿ä","");
-	@fwrite($file,"<?\n$hostname\n$user_id\n$password\n$dbname\n?>\n") or Error("config.php ÆÄÀÏ »ı¼º ½ÇÆĞ<br><br>µğ·ºÅä¸®ÀÇ ÆÛ¹Ì¼ÇÀ» 707·Î ÁÖ½Ê½Ã¿ä","");
+// íŒŒì¼ë¡œ DB ì •ë³´ ì €ì¥
+	$file=@fopen("config.php","w") or Error("config.php íŒŒì¼ ìƒì„± ì‹¤íŒ¨<br><br>ë””ë ‰í† ë¦¬ì˜ í¼ë¯¸ì…˜ì„ 707ë¡œ ì£¼ì‹­ì‹œìš”","");
+	@fwrite($file,"<?\n$hostname\n$user_id\n$password\n$dbname\n?>\n") or Error("config.php íŒŒì¼ ìƒì„± ì‹¤íŒ¨<br><br>ë””ë ‰í† ë¦¬ì˜ í¼ë¯¸ì…˜ì„ 707ë¡œ ì£¼ì‹­ì‹œìš”","");
 	@fclose($file);
 	@mkdir("data",0707);
 	@mkdir("icon",0707);
@@ -53,5 +53,5 @@
 	mysql_close($connect);
 
 	if($temp[0]) {movepage("admin.php");}
-	else {movepage("install2.php");} // °ü¸®ÀÚ Á¤º¸°¡ ¾øÀ»¶§ °ü¸®ÀÚ Á¤º¸ ÀÔ·Â
+	else {movepage("install2.php");} // ê´€ë¦¬ì ì •ë³´ê°€ ì—†ì„ë•Œ ê´€ë¦¬ì ì •ë³´ ì…ë ¥
 ?>

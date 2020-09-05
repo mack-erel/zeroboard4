@@ -1,10 +1,10 @@
 <?
 /***************************************************************************
- * È¸¿ø¸¶´Ù ¾÷·ÎµåµÈ ÀÌ¹ÌÁö¸¦ º¸¿©ÁÖ´Â ÆäÀÌÁö
+ * íšŒì›ë§ˆë‹¤ ì—…ë¡œë“œëœ ì´ë¯¸ì§€ë¥¼ ë³´ì—¬ì£¼ëŠ” íŽ˜ì´ì§€
  **************************************************************************/
 	include "_head.php";
 
-	if(!$id) Die("<Script>\nalert('°Ô½ÃÆÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù');\nwindow.close();\n</Script>");
+	if(!$id) Die("<Script>\nalert('ê²Œì‹œíŒ ì´ë¦„ì„ ìž…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤');\nwindow.close();\n</Script>");
 
 	$setup[header]="";
 	$setup[footer]="";
@@ -16,27 +16,27 @@
 	$group[footer_url]="";
 	$setup[skinname]="";
 
-	if(!$member[no]) error("È¸¿ø¸¸ <br>»ç¿ë°¡´ÉÇÕ´Ï´Ù","window.close");
-	if($setup[grant_write]<$member[level]&&!$is_admin) Error("»ç¿ë ±ÇÇÑÀÌ ¾ø½À´Ï´Ù","window.close");
-	if($setup[grant_imagebox]<$member[level]) Error("»ç¿ë ±ÇÇÑÀÌ ¾ø½À´Ï´Ù","window.close");
+	if(!$member[no]) error("íšŒì›ë§Œ <br>ì‚¬ìš©ê°€ëŠ¥í•©ë‹ˆë‹¤","window.close");
+	if($setup[grant_write]<$member[level]&&!$is_admin) Error("ì‚¬ìš© ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤","window.close");
+	if($setup[grant_imagebox]<$member[level]) Error("ì‚¬ìš© ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤","window.close");
 
-// icon µð·ºÅä¸®¿¡ member_image_box µð·ºÅä¸®°¡ ¾øÀ»°æ¿ì µð·ºÅä¸® »ý¼º
+// icon ë””ë ‰í† ë¦¬ì— member_image_box ë””ë ‰í† ë¦¬ê°€ ì—†ì„ê²½ìš° ë””ë ‰í† ë¦¬ ìƒì„±
 	$path = "icon/member_image_box";
 	if(!is_dir($path)) {
 		@mkdir($path,0707);
 		@chmod($path,0707);
 	}
 
-// È¸¿øÀÇ Path ÁöÁ¤
+// íšŒì›ì˜ Path ì§€ì •
 	$path .="/".$member[no];
 
-// È¸¿øÀÇ µð·ºÅä¸®°¡ »ý¼ºÀÌ ¾ÈµÇ¾î ÀÖÀ¸¸é »ý¼º
+// íšŒì›ì˜ ë””ë ‰í† ë¦¬ê°€ ìƒì„±ì´ ì•ˆë˜ì–´ ìžˆìœ¼ë©´ ìƒì„±
 	if(!is_dir($path)) {
 		@mkdir($path,0707);
 		@chmod($path,0707);
 	}
 
-// È¸¿øÀÇ ÀÌ¹ÌÁö Ã¢°í ÀüÃ¼ ¿ë·® °è»êÇÏ±â
+// íšŒì›ì˜ ì´ë¯¸ì§€ ì°½ê³  ì „ì²´ ìš©ëŸ‰ ê³„ì‚°í•˜ê¸°
 	$d = dir($path);
 	while($entry = $d->read()) {
 		if ($entry != "." && $entry != "..") {
@@ -51,22 +51,22 @@
 	$dirSize = 0;
 	for($i=0;$i<count($image_list);$i++) $dirSize += filesize($path."/".$image_list[$i]); 
 
-// È¸¿øÀÇ Çã¿ë ¿ë·® ±¸ÇÏ±â
+// íšŒì›ì˜ í—ˆìš© ìš©ëŸ‰ êµ¬í•˜ê¸°
 	$maxDirSize = zReadFile($path."_maxsize.php");
 	if(!$maxDirSize) {
-		// ±âº»À¸·Î 10kb ÀÇ ¿ë·®À» Á¦°ø
+		// ê¸°ë³¸ìœ¼ë¡œ 10kb ì˜ ìš©ëŸ‰ì„ ì œê³µ
 		$maxDirSize = 100*1024; 
 	} else {
-		// ÆÄÀÏÀÇ ÁÖ¼®Ã³¸® Á¦°Å
+		// íŒŒì¼ì˜ ì£¼ì„ì²˜ë¦¬ ì œê±°
 		$maxDirSize = str_replace("<?/*","",$maxDirSize);
 		$maxDirSize = str_replace("*/?>","",$maxDirSize);
 	}
 
-// ÀÔ·ÂµÈ ÀÌ¹ÌÁö°¡ ÀÖÀ¸¸é upload ½ÃÅ´
+// ìž…ë ¥ëœ ì´ë¯¸ì§€ê°€ ìžˆìœ¼ë©´ upload ì‹œí‚´
 	if($exec=="upload") {
-		if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("Á¤»óÀûÀ¸·Î ¾÷·Îµå¸¦ ÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.","window.close");
-		if(!eregi("image_box.php",$HTTP_REFERER)) Error("Á¤»óÀûÀ¸·Î ¾÷·Îµå¸¦ ÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.","window.close");
-		if(getenv("REQUEST_METHOD") == 'GET' ) Error("Á¤»óÀûÀ¸·Î ¾÷·Îµå¸¦ ÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù","window.close");
+		if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("ì •ìƒì ìœ¼ë¡œ ì—…ë¡œë“œë¥¼ í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.","window.close");
+		if(!eregi("image_box.php",$HTTP_REFERER)) Error("ì •ìƒì ìœ¼ë¡œ ì—…ë¡œë“œë¥¼ í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.","window.close");
+		if(getenv("REQUEST_METHOD") == 'GET' ) Error("ì •ìƒì ìœ¼ë¡œ ì—…ë¡œë“œë¥¼ í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤","window.close");
 
 		$num = (int)count($HTTP_POST_FILES[upload][name]);
 		for($i=0;$i<$num;$i++) {
@@ -77,19 +77,19 @@
 
 			if($upload_name[$i]) {
 
-				if(file_exists($path."/".$upload_name[$i])) Error("°°Àº ÀÌ¸§ÀÇ ÆÄÀÏÀÌ Á¸ÀçÇÕ´Ï´Ù.<br>´Ù¸¥ ÀÌ¸§À¸·Î ÀÔ·ÂÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù");
+				if(file_exists($path."/".$upload_name[$i])) Error("ê°™ì€ ì´ë¦„ì˜ íŒŒì¼ì´ ì¡´ìž¬í•©ë‹ˆë‹¤.<br>ë‹¤ë¥¸ ì´ë¦„ìœ¼ë¡œ ìž…ë ¥í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤");
 
 				$filesize = filesize($upload[$i]);
 	
-				// ¾÷·Îµå ¿ë·® Ã¼Å©
-				if($maxDirSize < $filesize + $dirSize) Error("ÀÌ¹ÌÁö Ã¢°í »ç¿ë ¿ë·®À» ÃÊ°úÇÏ¿´½À´Ï´Ù.");
+				// ì—…ë¡œë“œ ìš©ëŸ‰ ì²´í¬
+				if($maxDirSize < $filesize + $dirSize) Error("ì´ë¯¸ì§€ ì°½ê³  ì‚¬ìš© ìš©ëŸ‰ì„ ì´ˆê³¼í•˜ì˜€ìŠµë‹ˆë‹¤.");
 
 				if($filesize) {
-					if(!is_uploaded_file($upload[$i])) Error("Á¤»óÀûÀÎ ¹æ¹ýÀ¸·Î ¾÷·Îµå ÇØÁÖ¼¼¿ä","window.close");
-					if(!eregi("\.gif\$",$upload_name[$i])&&!eregi("\.jpg\$",$upload_name[$i])) Error("ÀÌ¹ÌÁö´Â gif ¶Ç´Â jpg ÆÄÀÏÀ» ¿Ã·ÁÁÖ¼¼¿ä");
+					if(!is_uploaded_file($upload[$i])) Error("ì •ìƒì ì¸ ë°©ë²•ìœ¼ë¡œ ì—…ë¡œë“œ í•´ì£¼ì„¸ìš”","window.close");
+					if(!eregi("\.gif\$",$upload_name[$i])&&!eregi("\.jpg\$",$upload_name[$i])) Error("ì´ë¯¸ì§€ëŠ” gif ë˜ëŠ” jpg íŒŒì¼ì„ ì˜¬ë ¤ì£¼ì„¸ìš”");
 					$size=GetImageSize($upload[$i]);
-					if(!$size[2]) Error("ÀÌ¹ÌÁö ÆÄÀÏÀ» ¿Ã·ÁÁÖ½Ã±â ¹Ù¶ø´Ï´Ù");
-					if(!@move_uploaded_file($upload[$i] , $path."/".$upload_name[$i])) Error("ÀÌ¹ÌÁö ¾÷·Îµå°¡ Á¦´ë·Î µÇÁö ¾Ê¾Ò½À´Ï´Ù");
+					if(!$size[2]) Error("ì´ë¯¸ì§€ íŒŒì¼ì„ ì˜¬ë ¤ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤");
+					if(!@move_uploaded_file($upload[$i] , $path."/".$upload_name[$i])) Error("ì´ë¯¸ì§€ ì—…ë¡œë“œê°€ ì œëŒ€ë¡œ ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤");
 				}
 
 			}
@@ -100,31 +100,31 @@
 		exit();
 	}
 
-// »èÁ¦ ¸í·É ½ÇÇà½Ã
+// ì‚­ì œ ëª…ë ¹ ì‹¤í–‰ì‹œ
 	if($exec=="delete"&&strlen($no)&&$id) {
-		if(!z_unlink($path."/".$image_list[$no])) die("¿¡·¯"); 
+		if(!z_unlink($path."/".$image_list[$no])) die("ì—ëŸ¬"); 
 		movepage("$PHP_SELF?id=$id&image_page=$image_page");
 		exit();
 	}
 
-// ÇÑÆäÀÌÁö¿¡ Ãâ·ÂµÉ ±×¸² °¹¼ö ÁöÁ¤
+// í•œíŽ˜ì´ì§€ì— ì¶œë ¥ë  ê·¸ë¦¼ ê°¯ìˆ˜ ì§€ì •
 	$listnum = 18;
 
-// ÀüÃ¼°¹¼ö¿Í ÀüÃ¼ ÆäÀÌÁö ¼ö ±¸ÇÔ
+// ì „ì²´ê°¯ìˆ˜ì™€ ì „ì²´ íŽ˜ì´ì§€ ìˆ˜ êµ¬í•¨
 	$total = count($image_list);
-	$total_page=(int)(($total-1)/$listnum)+1; // ÀüÃ¼ ÆäÀÌÁö ±¸ÇÔ
+	$total_page=(int)(($total-1)/$listnum)+1; // ì „ì²´ íŽ˜ì´ì§€ êµ¬í•¨
 
-// ÆäÀÌÁö ÁöÁ¤
+// íŽ˜ì´ì§€ ì§€ì •
 	if(!$image_page) $image_page = 1;
 
-// ÆäÀÌÁö°¡ ÀüÃ¼ ÆäÀÌÁöº¸´Ù Å©¸é ÆäÀÌÁö ¹øÈ£ ¹Ù²Þ
+// íŽ˜ì´ì§€ê°€ ì „ì²´ íŽ˜ì´ì§€ë³´ë‹¤ í¬ë©´ íŽ˜ì´ì§€ ë²ˆí˜¸ ë°”ê¿ˆ
 	if($image_page>$total_page) $image_page=$total_page; 
 
-// ÀÌ¹ÌÁöÀÇ Ãâ·Â Å©±â ÁöÁ¤
+// ì´ë¯¸ì§€ì˜ ì¶œë ¥ í¬ê¸° ì§€ì •
 	$x_size = 75;
 	$y_size = 75;
 
-// ÇÑ ÁÙ¿¡ ³ª¿Ã ÀÌ¹ÌÁö ¼ö ÁöÁ¤
+// í•œ ì¤„ì— ë‚˜ì˜¬ ì´ë¯¸ì§€ ìˆ˜ ì§€ì •
 	$h_num = 6;
 
 
@@ -162,7 +162,7 @@ function putStr() {
 		}
 		opener.document.write.memo.value = opener.document.write.memo.value + img_str;
 	} else {
-		alert ("±Û¾²±â È­¸é¿¡¼­¸¸ »ç¿ëÇÏ½Ç¼ö ÀÖ½À´Ï´Ù");
+		alert ("ê¸€ì“°ê¸° í™”ë©´ì—ì„œë§Œ ì‚¬ìš©í•˜ì‹¤ìˆ˜ ìžˆìŠµë‹ˆë‹¤");
 	}
 	var obj=document.all['inputTable'];
 	obj.style.visibility='hidden';
@@ -203,7 +203,7 @@ function alignset(str) {
 
 			<table border=0 cellspacing=0 cellpadding=4 width=100%>
 			<tr>
-				<td><b>±×¸²ÆÄÀÏ</b> : <input type=input value="" size=25 class=input name=i_filename style=height:16px></td>
+				<td><b>ê·¸ë¦¼íŒŒì¼</b> : <input type=input value="" size=25 class=input name=i_filename style=height:16px></td>
 			</tr>
 			</table>
 
@@ -211,7 +211,7 @@ function alignset(str) {
 
 			<table border=0 cellspacing=0 cellpadding=4 width=100%>
 			<tr>
-				<td><b>Á¤·Ä±âÁØ</td>
+				<td><b>ì •ë ¬ê¸°ì¤€</td>
 				<td>
 					<table border=0 cellspacing=0 cellpadding=0 width=100%>
 					<col width=17%></col><col width=17%></col><col width=17%></col><col width=17%></col><col width=17%></col><col width=17%></col>
@@ -224,12 +224,12 @@ function alignset(str) {
 						<td><img src=images/im_i_right.gif border=0></td>
 					</tr>
 					<tr>
-						<td><input type=radio name=aligncheck checked onclick=alignset('')> ÀÏ ¹Ý</td>
-						<td><input type=radio name=aligncheck onclick=alignset('top')> À§</td>
-						<td><input type=radio name=aligncheck onclick=alignset('middle')> Áß°£</td>
-						<td><input type=radio name=aligncheck onclick=alignset('bottom')> ¾Æ·¡</td>
-						<td><input type=radio name=aligncheck onclick=alignset('left')> ¿ÞÂÊ</td>
-						<td><input type=radio name=aligncheck onclick=alignset('right')> ¿À¸¥ÂÊ</td>
+						<td><input type=radio name=aligncheck checked onclick=alignset('')> ì¼ ë°˜</td>
+						<td><input type=radio name=aligncheck onclick=alignset('top')> ìœ„</td>
+						<td><input type=radio name=aligncheck onclick=alignset('middle')> ì¤‘ê°„</td>
+						<td><input type=radio name=aligncheck onclick=alignset('bottom')> ì•„ëž˜</td>
+						<td><input type=radio name=aligncheck onclick=alignset('left')> ì™¼ìª½</td>
+						<td><input type=radio name=aligncheck onclick=alignset('right')> ì˜¤ë¥¸ìª½</td>
 					</tr>
 					</table>
 
@@ -241,12 +241,12 @@ function alignset(str) {
 
 			<table border=0 cellspacing=0 cellpadding=4 width=100%>
 			<tr>
-				<td nowrap height=30><b>Å©±âÁöÁ¤</td>
+				<td nowrap height=30><b>í¬ê¸°ì§€ì •</td>
 				<td width=100%>
-					°¡·Î : <input type=input value="" size=3 class=input name=i_width style=height:16px> &nbsp;
-					¼¼·Î : <input type=input value="" size=3 class=input name=i_height style=height:16px> &nbsp;
+					ê°€ë¡œ : <input type=input value="" size=3 class=input name=i_width style=height:16px> &nbsp;
+					ì„¸ë¡œ : <input type=input value="" size=3 class=input name=i_height style=height:16px> &nbsp;
 				</td>
-				<td align=right nowrap><b>Å×µÎ¸®µÎ²²</b> : <input type=input name=i_border size=2 class=input value="1" style=height:16px> px</td>
+				<td align=right nowrap><b>í…Œë‘ë¦¬ë‘ê»˜</b> : <input type=input name=i_border size=2 class=input value="1" style=height:16px> px</td>
 			</tr>
 			</table>
 
@@ -254,10 +254,10 @@ function alignset(str) {
 
 			<table border=0 cellspacing=0 cellpadding=4 width=100%>
 			<tr>
-				<td nowrap><b>¿©¹éÁöÁ¤</td>
+				<td nowrap><b>ì—¬ë°±ì§€ì •</td>
 				<td width=100%>
-					¼öÆò : <input type=input value="0" size=3 class=input name=i_hspace style=height:16px> px &nbsp;
-					¼öÁ÷ : <input type=input value="0" size=3 class=input name=i_vspace style=height:16px> px &nbsp;
+					ìˆ˜í‰ : <input type=input value="0" size=3 class=input name=i_hspace style=height:16px> px &nbsp;
+					ìˆ˜ì§ : <input type=input value="0" size=3 class=input name=i_vspace style=height:16px> px &nbsp;
 				</td>
 				<td nowrap><a href="javascript:void(putStr())"><img src=images/im_input.gif border=0></a> <a href=# onclick=inputTable.style.visibility='hidden'><img src=images/im_close.gif border=0></a></td>
 			</tr>
@@ -319,7 +319,7 @@ function alignset(str) {
 				<td bgcolor=eeeeee height=20 align=center>
 					<img src=images/t.gif border=0 height=2><br>
 					<a href="javascript:void(window.open('<?=$path?>/<?=$image_list[$i]?>','imageBoxViewer','width=<?=$size[0]+20?>,height=<?=$size[1]+40?>,toolbars=no'))"><font color=555555 style=font-size:7pt;font-family:verdana>[<b>view</b>]</font></a>
-					<a href=<?=$PHP_SELF?>?id=<?=$id?>&exec=delete&no=<?=$i?>&image_page=<?=$image_page?> onclick="return confirm('»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?')"><font color=555555 style=font-size:7pt;font-family:verdana>[<b>del</b>]</font></a>
+					<a href=<?=$PHP_SELF?>?id=<?=$id?>&exec=delete&no=<?=$i?>&image_page=<?=$image_page?> onclick="return confirm('ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?')"><font color=555555 style=font-size:7pt;font-family:verdana>[<b>del</b>]</font></a>
 					<img src=images/t.gif border=0 height=6><br>
 				</td>
 			</tr>
@@ -355,9 +355,9 @@ function alignset(str) {
 			<input type=file name=upload[] size=25 class=input style=width:33%>
 			<input type=file name=upload[] size=25 class=input style=width:33%>
 			<input type=file name=upload[] size=25 class=input style=width:33%><br>
-			<input type=submit value="¾÷·Îµå" class=submit style= width=100%;height:18px><br>
+			<input type=submit value="ì—…ë¡œë“œ" class=submit style= width=100%;height:18px><br>
 			<img src=images/t.gif border=0 height=3><br>
-			(<b><?=getfilesize($maxDirSize)?></b> »ç¿ë°¡´É, <b><?=getfilesize($dirSize)?></b> »ç¿ëÁß, <b><?=getfilesize($maxDirSize-$dirSize)?></b> ¾÷·Îµå °¡´É)</td>
+			(<b><?=getfilesize($maxDirSize)?></b> ì‚¬ìš©ê°€ëŠ¥, <b><?=getfilesize($dirSize)?></b> ì‚¬ìš©ì¤‘, <b><?=getfilesize($maxDirSize-$dirSize)?></b> ì—…ë¡œë“œ ê°€ëŠ¥)</td>
 	</tr>
 	<tr>
 		<td align=center height=40>
@@ -384,36 +384,36 @@ function alignset(str) {
 			<table border=0 cellspacing=0 cellpadding=3 bgcolor=efefef>
 			<tr>
 				<td style=line-height:160% >
-					Image Box ´Â È¸¿øµé¸¸ÀÇ ÀÌ¹ÌÁö ÀúÀåÃ¢°íÀÔ´Ï´Ù.<br>
-					À¥»óÀÇ °Ô½ÃÆÇ¿¡¼­ °Ô½Ã¹°À» ÀÛ¼ºÇÒ °æ¿ì ÀÌ¹ÌÁö¸¦ Æ÷ÇÔÇÏ´Â °Ô½Ã¹°ÀÇ °æ¿ì µû·Î ÀÚ½ÅÀÇ °èÁ¤¿¡ ÆÄÀÏÀ» ¿Ã·Á¼­ ¸µÅ©ÇÏ´Â ¹æ½ÄÀ» ¸¹ÀÌ »ç¿ëÇÏÁö¸¸, ¿©·¯¹ø ÀÛ¾÷ÇØ¾ß ÇÏ´Â ºÒÆíÇÔÀÌ ÀÖ½À´Ï´Ù.<br>
-					Image Box ´Â °ü¸®ÀÚ°¡ Çã¿ëÇÑ ¿ë·®±îÁö ÀÌ¹ÌÁö ÀÚ·á¸¦ Ã¢°í¿¡ ³Ö°í °Ô½Ã¹°ÀÇ ¿øÇÏ´Â °÷¿¡ Ãß°¡ÇÒ¼ö ÀÖ½À´Ï´Ù.
+					Image Box ëŠ” íšŒì›ë“¤ë§Œì˜ ì´ë¯¸ì§€ ì €ìž¥ì°½ê³ ìž…ë‹ˆë‹¤.<br>
+					ì›¹ìƒì˜ ê²Œì‹œíŒì—ì„œ ê²Œì‹œë¬¼ì„ ìž‘ì„±í•  ê²½ìš° ì´ë¯¸ì§€ë¥¼ í¬í•¨í•˜ëŠ” ê²Œì‹œë¬¼ì˜ ê²½ìš° ë”°ë¡œ ìžì‹ ì˜ ê³„ì •ì— íŒŒì¼ì„ ì˜¬ë ¤ì„œ ë§í¬í•˜ëŠ” ë°©ì‹ì„ ë§Žì´ ì‚¬ìš©í•˜ì§€ë§Œ, ì—¬ëŸ¬ë²ˆ ìž‘ì—…í•´ì•¼ í•˜ëŠ” ë¶ˆíŽ¸í•¨ì´ ìžˆìŠµë‹ˆë‹¤.<br>
+					Image Box ëŠ” ê´€ë¦¬ìžê°€ í—ˆìš©í•œ ìš©ëŸ‰ê¹Œì§€ ì´ë¯¸ì§€ ìžë£Œë¥¼ ì°½ê³ ì— ë„£ê³  ê²Œì‹œë¬¼ì˜ ì›í•˜ëŠ” ê³³ì— ì¶”ê°€í• ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
 				</td>
 			</tr>
 			</table>
 			<br>
-			<b>»ç¿ë¹ý</b>
+			<b>ì‚¬ìš©ë²•</b>
 			<table border=0 cellspacing=0 cellpadding=3 bgcolor=efefef>
 			<tr>
 				<td style=line-height:160% >
-					¿øÇÏ´Â ÀÌ¹ÌÁö¸¦ ¾÷·Îµå ÇÏ½Ã°í ÀÌ¹ÌÁö¸¦ Å¬¸¯ÇÏ½Ã¸é °Ô½ÃÆÇ¿¡ ÀÌ¹ÌÁö¸¦ Ãß°¡ÇÒ¼ö ÀÖ´Â ¸Þ´º°¡ ³ªÅ¸³³´Ï´Ù.<br>
-					¿øÇÏ´Â Çü½ÄÀ» ÁöÁ¤ÇÏ½Ã°í ÀÔ·ÂÀ» ´©¸£½Ã¸é °Ô½Ã¹°¿¡´Â Æ¯Á¤ÇÑ ÄÚµå°¡ µé¾î°©´Ï´Ù.<br>
+					ì›í•˜ëŠ” ì´ë¯¸ì§€ë¥¼ ì—…ë¡œë“œ í•˜ì‹œê³  ì´ë¯¸ì§€ë¥¼ í´ë¦­í•˜ì‹œë©´ ê²Œì‹œíŒì— ì´ë¯¸ì§€ë¥¼ ì¶”ê°€í• ìˆ˜ ìžˆëŠ” ë©”ë‰´ê°€ ë‚˜íƒ€ë‚©ë‹ˆë‹¤.<br>
+					ì›í•˜ëŠ” í˜•ì‹ì„ ì§€ì •í•˜ì‹œê³  ìž…ë ¥ì„ ëˆ„ë¥´ì‹œë©´ ê²Œì‹œë¬¼ì—ëŠ” íŠ¹ì •í•œ ì½”ë“œê°€ ë“¤ì–´ê°‘ë‹ˆë‹¤.<br>
 				</td>
 			</tr>
 			</table>
 			<br>
-			<b>ÄÚµåÀÇ ±¸¼º</b>
+			<b>ì½”ë“œì˜ êµ¬ì„±</b>
 			<table border=0 cellspacing=0 cellpadding=3 bgcolor=efefef>
 			<tr>
 				<td style=line-height:160% >
-					[img:ÆÄÀÏÀÌ¸§,align=,width=500,height=375,vspace=0,hspace=0,border=1]<Br>
+					[img:íŒŒì¼ì´ë¦„,align=,width=500,height=375,vspace=0,hspace=0,border=1]<Br>
 					<br>
-					HTMLÀÇ img ÅÂ±×¿Í ºñ½ÁÇÏÁö¸¸ À§ÀÇ Çü½Ä¸¸ »ç¿ëÇÏ½Ç¼ö ÀÖ½À´Ï´Ù.<br>
-					°¢ ¼Ó¼ºÀº , (ÄÞ¸¶)·Î ¿¬°áµÇ¾î ÀÖÀ¸¸ç Á÷Á¢ ¼öÁ¤ÇÏ¼Åµµ µÇÁö¸¸ À§ÀÇ Çü½Ä¿¡ ¾î±ß³ª¸é Á¦´ë·Î Ãâ·ÂÀÌ µÇÁö ¾Ê½À´Ï´Ù.<br>
+					HTMLì˜ img íƒœê·¸ì™€ ë¹„ìŠ·í•˜ì§€ë§Œ ìœ„ì˜ í˜•ì‹ë§Œ ì‚¬ìš©í•˜ì‹¤ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
+					ê° ì†ì„±ì€ , (ì½¤ë§ˆ)ë¡œ ì—°ê²°ë˜ì–´ ìžˆìœ¼ë©° ì§ì ‘ ìˆ˜ì •í•˜ì…”ë„ ë˜ì§€ë§Œ ìœ„ì˜ í˜•ì‹ì— ì–´ê¸‹ë‚˜ë©´ ì œëŒ€ë¡œ ì¶œë ¥ì´ ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.<br>
 				</td>
 			</tr>
 			</table>
 			<br>
-			<div align=right>* Å¬¸¯ÇÏ½Ã¸é µµ¿ò¸»ÀÌ ´ÝÈü´Ï´Ù</div>
+			<div align=right>* í´ë¦­í•˜ì‹œë©´ ë„ì›€ë§ì´ ë‹«íž™ë‹ˆë‹¤</div>
 		</td>
 	</tr>
 	</table>

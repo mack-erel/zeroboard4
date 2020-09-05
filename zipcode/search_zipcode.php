@@ -16,7 +16,7 @@ function check_submit()
 {
  if(!write2.address.value)
  {
-  alert('ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¿© ÁÖ¼¼¿ä');
+  alert('ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì„¸ìš”');
   write2.address.focus();
   return false;
  }
@@ -28,13 +28,13 @@ function check_submit()
 <form name=write2 method=post action=search_zipcode2.php onsubmit='return check_submit()'>
 <input type=hidden name=num value=<?=$num?>>
 <tr bgcolor=777777>
-  <td align=center><b><font color=white>¿ìÆí¹øÈ£ °Ë»ö </b>(Search Zipcode)</td>
+  <td align=center><b><font color=white>ìš°í¸ë²ˆí˜¸ ê²€ìƒ‰ </b>(Search Zipcode)</td>
 </tr>
 <tr bgcolor=white>
   <td align=center height=100%>
-  ¿ìÆí¹øÈ£¸¦ °Ë»öÇÕ´Ï´Ù.<br>
-  Ã£°íÀÚ ÇÏ´Â µ¿ÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿ä.<br>
-  ( ¿¹: <b>´ë¿¬µ¿</b>    ¶Ç´Â    <b>´ë¿¬1µ¿</b> )<br><br>
+  ìš°í¸ë²ˆí˜¸ë¥¼ ê²€ìƒ‰í•©ë‹ˆë‹¤.<br>
+  ì°¾ê³ ì í•˜ëŠ” ë™ì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œìš”.<br>
+  ( ì˜ˆ: <b>ëŒ€ì—°ë™</b>    ë˜ëŠ”    <b>ëŒ€ì—°1ë™</b> )<br><br>
   <input type=text name=address value="" size=20 class=input><input type=submit value="Search" class=submit><input type=button value="Close" class=close onclick=window.close()>
 
 <br><br><br>

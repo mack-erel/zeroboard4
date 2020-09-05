@@ -1,51 +1,51 @@
 <?
 /***************************************************************************
- * °øÅë ÆÄÀÏ include
+ * ê³µí†µ íŒŒì¼ include
  **************************************************************************/
 	include "_head.php";
 
 /***************************************************************************
- * °Ô½ÃÆÇ ¼³Á¤ Ã¼Å©
+ * ê²Œì‹œíŒ ì„¤ì • ì²´í¬
  **************************************************************************/
 
  	$mode = $HTTP_GET_VARS[mode];
 
- 	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("Á¤»óÀûÀ¸·Î ±ÛÀ» ÀÛ¼ºÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
+ 	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("ì •ìƒì ìœ¼ë¡œ ê¸€ì„ ì‘ì„±í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 
   if(eregi(":\/\/",$dir)) $dir=".";
 
-// º¯¼ö Ã¼Å©
+// ë³€ìˆ˜ ì²´í¬
 	if(!$mode||$mode=="write") {
 		$mode = "write";
 		unset($no);
 	}
 
-// »ç¿ë±ÇÇÑ Ã¼Å©
-	if($mode=="reply"&&$setup[grant_reply]<$member[level]&&!$is_admin) Error("»ç¿ë±ÇÇÑÀÌ ¾ø½À´Ï´Ù","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
-	elseif($setup[grant_write]<$member[level]&&!$is_admin) Error("»ç¿ë±ÇÇÑÀÌ ¾ø½À´Ï´Ù","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
-	if($mode=="reply"&&$setup[grant_view]<$member[level]&&!$is_admin) Error("»ç¿ë±ÇÇÑÀÌ ¾ø½À´Ï´Ù","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
+// ì‚¬ìš©ê¶Œí•œ ì²´í¬
+	if($mode=="reply"&&$setup[grant_reply]<$member[level]&&!$is_admin) Error("ì‚¬ìš©ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
+	elseif($setup[grant_write]<$member[level]&&!$is_admin) Error("ì‚¬ìš©ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
+	if($mode=="reply"&&$setup[grant_view]<$member[level]&&!$is_admin) Error("ì‚¬ìš©ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
 
-// ´ä±ÛÀÌ³ª ¼öÁ¤ÀÏ¶§ ¿øº»±ÛÀ» °¡Á®¿È;;
+// ë‹µê¸€ì´ë‚˜ ìˆ˜ì •ì¼ë•Œ ì›ë³¸ê¸€ì„ ê°€ì ¸ì˜´;;
 	if(($mode=="reply"||$mode=="modify")&&$no) {
 		$result=@mysql_query("select * from $t_board"."_$id where no='$no'") or error(mysql_error());
 		unset($data);
 		$data=mysql_fetch_array($result);
-		if(!$data[no]) Error("¿øº»±ÛÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+		if(!$data[no]) Error("ì›ë³¸ê¸€ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 	}
 
-// ¼öÁ¤ ±ÛÀÏ¶§ ±ÇÇÑ Ã¼Å©
+// ìˆ˜ì • ê¸€ì¼ë•Œ ê¶Œí•œ ì²´í¬
 	if($mode=="modify"&&$data[ismember]) {
-		if($data[ismember]!=$member[no]&&!$is_admin&&$member[level]>$setup[grant_delete]) Error("»ç¿ë±ÇÇÑÀÌ ¾ø½À´Ï´Ù","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
+		if($data[ismember]!=$member[no]&&!$is_admin&&$member[level]>$setup[grant_delete]) Error("ì‚¬ìš©ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
 	}
 
-// °øÁö±Û¿¡´Â ´ä±ÛÀÌ ¾È ´Ş¸®°Ô Ã³¸®
-	if($mode=="reply"&&$data[headnum]<=-2000000000) Error("°øÁö±Û¿¡´Â ´ä±ÛÀ» ´Ş¼ö ¾ø½À´Ï´Ù");
+// ê³µì§€ê¸€ì—ëŠ” ë‹µê¸€ì´ ì•ˆ ë‹¬ë¦¬ê²Œ ì²˜ë¦¬
+	if($mode=="reply"&&$data[headnum]<=-2000000000) Error("ê³µì§€ê¸€ì—ëŠ” ë‹µê¸€ì„ ë‹¬ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
 
 
-// Ä«Å×°í¸® µ¥ÀÌÅ¸ °¡Á®¿È;;
+// ì¹´í…Œê³ ë¦¬ ë°ì´íƒ€ ê°€ì ¸ì˜´;;
 	$category_result=mysql_query("select * from $t_category"."_$id order by no");
 
-// Ä«Å×°í¸® µ¥ÀÌÅ¸ °®°í ¿À±â;;
+// ì¹´í…Œê³ ë¦¬ ë°ì´íƒ€ ê°–ê³  ì˜¤ê¸°;;
 	if($setup[use_category]) {
 		$category_kind="<select name=category><option>Category</option>";
 
@@ -57,38 +57,38 @@
 		$category_kind.="</select>";
 	}
   
-	if($mode=="modify") $title = " ±Û ¼öÁ¤ÇÏ±â ";
-	elseif($mode=="reply") $title = " ´ä±Û ´Ş±â ";
-	else $title = " ½Å±Ô ±Û¾²±â "; 
+	if($mode=="modify") $title = " ê¸€ ìˆ˜ì •í•˜ê¸° ";
+	elseif($mode=="reply") $title = " ë‹µê¸€ ë‹¬ê¸° ";
+	else $title = " ì‹ ê·œ ê¸€ì“°ê¸° "; 
 
-// ÄíÅ°°ªÀ» ÀÌ¿ë;;
+// ì¿ í‚¤ê°’ì„ ì´ìš©;;
 	$name=$HTTP_SESSION_VARS["zb_writer_name"];
 	$email=$HTTP_SESSION_VARS["zb_writer_email"];
 	$homepage=$HTTP_SESSION_VARS["zb_writer_homepage"];
 
 /******************************************************************************************
- * ±Û¾²±â ¸ğµå¿¡ µû¸¥ ³»¿ë Ã¼Å©
+ * ê¸€ì“°ê¸° ëª¨ë“œì— ë”°ë¥¸ ë‚´ìš© ì²´í¬
  *****************************************************************************************/
 
 	if($mode=="modify") {
 
-		// ºñ¹Ğ±ÛÀÌ°í ÆĞ½º¿öµå°¡ Æ²¸®°í °ü¸®ÀÚ°¡ ¾Æ´Ï¸é ¸®ÅÏ
-		if($data[is_secret]&&!$is_admin&&$data[ismember]!=$member[no]&&$HTTP_COOKIE_VARS[zb_s_check]!=$setup[no]."_".$no) error("Á¤»óÀûÀÎ ¹æ¹ıÀ¸·Î ¼öÁ¤ÇÏ¼¼¿ä");
+		// ë¹„ë°€ê¸€ì´ê³  íŒ¨ìŠ¤ì›Œë“œê°€ í‹€ë¦¬ê³  ê´€ë¦¬ìê°€ ì•„ë‹ˆë©´ ë¦¬í„´
+		if($data[is_secret]&&!$is_admin&&$data[ismember]!=$member[no]&&$HTTP_COOKIE_VARS[zb_s_check]!=$setup[no]."_".$no) error("ì •ìƒì ì¸ ë°©ë²•ìœ¼ë¡œ ìˆ˜ì •í•˜ì„¸ìš”");
 
-			$name=stripslashes($data[name]); // ÀÌ¸§
-			$email=stripslashes($data[email]); // ¸ŞÀÏ
-			$homepage=stripslashes($data[homepage]); // È¨ÆäÀÌÁö 
-			$subject=$data[subject]=stripslashes($data[subject]); // Á¦¸ñ
+			$name=stripslashes($data[name]); // ì´ë¦„
+			$email=stripslashes($data[email]); // ë©”ì¼
+			$homepage=stripslashes($data[homepage]); // í™ˆí˜ì´ì§€ 
+			$subject=$data[subject]=stripslashes($data[subject]); // ì œëª©
 			$subject=str_replace("\"","&quot;",$subject);
 			$homepage=str_replace("\"","&quot;",$homepage);
 			$name=str_replace("\"","&quot;",$name);
 			$sitelink1=str_replace("\"","&quot;",$sitelink1);
 			$sitelink2=str_replace("\"","&quot;",$sitelink2);
-			$memo=stripslashes($data[memo]); // ³»¿ë
+			$memo=stripslashes($data[memo]); // ë‚´ìš©
 			$sitelink1=$data[sitelink1]=stripslashes($data[sitelink1]);
 			$sitelink2=$data[sitelink2]=stripslashes($data[sitelink2]);
-			if($data[file_name1])$file_name1="<br>&nbsp;".$data[s_file_name1]."ÀÌ µî·ÏµÇ¾î ÀÖ½À´Ï´Ù. <input type=checkbox name=del_file1 value=1> »èÁ¦";
-			if($data[file_name2])$file_name2="<br>&nbsp;".$data[s_file_name2]."ÀÌ µî·ÏµÇ¾î ÀÖ½À´Ï´Ù. <input type=checkbox name=del_file2 value=1> »èÁ¦";
+			if($data[file_name1])$file_name1="<br>&nbsp;".$data[s_file_name1]."ì´ ë“±ë¡ë˜ì–´ ìˆìŠµë‹ˆë‹¤. <input type=checkbox name=del_file1 value=1> ì‚­ì œ";
+			if($data[file_name2])$file_name2="<br>&nbsp;".$data[s_file_name2]."ì´ ë“±ë¡ë˜ì–´ ìˆìŠµë‹ˆë‹¤. <input type=checkbox name=del_file2 value=1> ì‚­ì œ";
 
 			if($data[use_html]) $use_html=" checked ";
 
@@ -96,37 +96,37 @@
 			if($data[is_secret]) $secret=" checked ";
 			if($data[headnum]<=-2000000000) $notice=" checked ";
 
-		// ´ä±ÛÀÏ¶§ Á¦¸ñ°ú ³»¿ë ¼öÁ¤;;
+		// ë‹µê¸€ì¼ë•Œ ì œëª©ê³¼ ë‚´ìš© ìˆ˜ì •;;
 		} elseif($mode=="reply") {
 
-   			// ºñ¹Ğ±ÛÀÌ°í ÆĞ½º¿öµå°¡ Æ²¸®°í °ü¸®ÀÚ°¡ ¾Æ´Ï¸é ¸®ÅÏ
-			if($data[is_secret]&&!$is_admin&&$data[ismember]!=$member[no]&&$HTTP_COOKIE_VARS[zb_s_check]!=$setup[no]."_".$no) error("Á¤»óÀûÀÎ ¹æ¹ıÀ¸·Î ´ä±ÛÀ» ´Ù¼¼¿ä");
+   			// ë¹„ë°€ê¸€ì´ê³  íŒ¨ìŠ¤ì›Œë“œê°€ í‹€ë¦¬ê³  ê´€ë¦¬ìê°€ ì•„ë‹ˆë©´ ë¦¬í„´
+			if($data[is_secret]&&!$is_admin&&$data[ismember]!=$member[no]&&$HTTP_COOKIE_VARS[zb_s_check]!=$setup[no]."_".$no) error("ì •ìƒì ì¸ ë°©ë²•ìœ¼ë¡œ ë‹µê¸€ì„ ë‹¤ì„¸ìš”");
 
 			if($data[is_secret]) $secret=" checked ";
 
-			$subject=$data[subject]=stripslashes($data[subject]); // Á¦¸ñ
+			$subject=$data[subject]=stripslashes($data[subject]); // ì œëª©
 			$subject=str_replace("\"","&quot;",$subject);
 			$sitelink1=str_replace("\"","&quot;",$sitelink1);
 			$sitelink2=str_replace("\"","&quot;",$sitelink2);
-			$memo=stripslashes($data[memo]); // ³»¿ë
-			if(!eregi("\[re\]",$subject)) $subject="[re] ".$subject; // ´ä±ÛÀÏ¶§´Â ¾Õ¿¡ [re] ºÙÀÓ;;
+			$memo=stripslashes($data[memo]); // ë‚´ìš©
+			if(!eregi("\[re\]",$subject)) $subject="[re] ".$subject; // ë‹µê¸€ì¼ë•ŒëŠ” ì•ì— [re] ë¶™ì„;;
 			$memo=str_replace("\n","\n>",$memo);
 			$memo="\n\n>".$memo."\n";
-			$title="$name´ÔÀÇ ±Û¿¡ ´ëÇÑ ´ä±Û¾²±â";
+			$title="$nameë‹˜ì˜ ê¸€ì— ëŒ€í•œ ë‹µê¸€ì“°ê¸°";
 		}
 
 
-// È¸¿øÀÏ¶§´Â ±âº» ÀÔ·Â»çÇ× ¾Èº¸ÀÌ°Ô;;
+// íšŒì›ì¼ë•ŒëŠ” ê¸°ë³¸ ì…ë ¥ì‚¬í•­ ì•ˆë³´ì´ê²Œ;;
 	if($member[no]) { $hide_start="<!--"; $hide_end="-->"; }
 
-// ½ÎÀÌÆ® ¸µÅ© ±â´ÉÀÌ ¾øÀ»¶§ ¸µÅ© Áö¿ì±â Ç¥½Ã;;
+// ì‹¸ì´íŠ¸ ë§í¬ ê¸°ëŠ¥ì´ ì—†ì„ë•Œ ë§í¬ ì§€ìš°ê¸° í‘œì‹œ;;
 	if(!$setup[use_homelink]) { $hide_sitelink1_start="<!--";$hide_sitelink1_end="-->";}
 	if(!$setup[use_filelink]) { $hide_sitelink2_start="<!--";$hide_sitelink2_end="-->";}
 
-// ÀÚ·á½Ç ±â´ÉÀ» »ç¿ëÇÏ´ÂÁö ¾ÊÇÏ´ÂÁö Ç¥½Ã;;
+// ìë£Œì‹¤ ê¸°ëŠ¥ì„ ì‚¬ìš©í•˜ëŠ”ì§€ ì•Ší•˜ëŠ”ì§€ í‘œì‹œ;;
 	if(!$setup[use_pds]) { $hide_pds_start="<!--";$hide_pds_end="-->";}
 
-// HTML»ç¿ë Ã¼Å©¹öÆ° 
+// HTMLì‚¬ìš© ì²´í¬ë²„íŠ¼ 
 	if($setup[use_html]==0) {
 		if(!$is_admin&&$member[level]>$setup[grant_html]) { 
 			$hide_html_start="<!--";
@@ -134,7 +134,7 @@
 		}
 	}
 
-// HTML »ç¿ë Ã¼Å©¸¦ È®Àå½ÃÅ´
+// HTML ì‚¬ìš© ì²´í¬ë¥¼ í™•ì¥ì‹œí‚´
 	if($mode!="reply") {
 		if(!$data[use_html]) $value_use_html = 1;
 		else $value_use_html=$data[use_html];
@@ -144,24 +144,24 @@
 	$use_html .= " value='$value_use_html' onclick='check_use_html(this)'><ZeroBoard";
 
 
-// ºñ¹Ğ±Û »ç¿ë;;
+// ë¹„ë°€ê¸€ ì‚¬ìš©;;
 	if(!$setup[use_secret]) { $hide_secret_start="<!--"; $hide_secret_end="-->"; }
 
-// °øÁö±â´É »ç¿ëÇÏ´ÂÁö ¾ÊÇÏ´ÂÁö Ç¥½Ã;;
+// ê³µì§€ê¸°ëŠ¥ ì‚¬ìš©í•˜ëŠ”ì§€ ì•Ší•˜ëŠ”ì§€ í‘œì‹œ;;
 	if((!$is_admin&&$member[level]>$setup[grant_notice])||$mode=="reply") { $hide_notice_start="<!--";$hide_notice_end="-->"; }
 
-// ÃÖ°í ¾÷·Îµå °¡´É ¿ë·®
+// ìµœê³  ì—…ë¡œë“œ ê°€ëŠ¥ ìš©ëŸ‰
 	if($setup[use_pds]) $upload_limit=GetFileSize($setup[max_upload_size]);
 
-// ÀÌ¹ÌÁö Ã¢°í ¹öÆ°
+// ì´ë¯¸ì§€ ì°½ê³  ë²„íŠ¼
 	if($member[no]&&$setup[grant_imagebox]>=$member[level]) $a_imagebox="<a onfocus=blur() href='javascript:showImageBox(\"$id\")'>"; else $a_imagebox="<Zeroboard ";
 	if($mode=="modify"&&$data[ismember]!=$member[no]) $a_imagebox = "<Zeroboard";
 
-// ¹Ì¸®º¸±â ¹öÆ°
+// ë¯¸ë¦¬ë³´ê¸° ë²„íŠ¼
 	$a_preview="<a onfocus=blur() href='javascript:view_preview()'>";
 
 
-// HTML Ãâ·Â 
+// HTML ì¶œë ¥ 
 
 	head(" onload=unlock() onunload=hideImageBox() ","script_write.php");
 

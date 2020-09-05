@@ -8,7 +8,7 @@
 
   $member=member_info();
 
-  if(!$member[no]||$member[is_admin]>1||$member[level]>1) Error("ÃÖ°í °ü¸®ÀÚ¸¸ÀÌ »ç¿ëÇÒ¼ö ÀÖ½À´Ï´Ù");
+  if(!$member[no]||$member[is_admin]>1||$member[level]>1) Error("ìµœê³  ê´€ë¦¬ìë§Œì´ ì‚¬ìš©í• ìˆ˜ ìˆìŠµë‹ˆë‹¤");
 
   if($exec=="add" && $table_id) {
       $table_id = addslashes($table_id);
@@ -17,7 +17,7 @@
 
       $query = "select count(*) from zetyx_admin_table where name = '{$table_id}' and grant_view = 10 and grant_list = 10";
       $tmp = mysql_fetch_array(mysql_query($query));
-      if(!$tmp[0]) $errMsg = "Àß¸øµÈ °Ô½ÃÆÇ ÁöÁ¤ÀÔ´Ï´Ù";
+      if(!$tmp[0]) $errMsg = "ì˜ëª»ëœ ê²Œì‹œíŒ ì§€ì •ì…ë‹ˆë‹¤";
 
       if(!$errMsg) {
 
@@ -47,7 +47,7 @@
 
         $oSearch->addBoard($obj);
 
-        if(!$oSearch->return_code) $errMsg = "°Ë»ö¼­¹ö¿Í ¿¬°áÀ» ÇÏÁö ¸øÇß½À´Ï´Ù";
+        if(!$oSearch->return_code) $errMsg = "ê²€ìƒ‰ì„œë²„ì™€ ì—°ê²°ì„ í•˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤";
         else {
           $indexing_url = $oSearch->item_url;
           $dw_board_id = $oSearch->dw_board_id;
@@ -124,12 +124,12 @@
     var maxCrawling = parseInt(obj.max_crawling.value);
 
     if(!maxCrawling) {
-      alert("Idexing ´ÜÀ§°¡ Àß¸øµÇ¾ú½À´Ï´Ù");
+      alert("Idexing ë‹¨ìœ„ê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤");
       obj.max_crawling.focus();
       return false;
     }
 
-    return confirm( boardName+" °Ô½ÃÆÇÀ» °Ë»ö¼­¹ö¿¡ Ãß°¡ÇÏ½Ã°Ú½À´Ï±î?" );
+    return confirm( boardName+" ê²Œì‹œíŒì„ ê²€ìƒ‰ì„œë²„ì— ì¶”ê°€í•˜ì‹œê² ìŠµë‹ˆê¹Œ?" );
   }
 </script>
 
@@ -142,7 +142,7 @@
 	<table border=0 width=100%>
 	<col width=50%></col><col width=50%></col>
 	<tr>
-		<td nowrap><font color=white size=4 face=tahoma><b>Zeroboard & DreamWiz °Ë»ö¼­¹ö Ãß°¡</b></font></td>
+		<td nowrap><font color=white size=4 face=tahoma><b>Zeroboard & DreamWiz ê²€ìƒ‰ì„œë²„ ì¶”ê°€</b></font></td>
 	</tr>
 	</table>
 	<br>
@@ -154,7 +154,7 @@
         <col width=120 align=right style='padding-right:10px;color:#AAAAAA;font-weight:bold'></col>
         <col></col>
         <tr>
-          <td>°Ô½ÃÆÇ</td>
+          <td>ê²Œì‹œíŒ</td>
           <td><select name=table_id>
     <?
       for($i=0;$i<count($table_list);$i++) {
@@ -166,28 +166,28 @@
           </select></td>
         </tr>
         <tr>
-          <td>Indexing ´ÜÀ§</td>
-          <td><input type=text name=max_crawling value="100" maxlength=4 size=4> °³</td>
+          <td>Indexing ë‹¨ìœ„</td>
+          <td><input type=text name=max_crawling value="100" maxlength=4 size=4> ê°œ</td>
         </tr>
         <tr>
-          <td>¿¹¾à ½ÃÀÛ ½Ã°£</td>
+          <td>ì˜ˆì•½ ì‹œì‘ ì‹œê°„</td>
           <td><select name=reserve_stime>
     <?
       for($i=0;$i<=24;$i++) print "<option value={$i} ".($i==0?"selected":"").">".sprintf("%02d",$i)."</option>";
     ?>
-          </select> ½Ã</td>
+          </select> ì‹œ</td>
         </tr>
         <tr>
-          <td>¿¹¾à Á¾·á ½Ã°£</td>
+          <td>ì˜ˆì•½ ì¢…ë£Œ ì‹œê°„</td>
           <td><select name=reserve_etime>
     <?
       for($i=0;$i<=24;$i++) print "<option value={$i} ".($i==0?"selected":"").">".sprintf("%02d",$i)."</option>";
     ?>
-          </select> ½Ã</td>
+          </select> ì‹œ</td>
         </tr>
         <tr>
           <td colspan=2>
-            <input type=submit value='°Ë»ö ¼­¹ö¿¡ Ãß°¡' style="width:100%;border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px;">
+            <input type=submit value='ê²€ìƒ‰ ì„œë²„ì— ì¶”ê°€' style="width:100%;border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px;">
           </td>
         </tr>
         </table>

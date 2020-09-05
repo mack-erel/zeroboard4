@@ -16,14 +16,14 @@ if(!eregi("Zeroboard",$a_vote)) $a_vote = str_replace(">","><font class=list_eng
 <table width=<?=$width?> cellspacing=0 cellpadding=0>
 <tr>
  <td height=30>
-    <?=$a_reply?>╢Д╠ш╢ч╠Б</a>
-    <?=$a_modify?>╪Жа╓го╠Б</a>
-    <?=$a_delete?>╩Ха╕го╠Б</a>
-    <?=$a_vote?>цъц╣го╠Б</a>
+    <?=$a_reply?>К▀╣Й╦─К▀╛Й╦╟</a>
+    <?=$a_modify?>Л┬≤Л═∙М∙≤Й╦╟</a>
+    <?=$a_delete?>Л┌╜Л═°М∙≤Й╦╟</a>
+    <?=$a_vote?>Л╤■Л╡°М∙≤Й╦╟</a>
  </td>
  <td align=right>
-    <?=$a_list?>╦Я╥о╨╦╠Б</a>
-    <?=$a_write?>╠ш╬╡╠Б</a>
+    <?=$a_list?>К╙╘К║²КЁ╢Й╦╟</a>
+    <?=$a_write?>Й╦─Л⌠╟Й╦╟</a>
  </td>
 </tr>
 </table>

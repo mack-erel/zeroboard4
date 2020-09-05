@@ -4,7 +4,7 @@
 	$_list_check_included = true;
 
 /*********************************************************************************************
- * ³Ñ°ÜÁö´Â µ¥ÀÌÅ¸¿¡ ´ëÇÑ ÀÏ°ı Á¤¸®
+ * ë„˜ê²¨ì§€ëŠ” ë°ì´íƒ€ì— ëŒ€í•œ ì¼ê´„ ì •ë¦¬
  ********************************************************************************************/
 
 function list_check(&$data,$view_check=0) {
@@ -20,7 +20,7 @@ function list_check(&$data,$view_check=0) {
 
 	if($view_check) $setup[only_board]=0;
 
-	// Á¦¸ñ¿¡ 5ÁÙ·Î Åø¹Ù ¸¸µë
+	// ì œëª©ì— 5ì¤„ë¡œ íˆ´ë°” ë§Œë“¬
 	if($setup[use_status]) {
 		$tmpData = explode("\n",stripslashes($data[memo]));
 		$totalCommentLineNum = count($tmpData);
@@ -40,7 +40,7 @@ function list_check(&$data,$view_check=0) {
 
 	$_zbCount = check_zbLayer($data);
 	
-	// HTML »ç¿ëÀÏ °æ¿ì ÇöÀç È¸¿øÀÇ html ±ÇÇÑÀÌ ¾ø°Å³ª °ü¸®ÀÚ°¡ ¾Æ´Ï¶ó¸é style ¼Ó¼ºÀ» Á¦°Å
+	// HTML ì‚¬ìš©ì¼ ê²½ìš° í˜„ì¬ íšŒì›ì˜ html ê¶Œí•œì´ ì—†ê±°ë‚˜ ê´€ë¦¬ìê°€ ì•„ë‹ˆë¼ë©´ style ì†ì„±ì„ ì œê±°
 	if($data[use_html]&&$data[islevel]>$setup[grant_html]) {
 		$style_pattern = "/(\<.*?)style=(.*?)(\>?)/i";
 		$data[memo]=preg_replace($style_pattern,"\\1\\3",$data[memo]);
@@ -48,27 +48,27 @@ function list_check(&$data,$view_check=0) {
 	
 
 
-	// ' µîÀÇ Æ¯¼ö¹®ÀÚ¶§¹®¿¡ ºÙÀÎ \(¿ª½½·¡½¬)¸¦ ¶¼¾î³½´Ù
+	// ' ë“±ì˜ íŠ¹ìˆ˜ë¬¸ìë•Œë¬¸ì— ë¶™ì¸ \(ì—­ìŠ¬ë˜ì‰¬)ë¥¼ ë–¼ì–´ë‚¸ë‹¤
 	$name=$data[name]=stripslashes($data[name]); 
 	$temp_name = get_private_icon($data[ismember], "2");
 	if($temp_name) $name="<img src='$temp_name' border=0 align=absmiddle>"; 
 
-	$subject=$data[subject]=stripslashes($data[subject]); // Á¦¸ñ
-	$subject=cut_str($subject,$setup[cut_length]); // Á¦¸ñ ÀÚ¸£´Â ºÎºĞ
+	$subject=$data[subject]=stripslashes($data[subject]); // ì œëª©
+	$subject=cut_str($subject,$setup[cut_length]); // ì œëª© ìë¥´ëŠ” ë¶€ë¶„
 
-	// °Ë»ö¾î¿¡ ÇØ´çÇÏ´Â ±ÛÀÚ¸¦ »¡°£;; »öÀ¸·Î ¹Ù²Ù¾îÁÜ;;
+	// ê²€ìƒ‰ì–´ì— í•´ë‹¹í•˜ëŠ” ê¸€ìë¥¼ ë¹¨ê°„;; ìƒ‰ìœ¼ë¡œ ë°”ê¾¸ì–´ì¤Œ;;
 	if($keyword) {
 		$keyword_pattern = "/".str_replace("\0","\\0",preg_quote($keyword,"/"))."/i";
 		if($sn=="on") $name = preg_replace($keyword_pattern, "<span style='color:#FF001E;background-color:#FFF000;'>$keyword</span>", $name);
 		if($ss=="on") $subject = preg_replace($keyword_pattern, "<span color='FF001E' style='color:#FF001E;background-color:#FFF000;'>$keyword</span>", $subject);
 	}
 
-	$hit=$data[hit];  // Á¶È¸¼ö
-	$vote=$data[vote];  // ÅõÇ¥¼ö
-	$comment_num="[".$data[total_comment]."]"; // °£´ÜÇÑ ´ä±Û ¼ö
+	$hit=$data[hit];  // ì¡°íšŒìˆ˜
+	$vote=$data[vote];  // íˆ¬í‘œìˆ˜
+	$comment_num="[".$data[total_comment]."]"; // ê°„ë‹¨í•œ ë‹µê¸€ ìˆ˜
 	if($data[total_comment]==0) $comment_num="";
 	if($setup[use_alllist]) $view_file="zboard.php"; else $view_file="view.php";
-	// Á¦¸ñ¿¡ ¸µÅ© °Å´Â ºÎºĞ;
+	// ì œëª©ì— ë§í¬ ê±°ëŠ” ë¶€ë¶„;
 	if($member[level]<=$setup[grant_view]||$is_admin) {
 		//if($setup[use_status]&&!$data[is_secret]) $addShowComment = " onMouseOver=\"showComment('$showCommentStr',true)\" onMouseOut=\"showComment('',false)\" ";
 		if($setup[use_status]&&!$data[is_secret]) $addShowComment = " title=\"$showCommentStr\" ";
@@ -79,7 +79,7 @@ function list_check(&$data,$view_check=0) {
 		$homepage=$data[homepage]=stripslashes($data[homepage]);
 		if($homepage) $homepage="<a href='$homepage' target=_blank>$homepage</a>";
 
-		// ÀÌ¹ÌÁö ¹Ú½º »ç¿ëÀ» À§ÇØ¼­ Á¤±ÔÇ¥Çö½Ä »ç¿ë
+		// ì´ë¯¸ì§€ ë°•ìŠ¤ ì‚¬ìš©ì„ ìœ„í•´ì„œ ì •ê·œí‘œí˜„ì‹ ì‚¬ìš©
 		if($data[ismember]) {
 			$imageBoxPattern = "/\[img\:(.+?)\.(jpg|gif)\,align\=([a-z]){0,}\,width\=([0-9]+)\,height\=([0-9]+)\,vspace\=([0-9]+)\,hspace\=([0-9]+)\,border\=([0-9]+)\]/i";
 			$data[memo]=preg_replace($imageBoxPattern,"<img src='icon/member_image_box/$data[ismember]/\\1.\\2' align='\\3' width='\\4' height='\\5' vspace='\\6' hspace='\\7' border='\\8'>", stripslashes($data[memo]));
@@ -90,23 +90,23 @@ function list_check(&$data,$view_check=0) {
 		if($data[use_html]<2) $memo=$data[memo]=nl2br($data[memo]);
 		$memo=$data[memo];
 
-		// ÀÚµ¿¸µÅ© °Å´Â ºÎºĞ;;
+		// ìë™ë§í¬ ê±°ëŠ” ë¶€ë¶„;;
 		if($setup[use_autolink]) $memo=autolink($memo); 
 
 		$memo .= "<!--\"<-->";
 
-		// °Ë»ö¾î°¡ ÀÖÀ»°æ¿ì ³»¿ëÀÇ Å°¿öµå¸¦ º¯°æ
+		// ê²€ìƒ‰ì–´ê°€ ìˆì„ê²½ìš° ë‚´ìš©ì˜ í‚¤ì›Œë“œë¥¼ ë³€ê²½
 		if($sc=="on" && $keyword) {
 			$keyword_pattern = "/".str_replace("\0","\\0",preg_quote($keyword,"/"))."/i";
 			$memo = preg_replace($keyword_pattern, "<span style='color:#FF001E;background-color:#FFF000;'>$keyword</span>", $memo);
 		}
 
-		// ÀÌ¹ÌÁö ¸®»çÀÌÁî¸¦ À§ÇØ¼­ Ã³¸®ÇÏ´Â ºÎºĞ
+		// ì´ë¯¸ì§€ ë¦¬ì‚¬ì´ì¦ˆë¥¼ ìœ„í•´ì„œ ì²˜ë¦¬í•˜ëŠ” ë¶€ë¶„
 		$memo = preg_replace("/(\<img)(.*)(\>?)/i","\\1 name=zb_target_resize style=\"cursor:hand\" onclick=window.open(this.src) \\2 \\3", $memo);
 		$memo = "<table border=0 cellspacing=0 cellpadding=0 width=100% style=\"table-layout:fixed;\"><col width=100%></col><tr><td valign=top>".$memo."</table>";
 		$_zbResizeCheck = true;
 
-		// ¾ÆÀÌÇÇ
+		// ì•„ì´í”¼
 		if($is_admin) $ip="IP Address : ".$data[ip]."&nbsp;";  
 
 		$sitelink1=$data[sitelink1]=stripslashes($data[sitelink1]);
@@ -138,51 +138,51 @@ function list_check(&$data,$view_check=0) {
 		if(eregi("\.jpg",$file_name2)||eregi("\.gif",$file_name2)||eregi("\.png",$file_name2)) $upload_image2="<img src=$data[file_name2] border=0 name=zb_target_resize style=\"cursor:hand\" onclick=window.open(this.src)><br>";
 	}
 
-	// Ä«Å×°í¸®ÀÇ ÀÌ¸§À» ±¸ÇÔ
+	// ì¹´í…Œê³ ë¦¬ì˜ ì´ë¦„ì„ êµ¬í•¨
 	if($data[category]&&$setup[use_category]) $category_name=$category_data[$data[category]];
 	else $category_name="&nbsp;";
 
-	// ±Û¾´ ½Ã°£À» ³â¿ùÀÏ ½ÃºĞÃÊ ·Î º¯È¯ÇÔ
-	$reg_date="<span title='".date("Y³â m¿ù dÀÏ H½Ã iºĞ sÃÊ", $data[reg_date])."'>".date("Y/m/d", $data[reg_date])."</span>";
+	// ê¸€ì“´ ì‹œê°„ì„ ë…„ì›”ì¼ ì‹œë¶„ì´ˆ ë¡œ ë³€í™˜í•¨
+	$reg_date="<span title='".date("Yë…„ mì›” dì¼ Hì‹œ ië¶„ sì´ˆ", $data[reg_date])."'>".date("Y/m/d", $data[reg_date])."</span>";
 	$date=date("Y-m-d H:i:s", $data[reg_date]);
 	
-	// Æû¸ŞÀÏÀ» »ç¿ëÇÏ°í °ü·Ã¸Ş´º°¡ »ı¼ºÀÌ µÇ¸é ·¹ÀÌ¾î¿ÀÇÂ
+	// í¼ë©”ì¼ì„ ì‚¬ìš©í•˜ê³  ê´€ë ¨ë©”ë‰´ê°€ ìƒì„±ì´ ë˜ë©´ ë ˆì´ì–´ì˜¤í”ˆ
 	if($_zbCount&&$setup[use_formmail]) {
 		$name = "<span onMousedown=\"ZB_layerAction('zbLayer$_zbCheckNum','visible')\" style=cursor:hand>$name</span>";
-	// Æû¸ŞÀÏÀ» »ç¿ë¾ÈÇÒ °æ¿ì ¹«Á¶°Ç ¸ŞÀÏ¸µÅ©
+	// í¼ë©”ì¼ì„ ì‚¬ìš©ì•ˆí•  ê²½ìš° ë¬´ì¡°ê±´ ë©”ì¼ë§í¬
 	} else {
 		if($data[email]) $name="<a href=\"javascript:void(window.open('open_window.php?mode=m&str=".urlencode(base64_encode($data[email]))."','ZBremote','width=1,height=1,left=1,top=1'))\">$name</a>";
 		//$name="<a href=\"javascript:void(window.open('view_info.php?to=$email&id=$id&member_no=$data[ismember]','mailform','width=400,height=510,statusbar=no,scrollbars=yes,toolbar=no'))\">$name</a>";
 	}
 
-	// Depth¿¡ ÀÇÇÑ µéÀÓ°ªÀ» Á¤ÇÔ
+	// Depthì— ì˜í•œ ë“¤ì„ê°’ì„ ì •í•¨
 	$insert="";
 	if($data[depth]>15) $data[depth]=15;
 	for($z=0;$z<$data[depth];$z++) $insert .="&nbsp; ";
 
 	$icon=get_icon($data);
 
-	// ÀÌ¸§¾Õ¿¡ ºÙ´Â ¾ÆÀÌÄÜ Á¤ÀÇ;;
+	// ì´ë¦„ì•ì— ë¶™ëŠ” ì•„ì´ì½˜ ì •ì˜;;
 	$face_image=get_face($data);
 
 	$number=$loop_number;
 
-	// ¹Ù·Î Àü¿¡ º» ±ÛÀÎ °æ¿ì ¹øÈ£¸¦ ¾ÆÀÌÄÜÀ¸·Î ¹Ù²Ş
+	// ë°”ë¡œ ì „ì— ë³¸ ê¸€ì¸ ê²½ìš° ë²ˆí˜¸ë¥¼ ì•„ì´ì½˜ìœ¼ë¡œ ë°”ê¿ˆ
 	if($prev_no==$data[no]) $number="<img src=$dir/arrow.gif border=0 align=absmiddle>"; elseif($number!="&nbsp;") $number=$loop_number;
 
-	// ´ä±Û ¹öÆ°
+	// ë‹µê¸€ ë²„íŠ¼
 	if(($is_admin||$member[level]<=$setup[grant_reply])&&$data[headnum]>-2000000000&&$data[headnum]!=-1) $a_reply="<a href='write.php?$href$sort&no=$data[no]&mode=reply'>"; 
 	else $a_reply="<Zeroboard";
 
-	// »èÁ¦¹öÆ°
+	// ì‚­ì œë²„íŠ¼
 	if(($is_admin||$member[level]<=$setup[grant_delete]||$data[ismember]==$member[no]||!$data[ismember])&&!$data[child]) $a_delete="<a href='delete.php?$href$sort&no=$data[no]'>"; 
 	else $a_delete="<Zeroboard";
 
-	// ¼öÁ¤¹öÆ°
+	// ìˆ˜ì •ë²„íŠ¼
 	if(($is_admin||$member[level]<=$setup[grant_delete]||$data[ismember]==$member[no]||!$data[ismember])) $a_modify="<a href='write.php?$href$sort&no=$data[no]&mode=modify'>"; 
 	else $a_modify="<Zeroboard";
 
-	// ½ºÆÔ¸ŞÀÏ·¯ ±İÁö
+	// ìŠ¤íŒ¸ë©”ì¼ëŸ¬ ê¸ˆì§€
 	$mail=$data[email]="";
 
 	$_listCheckTime += getmicrotime() - $_listCheckTimeStart;

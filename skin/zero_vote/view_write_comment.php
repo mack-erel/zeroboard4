@@ -1,20 +1,20 @@
 <?
- /* °£´ÜÇÑ ´ä±Û ¾²±â Ç¥½Ã
+ /* ê°„ë‹¨í•œ ë‹µê¸€ ì“°ê¸° í‘œì‹œ
 
-  -- °£´ÜÇÑ ´ä±Û °ü·Ã
-  <?=$hide_comment_start?> <?=$hide_comment_end?> : °£´ÜÇÑ ´ä±Û ¾²±â º¸¿©ÁÖ±â/ ¼û±â±â
-  <?=$hide_c_password_start?> <?=$hide_c_password_end?> : °£´ÜÇÑ ´ä±Û½Ã ºñ¹Ð¹øÈ£ ÀÔ·Â º¸¿©ÁÖ±â/ ¼û±â±â;;
+  -- ê°„ë‹¨í•œ ë‹µê¸€ ê´€ë ¨
+  <?=$hide_comment_start?> <?=$hide_comment_end?> : ê°„ë‹¨í•œ ë‹µê¸€ ì“°ê¸° ë³´ì—¬ì£¼ê¸°/ ìˆ¨ê¸°ê¸°
+  <?=$hide_c_password_start?> <?=$hide_c_password_end?> : ê°„ë‹¨í•œ ë‹µê¸€ì‹œ ë¹„ë°€ë²ˆí˜¸ ìž…ë ¥ ë³´ì—¬ì£¼ê¸°/ ìˆ¨ê¸°ê¸°;;
 
-  <?=$c_name?> : ÄÚ¸àÆ®½Ã ÀÌ¸§ ÀÔ·ÂÇÏ´Â °÷;;
+  <?=$c_name?> : ì½”ë©˜íŠ¸ì‹œ ì´ë¦„ ìž…ë ¥í•˜ëŠ” ê³³;;
 
-  ** view.php Á¦ÀÏ ¾Æ·¡ÂÊ¿¡ °£´äÇÑ ´ä±ÛÀÌ ½ÃÀÛÇÏ´Â <table>ÅÂ±× ½ÃÀÛºÎºÐÀÌ ÀÖ½À´Ï´Ù.
-     ±×¸®°í °£´ÜÇÑ ´ä±ÛÀÌ ÀÖÀ¸¸é view_comment_view.php ÆÄÀÏ¿¡¼­ Ãâ·ÂÀ» ÇÕ´Ï´Ù.
+  ** view.php ì œì¼ ì•„ëž˜ìª½ì— ê°„ë‹µí•œ ë‹µê¸€ì´ ì‹œìž‘í•˜ëŠ” <table>íƒœê·¸ ì‹œìž‘ë¶€ë¶„ì´ ìžˆìŠµë‹ˆë‹¤.
+     ê·¸ë¦¬ê³  ê°„ë‹¨í•œ ë‹µê¸€ì´ ìžˆìœ¼ë©´ view_comment_view.php íŒŒì¼ì—ì„œ ì¶œë ¥ì„ í•©ë‹ˆë‹¤.
 
  */
 ?>
 
 
-<!-- °£´ÜÇÑ ´äº¯±Û ¾²±â -->
+<!-- ê°„ë‹¨í•œ ë‹µë³€ê¸€ ì“°ê¸° -->
 <tr>
 <td width=100%>
 <table border=0 width=100% cellspacing=0 cellpadding=0 height=30>
@@ -35,12 +35,12 @@
 <input type=hidden name=mode value="<?=$mode?>">
 </td>
 <td align=center>
-   <font color=444444 >ÀÌ¸§ : </b></font><b> <?=$c_name?> &nbsp;</b>
-   <font color=444444 >ÀÇ°ß : </b></font> <input type=text name=memo <?=size(40)?> maxlength=100 class=input>
+   <font color=444444 >ì´ë¦„ : </b></font><b> <?=$c_name?> &nbsp;</b>
+   <font color=444444 >ì˜ê²¬ : </b></font> <input type=text name=memo <?=size(40)?> maxlength=100 class=input>
    <?=$hide_c_password_start?> &nbsp;
-   <font color=444444 >ºñ¹Ð¹øÈ£ : </b></font>  <input type=password name=password <?=size(10)?> maxlength=20 class=input>
+   <font color=444444 >ë¹„ë°€ë²ˆí˜¸ : </b></font>  <input type=password name=password <?=size(10)?> maxlength=20 class=input>
    <?=$hide_c_password_end?>
-   <input type=submit value="ÀÔ·Â" class=submit>
+   <input type=submit value="ìž…ë ¥" class=submit>
  </td>
 </tr>
 </table>

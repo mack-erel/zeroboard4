@@ -30,7 +30,7 @@
 	<table border=0 width=100%>
 	<col width=50%></col><col width=50%></col>
 	<tr>
-		<td nowrap><font color=white size=4 face=tahoma><b>Zeroboard & DreamWiz °Ë»ö¼­¹ö °ü¸®</b></font></td>
+		<td nowrap><font color=white size=4 face=tahoma><b>Zeroboard & DreamWiz ê²€ìƒ‰ì„œë²„ ê´€ë¦¬</b></font></td>
 	</tr>
 	</table>
 	<br>
@@ -44,11 +44,11 @@
     <col width=40></col>
 	<tr bgcolor=444444 align=center>
 		<td style=color:white;font-size:8pt;font-family:tahoma>No</td>
-		<td style=color:white;font-size:8pt;font-family:tahoma>°Ô½ÃÆÇ ID</td>
-		<td style=color:white;font-size:8pt;font-family:tahoma>°Ë»ö·ü</td>
-		<td style=color:white;font-size:8pt;font-family:tahoma>indexing ´ÜÀ§</td>
-		<td style=color:white;font-size:8pt;font-family:tahoma>¿¹¾à ½Ã°£</td>
-		<td style=color:white;font-size:8pt;font-family:tahoma>»èÁ¦</td>
+		<td style=color:white;font-size:8pt;font-family:tahoma>ê²Œì‹œíŒ ID</td>
+		<td style=color:white;font-size:8pt;font-family:tahoma>ê²€ìƒ‰ë¥ </td>
+		<td style=color:white;font-size:8pt;font-family:tahoma>indexing ë‹¨ìœ„</td>
+		<td style=color:white;font-size:8pt;font-family:tahoma>ì˜ˆì•½ ì‹œê°„</td>
+		<td style=color:white;font-size:8pt;font-family:tahoma>ì‚­ì œ</td>
 	</tr>
 <?
   for($i=0;$i<count($indexing_list);$i++) {
@@ -57,16 +57,16 @@
     <td><?=($i+1)?></td>
     <td><?=$indexing_list[$i]['table_id']?></td>
     <td><?=sprintf("%0.2f",$indexing_list[$i]['point']/$indexing_list[$i]['stop_point']*100)?>%</td>
-    <td><?=$indexing_list[$i]['max_crawling']?>°³</td>
+    <td><?=$indexing_list[$i]['max_crawling']?>ê°œ</td>
     <td>
       <?if(!$indexing_list[$i]['reserve_stime']&&!$indexing_list[$i]['reserve_etime']){?>
-      ¾øÀ½
+      ì—†ìŒ
       <?}else{?>
-      <?=sprintf("%02d",$indexing_list[$i]['reserve_stime'])?>½Ã ~
-      <?=sprintf("%02d",$indexing_list[$i]['reserve_etime'])?>½Ã
+      <?=sprintf("%02d",$indexing_list[$i]['reserve_stime'])?>ì‹œ ~
+      <?=sprintf("%02d",$indexing_list[$i]['reserve_etime'])?>ì‹œ
       <?}?>
     </td>
-    <td><a href="javascript:void(window.open('./admin/admin_del_indexing.php?no=<?=$indexing_list[$i]['no']?>','_DelBoard','width=400,height=200,noresizable,noscroll'))" onClick="return confirm('°Ë»ö¼­¹ö¿¡¼­ »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?')">»èÁ¦</a></td>
+    <td><a href="javascript:void(window.open('./admin/admin_del_indexing.php?no=<?=$indexing_list[$i]['no']?>','_DelBoard','width=400,height=200,noresizable,noscroll'))" onClick="return confirm('ê²€ìƒ‰ì„œë²„ì—ì„œ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?')">ì‚­ì œ</a></td>
   </tr>
 <?
   }
@@ -74,7 +74,7 @@
 	</table>
 
     <div align=right>
-      <input type=button value='°Ô½ÃÆÇ Ãß°¡' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onClick="window.open('./admin/admin_add_indexing.php','_AddIndexBoard','width=500,height=200,noresizable,noscroll')">
+      <input type=button value='ê²Œì‹œíŒ ì¶”ê°€' style=border-color:#b0b0b0;background-color:#3d3d3d;color:#ffffff;font-size:8pt;font-family:Tahoma;height:20px; onClick="window.open('./admin/admin_add_indexing.php','_AddIndexBoard','width=500,height=200,noresizable,noscroll')">
     </div>
 
 	</td>

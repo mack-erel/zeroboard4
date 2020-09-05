@@ -9,7 +9,7 @@
 
   $member=member_info();
 
-  if(!$member[no]||$member[is_admin]>1||$member[level]>1) Error("ÃÖ°í °ü¸®ÀÚ¸¸ÀÌ »ç¿ëÇÒ¼ö ÀÖ½À´Ï´Ù");
+  if(!$member[no]||$member[is_admin]>1||$member[level]>1) Error("ìµœê³  ê´€ë¦¬ìžë§Œì´ ì‚¬ìš©í• ìˆ˜ ìžˆìŠµë‹ˆë‹¤");
 
   if($no) {
 
@@ -24,7 +24,7 @@
     if($oSearch->return_code!=0) {
 ?>
 <script>
-  alert("°Ë»ö¼­¹ö¿ÍÀÇ ¿¬°áÀ» ½ÇÆÐÇÏ¿´½À´Ï´Ù");
+  alert("ê²€ìƒ‰ì„œë²„ì™€ì˜ ì—°ê²°ì„ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤");
   self.close();
 </script>
 <?

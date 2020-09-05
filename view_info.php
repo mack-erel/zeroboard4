@@ -1,15 +1,15 @@
 <?
-// ¶óÀÌºê·¯¸® ÇÔ¼ö ÆÄÀÏ ÀÎÅ©·çµå
+// ë¼ì´ë¸ŒëŸ¬ë¦¬ í•¨ìˆ˜ íŒŒì¼ ì¸í¬ë£¨ë“œ
 require "lib.php";
 
 
-// DB ¿¬°á
+// DB ì—°ê²°
 	if(!$connect) $connect=dbConn();
 
-// ¸â¹öÁ¤º¸ ±¸ÇÏ±â
+// ë©¤ë²„ì •ë³´ êµ¬í•˜ê¸°
 	$member=member_info();
 
-	if(!$member[no]) Error("°¡ÀÔµÇ¾î ÀÖ´Â È¸¿ø¸¸ ÂÊÁö º¸³»±â°¡ °¡´ÉÇÕ´Ï´Ù","window.close");
+	if(!$member[no]) Error("ê°€ì…ë˜ì–´ ìˆëŠ” íšŒì›ë§Œ ìª½ì§€ ë³´ë‚´ê¸°ê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤","window.close");
 
 	$data=mysql_fetch_array(mysql_query("select * from $member_table where no='$member_no'"));
 
@@ -21,7 +21,7 @@ require "lib.php";
 	if($temp_name) $data[name]="<img src='$temp_name' border=0 align=absmiddle>&nbsp;".$data[name];
 	$data[name]="&nbsp;".$data[name]."&nbsp;";
 
-// ±×·ìµ¥ÀÌÅ¸ ÀĞ¾î¿À±â;;
+// ê·¸ë£¹ë°ì´íƒ€ ì½ì–´ì˜¤ê¸°;;
 	$group_data=mysql_fetch_array(mysql_query("select * from $group_table where no='$data[group_no]'"));
 
 	mysql_close($connect);
@@ -51,7 +51,7 @@ require "lib.php";
 <?
 	} else { 
 ?>
- <img src=images/vi_B_userinfo.gif border=0 onclick="alert('°³ÀÎÁ¤º¸¸¦ °ø°³ÇÏÁö ¾Ê¾Ò½À´Ï´Ù')">
+ <img src=images/vi_B_userinfo.gif border=0 onclick="alert('ê°œì¸ì •ë³´ë¥¼ ê³µê°œí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤')">
 
 <? }?>
 

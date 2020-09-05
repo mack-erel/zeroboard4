@@ -6,7 +6,7 @@
 	else {
 		if($member[no]) {
 			destroyZBSessionID($member[no]);
-			// 4.0x ¿ë ¼¼¼Ç Ã³¸®
+			// 4.0x ìš© ì„¸ì…˜ ì²˜ë¦¬
 			$zb_logged_no='';
 			$zb_logged_time='';
 			$zb_logged_ip='';
@@ -26,12 +26,12 @@
 <script>
 function check_submit() {
 	if(!write.user_id.value) {
-		alert("ID¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿ä");
+		alert("IDë¥¼ ìž…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œìš”");
 		write.user_id.focus();
 		return false;
 	}
 	if(!write.password.value) {
-		alert("Password¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿ä");
+		alert("Passwordë¥¼ ìž…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œìš”");
 		write.password.focus();
 		return false;
 	}

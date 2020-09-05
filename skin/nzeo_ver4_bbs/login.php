@@ -16,5 +16,5 @@
 </tr>
 </table>
 <br>
-<input type=submit value="·Î±×ÀÎ" class=submit> <input type=button class=button value="ÀÌÀüÈ­¸é" onclick=history.back()>
+<input type=submit value="ë¡œê·¸ì¸" class=submit> <input type=button class=button value="ì´ì „í™”ë©´" onclick=history.back()>
 </div>

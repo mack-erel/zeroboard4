@@ -1,19 +1,19 @@
 <?
 /***************************************************************************
- * °øÅë ÆÄÀÏ include
+ * ê³µí†µ íŒŒì¼ include
  **************************************************************************/
 	include "_head.php";
 
 	if(!eregi($HTTP_HOST,$HTTP_REFERER)) die();
 
 /***************************************************************************
- * °Ô½ÃÆÇ ¼³Á¤ Ã¼Å©
+ * ê²Œì‹œíŒ ì„¤ì • ì²´í¬
  **************************************************************************/
 
-// »ç¿ë±ÇÇÑ Ã¼Å©
-	if($setup[grant_view]<$member[level]&&!$is_admin) Error("»ç¿ë±ÇÇÑÀÌ ¾ø½À´Ï´Ù","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
+// ì‚¬ìš©ê¶Œí•œ ì²´í¬
+	if($setup[grant_view]<$member[level]&&!$is_admin) Error("ì‚¬ìš©ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
 
-// ÇöÀç±ÛÀÇ Download ¼ö¸¦ ¿Ã¸²;;
+// í˜„ìž¬ê¸€ì˜ Download ìˆ˜ë¥¼ ì˜¬ë¦¼;;
     if($filenum==1) {
         mysql_query("update `$t_board"."_$id` set download1=download1+1 where no='$no'");
     } else {
@@ -22,7 +22,7 @@
 
 	$data=mysql_fetch_array(mysql_query("select * from  `$t_board"."_$id` where no='$no'"));
   
-// ´Ù¿î·Îµå;;
+// ë‹¤ìš´ë¡œë“œ;;
 	$filename="file_name".$filenum;
 	header("location:$data[$filename]");
 

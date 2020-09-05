@@ -1,26 +1,26 @@
 <?
-// ¶óÀÌºê·¯¸® ÇÔ¼ö ÆÄÀÏ ÀÎÅ©·çµå
+// ë¼ì´ë¸ŒëŸ¬ë¦¬ í•¨ìˆ˜ íŒŒì¼ ì¸í¬ë£¨ë“œ
 	include "lib.php";
 
-// DB ¿¬°á
+// DB ì—°ê²°
 	if(!$connect) $connect=dbConn();
 
-// ±Û¾´ÀÌÀÇ Á¤º¸¸¦ °®°í¿È;;
+// ê¸€ì“´ì´ì˜ ì •ë³´ë¥¼ ê°–ê³ ì˜´;;
 	$data=mysql_fetch_array(mysql_query("select * from $member_table where no='$member_no'"));
 
-// ¸â¹öÁ¤º¸ ±¸ÇÏ±â
+// ë©¤ë²„ì •ë³´ êµ¬í•˜ê¸°
 	$member=member_info();
 
-	if(!$member[no]) Error("È¸¿ø¸¸ÀÌ ÂÊÁöº¸³»°¡±â °¡´ÉÇÕ´Ï´Ù","window.close");
+	if(!$member[no]) Error("íšŒì›ë§Œì´ ìª½ì§€ë³´ë‚´ê°€ê¸° ê°€ëŠ¥í•©ë‹ˆë‹¤","window.close");
 
-// ±×·ìµ¥ÀÌÅ¸ ÀÐ¾î¿À±â;;
+// ê·¸ë£¹ë°ì´íƒ€ ì½ì–´ì˜¤ê¸°;;
 	$group_data=mysql_fetch_array(mysql_query("select * from $group_table where no='$data[group_no]'"));
 
 
-// ÂÊÁö º¸³»±âÀÏ¶§;;
+// ìª½ì§€ ë³´ë‚´ê¸°ì¼ë•Œ;;
 	if($kind==1&&$member[no]&&$data[no]) {
-		if(isblank($subject)) Error("Á¦¸ñÀÌ ¾ø½À´Ï´Ù. Á¦¸ñÀ» ÀÔ·ÂÇØ ÁÖ½Ê½Ã¿À.");
-		if(isblank($memo)) Error("³»¿ëÀÌ ¾ø½À´Ï´Ù. ³»¿ëÀ» ÀÔ·ÂÇØ ÁÖ½Ê½Ã¿À.");
+		if(isblank($subject)) Error("ì œëª©ì´ ì—†ìŠµë‹ˆë‹¤. ì œëª©ì„ ìž…ë ¥í•´ ì£¼ì‹­ì‹œì˜¤.");
+		if(isblank($memo)) Error("ë‚´ìš©ì´ ì—†ìŠµë‹ˆë‹¤. ë‚´ìš©ì„ ìž…ë ¥í•´ ì£¼ì‹­ì‹œì˜¤.");
 
 		$subject=addslashes($subject);
 		$memo=addslashes($memo);
@@ -28,7 +28,7 @@
 		mysql_query("insert into $get_memo_table (member_no,member_from,subject,memo,readed,reg_date) values ('$data[no]','$member[no]','$subject','$memo',1,'$reg_date')") or error(mysql_error());
 		mysql_query("insert into $send_memo_table (member_to,member_no,subject,memo,readed,reg_date) values ('$data[no]','$member[no]','$subject','$memo',1,'$reg_date')") or error(mysql_error());
 		mysql_query("update $member_table set new_memo=1 where no='$data[no]'") or error(mysql_error());
-		echo"<script language=\"javascript\">alert(\"$data[name] ´Ô²² ÂÊÁö¸¦ º¸³Â½À´Ï´Ù\");window.close();</script>";
+		echo"<script language=\"javascript\">alert(\"$data[name] ë‹˜ê»˜ ìª½ì§€ë¥¼ ë³´ëƒˆìŠµë‹ˆë‹¤\");window.close();</script>";
 	}
 
 	mysql_close($connect);

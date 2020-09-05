@@ -2,21 +2,21 @@
 /******************************************************************************
  * Zeroboard library 
  *
- * ¸¶Áö¸· ¼öÁ¤ÀÏÀÚ : 2006. 3. 15
- * ÀÌ ÆÄÀÏ³»ÀÇ ¸ğµç ÇÔ¼ö´Â ¿øÇÏ½Ã´Â´ë·Î »ç¿ëÇÏ¼Åµµ µË´Ï´Ù.
+ * ë§ˆì§€ë§‰ ìˆ˜ì •ì¼ì : 2006. 3. 15
+ * ì´ íŒŒì¼ë‚´ì˜ ëª¨ë“  í•¨ìˆ˜ëŠ” ì›í•˜ì‹œëŠ”ëŒ€ë¡œ ì‚¬ìš©í•˜ì…”ë„ ë©ë‹ˆë‹¤.
  *
  * by zero (zero@nzeo.com)
  *
  ******************************************************************************/
 
-    // W3C P3P ±Ô¾à¼³Á¤
+    // W3C P3P ê·œì•½ì„¤ì •
     @header ("P3P : CP=\"ALL CURa ADMa DEVa TAIa OUR BUS IND PHY ONL UNI PUR FIN COM NAV INT DEM CNT STA POL HEA PRE LOC OTC\"");
 
-	// ÇöÀç ¹öÁ¯
+	// í˜„ì¬ ë²„ì ¼
 	$zb_version = "4.1 pl8";
 
 	/*******************************************************************************
- 	 * ¿¡·¯ ¸®Æ÷ÆÃ ¼³Á¤°ú register_globals_onÀÏ¶§ º¯¼ö Àç Á¤ÀÇ
+ 	 * ì—ëŸ¬ ë¦¬í¬íŒ… ì„¤ì •ê³¼ register_globals_onì¼ë•Œ ë³€ìˆ˜ ì¬ ì •ì˜
  	 ******************************************************************************/
  	@error_reporting(E_ALL ^ E_NOTICE);
         foreach($HTTP_GET_VARS as $key=>$val) $$key = del_html($val);
@@ -31,7 +31,7 @@
 	else $config_dir="";
 
 	/*******************************************************************************
- 	 * ±âº» º¯¼ö ÃÊ±âÈ­. (phpÀÇ ¿À·ù°°Áö ¾ÊÀº ¿À·ù ¶§¹®¿¡;; ¤Ñ¤Ñ+)
+ 	 * ê¸°ë³¸ ë³€ìˆ˜ ì´ˆê¸°í™”. (phpì˜ ì˜¤ë¥˜ê°™ì§€ ì•Šì€ ì˜¤ë¥˜ ë•Œë¬¸ì—;; ã…¡ã…¡+)
  	 ******************************************************************************/
 	unset($member);
 	unset($group);
@@ -41,7 +41,7 @@
     if(!in_array($desc,array('desc','asc'))) unset($desc); 
 
 	/*******************************************************************************
- 	 * include µÇ¾ú´ÂÁö¸¦ °Ë»ç
+ 	 * include ë˜ì—ˆëŠ”ì§€ë¥¼ ê²€ì‚¬
  	 ******************************************************************************/
 	if(defined("_zb_lib_included")) return;
     define("_zb_lib_included",true);
@@ -49,25 +49,25 @@
 	$_startTime=getmicrotime();
 
 	/*******************************************************************************
- 	 * ±âº» ¼³Á¤ ÆÄÀÏÀ» ÀĞÀ½
+ 	 * ê¸°ë³¸ ì„¤ì • íŒŒì¼ì„ ì½ìŒ
  	 ******************************************************************************/
  	$_zbDefaultSetup = getDefaultSetup();
 
 	/*******************************************************************************
- 	 * install ÆäÀÌÁö°¡ ¾Æ´Ñ °æ¿ì
+ 	 * install í˜ì´ì§€ê°€ ì•„ë‹Œ ê²½ìš°
  	 ******************************************************************************/
 	if(!eregi("install",$PHP_SELF)&&file_exists($_zb_path."config.php")) {
 
- 	 	//¼¼¼Ç Ã³¸® (¼¼¼ÇÀº 3ÀÏµ¿¾È À¯È¿ÇÏ°Ô ¼³Á¤)
+ 	 	//ì„¸ì…˜ ì²˜ë¦¬ (ì„¸ì…˜ì€ 3ì¼ë™ì•ˆ ìœ íš¨í•˜ê²Œ ì„¤ì •)
 		if(!is_dir($_zb_path.$_zbDefaultSetup[session_path])) {
 			mkdir($_zb_path.$_zbDefaultSetup[session_path], 0777);
 			chmod($_zb_path.$_zbDefaultSetup[session_path], 0777);
 		}
 
-		// Data, Icon, ¼¼¼Çµğ·ºÅä¸®ÀÇ ¾²±â ±ÇÇÑÀÌ ¾ø´Ù¸é ¿¡·¯ Ã³¸®
-		if(!is_writable($_zb_path."data")) error("Data µğ·ºÅä¸®ÀÇ ¾²±â ±ÇÇÑÀÌ ¾ø½À´Ï´Ù<br>Á¦·Îº¸µå¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â Data µğ·ºÅä¸®ÀÇ ¾²±â ±ÇÇÑÀÌ ÀÖ¾î¾ß ÇÕ´Ï´Ù");
-		if(!is_writable($_zb_path."icon")) error("icon µğ·ºÅä¸®ÀÇ ¾²±â ±ÇÇÑÀÌ ¾ø½À´Ï´Ù<br>Á¦·Îº¸µå¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â icon µğ·ºÅä¸®ÀÇ ¾²±â ±ÇÇÑÀÌ ÀÖ¾î¾ß ÇÕ´Ï´Ù");
-		if(!is_writable($_zb_path.$_zbDefaultSetup[session_path])) error("¼¼¼Ç µğ·ºÅä¸®(".$_zb_path.$_zbDefaultSetup[session_path].")ÀÇ ¾²±â ±ÇÇÑÀÌ ¾ø½À´Ï´Ù<br>Á¦·Îº¸µå¸¦ »ç¿ëÇÏ±â À§ÇØ¼­´Â ¼¼¼Çµğ·ºÅä¸®ÀÇ ¾²±â ±ÇÇÑÀÌ ÀÖ¾î¾ß ÇÕ´Ï´Ù");
+		// Data, Icon, ì„¸ì…˜ë””ë ‰í† ë¦¬ì˜ ì“°ê¸° ê¶Œí•œì´ ì—†ë‹¤ë©´ ì—ëŸ¬ ì²˜ë¦¬
+		if(!is_writable($_zb_path."data")) error("Data ë””ë ‰í† ë¦¬ì˜ ì“°ê¸° ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤<br>ì œë¡œë³´ë“œë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” Data ë””ë ‰í† ë¦¬ì˜ ì“°ê¸° ê¶Œí•œì´ ìˆì–´ì•¼ í•©ë‹ˆë‹¤");
+		if(!is_writable($_zb_path."icon")) error("icon ë””ë ‰í† ë¦¬ì˜ ì“°ê¸° ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤<br>ì œë¡œë³´ë“œë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” icon ë””ë ‰í† ë¦¬ì˜ ì“°ê¸° ê¶Œí•œì´ ìˆì–´ì•¼ í•©ë‹ˆë‹¤");
+		if(!is_writable($_zb_path.$_zbDefaultSetup[session_path])) error("ì„¸ì…˜ ë””ë ‰í† ë¦¬(".$_zb_path.$_zbDefaultSetup[session_path].")ì˜ ì“°ê¸° ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤<br>ì œë¡œë³´ë“œë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” ì„¸ì…˜ë””ë ‰í† ë¦¬ì˜ ì“°ê¸° ê¶Œí•œì´ ìˆì–´ì•¼ í•©ë‹ˆë‹¤");
 
 		$_sessionStart = getmicrotime();
 		@session_save_path($_zb_path.$_zbDefaultSetup[session_path]);
@@ -75,10 +75,10 @@
 
 		session_set_cookie_params(0,"/");
 
-		// ¼¼¼Ç º¯¼öÀÇ µî·Ï
+		// ì„¸ì…˜ ë³€ìˆ˜ì˜ ë“±ë¡
 		@session_start();
 
-		// Á¶È¸¼ö °¡ 512byte¸¦, ÅõÇ¥ ¼¼¼Çº¯¼ö°¡ 256byte¸¦ ³ÑÀ»½Ã ¸®¼Â (°³ÀÎ¼­¹ö¸¦ ÀÌ¿ë½Ã¿¡´Â Á¶±İ ´õ ´Ã·Áµµ µÊ)
+		// ì¡°íšŒìˆ˜ ê°€ 512byteë¥¼, íˆ¬í‘œ ì„¸ì…˜ë³€ìˆ˜ê°€ 256byteë¥¼ ë„˜ì„ì‹œ ë¦¬ì…‹ (ê°œì¸ì„œë²„ë¥¼ ì´ìš©ì‹œì—ëŠ” ì¡°ê¸ˆ ë” ëŠ˜ë ¤ë„ ë¨)
 		if(strlen($HTTP_SESSION_VARS[zb_hit])>$_zbDefaultSetup[session_view_size]) {
 			$zb_hit='';
 			session_register("zb_hit");
@@ -88,7 +88,7 @@
 			session_register("zb_vote");
 		}
 
-		// ÀÚµ¿ ·Î±×ÀÎÀÏ¶§ Á¦´ë·Î µÈ ÀÚµ¿ ·Î±×ÀÎÀÎÁö Ã¼Å©ÇÏ´Â ºÎºĞ
+		// ìë™ ë¡œê·¸ì¸ì¼ë•Œ ì œëŒ€ë¡œ ëœ ìë™ ë¡œê·¸ì¸ì¸ì§€ ì²´í¬í•˜ëŠ” ë¶€ë¶„
 		unset($autoLoginData);
 		$autoLoginData = getZBSessionID();
 		if($autoLoginData[no]) {
@@ -100,10 +100,10 @@
 			session_register("zb_logged_time");
 			$HTTP_SESSION_VARS["zb_logged_no"] = $zb_logged_no;
 
-		// ¼¼¼Ç °ªÀ» Ã¼Å©ÇÏ¿© ·Î±×ÀÎÀ» Ã³¸®
+		// ì„¸ì…˜ ê°’ì„ ì²´í¬í•˜ì—¬ ë¡œê·¸ì¸ì„ ì²˜ë¦¬
 		} elseif($HTTP_SESSION_VARS["zb_logged_no"]) {
 
-			// ·Î±×ÀÎ ½Ã°£ÀÌ ÁöÁ¤µÈ ½Ã°£À» ³Ñ¾ú°Å³ª ·Î±×ÀÎ ¾ÆÀÌÇÇ°¡ ÇöÀç »ç¿ëÀÚÀÇ ¾ÆÀÌÇÇ¿Í ´Ù¸¦ °æ¿ì ·Î±×¾Æ¿ô ½ÃÅ´
+			// ë¡œê·¸ì¸ ì‹œê°„ì´ ì§€ì •ëœ ì‹œê°„ì„ ë„˜ì—ˆê±°ë‚˜ ë¡œê·¸ì¸ ì•„ì´í”¼ê°€ í˜„ì¬ ì‚¬ìš©ìì˜ ì•„ì´í”¼ì™€ ë‹¤ë¥¼ ê²½ìš° ë¡œê·¸ì•„ì›ƒ ì‹œí‚´
 			if(time()-$HTTP_SESSION_VARS["zb_logged_time"]>$_zbDefaultSetup["login_time"]||$HTTP_SESSION_VARS["zb_logged_ip"]!=$REMOTE_ADDR) {
 
 				$zb_logged_no="";
@@ -114,9 +114,9 @@
 				session_register("zb_logged_time");
 				session_destroy();
 
-			// À¯È¿ÇÒ °æ¿ì ·Î±×ÀÎ ½Ã°£À» ´Ù½Ã ¼³Á¤
+			// ìœ íš¨í•  ê²½ìš° ë¡œê·¸ì¸ ì‹œê°„ì„ ë‹¤ì‹œ ì„¤ì •
 			} else {
-				// 4.0x ¿ë ¼¼¼Ç Ã³¸®
+				// 4.0x ìš© ì„¸ì…˜ ì²˜ë¦¬
 				$zb_logged_time=time();
 				session_register("zb_logged_time");
 			}
@@ -124,14 +124,14 @@
 		} 
 		$_sessionEnd = getmicrotime();
 
-		// ÇöÀç Á¢¼ÓÀÚÀÇ µ¥ÀÌÅ¸¸¦ Ã¼Å©ÇÏ¿© ÆÄÀÏ·Î ÀúÀå (È¸¿ø, ºñÈ¸¿øÀ¸·Î ±¸ºĞÇØ¼­ ÀúÀå)
+		// í˜„ì¬ ì ‘ì†ìì˜ ë°ì´íƒ€ë¥¼ ì²´í¬í•˜ì—¬ íŒŒì¼ë¡œ ì €ì¥ (íšŒì›, ë¹„íšŒì›ìœ¼ë¡œ êµ¬ë¶„í•´ì„œ ì €ì¥)
 		$_nowConnectStart = getmicrotime();
 		if($_zbDefaultSetup[nowconnect_enable]=="true") {
 			$_zb_now_check_intervalTime = time()-$HTTP_SESSION_VARS["zb_last_connect_check"];
 
 			if(!$HTTP_SESSION_VARS["zb_last_connect_check"]||$_zb_now_check_intervalTime>$_zbDefaultSetup[nowconnect_refresh_time]) {
 
-				// 4.0x ¿ë ¼¼¼Ç Ã³¸®
+				// 4.0x ìš© ì„¸ì…˜ ì²˜ë¦¬
 				$zb_last_connect_check = time();
 				session_register("zb_last_connect_check");
 
@@ -153,38 +153,38 @@
 
 	$_nowConnectEnd = getmicrotime();
 
-	// config.php ÆÄÀÏÀÇ À§Ä¡¸¦ ±¸ÇÔ;;
+	// config.php íŒŒì¼ì˜ ìœ„ì¹˜ë¥¼ êµ¬í•¨;;
 	$temp_filename=realpath(__FILE__);
 	if($temp_filename) $config_dir=eregi_replace("lib.php","",$temp_filename);
 	else $config_dir="";
 
 
-	// ÀÍ½º¿Í ³İ½ºÄÉÀÌÇÁÀÏ¶§ Ã³¸®
+	// ìµìŠ¤ì™€ ë„·ìŠ¤ì¼€ì´í”„ì¼ë•Œ ì²˜ë¦¬
 	if(eregi("msie",$HTTP_USER_AGENT)) $browser="1"; else $browser="0";
 
 
-	// DB°¡ ¼³Á¤ÀÌ µÇ¾ú´ÂÁö¸¦ °Ë»ç
+	// DBê°€ ì„¤ì •ì´ ë˜ì—ˆëŠ”ì§€ë¥¼ ê²€ì‚¬
 	if(!file_exists($config_dir."config.php")&&!eregi("install",$PHP_SELF)) {
  		echo"<meta http-equiv=\"refresh\" content=\"0; url=install.php\">";
  		exit;
 	}
 
 
-	// °ü¸®ÀÚ Å×ÀÌºí°ú È¸¿ø°ü¸® Å×ÀÌºíÀÇ ÀÌ¸§À» ¹Ì¸® º¯¼ö·Î Á¤ÀÇ
-	$member_table = "zetyx_member_table";  // È¸¿øµéÀÇ µ¥ÀÌÅ¸°¡ µé¾î ÀÖ´Â Á÷Á¢ÀûÀÎ Å×ÀÌºí
-	$group_table = "zetyx_group_table";   // ±×·ìÅ×ÀÌºí
-	$admin_table="zetyx_admin_table";     // °Ô½ÃÆÇÀÇ °ü¸®ÀÚ Å×ÀÌºí
+	// ê´€ë¦¬ì í…Œì´ë¸”ê³¼ íšŒì›ê´€ë¦¬ í…Œì´ë¸”ì˜ ì´ë¦„ì„ ë¯¸ë¦¬ ë³€ìˆ˜ë¡œ ì •ì˜
+	$member_table = "zetyx_member_table";  // íšŒì›ë“¤ì˜ ë°ì´íƒ€ê°€ ë“¤ì–´ ìˆëŠ” ì§ì ‘ì ì¸ í…Œì´ë¸”
+	$group_table = "zetyx_group_table";   // ê·¸ë£¹í…Œì´ë¸”
+	$admin_table="zetyx_admin_table";     // ê²Œì‹œíŒì˜ ê´€ë¦¬ì í…Œì´ë¸”
 
 	$send_memo_table ="zetyx_send_memo";
 	$get_memo_table ="zetyx_get_memo";
 
-	$t_division="zetyx_division"; // Division Å×ÀÌºí
-	$t_board = "zetyx_board"; // ¸ŞÀÎ Å×ÀÌºí
-	$t_comment ="zetyx_board_comment"; // ÄÚ¸àÆ®Å×ÀÌºí
-	$t_category ="zetyx_board_category"; // Ä«Å×°í¸® Å×ÀÌºí
+	$t_division="zetyx_division"; // Division í…Œì´ë¸”
+	$t_board = "zetyx_board"; // ë©”ì¸ í…Œì´ë¸”
+	$t_comment ="zetyx_board_comment"; // ì½”ë©˜íŠ¸í…Œì´ë¸”
+	$t_category ="zetyx_board_category"; // ì¹´í…Œê³ ë¦¬ í…Œì´ë¸”
 
 
-	// ¸¶ÀÌÅ©·Î Å¸ÀÓ ±¸ÇÔ
+	// ë§ˆì´í¬ë¡œ íƒ€ì„ êµ¬í•¨
 	function getmicrotime() {
     	$microtimestmp = split(" ",microtime());
     	return $microtimestmp[0]+$microtimestmp[1];
@@ -192,36 +192,36 @@
 
 
 	/******************************************************************************
- 	* Division °ü·Ã ÇÔ¼ö
+ 	* Division ê´€ë ¨ í•¨ìˆ˜
  	*****************************************************************************/
-	// ÀüÃ¼ division ±¸ÇÔ
+	// ì „ì²´ division êµ¬í•¨
 	function total_division() {
  		global $connect, $t_division, $id;
  		$temp=mysql_fetch_array(mysql_query("select max(division) from $t_division"."_$id"));
  		return $temp[0];
 	}
 
-	// ´ä±ÛÀÏ¶§ ÇØ´ç divisionÀÇ num °ª Áõ°¡
+	// ë‹µê¸€ì¼ë•Œ í•´ë‹¹ divisionì˜ num ê°’ ì¦ê°€
 	function plus_division($division) {
 		global $connect, $t_division, $id;
 		mysql_query("update $t_division"."_$id set num=num+1 where division='$division'") or error(mysql_error);
 	}
 
-	// »èÁ¦ÇÏ°Å³ª °øÁö±ÛÀ» ÀÏ¹İ±Û·Î ¿Å±â´Â µîÀÇ division num°ª º¯È­½Ã ÇØ´ç divisionÀÇ num°ª °¨¼Ò½ÃÅ´
+	// ì‚­ì œí•˜ê±°ë‚˜ ê³µì§€ê¸€ì„ ì¼ë°˜ê¸€ë¡œ ì˜®ê¸°ëŠ” ë“±ì˜ division numê°’ ë³€í™”ì‹œ í•´ë‹¹ divisionì˜ numê°’ ê°ì†Œì‹œí‚´
 	function minus_division($division) {
 		global $connect, $t_division, $id;
 		mysql_query("update $t_division"."_$id set num=num-1 where division='$division'") or error(mysql_error);
 	}
 
 
-	// ½Å±Ô±Û¾²±âÀÏ¶§ ÃÖ±Ù divisionÀÇ num °ª Áõ°¡
+	// ì‹ ê·œê¸€ì“°ê¸°ì¼ë•Œ ìµœê·¼ divisionì˜ num ê°’ ì¦ê°€
 	function add_division($board_name="") {
 		global $connect, $t_division, $id, $t_board;
 		if($board_name) $board_id=$board_name;
 		else $board_id=$id;
 		$temp=mysql_fetch_array(mysql_query("select num from $t_division"."_$board_id order by division desc limit 1"));
 
-		// ÇöÀç divisionÀÇ num°ªÀÌ ±âÁØ°ªÀÏ¶§´Â division +1 ÇØÁÜ;
+		// í˜„ì¬ divisionì˜ numê°’ì´ ê¸°ì¤€ê°’ì¼ë•ŒëŠ” division +1 í•´ì¤Œ;
 		if($temp[0]>=5000) {
 			$temp=mysql_fetch_array(mysql_query("select max(division) from $t_division"."_$board_id"));
 			$max_division=$temp[0]+1;
@@ -236,7 +236,7 @@
 			mysql_query("insert into $t_division"."_$board_id (division,num) values ('$max_division','$num')");
 			return $max_division;
 		} else {
- 		// ÇöÀç divisionÀÌ ±âÁØ°ª°³º¸´Ù ÀÛÀ»¶§~
+ 		// í˜„ì¬ divisionì´ ê¸°ì¤€ê°’ê°œë³´ë‹¤ ì‘ì„ë•Œ~
 			$temp=mysql_fetch_array(mysql_query("select max(division) from $t_division"."_$board_id"));
 			$division=$temp[0];
 			mysql_query("update $t_division"."_$board_id set num=num+1 where division='$division'");
@@ -246,7 +246,7 @@
 
 
 	/******************************************************************************
- 	* ·Î±×ÀÎÀÌ µÇ¾î ÀÖ´ÂÁö¸¦ °Ë»çÇÏ¿© ·Î±×ÀÎµÇ¾îÀÖÀ¸¸é ÇØ´ç È¸¿øÀÇ Á¤º¸¸¦ ÀúÀå
+ 	* ë¡œê·¸ì¸ì´ ë˜ì–´ ìˆëŠ”ì§€ë¥¼ ê²€ì‚¬í•˜ì—¬ ë¡œê·¸ì¸ë˜ì–´ìˆìœ¼ë©´ í•´ë‹¹ íšŒì›ì˜ ì •ë³´ë¥¼ ì €ì¥
  	*****************************************************************************/
 	function member_info() {
 
@@ -278,9 +278,9 @@
 
 
 	/******************************************************************************
- 	* Á¦·Îº¸µå Àü¿ë ÇÔ¼ö
+ 	* ì œë¡œë³´ë“œ ì „ìš© í•¨ìˆ˜
  	*****************************************************************************/
-	// MySQL µ¥ÀÌÅ¸ º£ÀÌ½º¿¡ Á¢±Ù
+	// MySQL ë°ì´íƒ€ ë² ì´ìŠ¤ì— ì ‘ê·¼
 	function dbconn() {
 
 		global $connect, $config_dir, $autologin, $HTTP_COOKIE_VARS, $_dbconn_is_included;
@@ -288,42 +288,42 @@
 		if($_dbconn_is_included) return;
 		$_dbconn_is_included = true;
 
-		$f=@file($config_dir."config.php") or Error("config.phpÆÄÀÏÀÌ ¾ø½À´Ï´Ù.<br>DB¼³Á¤À» ¸ÕÀú ÇÏ½Ê½Ã¿ä","install.php");
+		$f=@file($config_dir."config.php") or Error("config.phpíŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤.<br>DBì„¤ì •ì„ ë¨¼ì € í•˜ì‹­ì‹œìš”","install.php");
 
 		for($i=1;$i<=4;$i++) $f[$i]=trim(str_replace("\n","",$f[$i]));
 
-		if(!$connect) $connect = @mysql_connect($f[1],$f[2],$f[3]) or Error("DB Á¢¼Ó½Ã ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù");
+		if(!$connect) $connect = @mysql_connect($f[1],$f[2],$f[3]) or Error("DB ì ‘ì†ì‹œ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤");
 
-		@mysql_select_db($f[4], $connect) or Error("DB Select ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù","");
+		@mysql_select_db($f[4], $connect) or Error("DB Select ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤","");
 	
 		return $connect;
 	}
 
 
-	// ±ÛÀÇ ¾ÆÀÌÄÜÀ» »Ì¾ÆÁÜ;;
+	// ê¸€ì˜ ì•„ì´ì½˜ì„ ë½‘ì•„ì¤Œ;;
 	function get_icon($data) {
 		global $dir;
 
-		// ±Û¾´ ½Ã°£ ±¸ÇÔ
+		// ê¸€ì“´ ì‹œê°„ êµ¬í•¨
 		$check_time=(time()-$data[reg_date])/60/60;
 
-		// ¾Õ¿¡ ºÙ´Â ¾ÆÀÌÄÜ Á¤ÀÇ
+		// ì•ì— ë¶™ëŠ” ì•„ì´ì½˜ ì •ì˜
 		if($data[depth]) {
-			if($check_time<=12) $icon="<img src=$dir/reply_new_head.gif border=0 align=absmiddle>&nbsp;"; // ÃÖ±Ù ±ÛÀÏ°æ¿ì
-			else $icon="<img src=$dir/reply_head.gif border=0 align=absmiddle>&nbsp;"; // ´ä±ÛÀÏ¶§
+			if($check_time<=12) $icon="<img src=$dir/reply_new_head.gif border=0 align=absmiddle>&nbsp;"; // ìµœê·¼ ê¸€ì¼ê²½ìš°
+			else $icon="<img src=$dir/reply_head.gif border=0 align=absmiddle>&nbsp;"; // ë‹µê¸€ì¼ë•Œ
 		} else {
-			if($check_time<=12) $icon="<img src=$dir/new_head.gif border=0 align=absmiddle>&nbsp;"; // ÃÖ±Ù ±ÛÀÏ°æ¿ì
-			else $icon="<img src=$dir/old_head.gif border=0 align=absmiddle>&nbsp;";          // ´ä±ÛÀÌ ¾Æ´Ò¶§
+			if($check_time<=12) $icon="<img src=$dir/new_head.gif border=0 align=absmiddle>&nbsp;"; // ìµœê·¼ ê¸€ì¼ê²½ìš°
+			else $icon="<img src=$dir/old_head.gif border=0 align=absmiddle>&nbsp;";          // ë‹µê¸€ì´ ì•„ë‹ë•Œ
 		}
-		if($data[headnum]<=-2000000000) $icon="<img src=$dir/notice_head.gif border=0 align=absmiddle>&nbsp;"; // °øÁö»çÇ×ÀÏ¶§
-		else if($data[is_secret]==1) $icon="<img src=$dir/secret_head.gif border=0 align=absmiddle alt='ºñ¹Ğ±ÛÀÔ´Ï´Ù'>&nbsp;";
+		if($data[headnum]<=-2000000000) $icon="<img src=$dir/notice_head.gif border=0 align=absmiddle>&nbsp;"; // ê³µì§€ì‚¬í•­ì¼ë•Œ
+		else if($data[is_secret]==1) $icon="<img src=$dir/secret_head.gif border=0 align=absmiddle alt='ë¹„ë°€ê¸€ì…ë‹ˆë‹¤'>&nbsp;";
 		return $icon;
 	}
 
 
-	// È¸¿ø °³ÀÎ¿¡°Ô ÁÖ¾îÁö´Â ¾ÆÀÌÄÜÀ» Ã£´Â ÇÔ¼ö
-	// $type : 1 -> ÀÌ¸§¾Õ¿¡ ³ªÅ¸³ª´Â ¾ÆÀÌÄÜ
-	// $type : 2 -> ÀÌ¸§À» ´ë½ÅÇÏ´Â ¾ÆÀÌÄÜ
+	// íšŒì› ê°œì¸ì—ê²Œ ì£¼ì–´ì§€ëŠ” ì•„ì´ì½˜ì„ ì°¾ëŠ” í•¨ìˆ˜
+	// $type : 1 -> ì´ë¦„ì•ì— ë‚˜íƒ€ë‚˜ëŠ” ì•„ì´ì½˜
+	// $type : 2 -> ì´ë¦„ì„ ëŒ€ì‹ í•˜ëŠ” ì•„ì´ì½˜
 	function get_private_icon($no, $type) {
 		if($type==1) $dir = "icon/private_icon/";
 		elseif($type==2) $dir = "icon/private_name/";
@@ -332,11 +332,11 @@
 	}
 
 
-	// ÀÌ¸§ ¾Õ¿¡ ºÙ´Â ¾ó±¼ ¾ÆÀÌÄÜ
+	// ì´ë¦„ ì•ì— ë¶™ëŠ” ì–¼êµ´ ì•„ì´ì½˜
 	function get_face($data, $check=0) {
 		global $group;
 
-		// ÀÌ¸§¾Õ¿¡ ºÙ´Â ¾ÆÀÌÄÜ Á¤ÀÇ;;
+		// ì´ë¦„ì•ì— ë¶™ëŠ” ì•„ì´ì½˜ ì •ì˜;;
 		if($group[use_icon]==0) {
 			if($data[ismember]) { 
 				if($data[islevel]==2) $face_image="<img src=images/admin2_face.gif border=0 align=absmiddle>";
@@ -361,7 +361,7 @@
 	}
 
 
-	// °Ô½ÃÆÇ °ü¸®ÀÚÀÎÁö Ã¼Å©ÇÏ´Â ºÎºĞ
+	// ê²Œì‹œíŒ ê´€ë¦¬ìì¸ì§€ ì²´í¬í•˜ëŠ” ë¶€ë¶„
 	function check_board_master($member, $board_num) {
 		$temp = split(",",$member[board_name]);
 		for($i=0;$i<count($temp);$i++) {
@@ -371,7 +371,7 @@
 		return 0;
 	}
 
-	//  ÃÊ±â Çì´õ¸¦ »Ñ·ÁÁÖ´Â ºÎºĞ;;;;
+	//  ì´ˆê¸° í—¤ë”ë¥¼ ë¿Œë ¤ì£¼ëŠ” ë¶€ë¶„;;;;
 	function head($body="",$scriptfile="") {
 
 		global $group, $setup, $dir,$member, $PHP_SELF, $id, $_head_executived, $HTTP_COOKIE_VARS, $width;
@@ -393,7 +393,7 @@
 			fclose($f);
 		}
 		
-		// html ½ÃÀÛºÎºĞ Ãâ·Â
+		// html ì‹œì‘ë¶€ë¶„ ì¶œë ¥
 		if($setup[skinname]) {
 			?>
 <html> 
@@ -437,7 +437,7 @@
 
 
 
-	// ÇªÅÍ ºÎºĞ Ãâ·Â
+	// í‘¸í„° ë¶€ë¶„ ì¶œë ¥
 	function foot() {
 
 		global $width, $group, $setup, $_startTime , $_queryTime , $_foot_executived, $_skinTime, $_sessionStart, $_sessionEnd, $_nowConnectStart, $_nowConnectEnd, $_dbTime, $_listCheckTime, $_zbResizeCheck;
@@ -454,8 +454,8 @@
 
 			<table border=0 cellpadding=0 cellspacing=0 height=20 width=<?=$width?>>
 			<tr>
-				<td align=right style=font-family:tahoma,±¼¸²;font-size:8pt;line-height:150%;letter-spacing:0px>
-					<font style=font-size:7pt>Copyright 1999-<?=date("Y")?></font> <a href=http://www.zeroboard.com target=_blank onfocus=blur()><font style=font-family:tahoma,±¼¸²;font-size:8pt;>Zeroboard</a> <?=$maker?>
+				<td align=right style=font-family:tahoma,êµ´ë¦¼;font-size:8pt;line-height:150%;letter-spacing:0px>
+					<font style=font-size:7pt>Copyright 1999-<?=date("Y")?></font> <a href=http://www.zeroboard.com target=_blank onfocus=blur()><font style=font-family:tahoma,êµ´ë¦¼;font-size:8pt;>Zeroboard</a> <?=$maker?>
 				</td>   
 			</tr>
 			</table>
@@ -463,7 +463,7 @@
 			<?
 			if($_zbResizeCheck) {
 			?>
-			<!-- ÀÌ¹ÌÁö ¸®»çÀÌÁî¸¦ À§ÇØ¼­ Ã³¸®ÇÏ´Â ºÎºĞ -->
+			<!-- ì´ë¯¸ì§€ ë¦¬ì‚¬ì´ì¦ˆë¥¼ ìœ„í•´ì„œ ì²˜ë¦¬í•˜ëŠ” ë¶€ë¶„ -->
 			<script>
 				function zb_img_check(){
 					var zb_main_table_width = document.zb_get_table_width.width;
@@ -502,7 +502,7 @@
 		}
 
 		$_phpExcutedTime = (getmicrotime()-$_startTime)-($_sessionEnd-$_sessionStart)-($_nowConnectEnd-$_nowConnectStart)-$_dbTime-$_skinTime;
-		// ½ÇÇà½Ã°£ Ãâ·Â
+		// ì‹¤í–‰ì‹œê°„ ì¶œë ¥
 		echo "\n\n<!--"; 
 		if($_sessionStart&&$_sessionEnd)  		echo"\n Session Excuted  : ".sprintf("%0.4f",$_sessionEnd-$_sessionStart);
 		if($_nowConnectStart&&$_nowConnectEnd) 	echo"\n Connect Checked  : ".sprintf("%0.4f",$_nowConnectEnd-$_nowConnectStart);
@@ -515,7 +515,7 @@
 	}
 
 
-	// zbLayer Ãâ·Â
+	// zbLayer ì¶œë ¥
 	function check_zbLayer($data) {
 		global $zbLayer, $setup, $member, $is_admin, $id, $_zbCheckNum;
 		if($setup[use_formmail]) {
@@ -560,7 +560,7 @@
 	}
 	
 
-	// ¿¡·¯ ¸Ş¼¼Áö Ãâ·Â
+	// ì—ëŸ¬ ë©”ì„¸ì§€ ì¶œë ¥
 	function error($message, $url="") {
 		global $setup, $connect, $dir, $config_dir;
 
@@ -595,7 +595,7 @@
 	}
 
 
-	// °Ô½ÃÆÇ ¼³Á¤À» ÀĞ¾î¿È
+	// ê²Œì‹œíŒ ì„¤ì •ì„ ì½ì–´ì˜´
 	function get_table_attrib($id) {
 
 		global $connect, $admin_table;
@@ -604,7 +604,7 @@
 
 		if($data[table_width]<=100) $data[table_width]=$data[table_width]."%"; 
 
-		// ¿ø·¡´Â IP¸¦ º¸¿©ÁÖ´Â ±â´ÉÀÎµ¥, DB º¯°æÀ» ÇÇÇÏ±â À§ÇØ¼­ ÀÌ¹ÌÁö ¹Ú½º »ç¿ë ±ÇÇÑÀ¸·Î º¯°æÇÏ¿© »ç¿ë
+		// ì›ë˜ëŠ” IPë¥¼ ë³´ì—¬ì£¼ëŠ” ê¸°ëŠ¥ì¸ë°, DB ë³€ê²½ì„ í”¼í•˜ê¸° ìœ„í•´ì„œ ì´ë¯¸ì§€ ë°•ìŠ¤ ì‚¬ìš© ê¶Œí•œìœ¼ë¡œ ë³€ê²½í•˜ì—¬ ì‚¬ìš©
 		if(!$data[use_showip]) $data[use_showip] = 1;
 		$data[grant_imagebox] = $data[use_showip];
 
@@ -612,11 +612,11 @@
 	}
 
 
-	// °Ô½ÃÆÇÀÇ »ı¼ºÀ¯¹« °Ë»ç
+	// ê²Œì‹œíŒì˜ ìƒì„±ìœ ë¬´ ê²€ì‚¬
 	function istable($str, $dbname='') {
 		global $config_dir;
 		if(!$dbname) {
-			$f=@file($config_dir."config.php") or Error("config.phpÆÄÀÏÀÌ ¾ø½À´Ï´Ù.<br>DB¼³Á¤À» ¸ÕÀú ÇÏ½Ê½Ã¿ä","install.php");
+			$f=@file($config_dir."config.php") or Error("config.phpíŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤.<br>DBì„¤ì •ì„ ë¨¼ì € í•˜ì‹­ì‹œìš”","install.php");
 			for($i=1;$i<=4;$i++) $f[$i]=str_replace("\n","",$f[$i]);
 			$dbname=$f[4];
 		}
@@ -633,18 +633,18 @@
 	}
 
 
-	// ÇöÀç ¾ÆÀÌÇÇ¿Í ÁÖ¾îÁø ¾ÆÀÌÇÇ ¸®½ºÆ®¸¦ ºñ±³ÇÏ¿© ¾ÆÀÌÇÇ ºí·° ´ë»óÀÚÀÎÁö °Ë»ç
+	// í˜„ì¬ ì•„ì´í”¼ì™€ ì£¼ì–´ì§„ ì•„ì´í”¼ ë¦¬ìŠ¤íŠ¸ë¥¼ ë¹„êµí•˜ì—¬ ì•„ì´í”¼ ë¸”ëŸ­ ëŒ€ìƒìì¸ì§€ ê²€ì‚¬
 	function check_blockip() {
 		global $setup;
 		$avoid_ip=explode(",",$setup[avoid_ip]);
 		$count = count($avoid_ip);
 		for($i=0;$i<$count;$i++) {
-			if(!isblank($avoid_ip[$i])&&eregi($avoid_ip[$i],$REMOTE_ADDR)) Error("Â÷´Ü´çÇÑ IP ÁÖ¼ÒÀÔ´Ï´Ù.");
+			if(!isblank($avoid_ip[$i])&&eregi($avoid_ip[$i],$REMOTE_ADDR)) Error("ì°¨ë‹¨ë‹¹í•œ IP ì£¼ì†Œì…ë‹ˆë‹¤.");
 		}
 	}
 
 
-	// Á¢¼ÓÀÚ¼ö Ã¼Å©
+	// ì ‘ì†ììˆ˜ ì²´í¬
 	function getNowConnector($filename,$div) {
 		global $_zbDefaultSetup;
 		$_str = trim(zReadFile($filename));
@@ -673,7 +673,7 @@
 		return $num;
 	}
 
-	// Á¢¼ÓÀÚ¼ö ±¸ÇÏ±â
+	// ì ‘ì†ììˆ˜ êµ¬í•˜ê¸°
 	function getNowConnector_num($filename, $FLAG=FALSE) {
 		global $_zbDefaultSetup;
 		$_str = trim(zReadFile($filename));
@@ -704,7 +704,7 @@
 	}
 
 
-	// Á¦·Îº¸µå ÀÚµ¿ ·Î±×ÀÎ ¼¼¼Ç°ªÀÌ ÀÖ´ÂÁö ÆÇ´ÜÇØ¼­ ÀÖÀ¸¸é ÇØ´ç °ªÀ» ¸®ÅÏ
+	// ì œë¡œë³´ë“œ ìë™ ë¡œê·¸ì¸ ì„¸ì…˜ê°’ì´ ìˆëŠ”ì§€ íŒë‹¨í•´ì„œ ìˆìœ¼ë©´ í•´ë‹¹ ê°’ì„ ë¦¬í„´
 	function getZBSessionID() {
 		global $HTTP_COOKIE_VARS, $_zb_path, $_zbDefaultSetup;
 
@@ -739,7 +739,7 @@
 	}
 
 
-	// Á¦·Îº¸µå ÀÚµ¿ ·Î±×ÀÎ ¼¼¼Ç°ªÀ» ¸¸µå´Â ÇÔ¼ö
+	// ì œë¡œë³´ë“œ ìë™ ë¡œê·¸ì¸ ì„¸ì…˜ê°’ì„ ë§Œë“œëŠ” í•¨ìˆ˜
 	function makeZBSessionID($no) {
 		global $HTTP_COOKIE_VARS, $_zb_path, $_zbDefaultSetup;
 
@@ -753,7 +753,7 @@
 	}
 
 
-	// Á¦·Îº¸µå ÀÚµ¿ ·Î±×ÀÎ ¼¼¼Ç°ª ÆÄ±â½ÃÅ°´Â ÇÔ¼ö
+	// ì œë¡œë³´ë“œ ìë™ ë¡œê·¸ì¸ ì„¸ì…˜ê°’ íŒŒê¸°ì‹œí‚¤ëŠ” í•¨ìˆ˜
 	function destroyZBSessionID($no) {
 		global $HTTP_COOKIE_VARS, $_zb_path, $_zbDefaultSetup;
 		$zbSessionID = $HTTP_COOKIE_VARS[ZBSESSIONID];
@@ -761,7 +761,7 @@
 		@setcookie("ZBSESSIONID", "", time()+60*60*24*365, "/");
 	}
 
-	// Á¦·Îº¸µåÀÇ ±âº» ¼³Á¤ ÆÄÀÏÀ» ÀĞ¾î¿À´Â ÇÔ¼ö
+	// ì œë¡œë³´ë“œì˜ ê¸°ë³¸ ì„¤ì • íŒŒì¼ì„ ì½ì–´ì˜¤ëŠ” í•¨ìˆ˜
 	function getDefaultSetup() {
 		global $_zb_path;
 		$data = zReadFile($_zb_path."setup.php");
@@ -797,11 +797,11 @@
 
 
 	/******************************************************************************
- 	 * ÀÏ¹İ ÇÔ¼ö
+ 	 * ì¼ë°˜ í•¨ìˆ˜
  	 *****************************************************************************/
-	// ºó¹®ÀÚ¿­ °æ¿ì 1À» ¸®ÅÏ
+	// ë¹ˆë¬¸ìì—´ ê²½ìš° 1ì„ ë¦¬í„´
 	function isblank($str) {
-		$temp=str_replace("¡¡","",$str);
+		$temp=str_replace("ã€€","",$str);
 		$temp=str_replace("\n","",$temp);
 		$temp=strip_tags($temp);
 		$temp=str_replace("&nbsp;","",$temp);
@@ -811,21 +811,21 @@
 	}
 
 
-	// ¼ıÀÚÀÏ °æ¿ì 1À» ¸®ÅÏ
+	// ìˆ«ìì¼ ê²½ìš° 1ì„ ë¦¬í„´
 	function isnum($str) {
 		if(eregi("[^0-9]",$str)) return 0;
 		return 1;
 	}
 
 
-	// ¼ıÀÚ, ¿µ¹®ÀÚ ÀÏ°æ¿ì 1À» ¸®ÅÏ
+	// ìˆ«ì, ì˜ë¬¸ì ì¼ê²½ìš° 1ì„ ë¦¬í„´
 	function isalNum($str) {
 		if(eregi("[^0-9a-zA-Z\_]",$str)) return 0;
 		return 1;
 	}
 
 
-	// HTML Tag¸¦ Á¦°ÅÇÏ´Â ÇÔ¼ö
+	// HTML Tagë¥¼ ì œê±°í•˜ëŠ” í•¨ìˆ˜
 	function del_html( $str ) {
 		$str = str_replace( ">", "&gt;",$str );
 		$str = str_replace( "<", "&lt;",$str );
@@ -833,9 +833,9 @@
 	}
 
 
-	// ÁÖ¹Îµî·Ï¹øÈ£ °Ë»ç
+	// ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ ê²€ì‚¬
 	function check_jumin($jumin) { 
-		$weight = '234567892345'; // ÀÚ¸®¼ö weight ÁöÁ¤ 
+		$weight = '234567892345'; // ìë¦¬ìˆ˜ weight ì§€ì • 
 		$len = strlen($jumin); 
 		$sum = 0; 
 
@@ -858,13 +858,13 @@
 	} 
 
 
-	// E-mail ÁÖ¼Ò°¡ ¿Ã¹Ù¸¥Áö °Ë»ç
+	// E-mail ì£¼ì†Œê°€ ì˜¬ë°”ë¥¸ì§€ ê²€ì‚¬
 	function ismail( $str ) {
 		if( eregi("([a-z0-9\_\-\.]+)@([a-z0-9\_\-\.]+)", $str) ) return $str;
 		else return ''; 
 	}
 
-	// E-mail ÀÇ MX¸¦ °Ë»öÇÏ¿© ½ÇÁ¦ Á¸ÀçÇÏ´Â ¸ŞÀÏÀÎÁö °Ë»ç
+	// E-mail ì˜ MXë¥¼ ê²€ìƒ‰í•˜ì—¬ ì‹¤ì œ ì¡´ì¬í•˜ëŠ” ë©”ì¼ì¸ì§€ ê²€ì‚¬
 	function mail_mx_check($email) {
 		if(!ismail($email)) return false;
 		list($user, $host) = explode("@", $email);
@@ -873,20 +873,20 @@
 	}
 
 
-	// È¨ÆäÀÌÁö ÁÖ¼Ò°¡ ¿Ã¹Ù¸¥Áö °Ë»ç
+	// í™ˆí˜ì´ì§€ ì£¼ì†Œê°€ ì˜¬ë°”ë¥¸ì§€ ê²€ì‚¬
 	function isHomepage( $str ) {
 		if(eregi("^http://([a-z0-9\_\-\./~@?=&amp;-\#{5,}]+)", $str)) return $str;
 		else return '';
 	}
 
 
-	// URL, MailÀ» ÀÚµ¿À¸·Î Ã¼Å©ÇÏ¿© ¸µÅ©¸¸µë
+	// URL, Mailì„ ìë™ìœ¼ë¡œ ì²´í¬í•˜ì—¬ ë§í¬ë§Œë“¬
 	function autolink($str) {
-		// URL Ä¡È¯
+		// URL ì¹˜í™˜
 		$homepage_pattern = "/([^\"\'\=\>])(mms|http|HTTP|ftp|FTP|telnet|TELNET)\:\/\/(.[^ \n\<\"\']+)/";
 		$str = preg_replace($homepage_pattern,"\\1<a href=\\2://\\3 target=_blank>\\2://\\3</a>", " ".$str);
 
-		// ¸ŞÀÏ Ä¡È¯
+		// ë©”ì¼ ì¹˜í™˜
 		$email_pattern = "/([ \n]+)([a-z0-9\_\-\.]+)@([a-z0-9\_\-\.]+)/";
 		$str = preg_replace($email_pattern,"\\1<a href=mailto:\\2@\\3>\\2@\\3</a>", " ".$str);
 
@@ -894,7 +894,7 @@
 	}
 
 
-	// ÆÄÀÏ »çÀÌÁî¸¦ kb, mb¿¡ ¸ÂÃß¾î¼­ º¯È¯ÇØ¼­ ¸®ÅÏ
+	// íŒŒì¼ ì‚¬ì´ì¦ˆë¥¼ kb, mbì— ë§ì¶”ì–´ì„œ ë³€í™˜í•´ì„œ ë¦¬í„´
 	function getfilesize($size) {
 		if(!$size) return "0 Byte";
 		if($size<1024) { 
@@ -906,7 +906,7 @@
 	}
 
 
-	// ¹®ÀÚ¿­ ²÷±â (ÀÌ»óÀÇ ±æÀÌÀÏ¶§´Â ... ·Î Ç¥½Ã)
+	// ë¬¸ìì—´ ëŠê¸° (ì´ìƒì˜ ê¸¸ì´ì¼ë•ŒëŠ” ... ë¡œ í‘œì‹œ)
 	function cut_str($msg,$cut_size) {
 		if($cut_size<=0) return $msg;
 		if(ereg("\[re\]",$msg)) $cut_size=$cut_size+4;
@@ -929,7 +929,7 @@
 	}
 
 
-	// ÆäÀÌÁö ÀÌµ¿ ½ºÅ©¸³Æ®
+	// í˜ì´ì§€ ì´ë™ ìŠ¤í¬ë¦½íŠ¸
 	function movepage($url) {
 		global $connect;
 		echo"<meta http-equiv=\"refresh\" content=\"0; url=$url\">";
@@ -937,7 +937,7 @@
 		exit;
 	}
 
-	// input ¶Ç´Â textareaÀÇ »çÀÌÁî¸¦ ³İ¾²¿Í ÀÍ½ºÀÏ¶§ ±¸ºĞÇÏ¿© ¸®ÅÏ
+	// input ë˜ëŠ” textareaì˜ ì‚¬ì´ì¦ˆë¥¼ ë„·ì“°ì™€ ìµìŠ¤ì¼ë•Œ êµ¬ë¶„í•˜ì—¬ ë¦¬í„´
 	function size($size) {
 		global $browser;
 		if(!$browser) return " size=".($size*0.6)." ";
@@ -951,7 +951,7 @@
 	}
 
 
-	// ¸ŞÀÏ º¸³»´Â ÇÔ¼ö
+	// ë©”ì¼ ë³´ë‚´ëŠ” í•¨ìˆ˜
 	function zb_sendmail($type, $to, $to_name, $from, $from_name, $subject, $comment, $cc="", $bcc="") {
 		$recipient = "$to_name <$to>";
 
@@ -977,7 +977,7 @@
 
 	}
 
-	// ÁöÁ¤µÈ µğ·ºÅä¸®ÀÇ ÆÄÀÏ Á¤º¸¸¦ ±¸ÇÔ
+	// ì§€ì •ëœ ë””ë ‰í† ë¦¬ì˜ íŒŒì¼ ì •ë³´ë¥¼ êµ¬í•¨
 	function get_dirinfo($path) {
 
 		$handle=@opendir($path);
@@ -990,7 +990,7 @@
 		return $dir;
 	}
 
-	// ÆÄÀÏÀ» »èÁ¦ÇÏ´Â ÇÔ¼ö
+	// íŒŒì¼ì„ ì‚­ì œí•˜ëŠ” í•¨ìˆ˜
 	function z_unlink($filename) {
 		@chmod($filename,0777);
 		$handle = @unlink($filename);
@@ -1001,7 +1001,7 @@
 		return $handle;
 	}
 
-	// ÁöÁ¤µÈ ÆÄÀÏÀÇ ³»¿ëÀ» ÀĞ¾î¿È
+	// ì§€ì •ëœ íŒŒì¼ì˜ ë‚´ìš©ì„ ì½ì–´ì˜´
 	function zReadFile($filename) {
 		if(!file_exists($filename)) return '';
 
@@ -1012,7 +1012,7 @@
 		return $str;
 	}
 
-	// ÁöÁ¤µÈ ÆÄÀÏ¿¡ ÁÖ¾îÁø µ¥ÀÌÅ¸¸¦ ¾¸
+	// ì§€ì •ëœ íŒŒì¼ì— ì£¼ì–´ì§„ ë°ì´íƒ€ë¥¼ ì”€
 	function zWriteFile($filename, $str) {
 		$f = fopen($filename,"w");
 		$lock=flock($f,2);
@@ -1023,7 +1023,7 @@
 		fclose($f);
 	}
 
-	// ÁöÁ¤µÈ ÆÄÀÏÀÌ LockingÁßÀÎÁö °Ë»ç
+	// ì§€ì •ëœ íŒŒì¼ì´ Lockingì¤‘ì¸ì§€ ê²€ì‚¬
 	function check_fileislocked($filename) {
 		$f=@fopen($filename,w);
 		$count = 0;
@@ -1039,7 +1039,7 @@
 		@fclose($f);
 	}
 
-	// ¼øÈ¯ÀûÀ¸·Î µğ·ºÅä¸®¸¦ »èÁ¦
+	// ìˆœí™˜ì ìœ¼ë¡œ ë””ë ‰í† ë¦¬ë¥¼ ì‚­ì œ
 	function zRmDir($path) { 
 		$directory = dir($path); 
 		while($entry = $directory->read()) { 

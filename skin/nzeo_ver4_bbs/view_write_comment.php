@@ -6,7 +6,7 @@
 		<script>
 			function check_comment_submit(obj) {
 				if(obj.memo.value.length<10) {
-					alert("ÄÚ¸àÆ®´Â 10ÀÚ ÀÌ»ó Àû¾îÁÖ¼¼¿ä");
+					alert("ì½”ë©˜íŠ¸ëŠ” 10ìž ì´ìƒ ì ì–´ì£¼ì„¸ìš”");
 					obj.memo.focus();
 					return false;
 				}
@@ -28,13 +28,13 @@
 		</tr>
 		<?=$hide_c_password_end?>
 		<tr>	
-			<td class=list0 onclick="document.write.memo.rows=document.write.memo.rows+4" style=cursor:hand><font class=list_eng><b>Comment</b><br>¡å</td>
+			<td class=list0 onclick="document.write.memo.rows=document.write.memo.rows+4" style=cursor:hand><font class=list_eng><b>Comment</b><br>â–¼</td>
 			<td class=list1>
 				<table border=0 cellspacing=2 cellpadding=0 width=100% height=100%>
 				<col width=></col><col width=100></col>
 				<tr>
 					<td width=100%><textarea name=memo cols=20 rows=8 class=textarea style=width:100%></textarea></td>
-					<td width=100><input type=submit rows=5 class=submit value='  ±Û¾²±â  ' accesskey="s" style=height:100%></td>
+					<td width=100><input type=submit rows=5 class=submit value='  ê¸€ì“°ê¸°  ' accesskey="s" style=height:100%></td>
 				</tr>
 				</table>
 			</td>

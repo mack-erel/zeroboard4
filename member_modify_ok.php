@@ -1,32 +1,32 @@
 <?
-// ¶óÀÌºê·¯¸® ÇÔ¼ö ÆÄÀÏ ÀÎÅ©·çµå
+// ë¼ì´ë¸ŒëŸ¬ë¦¬ í•¨ìˆ˜ íŒŒì¼ ì¸í¬ë£¨ë“œ
 	include "lib.php";
 
-	if(getenv("REQUEST_METHOD") == 'GET' ) Error("Á¤»óÀûÀ¸·Î ±ÛÀ» ¾²½Ã±â ¹Ù¶ø´Ï´Ù","");
+	if(getenv("REQUEST_METHOD") == 'GET' ) Error("ì •ìƒì ìœ¼ë¡œ ê¸€ì„ ì“°ì‹œê¸° ë°”ëë‹ˆë‹¤","");
 
-// DB ¿¬°á
+// DB ì—°ê²°
 	if(!$connect) $connect=dbConn();
 
-// ¸â¹ö Á¤º¸ ±¸ÇØ¿À±â;;; ¸â¹ö°¡ ÀÖÀ»¶§
+// ë©¤ë²„ ì •ë³´ êµ¬í•´ì˜¤ê¸°;;; ë©¤ë²„ê°€ ìˆì„ë•Œ
 	$member=member_info();
-	if(!$member[no]) Error("È¸¿øÁ¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+	if(!$member[no]) Error("íšŒì›ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 	$group=group_info($member[group_no]);
 
-	$name = str_replace("¤Ô","",$name);
+	$name = str_replace("ã…¤","",$name);
 
-	if(isblank($name)) Error("ÀÌ¸§À» ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù");
-	if(eregi("<",$name)||eregi(">",$name)) Error("ÀÌ¸§¿¡´Â ÅÂ±×¸¦ »ç¿ëÇÏ½Ç¼ö ¾ø½À´Ï´Ù.");
-	if($password&&$password1&&$password!=$password1) Error("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù");
+	if(isblank($name)) Error("ì´ë¦„ì„ ì…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤");
+	if(eregi("<",$name)||eregi(">",$name)) Error("ì´ë¦„ì—ëŠ” íƒœê·¸ë¥¼ ì‚¬ìš©í•˜ì‹¤ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+	if($password&&$password1&&$password!=$password1) Error("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
 	$birth=mktime(0,0,0,$birth_2,$birth_3,$birth_1);
 
 	$check=mysql_fetch_array(mysql_query("select count(*) from $member_table where email='$email' and no <> ".$member[no],$connect));
-	if($check[0]>0) Error("ÀÌ¹Ì µî·ÏµÇ¾î ÀÖ´Â E-MailÀÔ´Ï´Ù");
+	if($check[0]>0) Error("ì´ë¯¸ ë“±ë¡ë˜ì–´ ìˆëŠ” E-Mailì…ë‹ˆë‹¤");
 
 
 	$name = addslashes(del_html($name));
 	$job = addslashes(del_html($job));
 	$email = addslashes(del_html($email));
-	if($_zbDefaultSetup[check_email]=="true"&&!mail_mx_check($email)) Error("ÀÔ·ÂÇÏ½Å $email Àº Á¸ÀçÇÏÁö ¾Ê´Â ¸ŞÀÏÁÖ¼ÒÀÔ´Ï´Ù.<br>´Ù½Ã ÇÑ¹ø È®ÀÎÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
+	if($_zbDefaultSetup[check_email]=="true"&&!mail_mx_check($email)) Error("ì…ë ¥í•˜ì‹  $email ì€ ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ë©”ì¼ì£¼ì†Œì…ë‹ˆë‹¤.<br>ë‹¤ì‹œ í•œë²ˆ í™•ì¸í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 	if(!eregi("http://",$homepage)&&$homepage) $homepage="http://$homepage";
 	$homepage = addslashes(del_html($homepage));
 	$birth = addslashes(del_html($birth));
@@ -61,10 +61,10 @@
 	$que.=",openinfo='$openinfo',open_email='$open_email',open_homepage='$open_homepage',open_icq='$open_icq',open_msn='$open_msn',open_comment='$open_comment',open_job='$open_job',open_hobby='$open_hobby',open_home_address='$open_home_address',open_home_tel='$open_home_tel',open_office_address='$open_office_address',open_office_tel='$open_office_tel',open_handphone='$open_handphone',open_birth='$open_birth',open_picture='$open_picture',open_aol='$open_aol' ";
 	$que.=" where no='$member[no]'";
 
-	@mysql_query($que) or Error("È¸¿øÁ¤º¸ ¼öÁ¤½Ã¿¡ ¿¡·¯°¡ ¹ß»ıÇÏ¿´½À´Ï´Ù ".mysql_error());
+	@mysql_query($que) or Error("íšŒì›ì •ë³´ ìˆ˜ì •ì‹œì— ì—ëŸ¬ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤ ".mysql_error());
 
 	if($del_picture) {
-		@mysql_query("update $member_table set picture='' where no='$member[no]'") or Error("»çÁø ÀÚ·á ¾÷·Îµå½Ã ¿¡·¯°¡ ¹ß»ıÇÏ¿´½À´Ï´Ù");
+		@mysql_query("update $member_table set picture='' where no='$member[no]'") or Error("ì‚¬ì§„ ìë£Œ ì—…ë¡œë“œì‹œ ì—ëŸ¬ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤");
 	}
 
     if($HTTP_POST_FILES[picture]) {
@@ -75,21 +75,21 @@
     }
 
 	if($picture_name) {
-		if(!is_uploaded_file($picture)) Error("Á¤»óÀûÀÎ ¹æ¹ıÀ¸·Î ¾÷·Îµå ÇØÁÖ¼¼¿ä");
-		if(!eregi(".gif\$",$picture_name)&&!eregi(".jpg\$",$picture_name)) Error("»çÁøÀº gif ¶Ç´Â jpg ÆÄÀÏÀ» ¿Ã·ÁÁÖ¼¼¿ä");
+		if(!is_uploaded_file($picture)) Error("ì •ìƒì ì¸ ë°©ë²•ìœ¼ë¡œ ì—…ë¡œë“œ í•´ì£¼ì„¸ìš”");
+		if(!eregi(".gif\$",$picture_name)&&!eregi(".jpg\$",$picture_name)) Error("ì‚¬ì§„ì€ gif ë˜ëŠ” jpg íŒŒì¼ì„ ì˜¬ë ¤ì£¼ì„¸ìš”");
 		$size=GetImageSize($picture);
-		if($size[0]>200||$size[1]>200) Error("»çÁøÀÇ Å©±â´Â 200*200ÀÌÇÏ¿©¾ß ÇÕ´Ï´Ù");
+		if($size[0]>200||$size[1]>200) Error("ì‚¬ì§„ì˜ í¬ê¸°ëŠ” 200*200ì´í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤");
 		$kind=array("","gif","jpg");
 		$n=$size[2];
 		$path="icon/member_".time().".".$kind[$n];
-		if(!move_uploaded_file($picture,$path)) Error("»çÁø ¾÷·Îµå°¡ Á¦´ë·Î µÇÁö ¾Ê¾Ò½À´Ï´Ù");
-		@mysql_query("update $member_table set picture='$path' where no='$member[no]'") or Error("»çÁø ÀÚ·á ¾÷·Îµå½Ã ¿¡·¯°¡ ¹ß»ıÇÏ¿´½À´Ï´Ù");
+		if(!move_uploaded_file($picture,$path)) Error("ì‚¬ì§„ ì—…ë¡œë“œê°€ ì œëŒ€ë¡œ ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤");
+		@mysql_query("update $member_table set picture='$path' where no='$member[no]'") or Error("ì‚¬ì§„ ìë£Œ ì—…ë¡œë“œì‹œ ì—ëŸ¬ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤");
 	}
 
 	mysql_close($connect);
 ?>
 <script>
-alert("È¸¿ø´ÔÀÇ Á¤º¸ ¼öÁ¤ÀÌ Á¦´ë·Î Ã³¸®µÇ¾ú½À´Ï´Ù.");
+alert("íšŒì›ë‹˜ì˜ ì •ë³´ ìˆ˜ì •ì´ ì œëŒ€ë¡œ ì²˜ë¦¬ë˜ì—ˆìŠµë‹ˆë‹¤.");
 opener.window.history.go(0);
 window.close();
 </script>

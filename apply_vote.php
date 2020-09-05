@@ -1,28 +1,28 @@
 <?
 /***************************************************************************
- * °øÅëÆÄÀÏ include
+ * ê³µí†µíŒŒì¼ include
  **************************************************************************/
 	include "_head.php";
 
-// »ç¿ë±ÇÇÑ Ã¼Å©
-	if($setup[grant_view]<$member[level]&&!$is_admin) Error("»ç¿ë±ÇÇÑÀÌ ¾ø½À´Ï´Ù","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
+// ì‚¬ìš©ê¶Œí•œ ì²´í¬
+	if($setup[grant_view]<$member[level]&&!$is_admin) Error("ì‚¬ìš©ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤","login.php?id=$id&page=$page&page_num=$page_num&category=$category&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&no=$no&file=zboard.php");
 
-// ÇöÀç±ÛÀÇ Vote¼ö ¿Ã¸²;;
+// í˜„ìž¬ê¸€ì˜ Voteìˆ˜ ì˜¬ë¦¼;;
 	if(!eregi($setup[no]."_".$no,  $HTTP_SESSION_VARS[zb_vote])) {
 		mysql_query("update $t_board"."_$id set vote=vote+1 where no='$sub_no'");
 		mysql_query("update $t_board"."_$id set vote=vote+1 where no='$no'");
 
-		// 4.0x ¿ë ¼¼¼Ç Ã³¸®
+		// 4.0x ìš© ì„¸ì…˜ ì²˜ë¦¬
 		$zb_vote = $HTTP_SESSION_VARS[zb_vote] . "," . $setup[no]."_".$no;
 		session_register("zb_vote");
 
-		// ±âÁ¸ ¼¼¼Ç Ã³¸® (4.0x¿ë ¼¼¼Ç Ã³¸®·Î ÀÎÇÏ¿© ÁÖ¼® Ã³¸®)
+		// ê¸°ì¡´ ì„¸ì…˜ ì²˜ë¦¬ (4.0xìš© ì„¸ì…˜ ì²˜ë¦¬ë¡œ ì¸í•˜ì—¬ ì£¼ì„ ì²˜ë¦¬)
 		//$HTTP_SESSION_VARS[zb_vote] = $HTTP_SESSION_VARS[zb_vote] . "," . $setup[no]."_".$no;
 	}
 
 	@mysql_close($connect);
 
-// ÆäÀÌÁö ÀÌµ¿
+// íŽ˜ì´ì§€ ì´ë™
 	if($setup[use_alllist]) movepage("zboard.php?id=$id&page=$page&page_num=$page_num&select_arrange=$select_arrange&desc=$des&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&category=$category&no=$no");
 	else  movepage("view.php?id=$id&page=$page&page_num=$page_num&select_arrange=$select_arrange&desc=$des&sn=$sn&ss=$ss&sc=$sc&keyword=$keyword&category=$category&no=$no");
   

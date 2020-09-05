@@ -10,7 +10,7 @@
   {
    if(!write.name.value)
    {
-    alert("±×·ìÀÌ¸§À» ÀÔ·ÂÇÏ¼Å¾ß ÇÕ´Ï´Ù");
+    alert("ê·¸ë£¹ì´ë¦„ì„ ìž…ë ¥í•˜ì…”ì•¼ í•©ë‹ˆë‹¤");
     write.name.focus();
     return false;
    }
@@ -24,39 +24,39 @@
   <tr height=30><td bgcolor=#3d3d3d colspan=2><img src=images/admin_editgroup.gif></td></tr>
   <tr height=1><td bgcolor=#000000 style=padding:0px; colspan=2><img src=images/t.gif height=1></td></tr>
 
-  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt;> <font color=red>*</font> <b>±×·ìÀÌ¸§</b>&nbsp;&nbsp;</td><td align=left>&nbsp;<input value="<?=$data[name]?>" type=text name=name size=20 maxlength=20 class=input style=border-color:#b0b0b0> ±×·ìÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä</td></tr>
-  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt;> <b>±×·ì °ø°³</b>&nbsp;&nbsp;</td><td align=left><table border=0 cellpadding=0 cellspacing=0><tr><td><input type=radio name=is_open <?=$check_open[1]?> checked value=1></td><td style=font-family:Tahoma;font-size:8pt;> Yes &nbsp;&nbsp;</td><td><input type=radio name=is_open <?=$check_open[0]?> value=0></td><td style=font-family:Tahoma;font-size:8pt;> No &nbsp; °ø°³±×·ìÀÌ¸é Yes, ¾Æ´Ï¸é No¸¦ ¼±ÅÃÇÏ¿ä</td></tr></table></td></tr>
-  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt;><b>È¸¿ø °¡ÀÔ Çã¿ë</b>&nbsp;&nbsp;</td><td align=left><table border=0 cellpadding=0 cellspacing=0><tr><td><input type=radio name=use_join <?=$check_join[1]?> value=1></td><td style=font-family:Tahoma;font-size:8pt;> Yes &nbsp;&nbsp;</td><td><input type=radio name=use_join <?=$check_join[0]?> value=0></td><td style=font-family:Tahoma;font-size:8pt;> No &nbsp; È¸¿ø°¡ÀÔÀ» Çã¿ëÇÒ°Å¸é Yes, ¾Æ´Ï¸é No¸¦ ¼±ÅÃÇÏ¼¼¿ä</td></tr></table></td></tr>
-  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt; valign=top><img src=images/t.gif height=3><br><b>±×·ì ¾ÆÀÌÄÜ</b>&nbsp;&nbsp;</td><td align=left style=font-family:Tahoma;font-size:8pt;line-height:160%>&nbsp;<input type=file name=icon size=40 class=input style=border-color:#b0b0b0;font-family:Tahoma;font-size:8pt;><br>&nbsp; ÀÏ¹Ý¸â¹öµéÀÇ ¾ÆÀÌÄÜÀ» ÁöÁ¤ÇÏ¼¼¿ä.<br>&nbsp;(Under Width,Height 24pixel JPG or GIF File format)
-<br><?if($data[icon]) echo"&nbsp;<b>ÇöÀç ¾ÆÀÌÄÜÀÌ ÀúÀåµÇ¾î ÀÖ½À´Ï´Ù (<img src=icon/$data[icon] border=0> <input type=checkbox name=del_icon value=1> »èÁ¦)";?></td></tr>
-  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt;><b>È¸¿ø Ç¥½Ã ¹æ¹ý</b>&nbsp;&nbsp;</td><td align=left><table border=0 cellpadding=0 cellspacing=0><tr><td><input type=radio name=use_icon value=0 <?=$check_use_icon[0]?>></td><td style=font-family:Tahoma;font-size:8pt;> Icon &nbsp&nbsp;</td><td><input type=radio name=use_icon value=1 <?=$check_use_icon[1]?>></td><td style=font-family:Tahoma;font-size:8pt;> Bold Text &nbsp;&nbsp;</td><td><input type=radio name=use_icon value=2 <?=$check_use_icon[2]?>></td><td style=font-family:Tahoma;font-size:8pt;> None division viewing</td></tr><tr><Td colspan=4 height=20>&nbsp;È¸¿øÇ¥½Ã ¹æ¹ýÀ» ¼±ÅÃÇÏ¼¼¿ä</td></tr></table></td></tr>
-  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt; valign=top><img src=images/t.gif height=3><br><b>È¸¿ø°¡ÀÔÈÄ ÀÌµ¿ÇÒ ÆäÀÌÁö</b>&nbsp;&nbsp;</td><td align=left style=font-family:Tahoma;font-size:8pt;line-height:160%><input type=text name=join_return_url size=40 maxlength=255 class=input style=border-color:#b0b0b0 value="<?=$data[join_return_url]?>"><br>&nbsp;°Ô½ÃÆÇÀÌ ¾Æ´Ñ°÷¿¡¼­ÀÇ È¸¿ø°¡ÀÔ, ·Î±×ÀÎ½Ã ÀÌµ¿ÇÒ URLÀ» ÀÔ·ÂÇÏ¼¼¿ä</td></tr>
-<!-- Çì´õ, ÇªÅÍ  -->
-<tr height=25 bgcolor=bbbbbb><td colspan=2  align=center  style=font-family:Tahoma;font-size:8pt;><b>°Ô½ÃÆÇ »óÇÏ´Ü¿¡ Ãâ·ÂÇÑ ÆÄÀÏ, ³»¿ë ÁöÁ¤</td></tr>
+  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt;> <font color=red>*</font> <b>ê·¸ë£¹ì´ë¦„</b>&nbsp;&nbsp;</td><td align=left>&nbsp;<input value="<?=$data[name]?>" type=text name=name size=20 maxlength=20 class=input style=border-color:#b0b0b0> ê·¸ë£¹ì´ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš”</td></tr>
+  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt;> <b>ê·¸ë£¹ ê³µê°œ</b>&nbsp;&nbsp;</td><td align=left><table border=0 cellpadding=0 cellspacing=0><tr><td><input type=radio name=is_open <?=$check_open[1]?> checked value=1></td><td style=font-family:Tahoma;font-size:8pt;> Yes &nbsp;&nbsp;</td><td><input type=radio name=is_open <?=$check_open[0]?> value=0></td><td style=font-family:Tahoma;font-size:8pt;> No &nbsp; ê³µê°œê·¸ë£¹ì´ë©´ Yes, ì•„ë‹ˆë©´ Noë¥¼ ì„ íƒí•˜ìš”</td></tr></table></td></tr>
+  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt;><b>íšŒì› ê°€ìž… í—ˆìš©</b>&nbsp;&nbsp;</td><td align=left><table border=0 cellpadding=0 cellspacing=0><tr><td><input type=radio name=use_join <?=$check_join[1]?> value=1></td><td style=font-family:Tahoma;font-size:8pt;> Yes &nbsp;&nbsp;</td><td><input type=radio name=use_join <?=$check_join[0]?> value=0></td><td style=font-family:Tahoma;font-size:8pt;> No &nbsp; íšŒì›ê°€ìž…ì„ í—ˆìš©í• ê±°ë©´ Yes, ì•„ë‹ˆë©´ Noë¥¼ ì„ íƒí•˜ì„¸ìš”</td></tr></table></td></tr>
+  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt; valign=top><img src=images/t.gif height=3><br><b>ê·¸ë£¹ ì•„ì´ì½˜</b>&nbsp;&nbsp;</td><td align=left style=font-family:Tahoma;font-size:8pt;line-height:160%>&nbsp;<input type=file name=icon size=40 class=input style=border-color:#b0b0b0;font-family:Tahoma;font-size:8pt;><br>&nbsp; ì¼ë°˜ë©¤ë²„ë“¤ì˜ ì•„ì´ì½˜ì„ ì§€ì •í•˜ì„¸ìš”.<br>&nbsp;(Under Width,Height 24pixel JPG or GIF File format)
+<br><?if($data[icon]) echo"&nbsp;<b>í˜„ìž¬ ì•„ì´ì½˜ì´ ì €ìž¥ë˜ì–´ ìžˆìŠµë‹ˆë‹¤ (<img src=icon/$data[icon] border=0> <input type=checkbox name=del_icon value=1> ì‚­ì œ)";?></td></tr>
+  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt;><b>íšŒì› í‘œì‹œ ë°©ë²•</b>&nbsp;&nbsp;</td><td align=left><table border=0 cellpadding=0 cellspacing=0><tr><td><input type=radio name=use_icon value=0 <?=$check_use_icon[0]?>></td><td style=font-family:Tahoma;font-size:8pt;> Icon &nbsp&nbsp;</td><td><input type=radio name=use_icon value=1 <?=$check_use_icon[1]?>></td><td style=font-family:Tahoma;font-size:8pt;> Bold Text &nbsp;&nbsp;</td><td><input type=radio name=use_icon value=2 <?=$check_use_icon[2]?>></td><td style=font-family:Tahoma;font-size:8pt;> None division viewing</td></tr><tr><Td colspan=4 height=20>&nbsp;íšŒì›í‘œì‹œ ë°©ë²•ì„ ì„ íƒí•˜ì„¸ìš”</td></tr></table></td></tr>
+  <tr align=right bgcolor=#e0e0e0><td style=font-family:Tahoma;font-size:8pt; valign=top><img src=images/t.gif height=3><br><b>íšŒì›ê°€ìž…í›„ ì´ë™í•  íŽ˜ì´ì§€</b>&nbsp;&nbsp;</td><td align=left style=font-family:Tahoma;font-size:8pt;line-height:160%><input type=text name=join_return_url size=40 maxlength=255 class=input style=border-color:#b0b0b0 value="<?=$data[join_return_url]?>"><br>&nbsp;ê²Œì‹œíŒì´ ì•„ë‹Œê³³ì—ì„œì˜ íšŒì›ê°€ìž…, ë¡œê·¸ì¸ì‹œ ì´ë™í•  URLì„ ìž…ë ¥í•˜ì„¸ìš”</td></tr>
+<!-- í—¤ë”, í‘¸í„°  -->
+<tr height=25 bgcolor=bbbbbb><td colspan=2  align=center  style=font-family:Tahoma;font-size:8pt;><b>ê²Œì‹œíŒ ìƒí•˜ë‹¨ì— ì¶œë ¥í•œ íŒŒì¼, ë‚´ìš© ì§€ì •</td></tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right  style=font-family:Tahoma;font-size:8pt;><b>°Ô½ÃÆÇ »ó´Ü¿¡ ºÒ·¯¿Ã ÆÄÀÏ&nbsp;</td>
+  <td  align=right  style=font-family:Tahoma;font-size:8pt;><b>ê²Œì‹œíŒ ìƒë‹¨ì— ë¶ˆëŸ¬ì˜¬ íŒŒì¼&nbsp;</td>
   <td >&nbsp;&nbsp;
      <input type=text  name=header_url value='<?echo $data[header_url];?>' size=40 maxlength=255 class=input style=border-color:#b0b0b0> &nbsp;&nbsp;
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right  style=font-family:Tahoma;font-size:8pt;><b>°Ô½ÃÆÇ »ó´Ü¿¡ Ãâ·ÂÇÒ ³»¿ë&nbsp;</td>
+  <td  align=right  style=font-family:Tahoma;font-size:8pt;><b>ê²Œì‹œíŒ ìƒë‹¨ì— ì¶œë ¥í•  ë‚´ìš©&nbsp;</td>
   <td >&nbsp;&nbsp;
      <textarea name=header cols=70 rows=10 class=textarea style=border-color:b0b0b0><?echo stripslashes($data[header]);?></textarea>
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;><b>°Ô½ÃÆÇ ÇÏ´Ü¿¡ ºÒ·¯¿Ã ÆÄÀÏ&nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;><b>ê²Œì‹œíŒ í•˜ë‹¨ì— ë¶ˆëŸ¬ì˜¬ íŒŒì¼&nbsp;</td>
   <td >&nbsp;&nbsp;
      <input type=text  name=footer_url value='<?echo stripslashes($data[footer_url]);?>' size=40 maxlength=255 class=input style=border-color:#b0b0b0> &nbsp;&nbsp;
   </td>
 </tr>
 
 <tr height=25 bgcolor=#e0e0e0>
-  <td  align=right style=font-family:Tahoma;font-size:8pt;><b>°Ô½ÃÆÇ ÇÏ´Ü¿¡ Ãâ·ÂÇÒ ³»¿ë&nbsp;</td>
+  <td  align=right style=font-family:Tahoma;font-size:8pt;><b>ê²Œì‹œíŒ í•˜ë‹¨ì— ì¶œë ¥í•  ë‚´ìš©&nbsp;</td>
   <td >&nbsp;&nbsp;
      <textarea name=footer cols=70 rows=10 class=textarea style=border-color:#b0b0b0><?echo stripslashes($data[footer]);?></textarea>
   </td>
