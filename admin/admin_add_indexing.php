@@ -2,7 +2,7 @@
 
   $_zb_path="../";
 
-  include "../lib.php";
+  include_once "../lib.php";
 
   $connect=dbconn();
 
@@ -21,8 +21,8 @@
 
       if(!$errMsg) {
 
-        include "../xmlrpc.inc.php";
-        include "../search.inc.php";
+        include_once "../xmlrpc.inc.php";
+        include_once "../search.inc.php";
 
         $query = "select count(*) from zetyx_board_{$table_id}";
         $tmp = mysql_fetch_array(mysql_query($query));

@@ -41,7 +41,7 @@ function swapImage() {
 <!-- HTML 시작 -->
 <?php 
 	if(eregi(":\/\/",$dir)||eregi("\.\.",$dir)) $dir ="./";
-	include "$dir/value.php3"; 
+	include_once "$dir/value.php3"; 
 ?>
 <table border=0 cellspacing=0 cellpadding=0 width=<?=$width?>>
 <?=$memo_on_sound?>

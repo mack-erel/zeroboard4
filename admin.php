@@ -1,5 +1,5 @@
 <?php
-	include "lib.php";
+	include_once "lib.php";
 	$connect=dbConn();
 	$member=member_info();
 	if(($member[no]&&$member[is_admin]<3&&$member[is_admin]>=1)||($member[no]&&$member[board_name])) movepage("admin_setup.php");

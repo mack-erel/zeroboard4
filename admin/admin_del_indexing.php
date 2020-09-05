@@ -1,9 +1,9 @@
 <?php
   $_zb_path="../";
 
-  include "../lib.php";
-  include "../xmlrpc.inc.php";
-  include "../search.inc.php";
+  include_once "../lib.php";
+  include_once "../xmlrpc.inc.php";
+  include_once "../search.inc.php";
 
   $connect=dbconn();
 

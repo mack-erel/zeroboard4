@@ -1,5 +1,5 @@
 <?php
-  require "lib.php";
+  require_once "lib.php";
   head();
 ?>
 <body bgcolor=#000000 text=#ffffff>

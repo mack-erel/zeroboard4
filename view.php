@@ -3,7 +3,7 @@
 /***************************************************************************
  * 공통 파일 include
  **************************************************************************/
- 	if(!$_view_included) {include "_head.php";}
+ 	if(!$_view_included) {include_once "_head.php";}
 
 /***************************************************************************
  * 게시판 설정 체크
@@ -252,7 +252,7 @@
 // 상단 현황 부분 출력 
 	if(!$_view_included) {
 		$_skinTimeStart = getmicrotime();
-		include "$dir/setup.php";
+		include_once "$dir/setup.php";
 		$_skinTime += getmicrotime()-$_skinTimeStart;
 	}
 
@@ -294,7 +294,7 @@
 		}
 		if($member[level]<=$setup[grant_comment]) {
 			$_skinTimeStart = getmicrotime();
-			include "$dir/view_write_comment.php";
+			include_once "$dir/view_write_comment.php";
 			$_skinTime += getmicrotime()-$_skinTimeStart;
 		}
 	}
@@ -308,7 +308,7 @@
 	if($check_ref[0]>1) {
 
 		$_skinTimeStart = getmicrotime();
-		include "$dir/view_list_head.php";
+		include_once "$dir/view_list_head.php";
 		$_skinTime += getmicrotime()-$_skinTimeStart;
 
 		while($data=mysql_fetch_array($view_result)) {
@@ -324,7 +324,7 @@
 		}
 
 		$_skinTimeStart = getmicrotime();
-		include "$dir/view_list_foot.php";
+		include_once "$dir/view_list_foot.php";
 		$_skinTime += getmicrotime()-$_skinTimeStart;
 	}
 
@@ -346,7 +346,7 @@
  **************************************************************************/
 	if(!$_view_included) { 
 		$_skinTimeStart = getmicrotime();
-		include "_foot.php"; 
+		include_once "_foot.php"; 
 		$_skinTime += getmicrotime()-$_skinTimeStart;
 	}
 

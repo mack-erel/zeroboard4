@@ -25,7 +25,7 @@
 
 
 // 리스트 체크 함수 파일 include
-	if($_zboardis) include "include/list_check.php";
+	if($_zboardis) include_once "include/list_check.php";
 
 /***************************************************************************
  * 기본 설정 체크

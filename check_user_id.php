@@ -1,7 +1,7 @@
 <?php
   $user_id = htmlspecialchars(trim($user_id));
 
-  include "lib.php";
+  include_once "lib.php";
   $user_id = trim($user_id);
   $connect=dbconn();
   $check=mysql_fetch_array(mysql_query("select count(*) from $member_table where user_id='$user_id'"));

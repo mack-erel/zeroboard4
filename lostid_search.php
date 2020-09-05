@@ -1,5 +1,5 @@
 <?php
-	include "lib.php";
+	include_once "lib.php";
 
 	// 웹마스터 E-mail
 	$_from = $_zbDefaultSetup[email];

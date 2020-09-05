@@ -1,6 +1,6 @@
 <?php
   // 라이브러리 함수 파일 인크루드
-  require "lib.php";
+  require_once "lib.php";
 
 	if(!eregi($HTTP_HOST,$HTTP_REFERER)) Error("정상적으로 글을 삭제하여 주시기 바랍니다.");
 	if(getenv("REQUEST_METHOD") == 'GET' ) Error("정상적으로 글을 삭제하시기 바랍니다","");

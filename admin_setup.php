@@ -3,7 +3,7 @@
  * 관리자 페이지
  **************************************************************************/
 
-	include "lib.php";
+	include_once "lib.php";
 
 	$connect=dbConn();
 
@@ -20,7 +20,7 @@
 // DB 백업일때
 	if($member[is_admin]==1&&$exec=="db_dump") {
 		set_time_limit(0);
-		include "admin/dbDump.php";
+		include_once "admin/dbDump.php";
 		$dbData = file("config.php");
 		$dbname = trim($dbData[4]);
 		$filename = $dbname."_".date("Ymd").".sql";
@@ -30,9 +30,9 @@
 	}
 
 // 각 기능별 파일 호출
-	if($exec=="view_board") { include "admin/admin_exec_board.php"; }
-	elseif($exec=="view_member") { include "admin/admin_exec_member.php"; }
-	else { include "admin/admin_exec_group.php"; }
+	if($exec=="view_board") { include_once "admin/admin_exec_board.php"; }
+	elseif($exec=="view_member") { include_once "admin/admin_exec_member.php"; }
+	else { include_once "admin/admin_exec_group.php"; }
 
 	head(" bgcolor=444444 ");
 ?>
@@ -245,59 +245,59 @@
 <?php
 // 최고관리자일때
 	if($member[is_admin]==1) {
-		if($exec=="add_group") { include "admin/admin_add_group.php"; }
-		elseif($exec=="uninstall") { include "admin/admin_uninstall.php"; }
-		elseif($exec=="db_status") {include "admin/admin_dbstatus.php";}
-		elseif($exec=="modify_group") { include "admin/admin_modify_group.php";}
-		elseif($exec=="view_group") { include "admin/admin_view_group.php"; }
-		elseif($exec=="del_group") { include "admin/admin_del_group.php"; }
-		elseif($exec=="modify_member_join") { include "admin/admin_modify_member_join.php"; }
+		if($exec=="add_group") { include_once "admin/admin_add_group.php"; }
+		elseif($exec=="uninstall") { include_once "admin/admin_uninstall.php"; }
+		elseif($exec=="db_status") {include_once "admin/admin_dbstatus.php";}
+		elseif($exec=="modify_group") { include_once "admin/admin_modify_group.php";}
+		elseif($exec=="view_group") { include_once "admin/admin_view_group.php"; }
+		elseif($exec=="del_group") { include_once "admin/admin_del_group.php"; }
+		elseif($exec=="modify_member_join") { include_once "admin/admin_modify_member_join.php"; }
 		elseif($exec=="view_member") { 
-			if($exec2=="sendmail") {include "admin/admin_sendmail.php";}
-			elseif($exec2=="modify") {include "admin/admin_modify_member.php";}
-			else {include "admin/admin_view_member.php";} 
+			if($exec2=="sendmail") {include_once "admin/admin_sendmail.php";}
+			elseif($exec2=="modify") {include_once "admin/admin_modify_member.php";}
+			else {include_once "admin/admin_view_member.php";} 
 		} elseif($exec=="view_board") {
-			if($exec2=="add") {include "admin/admin_add_board.php";}
-			elseif($exec2=="modify") {include "admin/admin_modify_board.php";}
-			elseif($exec2=="category") {include "admin/admin_category.php";}
-			elseif($exec2=="modify_category") {include "admin/admin_category_modify.php";}
-			elseif($exec2=="grant") {include "admin/admin_modify_grant.php";}
-			else {include "admin/admin_board_list.php";}
-		} else {include "admin/readme.php";}
+			if($exec2=="add") {include_once "admin/admin_add_board.php";}
+			elseif($exec2=="modify") {include_once "admin/admin_modify_board.php";}
+			elseif($exec2=="category") {include_once "admin/admin_category.php";}
+			elseif($exec2=="modify_category") {include_once "admin/admin_category_modify.php";}
+			elseif($exec2=="grant") {include_once "admin/admin_modify_grant.php";}
+			else {include_once "admin/admin_board_list.php";}
+		} else {include_once "admin/readme.php";}
 
 // 그룹 관리자일 경우
 	} elseif($member[is_admin]==2) {
 		$group_no=$group_data[no];
-		if($exec=="modify_group") { include "admin/admin_modify_group.php";}
-		elseif($exec=="modify_group") { include "admin/admin_modify_group.php";}
-		elseif($exec=="modify_member_join") { include "admin/admin_modify_member_join.php"; }
+		if($exec=="modify_group") { include_once "admin/admin_modify_group.php";}
+		elseif($exec=="modify_group") { include_once "admin/admin_modify_group.php";}
+		elseif($exec=="modify_member_join") { include_once "admin/admin_modify_member_join.php"; }
 		elseif($exec=="view_member") { 
-			if($exec2=="sendmail") {include "admin/admin_sendmail.php";} 
-			elseif($exec2=="modify") {include "admin/admin_modify_member.php";}
-			else {include "admin/admin_view_member.php";}
+			if($exec2=="sendmail") {include_once "admin/admin_sendmail.php";} 
+			elseif($exec2=="modify") {include_once "admin/admin_modify_member.php";}
+			else {include_once "admin/admin_view_member.php";}
 		} elseif($exec=="view_board") {
-			if($exec2=="add") {include "admin/admin_add_board.php";}
-			elseif($exec2=="modify") {include "admin/admin_modify_board.php";}
-			elseif($exec2=="category") {include "admin/admin_category.php";}
-			elseif($exec2=="modify_category") {include "admin/admin_category_modify.php";}
-			elseif($exec2=="grant") {include "admin/admin_modify_grant.php";}
-			else {include "admin/admin_board_list.php";}
-		} else {include "admin/admin_view_group.php"; }
+			if($exec2=="add") {include_once "admin/admin_add_board.php";}
+			elseif($exec2=="modify") {include_once "admin/admin_modify_board.php";}
+			elseif($exec2=="category") {include_once "admin/admin_category.php";}
+			elseif($exec2=="modify_category") {include_once "admin/admin_category_modify.php";}
+			elseif($exec2=="grant") {include_once "admin/admin_modify_grant.php";}
+			else {include_once "admin/admin_board_list.php";}
+		} else {include_once "admin/admin_view_group.php"; }
 		} elseif($member[board_name]) {
 			if($exec=="view_board") {
-			if($exec2=="modify") {include "admin/admin_modify_board.php";}                                                                                      
-			elseif($exec2=="category") {include "admin/admin_category.php";}                                                                                        
-			elseif($exec2=="modify_category") {include "admin/admin_category_modify.php";}                                                                          
-			elseif($exec2=="grant") {include "admin/admin_modify_grant.php";}                                                                                       
-			else {include "admin/admin_board_list.php";}
+			if($exec2=="modify") {include_once "admin/admin_modify_board.php";}                                                                                      
+			elseif($exec2=="category") {include_once "admin/admin_category.php";}                                                                                        
+			elseif($exec2=="modify_category") {include_once "admin/admin_category_modify.php";}                                                                          
+			elseif($exec2=="grant") {include_once "admin/admin_modify_grant.php";}                                                                                       
+			else {include_once "admin/admin_board_list.php";}
 		} 
 
 // 게시판 관리자일때
 	} elseif($member[board_name]&&exec=="view_board") {
-			if($exec2=="modify") {include "admin/admin_modify_board.php";}
-			elseif($exec2=="category") {include "admin/admin_category.php";}
-			elseif($exec2=="modify_category") {include "admin/admin_category_modify.php";}
-			else {include "admin/admin_board_list.php";}
+			if($exec2=="modify") {include_once "admin/admin_modify_board.php";}
+			elseif($exec2=="category") {include_once "admin/admin_category.php";}
+			elseif($exec2=="modify_category") {include_once "admin/admin_category_modify.php";}
+			else {include_once "admin/admin_board_list.php";}
 	}
 ?>
 

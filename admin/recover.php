@@ -1,7 +1,7 @@
 <?php
  $_zb_path = "../";
 
- include "../lib.php";
+ include_once "../lib.php";
 
  $connect=dbconn();
 

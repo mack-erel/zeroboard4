@@ -2,7 +2,7 @@
 	if(!$mode||!$str) die("<script>window.close()</script>");
 	if($mode!="m"&&$mode!="i"&&$mode!="t"&&$mode!="tn") die("<script>window.close()</script>");
 
-	include "lib.php";
+	include_once "lib.php";
 	if(!$connect) $connect=dbconn();
 
 	// 멤버 정보 구해오기;;; 멤버가 있을때

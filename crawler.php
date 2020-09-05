@@ -1,7 +1,7 @@
 <?php
-  include "./_head.php";
-  include "xmlrpc.inc.php";
-  include "xmlrpcs.inc.php";
+  include_once "./_head.php";
+  include_once "xmlrpc.inc.php";
+  include_once "xmlrpcs.inc.php";
 
   function get_item($params) {
 

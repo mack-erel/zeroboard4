@@ -1,6 +1,6 @@
 <?php 
 	if(eregi(":\/\/",$dir)||eregi("\.\.",$dir)) $dir ="./";
-	include "$dir/value.php3"; 
+	include_once "$dir/value.php3"; 
 ?>
 <br><br><br>
 <div align=center>

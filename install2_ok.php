@@ -1,5 +1,5 @@
 <?php
-	include "lib.php";
+	include_once "lib.php";
 
 	$connect=dbConn();
 

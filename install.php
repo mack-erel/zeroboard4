@@ -1,5 +1,5 @@
 <?php
-	include "lib.php";
+	include_once "lib.php";
 	head();
 
 	if(file_exists("config.php")) error("이미 config.php가 생성되어 있습니다.<br><br>재설치하려면 해당 파일을 지우세요");
@@ -34,7 +34,7 @@ function check_view() {
 <tr>
   <td><br>
     <img src=images/inst_step1.gif>
-    <textarea cols=90 rows=15 readonly><?php include "license.txt"; ?></textarea>
+    <textarea cols=90 rows=15 readonly><?php include_once "license.txt"; ?></textarea>
 	<br>
 	<input type=checkbox name=accept value=1 onclick="return check_view()"> 위의 라이센스를 모두 읽었으며 동의합니다
   </td>

@@ -1,5 +1,5 @@
 <?php
-	include "lib.php";
+	include_once "lib.php";
 	if(!$connect) $connect=dbconn();
 	$result=mysql_query("select name from $admin_table order by name");
 

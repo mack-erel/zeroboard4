@@ -1,5 +1,5 @@
 <?php
-  include "_head.php";
+  include_once "_head.php";
 
   if($setup['use_alllist']) $ret_url = "./zboard.php?id={$id}&no={$no}";
   else $ret_url = "./view.php?id={$id}&no={$no}";

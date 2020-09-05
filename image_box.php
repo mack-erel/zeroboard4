@@ -2,7 +2,7 @@
 /***************************************************************************
  * 회원마다 업로드된 이미지를 보여주는 페이지
  **************************************************************************/
-	include "_head.php";
+	include_once "_head.php";
 
 	if(!$id) Die("<Script>\nalert('게시판 이름을 입력하셔야 합니다');\nwindow.close();\n</Script>");
 
@@ -420,5 +420,5 @@ function alignset(str) {
 </div>
 
 <?php
-	include "_foot.php";
+	include_once "_foot.php";
 ?>

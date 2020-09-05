@@ -1,6 +1,6 @@
 <?php
 // 라이브러리 함수 파일 인크루드
-	include "lib.php";
+	include_once "lib.php";
 
 	if(getenv("REQUEST_METHOD") == 'GET' ) Error("정상적으로 글을 쓰시기 바랍니다","");
 

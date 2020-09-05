@@ -1,6 +1,6 @@
 <?php
 // 라이브러리 함수 파일 인크루드
-	require "lib.php";
+	require_once "lib.php";
 	
 // DB 연결
 	$connect=dbConn();

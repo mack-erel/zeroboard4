@@ -68,7 +68,7 @@
 
 		$table_name=$name;
 
-		include "schema.sql";
+		include_once "schema.sql";
 
 		// 게시판 본체 테이블 생성
 		@mysql_query($board_table_main_schema) or Error("게시판의 메인 테이블 생성 에러가 발생하였습니다");

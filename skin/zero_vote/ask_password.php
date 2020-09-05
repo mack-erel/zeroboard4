@@ -1,6 +1,6 @@
 <?php 
 	if(eregi(":\/\/",$dir)||eregi("\.\.",$dir)) $dir ="./";
-	include "$dir/value.php3"; 
+	include_once "$dir/value.php3"; 
 
   /*
   글을 삭제하거나 할때 비밀번호를 물어보는 부분입니다

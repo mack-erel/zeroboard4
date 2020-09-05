@@ -1,6 +1,6 @@
 <?php
 // 라이브러리 함수 파일 인크루드
-	include "lib.php";
+	include_once "lib.php";
 
 // DB 연결
 	if(!$connect) $connect=dbConn();

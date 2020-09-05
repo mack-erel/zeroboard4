@@ -402,7 +402,7 @@
 	<meta http-equiv=Content-Type content=text/html; charset=EUC-KR>
 	<link rel=StyleSheet HREF=<?=$stylefile?> type=text/css title=style>
 	<?php if($setup[use_formmail]) echo $zbLayerScript;?>
-	<?php if($scriptfile) include "script/".$scriptfile;?>
+	<?php if($scriptfile) include_once "script/".$scriptfile;?>
 </head>
 <body topmargin='0'  leftmargin='0' marginwidth='0' marginheight='0' <?=$body?><?php
 
@@ -580,7 +580,7 @@
 			head();
 
 			if($setup[skinname]) {
-				include "skin/$setup[skinname]/error.php";
+				include_once "skin/$setup[skinname]/error.php";
 			} else {
 				include $config_dir."error.php";
 			}

@@ -1,6 +1,6 @@
 <?php
   $isSearchPage = true;
-  include "./_head.php";
+  include_once "./_head.php";
 
   $sectopt = 0;
   $search_opt = "";
